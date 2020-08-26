@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Home from "./Home/Home";
+import {Lang} from "./Translations";
+import WorkshopsPage from "./Workshops/WorkshopsPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <Switch>
+            {/*<Route path="/game" component={Game} />*/}
+            {/*<Route path="/weather/:city?" component={WeatherContainer} />*/}
+            <Route path="/pl/workshop">
+                <WorkshopsPage lang={Lang.PL}/>
+            </Route>
+            <Route path="/workshop">
+                <WorkshopsPage lang={Lang.EN}/>
+            </Route>
+            <Route path="/pl">
+                <Home lang={Lang.PL}/>
+            </Route>
+            <Route>
+                <Home lang={Lang.EN}/>
+            </Route>
+          </Switch>
+        </div>
+      </div>
   );
 }
 
-export default App;
+export default App
