@@ -4,38 +4,35 @@ import JetbrainsCertificationSection from "../Home/JetbrainsCertificationSection
 import TrainerSection from "../Home/TrainerSection";
 import TestimonialsSection from "../Home/Testimonials/TestimonialsSection";
 import ContactSection from "../Home/ContactSection";
-import WorkshopChoice from "./WorkshopChoice";
 import {Workshop} from "../Model";
+import {API_URL} from "../Network";
 import MaterialsSection from "../Home/MaterialsSection";
 import FooterSection from "../Home/FooterSection";
-import "../ArrayUtils";
-import {useLocation} from "react-router-dom";
-import {callApi, useQuery} from "../Utils";
-import {useLang} from "../Translations";
+import "../Utils";
+import {useParams} from "react-router-dom";
 
 type Props = {}
 
-export default function WorkshopsPage({}: Props) {
-    const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
-    const query = useQuery()
-    const tag = query.get("tag")
-    const trainer = query.get("trainer")
-    const lang = useLang()
+export default function WorkshopPage({}: Props) {
+    const [workshop, setWorkshop] = React.useState<Workshop>();
+    const {workshopKey} = useParams<{ workshopKey: string }>();
 
     useEffect(() => {
-        callApi({path: "workshop/", lang: lang, urlParams: {trainer: trainer, tag: tag}})
+        fetch(API_URL + "/workshop/" + workshopKey)
+            .then(res => res.json())
             .then(
-                (result) => setWorkshops(result),
+                (result) => setWorkshop(result),
                 (error) => console.log(error)
             )
     }, [])
 
+    if(!workshop) return <></>
+
     return (
         <>
             <HeaderBig/> {/* Should have proper sections */}
-            <WorkshopChoice workshops={workshops}/>
             <JetbrainsCertificationSection/>
-            <TrainerSection trainerKey={workshops.map(w => w.trainer.key).mostCommon()}/>
+            <TrainerSection trainerKey={workshop.trainer.key}/>
             <MaterialsSection/>
             <TestimonialsSection/>
             <ContactSection/>

@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import { useLocation } from 'react-router-dom'
 
 export const LangContext = React.createContext('light');
 
@@ -8,11 +9,25 @@ export const Lang = {
 }
 
 export function useTranslations() {
-    return useLangStr() === Lang.PL ? PL_desc : EN_desc
+    return useLang() === Lang.PL ? PL_desc : EN_desc
 }
 
-export function useLangStr() {
+export function useLang() {
     return useContext(LangContext)
+}
+
+type PangElement = {
+    key: string,
+    path: string,
+    flagIcon: string,
+}
+
+export function useLanguagesList(): PangElement[] {
+    const path = useLocation().pathname.replace("/pl", "");
+    return [
+        {key: Lang.PL, path: "/pl" + path, flagIcon: "pl-flag.png"},
+        {key: Lang.EN, path: path, flagIcon: "uk-flag.png"}
+    ]
 }
 
 const EN_desc = {

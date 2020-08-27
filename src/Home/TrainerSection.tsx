@@ -1,56 +1,61 @@
 import React, {useEffect} from "react";
-import {Lang, useTranslations} from "../Translations";
+import {useTranslations} from "../Translations";
 import {API_URL} from "../Network";
 import {Trainer, Video} from "../Model";
 
 type Props = {
-    trainerKey: string
+    trainerKey?: string
+    trainer?: Trainer
 };
 
-export default function TrainerSection({trainerKey}: Props) {
+export default function TrainerSection({trainerKey, trainer}: Props) {
     const t = useTranslations();
 
-    const [trainer, setTrainer] = React.useState<Trainer | null>(null);
+    const [trainerLoaded, setTrainer] = React.useState<Trainer>();
 
     useEffect(() => {
-        fetch(API_URL + "/workshop/trainer/" + trainerKey)
-            .then(res => res.json())
-            .then(
-                (result) => setTrainer(result),
-                (error) => console.log(error)
-            )
-    }, [])
+        if (trainer) {
+            setTrainer(trainer)
+        } else {
+            fetch(API_URL + "/workshop/trainer/" + trainerKey)
+                .then(res => res.json())
+                .then(
+                    (result) => setTrainer(result),
+                    (error) => console.log(error)
+                )
+        }
+    })
 
-    const showVideo = trainer && trainer.promotionVideos && trainer.promotionVideos.length !== 0
-
-    if (!trainer) {
+    if (!trainerLoaded) {
         return <></>
     }
+
+    const showVideo = trainerLoaded && trainerLoaded.promotionVideos && trainerLoaded.promotionVideos.length !== 0
 
     return <section className="trainer gradient--full-section" id="trainer">
         <div className="content-container flex-container--row">
             <div className="flex-item--image-container">
-                {showVideo && <Videos videos={trainer.promotionVideos!}/> ||
-                trainer.picture &&
-                <img className="round-photo wow zoomIn" src={trainer.picture} alt={trainer.fullName}/>}
+                {showVideo && <Videos videos={trainerLoaded.promotionVideos!}/> ||
+                trainerLoaded.picture &&
+                <img className="round-photo wow zoomIn" src={trainerLoaded.picture} alt={trainerLoaded.fullName}/>}
             </div>
             <div className="flex-item--right padding-left-40">
                 <div className="flex-container--row title margin-bottom-20">
                     <i className="far fa-thumbs-up"/>
                     <h2>{t.whyUs.bestTitle}</h2>
                 </div>
-                <h3>{trainer.fullName}</h3>
+                <h3>{trainerLoaded.fullName}</h3>
                 <div className="social-media-container">
-                    {trainer.github &&
-                    <a href={trainer.github}><i className="fab fa-github"/> </a>}
-                    {trainer.twitter &&
-                    <a href={trainer.twitter}><i className="fab fa-twitter"/> </a>}
-                    {trainer.medium &&
-                    <a href={trainer.medium}><i className="fab fa-medium-m"/> </a>}
-                    {trainer.website &&
-                    <a href={trainer.website}><i className="fas fa-globe"/> </a>}
+                    {trainerLoaded.github &&
+                    <a href={trainerLoaded.github}><i className="fab fa-github"/> </a>}
+                    {trainerLoaded.twitter &&
+                    <a href={trainerLoaded.twitter}><i className="fab fa-twitter"/> </a>}
+                    {trainerLoaded.medium &&
+                    <a href={trainerLoaded.medium}><i className="fab fa-medium-m"/> </a>}
+                    {trainerLoaded.website &&
+                    <a href={trainerLoaded.website}><i className="fas fa-globe"/> </a>}
                 </div>
-                <p dangerouslySetInnerHTML={{__html: t[trainer.bioKey]}}/>
+                <p dangerouslySetInnerHTML={{__html: t[trainerLoaded.bioKey]}}/>
             </div>
         </div>
     </section>

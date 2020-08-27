@@ -1,1 +1,1 @@
-export const API_URL = "http://kt.academy/api"
+export const API_URL = "http://kt.academy/api/"

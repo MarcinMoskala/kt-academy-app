@@ -1,14 +1,24 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Lang, useLangStr, useTranslations} from "../Translations";
+import {Lang, useLang, useLanguagesList, useTranslations} from "../Translations";
+import {useScrollToHash} from "../Utils";
+
+export type Section = {
+    text: string,
+    hash: string,
+}
 
 type Props = {
+    sections?: Section[]
 };
 
-export default function HeaderBig({}: Props) {
+export default function HeaderBig({sections = []}: Props) {
     const t = useTranslations()
-    const langStr = useLangStr()
+    const langStr = useLang()
+    const langList = useLanguagesList()
     const currentLangFlag = langStr === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
+
+    useScrollToHash()
 
     const [showBookmarks, setShowBookmarks] = React.useState(false);
     const responsiveNavMenuClicked = (e: React.MouseEvent<HTMLElement>) => {
@@ -28,7 +38,6 @@ export default function HeaderBig({}: Props) {
     return (
         <>
             <header className="banner__background banner--full-width banner__url--home">
-
                 <div className="navigation-bar">
                     <div className="logo-container">
                         <Link title="Kt. Academy" target="_top" to="/" className="pointer logo-img">
@@ -47,43 +56,25 @@ export default function HeaderBig({}: Props) {
                             {langStr}
                         </a>
                         <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
-                            <li><Link to="/">
-                                <img src="/images/uk-flag.png" alt="uk-flag"
-                                     className="flag margin-right-5 margin-top-20" height="15"/>EN</Link>
-                            </li>
-                            <li><Link to="/pl">
-                                <img src="/images/pl-flag.png" alt="pl-flag"
-                                     className="flag margin-right-5 margin-top-20" height="15"/>PL</Link>
-                            </li>
+                            {langList.map(l =>
+                                <li><Link to="/">
+                                    <img src={"/images/" + l.flagIcon} alt={l.key}
+                                         className="flag margin-right-5 margin-top-20" height="15"/>{l.key}</Link>
+                                </li>)
+                            }
                         </ul>
                     </div>
 
                     <nav className={showBookmarks ? "bookmarks responsive" : "bookmarks"} id="bookmarks">
                         <ul>
-                            <li className="inline">
-                                <a href="#workshops-offer"
-                                   className="nav-link--padding pointer page-scroll first-bookmark">{t.menu.workshops}</a>
-                            </li>
-
-                            <li className="inline">
-                                <a href="#why-us"
-                                   className="nav-link--padding pointer page-scroll">{t.menu.whyUs}</a>
-                            </li>
-
-                            <li className="inline">
-                                <a href="#trainer"
-                                   className="nav-link--padding pointer page-scroll">{t.menu.trainer}</a>
-                            </li>
-
-                            <li className="inline">
-                                <a href="#materials"
-                                   className="nav-link--padding pointer page-scroll">{t.menu.materials}</a>
-                            </li>
-
-                            <li className="inline">
-                                <a href="#contact"
-                                   className="nav-link--padding pointer page-scroll right-border">{t.menu.contact}</a>
-                            </li>
+                            {sections.map((s, index) =>
+                                <li className="inline">
+                                    <Link to={"#" + s.hash}
+                                          className={"nav-link--padding pointer page-scroll" + (index == 0 ? "first-bookmark" : "")}>
+                                        {s.text}
+                                    </Link>
+                                </li>
+                            )}
 
                             <li className="inline">
                                 <a href="https://blog.kotlin-academy.com" className="nav-link--padding pointer"

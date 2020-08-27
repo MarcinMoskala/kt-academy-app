@@ -1,56 +1,44 @@
-// @ts-ignore
-interface Array<T> {
-    counts(): Record<string, number>;
+import {useLocation} from "react-router-dom";
+import {API_URL} from "./Network";
+import React from "react";
 
-    maxBy(f: (t: T) => number): T;
-
-    mostCommon(): T;
-
-    chunk(num: number): T[][];
+export function useQuery() {
+    return new URLSearchParams(useLocation().search);
 }
 
-Array.prototype["counts"] = function () {
-    let counts = {}; //We are going to count occurrence of item here
-    for (let i = 0, len = this.length; i < len; i++) {
-        let word = "" + this[i];
-        if (counts[word] === undefined) { //if count[word] doesn't exist
-            counts[word] = 1;    //set count[word] value to 1
-        } else {                  //if exists
-            counts[word] = counts[word] + 1; //increment existing value
+export function callApi({path, lang, urlParams}: { path: string, lang?: string, urlParams?: Record<string, string | null> }) {
+    if (lang) {
+        if (urlParams) {
+            urlParams = {...urlParams, lang: lang}
+        } else {
+            urlParams = {lang: lang}
         }
     }
-    return counts;
+    const search = buildQuery(urlParams);
+
+    return fetch(API_URL + path + search)
+        .then(res => res.json())
 }
 
-Array.prototype["maxBy"] = function (f: (T) => number) {
-    if (this.length === 0) return null
-    if (this.length === 1) return this[0]
+function buildQuery(urlParams: Record<string, string | null> | undefined) {
+    return urlParams ? ("?" + Object.keys(urlParams)
+        .map(key => key + '=' + urlParams[key])
+        .join('&')) : "";
+}
 
-    var maxElement = this[0]
-    var maxValue = f(maxElement)
-
-    for (let i = 1, len = this.length; i < len; i++) {
-        let element = this[i];
-        let value = f(element);
-        if (value > maxValue) {
-            maxElement = element;
-            maxValue = value
+export function useScrollToHash() {
+    React.useEffect(() => {
+        console.log("Changed")
+        const hash = window.location.hash
+        if (hash !== '') {
+            // Push onto callback queue so it runs after the DOM is updated,
+            // this is required when navigating from a different page so that
+            // the element is rendered on the page before trying to getElementById.
+            setTimeout(() => {
+                const id = hash.replace('#', '');
+                const element = document.getElementById(id);
+                if (element) element.scrollIntoView();
+            }, 100);
         }
-    }
-    return maxElement;
-}
-
-Array.prototype["mostCommon"] = function () {
-    if (this.length == 0) return null
-    if (this.length == 1) return this[0]
-    return Object.entries(this.counts()).maxBy(a => a[1])[0]
-}
-
-
-Array.prototype["chunk"] = function (chunkSize) {
-    var R: any[] = [];
-    for (var i = 0; i < this.length; i += chunkSize) {
-        R.push(this.slice(i, i + chunkSize));
-    }
-    return R;
+    }, [window.location.hash]);
 }

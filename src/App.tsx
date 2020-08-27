@@ -1,13 +1,15 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch} from "react-router-dom";
 import Home from "./Home/Home";
 import {Lang, LangContext} from "./Translations";
 import WorkshopsPage from "./Workshops/WorkshopsPage";
+import WorkshopPage from "./Workshop/WorkshopPage";
 
 const App = () => {
     return <div className="container py-5">
         <div className="row justify-content-center">
             <Switch>
+                <KtRoute path="/workshop/:workshopKey" component={WorkshopPage}/>
                 <KtRoute path="/workshop" component={WorkshopsPage}/>
                 <KtRoute component={Home}/>
             </Switch>
