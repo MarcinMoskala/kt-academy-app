@@ -1,14 +1,15 @@
 import React, {useEffect} from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 import {API_URL} from "../Network";
 import {Trainer, Video} from "../Model";
 
 type Props = {
-    lang: Lang,
     trainerKey: string
 };
 
-export default function TrainerSection({lang, trainerKey}: Props) {
+export default function TrainerSection({trainerKey}: Props) {
+    const t = useTranslations();
+
     const [trainer, setTrainer] = React.useState<Trainer | null>(null);
 
     useEffect(() => {
@@ -20,7 +21,6 @@ export default function TrainerSection({lang, trainerKey}: Props) {
             )
     }, [])
 
-    const t = translations(lang);
     const showVideo = trainer && trainer.promotionVideos && trainer.promotionVideos.length !== 0
 
     if (!trainer) {

@@ -14,10 +14,9 @@ import FooterSection from "../Home/FooterSection";
 import "../Utils";
 
 type Props = {
-    lang: Lang
 }
 
-export default function WorkshopsPage({lang}: Props) {
+export default function WorkshopsPage({}: Props) {
     const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
 
     useEffect(() => {
@@ -31,14 +30,14 @@ export default function WorkshopsPage({lang}: Props) {
 
     return (
         <>
-            <HeaderBig lang={lang}/> {/* Should have proper sections */}
-            <WorkshopChoice lang={lang} workshops={workshops}/>
-            <JetbrainsCertificationSection lang={lang}/>
-            <TrainerSection lang={lang} trainerKey={workshops.map(w => w.trainer.key).mostCommon()}/>
-            <MaterialsSection lang={lang}/>
-            <TestimonialsSection lang={lang}/>
-            <ContactSection lang={lang}/>
-            <FooterSection lang={lang}/>
+            <HeaderBig/> {/* Should have proper sections */}
+            <WorkshopChoice workshops={workshops}/>
+            <JetbrainsCertificationSection/>
+            <TrainerSection trainerKey={workshops.map(w => w.trainer.key).mostCommon()}/>
+            <MaterialsSection/>
+            <TestimonialsSection/>
+            <ContactSection/>
+            <FooterSection/>
         </>
     );
 };

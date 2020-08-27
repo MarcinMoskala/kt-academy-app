@@ -1,12 +1,11 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 
 type Props = {
-    lang: Lang
 };
 
-export default function JetbrainsCertificationSection({lang}: Props) {
-    const t = translations(lang);
+export default function JetbrainsCertificationSection({}: Props) {
+    const t = useTranslations();
     return (<section className="section--white short-section jetbrains-certification">
             <div className="content-container">
                 <div className="flex-container--row">

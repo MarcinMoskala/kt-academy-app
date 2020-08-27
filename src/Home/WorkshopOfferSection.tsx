@@ -1,13 +1,12 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 import {Link} from "react-router-dom";
 
 type Props = {
-    lang: Lang
 };
 
-export default function WorkshopOfferSection({lang}: Props) {
-    const t = translations(lang);
+export default function WorkshopOfferSection({}: Props) {
+    const t = useTranslations();
     return (<section className="workshops-offer" id="workshops-offer">
         <div className="content-container">
             <h1> {t.workshopOffer.title} </h1>

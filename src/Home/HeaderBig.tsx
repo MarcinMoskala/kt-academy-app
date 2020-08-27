@@ -1,15 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Lang, translations} from "../Translations";
+import {Lang, useLangStr, useTranslations} from "../Translations";
 
 type Props = {
-    lang: Lang
 };
 
-export default function HeaderBig({lang}: Props) {
-    const t = translations(lang)
-    const langStr = lang === Lang.PL ? "PL" : "EN"
-    const currentLangFlag = lang === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
+export default function HeaderBig({}: Props) {
+    const t = useTranslations()
+    const langStr = useLangStr()
+    const currentLangFlag = langStr === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
 
     const [showBookmarks, setShowBookmarks] = React.useState(false);
     const responsiveNavMenuClicked = (e: React.MouseEvent<HTMLElement>) => {

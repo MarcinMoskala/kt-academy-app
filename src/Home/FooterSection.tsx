@@ -1,12 +1,11 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 
 type Props = {
-    lang: Lang
 };
 
-export default function FooterSection({lang}: Props) {
-    const t = translations(lang);
+export default function FooterSection({}: Props) {
+    const t = useTranslations();
 
     return (<footer>
         <div className="content-container">

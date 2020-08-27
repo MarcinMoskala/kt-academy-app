@@ -2,16 +2,15 @@ import React from "react";
 import PatrykGrajewski from "./PatrykGrajewski.jpg"
 import NataliaNazaruk from "./NataliaNazaruk.jpg"
 import MariuszSaramak from "./MariuszSaramak.jpg"
-import {Lang, translations} from "../../Translations";
+import {Lang, useTranslations} from "../../Translations";
 
 type Props = {
-    lang: Lang,
     onButtonClicked?: () => void,
 };
 
 // TODO: Extract components
-export default function TestimonialsSection({lang, onButtonClicked}: Props) {
-    const t = translations(lang);
+export default function TestimonialsSection({onButtonClicked}: Props) {
+    const t = useTranslations();
     const onBookWorkshopButtonClicked = (e) => {
         e.preventDefault()
         if(onButtonClicked) onButtonClicked()

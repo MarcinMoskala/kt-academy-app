@@ -1,16 +1,15 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 import {Workshop} from "../Model";
 
 type Props = {
-    lang: Lang,
     workshop?: Workshop,
     materialsImg?: string,
     whiteBg?: boolean
 };
 
-export default function MaterialsSection({lang, materialsImg = "default", whiteBg = false}: Props) {
-    const t = translations(lang);
+export default function MaterialsSection({materialsImg = "default", whiteBg = false}: Props) {
+    const t = useTranslations();
     return (<section className={(whiteBg ? "section--white" : "") + "short-section materials"} id="materials">
         <div className="content-container">
             <div className="flex-container--row">

@@ -1,10 +1,18 @@
-export enum Lang {
-    PL,
-    EN
+import React, {useContext} from "react";
+
+export const LangContext = React.createContext('light');
+
+export const Lang = {
+    PL: "PL",
+    EN: "EN"
 }
 
-export function translations(lang: Lang) {
-    return lang === Lang.PL ? PL_desc : EN_desc
+export function useTranslations() {
+    return useLangStr() === Lang.PL ? PL_desc : EN_desc
+}
+
+export function useLangStr() {
+    return useContext(LangContext)
 }
 
 const EN_desc = {

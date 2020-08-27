@@ -1,12 +1,11 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 
 type Props = {
-    lang: Lang
 };
 
-export default function ContactSection({lang}: Props) {
-    const t = translations(lang);
+export default function ContactSection({}: Props) {
+    const t = useTranslations();
     const [showEmail, setShowEmail] = React.useState(false);
 
     return (<section className="contact short-section section--white" id="contact">

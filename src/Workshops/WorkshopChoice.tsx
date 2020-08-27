@@ -1,15 +1,14 @@
 import React from "react";
-import {Lang, translations} from "../Translations";
+import {Lang, useTranslations} from "../Translations";
 import {Workshop} from "../Model";
 import "../Utils";
 
 type Props = {
-    lang: Lang,
     workshops: Workshop[]
 };
 
-export default function WorkshopChoice({lang, workshops}: Props) {
-    const t = translations(lang);
+export default function WorkshopChoice({workshops}: Props) {
+    const t = useTranslations();
     const workshopsChucked = workshops.chunk(2);
     return (<section className="workshops-offer" id="workshops-offer">
         <div className="content-container">
