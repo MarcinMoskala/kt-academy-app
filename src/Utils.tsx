@@ -28,7 +28,6 @@ function buildQuery(urlParams: Record<string, string | null> | undefined) {
 
 export function useScrollToHash() {
     React.useEffect(() => {
-        console.log("Changed")
         const hash = window.location.hash
         if (hash !== '') {
             // Push onto callback queue so it runs after the DOM is updated,

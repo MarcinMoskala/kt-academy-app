@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
-import {useTranslations} from "../Translations";
-import {API_URL} from "../Network";
-import {Trainer, Video} from "../Model";
+import {useTranslations} from "../../Translations";
+import {API_URL} from "../../Network";
+import {Trainer, Video} from "../../Model";
 
 type Props = {
     trainerKey?: string
@@ -92,7 +92,7 @@ function Videos({videos}: VideosProps) {
                     allowFullScreen/>
         </div>
         <div className="flex-container--row space-between margin-top-20 yt-movies">
-            {currentVideos.slice(1).map(v => <VideoIcon onClick={swapVideo} video={v}/>)}
+            {currentVideos.slice(1).map((v, i) => <VideoIcon key={i} onClick={swapVideo} video={v}/>)}
         </div>
     </div>);
 }

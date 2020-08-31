@@ -1,7 +1,7 @@
 import React from "react";
-import {Lang, useTranslations} from "../Translations";
-import {Workshop} from "../Model";
-import "../Utils";
+import {Lang, useTranslations} from "../../../Translations";
+import {Workshop} from "../../../Model";
+import "../../../Utils";
 
 type Props = {
     workshops: Workshop[]

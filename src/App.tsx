@@ -1,9 +1,11 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Home from "./Home/Home";
+import HomePage from "./Main/Page/Home/HomePage";
 import {Lang, LangContext} from "./Translations";
-import WorkshopsPage from "./Workshops/WorkshopsPage";
-import WorkshopPage from "./Workshop/WorkshopPage";
+import WorkshopsPage from "./Main/Page/Workshops/WorkshopsPage";
+import WorkshopPage from "./Main/Page/WorkshopPage";
+import PuzzlerExamplesPage from "./Main/Page/PuzzlerExamplesPage";
+import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
 
 const App = () => {
     return <div className="container py-5">
@@ -11,7 +13,9 @@ const App = () => {
             <Switch>
                 <KtRoute path="/workshop/:workshopKey" component={WorkshopPage}/>
                 <KtRoute path="/workshop" component={WorkshopsPage}/>
-                <KtRoute component={Home}/>
+                <KtRoute path="/puzzler" component={PuzzlerExamplesPage}/>
+                <KtRoute path="/privacyPolicy" component={PrivacyPolicyPage}/>
+                <KtRoute component={HomePage}/>
             </Switch>
         </div>
     </div>;

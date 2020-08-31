@@ -1,0 +1,39 @@
+import React from 'react';
+import Header, {LinkTo} from "../../Section/Header/Header";
+import WorkshopOfferSection from "./WorkshopOfferSection";
+import WhyUsSection from "./WhyUsSection";
+import TrainerSection from "../../Section/TrainerSection";
+import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
+import MaterialsSection from "../../Section/MaterialsSection";
+import TestimonialsSection from "../Testimonials/TestimonialsSection";
+import ContactSection from "../../Section/ContactSection";
+import FooterSection from "../../Section/FooterSection";
+import {useTranslations} from "../../../Translations";
+import HeaderBg from "../../Section/Header/background-img/10-1920x1080.png"
+
+type Props = {}
+
+export default function HomePage({}: Props) {
+    const t = useTranslations()
+    const menuLinks: LinkTo[] = [
+        {to: "#workshops-offer", text: t.menu.workshops},
+        {to: "#why-us", text: t.menu.whyUs},
+        {to: "#trainer", text: t.menu.trainer},
+        {to: "#materials", text: t.menu.materials},
+        {to: "#contact", text: t.menu.contact, divider: true},
+        {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
+    ]
+    return (
+        <>
+            <Header links={menuLinks} banner={{img: HeaderBg, title: t.slogan.title, subtitle: t.slogan.subtitle}}/>
+            <WorkshopOfferSection/>
+            <WhyUsSection/>
+            <JetbrainsCertificationSection/>
+            <TrainerSection trainerKey="marcin"/>
+            <MaterialsSection/>
+            <TestimonialsSection/>
+            <ContactSection/>
+            <FooterSection/>
+        </>
+    );
+};

@@ -1,18 +1,34 @@
 import React from "react";
+import LinkPossiblyExternal from "./LinkPossiblyExternal";
 import {Link} from "react-router-dom";
-import {Lang, useLang, useLanguagesList, useTranslations} from "../Translations";
-import {useScrollToHash} from "../Utils";
+import {Lang, useLang, useLanguagesList, useTranslations} from "../../../Translations";
+import {useScrollToHash} from "../../../Utils";
 
-export type Section = {
+export type LinkTo = {
     text: string,
-    hash: string,
+    to: string,
+    divider?: boolean,
+    external ?: boolean
 }
 
 type Props = {
-    sections?: Section[]
+    links?: LinkTo[],
+    banner?: Banner
 };
 
-export default function HeaderBig({sections = []}: Props) {
+type Banner = {
+    img: string,
+    title: string,
+    subtitle?: string,
+    button?: Button
+}
+
+type Button = {
+    text: string,
+    onClick: (e: React.FormEvent) => void
+}
+
+export default function Header({links = [], banner = undefined}: Props) {
     const t = useTranslations()
     const langStr = useLang()
     const langList = useLanguagesList()
@@ -37,7 +53,8 @@ export default function HeaderBig({sections = []}: Props) {
 
     return (
         <>
-            <header className="banner__background banner--full-width banner__url--home">
+            <header className={banner ? "banner__background banner--full-width" : ""}
+                    style={banner ? {backgroundImage: "url('" + banner.img + "')"} : {}}>
                 <div className="navigation-bar">
                     <div className="logo-container">
                         <Link title="Kt. Academy" target="_top" to="/" className="pointer logo-img">
@@ -67,21 +84,18 @@ export default function HeaderBig({sections = []}: Props) {
 
                     <nav className={showBookmarks ? "bookmarks responsive" : "bookmarks"} id="bookmarks">
                         <ul>
-                            {sections.map((s, index) =>
-                                <li className="inline">
-                                    <Link to={"#" + s.hash}
-                                          className={"nav-link--padding pointer page-scroll" + (index == 0 ? "first-bookmark" : "")}>
-                                        {s.text}
-                                    </Link>
+                            {links.map((link, index) =>
+                                <li className="inline" key={index}>
+                                    <LinkPossiblyExternal to={link.to}
+                                                          className={
+                                              "nav-link--padding pointer page-scroll" +
+                                              (index == 0 ? " first-bookmark" : "") +
+                                              (link.divider ? " right-border" : "")
+                                          }>
+                                        {link.text}
+                                    </LinkPossiblyExternal>
                                 </li>
                             )}
-
-                            <li className="inline">
-                                <a href="https://blog.kotlin-academy.com" className="nav-link--padding pointer"
-                                   target="_blank">
-                                    {t.menu.articles}
-                                </a>
-                            </li>
                             <li className="inline">
                                 <a className="nav__icon" onClick={responsiveNavMenuClicked}>
                                     <i className="fas fa-bars"/>
@@ -90,13 +104,14 @@ export default function HeaderBig({sections = []}: Props) {
                         </ul>
                     </nav>
                 </div>
-
+                {banner &&
                 <div className="banner">
                     <div className="wow fadeInDown banner__text-container">
-                        <h1>{t.slogan.title}</h1>
-                        <h3>{t.slogan.subtitle}</h3>
+                        <h1>{banner.title}</h1>
+                        <h3>{banner.subtitle}</h3>
                     </div>
                 </div>
+                }
             </header>
         </>
     )

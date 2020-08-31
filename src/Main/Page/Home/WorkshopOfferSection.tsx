@@ -1,5 +1,5 @@
 import React from "react";
-import {Lang, useTranslations} from "../Translations";
+import {Lang, useTranslations} from "../../../Translations";
 import {Link} from "react-router-dom";
 
 type Props = {

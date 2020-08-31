@@ -35,7 +35,7 @@ const EN_desc = {
     "tagsSEO" : "Kotlin, workshop, training, Android, programming, coding, development, java, move to kotlin, java to kotlin",
     "title" : "Kt. Academy - workshops with focus on best practices",
     "menu": {
-        "home": "Home",
+        "home": "HomePage",
         "whyUs": "Why Us",
         "trainer": "Trainer",
         "materials": "Materials",

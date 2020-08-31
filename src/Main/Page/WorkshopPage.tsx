@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
-import HeaderBig from "../Home/HeaderBig";
-import JetbrainsCertificationSection from "../Home/JetbrainsCertificationSection";
-import TrainerSection from "../Home/TrainerSection";
-import TestimonialsSection from "../Home/Testimonials/TestimonialsSection";
-import ContactSection from "../Home/ContactSection";
-import {Workshop} from "../Model";
-import {API_URL} from "../Network";
-import MaterialsSection from "../Home/MaterialsSection";
-import FooterSection from "../Home/FooterSection";
-import "../Utils";
+import Header from "../Section/Header/Header";
+import JetbrainsCertificationSection from "../Section/JetbrainsCertificationSection";
+import TrainerSection from "../Section/TrainerSection";
+import TestimonialsSection from "./Testimonials/TestimonialsSection";
+import ContactSection from "../Section/ContactSection";
+import {Workshop} from "../../Model";
+import {API_URL} from "../../Network";
+import MaterialsSection from "../Section/MaterialsSection";
+import FooterSection from "../Section/FooterSection";
+import "../../Utils";
 import {useParams} from "react-router-dom";
 
 type Props = {}
@@ -30,7 +30,7 @@ export default function WorkshopPage({}: Props) {
 
     return (
         <>
-            <HeaderBig/> {/* Should have proper sections */}
+            <Header/> {/* Should have proper sections */}
             <JetbrainsCertificationSection/>
             <TrainerSection trainerKey={workshop.trainer.key}/>
             <MaterialsSection/>

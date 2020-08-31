@@ -2,7 +2,7 @@ import React from "react";
 import PatrykGrajewski from "./PatrykGrajewski.jpg"
 import NataliaNazaruk from "./NataliaNazaruk.jpg"
 import MariuszSaramak from "./MariuszSaramak.jpg"
-import {Lang, useTranslations} from "../../Translations";
+import {Lang, useTranslations} from "../../../Translations";
 
 type Props = {
     onButtonClicked?: () => void,
