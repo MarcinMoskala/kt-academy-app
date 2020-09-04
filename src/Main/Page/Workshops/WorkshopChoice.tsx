@@ -1,7 +1,8 @@
 import React from "react";
-import {Lang, useTranslations} from "../../../Translations";
+import {useTranslations} from "../../../Translations";
 import {Workshop} from "../../../Model";
 import "../../../Utils";
+import {Link} from "react-router-dom";
 
 type Props = {
     workshops: Workshop[]
@@ -22,12 +23,12 @@ export default function WorkshopChoice({workshops}: Props) {
                         <i className={w.icon}/>
                         <h3> {w.name} </h3>
                         <p> {w.description} </p>
-                        <a href={w.bigButtonLink} className="button" target="_blank">
+                        <Link to={"/workshop/" + w.key} className="button">
                             {t.privateWorkshop.button}
-                        </a>
-                        <a href={w.smallButtonLink} className="margin-top-20 link-to-page-gtm">
+                        </Link>
+                        <Link to={"/workshopForm/" + w.key} className="margin-top-20 link-to-page-gtm">
                             {t.privateWorkshop.belowButton}
-                        </a>
+                        </Link>
                     </div>)}
                 </div>)
             }

@@ -8,7 +8,7 @@ export type LinkTo = {
     text: string,
     to: string,
     divider?: boolean,
-    external ?: boolean
+    external?: boolean
 }
 
 type Props = {
@@ -19,13 +19,13 @@ type Props = {
 type Banner = {
     img: string,
     title: string,
-    subtitle?: string,
+    subtitle: string | null,
     button?: Button
 }
 
 type Button = {
     text: string,
-    onClick: (e: React.FormEvent) => void
+    to: string
 }
 
 export default function Header({links = [], banner = undefined}: Props) {
@@ -88,10 +88,10 @@ export default function Header({links = [], banner = undefined}: Props) {
                                 <li className="inline" key={index}>
                                     <LinkPossiblyExternal to={link.to}
                                                           className={
-                                              "nav-link--padding pointer page-scroll" +
-                                              (index == 0 ? " first-bookmark" : "") +
-                                              (link.divider ? " right-border" : "")
-                                          }>
+                                                              "nav-link--padding pointer page-scroll" +
+                                                              (index == 0 ? " first-bookmark" : "") +
+                                                              (link.divider ? " right-border" : "")
+                                                          }>
                                         {link.text}
                                     </LinkPossiblyExternal>
                                 </li>
@@ -109,6 +109,9 @@ export default function Header({links = [], banner = undefined}: Props) {
                     <div className="wow fadeInDown banner__text-container">
                         <h1>{banner.title}</h1>
                         <h3>{banner.subtitle}</h3>
+                        {banner.button &&
+                            <LinkPossiblyExternal to={banner.button.to} className="button button--white pointer">{banner.button.text}</LinkPossiblyExternal>
+                        }
                     </div>
                 </div>
                 }
