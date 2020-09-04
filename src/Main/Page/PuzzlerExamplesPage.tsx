@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
-import Header from "../Section/Header/Header";
+import Header, {Width} from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
 import KotlinPlayground from "react-kotlin-playground/es";
+import PuzzlerHeaderBg from "../Section/Header/background-img/8-1920x702.png"
 
 type Props = {}
 
@@ -63,8 +64,15 @@ fun main() {
             explanation: t.puzzler.puzzle2Explanation
         }
     ], [t])
+
+    let puzzlerBanner = {
+        img: PuzzlerHeaderBg,
+        width: Width.Half,
+        title: t.puzzler.title,
+        subtitle: t.puzzler.subtitle,
+    };
     return <>
-        <Header/> {/* Should have Home link */}
+        <Header banner={puzzlerBanner}/> {/* Should have Home link */}
         <section className="puzzler short-section">
             <div className="content-container">
                 <h1>{t.puzzler.whatArePuzzlers}</h1>

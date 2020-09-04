@@ -1,5 +1,5 @@
 import React from 'react';
-import Header, {LinkTo} from "../../Section/Header/Header";
+import Header, {Banner, LinkTo, Width} from "../../Section/Header/Header";
 import WorkshopOfferSection from "./WorkshopOfferSection";
 import WhyUsSection from "./WhyUsSection";
 import TrainerSection from "../../Section/TrainerSection";
@@ -23,9 +23,15 @@ export default function HomePage({}: Props) {
         {to: "#contact", text: t.menu.contact, divider: true},
         {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
     ]
+    const bannerProps: Banner = {
+        img: HeaderBg,
+        width: Width.Full,
+        title: t.slogan.title,
+        subtitle: t.slogan.subtitle
+    };
     return (
         <>
-            <Header links={menuLinks} banner={{img: HeaderBg, title: t.slogan.title, subtitle: t.slogan.subtitle}}/>
+            <Header links={menuLinks} banner={bannerProps}/>
             <WorkshopOfferSection/>
             <WhyUsSection/>
             <JetbrainsCertificationSection/>

@@ -16,11 +16,17 @@ type Props = {
     banner?: Banner
 };
 
-type Banner = {
+export type Banner = {
     img: string,
+    width: Width,
     title: string,
     subtitle: string | null,
     button?: Button
+}
+
+export enum Width {
+    Full,
+    Half
 }
 
 type Button = {
@@ -54,7 +60,11 @@ export default function Header({links = [], banner = undefined}: Props) {
     return (
         <>
             <header className={banner ? "banner__background banner--full-width" : ""}
-                    style={banner ? {backgroundImage: "url('" + banner.img + "')"} : {}}>
+                    style={banner ? {
+                        backgroundImage: "url('" + banner.img + "')",
+                        height: banner.width == Width.Half ? "65vh" : "100vh",
+                        marginTop: banner.width == Width.Half ? "70px" : "35px"
+                    } : {}}>
                 <div className="navigation-bar">
                     <div className="logo-container">
                         <Link title="Kt. Academy" target="_top" to="/" className="pointer logo-img">
@@ -110,7 +120,8 @@ export default function Header({links = [], banner = undefined}: Props) {
                         <h1>{banner.title}</h1>
                         <h3>{banner.subtitle}</h3>
                         {banner.button &&
-                            <LinkPossiblyExternal to={banner.button.to} className="button button--white pointer">{banner.button.text}</LinkPossiblyExternal>
+                        <LinkPossiblyExternal to={banner.button.to}
+                                              className="button button--white pointer">{banner.button.text}</LinkPossiblyExternal>
                         }
                     </div>
                 </div>

@@ -965,43 +965,6 @@ footer a {
   margin-top: 70px;
 }
 
-.banner__url--home {
-  background-image: url(/images/background-img/3-1920x1080.png);
-}
-
-header.banner__url--private {
-  background-image: url(/images/background-img/4-1920x1080.png);
-  background-position: left;
-}
-
-.banner__url--public {
-  background-image: url(/images/background-img/10-1920x1080.png);
-}
-
-.banner__url--challenge {
-  background-image: url(/images/background-img/7-1920x702.png);
-}
-
-.banner__url--puzzler {
-  background-image: url(/images/background-img/8-1920x702.png);
-}
-
-.banner__url--android {
-  background-image: url(/images/background-img/2-1920x702.png);
-}
-
-.banner__url--backened {
-  background-image: url(/images/background-img/6-1920x702.png);
-}
-
-.banner__url--effective {
-  background-image: url(/images/background-img/3-1920x702.png);
-}
-
-.banner__url--coroutines {
-  background-image: url(/images/background-img/9-1920x702.png);
-}
-
 .banner--job-offer {
   -webkit-background-size: cover;
   -moz-background-size: cover;

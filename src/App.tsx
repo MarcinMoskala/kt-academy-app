@@ -3,14 +3,16 @@ import {Route, Switch} from "react-router-dom";
 import HomePage from "./Main/Page/Home/HomePage";
 import {Lang, LangContext} from "./Translations";
 import WorkshopsPage from "./Main/Page/Workshops/WorkshopsPage";
-import WorkshopPage from "./Main/Page/WorkshopPage";
+import WorkshopPage from "./Main/Page/Workshop/WorkshopPage";
 import PuzzlerExamplesPage from "./Main/Page/PuzzlerExamplesPage";
 import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
+import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 
 const App = () => {
     return <div className="container py-5">
         <div className="row justify-content-center">
             <Switch>
+                <KtRoute path="/workshopForm/:workshopKey" component={WorkshopFormPage}/>
                 <KtRoute path="/workshop/:workshopKey" component={WorkshopPage}/>
                 <KtRoute path="/workshop" component={WorkshopsPage}/>
                 <KtRoute path="/puzzler" component={PuzzlerExamplesPage}/>
