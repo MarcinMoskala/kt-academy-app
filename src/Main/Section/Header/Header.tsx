@@ -1,8 +1,8 @@
 import React from "react";
-import LinkPossiblyExternal from "./LinkPossiblyExternal";
-import {Link} from "react-router-dom";
-import {Lang, useLang, useLanguagesList, useTranslations} from "../../../Translations";
+import Link from "../../../Link";
+import {useLang, useLanguagesList, useTranslations} from "../../../Translations";
 import {useScrollToHash} from "../../../Utils";
+import {useLocation} from "react-router-dom";
 
 export type LinkTo = {
     text: string,
@@ -37,9 +37,9 @@ export default function Header({links, banner = undefined}: Props) {
     const t = useTranslations()
     const langStr = useLang()
     const langList = useLanguagesList()
-    const currentLangFlag = langStr === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
+    const query = useLocation().search
 
-    if(!links) {
+    if (!links) {
         links = [{text: t.menu.home, to: "/"}]
     }
 
@@ -78,16 +78,16 @@ export default function Header({links, banner = undefined}: Props) {
 
                     <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
                         <a href="javascript:void(0);" className="current-flag">
-                            <img src={currentLangFlag}
-                                 alt={langStr}
+                            <img src={langStr.flag}
+                                 alt={langStr.key}
                                  className="flag margin-right-5 margin-top-5"
                                  height="15"/>
                             <i className="fas fa-caret-down margin-left-5"/>
-                            {langStr}
+                            {langStr.key}
                         </a>
                         <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
                             {langList.map(l =>
-                                <li><Link to="/">
+                                <li><Link to={l.path + query}>
                                     <img src={"/images/" + l.flagIcon} alt={l.key}
                                          className="flag margin-right-5 margin-top-20" height="15"/>{l.key}</Link>
                                 </li>)
@@ -99,14 +99,14 @@ export default function Header({links, banner = undefined}: Props) {
                         <ul>
                             {links.map((link, index) =>
                                 <li className="inline" key={index}>
-                                    <LinkPossiblyExternal to={link.to}
-                                                          className={
-                                                              "nav-link--padding pointer page-scroll" +
-                                                              (index == 0 ? " first-bookmark" : "") +
-                                                              (link.divider ? " right-border" : "")
-                                                          }>
+                                    <Link to={link.to}
+                                          className={
+                                              "nav-link--padding pointer page-scroll" +
+                                              (index == 0 ? " first-bookmark" : "") +
+                                              (link.divider ? " right-border" : "")
+                                          }>
                                         {link.text}
-                                    </LinkPossiblyExternal>
+                                    </Link>
                                 </li>
                             )}
                             <li className="inline">
@@ -123,8 +123,8 @@ export default function Header({links, banner = undefined}: Props) {
                         <h1>{banner.title}</h1>
                         <h3>{banner.subtitle}</h3>
                         {banner.button &&
-                        <LinkPossiblyExternal to={banner.button.to}
-                                              className="button button--white pointer">{banner.button.text}</LinkPossiblyExternal>
+                        <Link to={banner.button.to}
+                              className="button button--white pointer">{banner.button.text}</Link>
                         }
                     </div>
                 </div>

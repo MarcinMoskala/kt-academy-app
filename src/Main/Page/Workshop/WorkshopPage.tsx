@@ -7,7 +7,7 @@ import {API_URL} from "../../../Network";
 import MaterialsSection from "../../Section/MaterialsSection";
 import FooterSection from "../../Section/FooterSection";
 import "../../../Utils";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useTranslations} from "../../../Translations";
 import {Helmet} from "react-helmet";
 import AndroidHeaderBg from "../../Section/Header/background-img/2-1920x702.png"
@@ -17,6 +17,7 @@ import CoroutinesHeaderBg from "../../Section/Header/background-img/9-1920x702.p
 import WorkshopDescriptionSection from "./WorkshopDescriptionSection";
 import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../Hooks";
+import Link from "../../../Link"
 
 type Props = {}
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {useTranslations} from "../../../Translations";
-import {Link} from "react-router-dom"
+import Link from "../../../Link"
 
 type Props = {
 };

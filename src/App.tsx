@@ -10,34 +10,31 @@ import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 
 const App = () => {
+    const routes: {path: string, component}[] = [
+        {path:"/workshopForm/:workshopKey", component:WorkshopFormPage},
+        {path:"/workshop/:workshopKey", component:WorkshopPage},
+        {path:"/workshop", component:WorkshopsPage},
+        {path:"/puzzler", component:PuzzlerExamplesPage},
+        {path:"/challenges", component:ChallengesExamplePage},
+        {path:"/privacyPolicy", component:PrivacyPolicyPage},
+        {path:"", component:HomePage},
+    ]
     return <div className="container py-5">
         <div className="row justify-content-center">
             <Switch>
-                <KtRoute path="/workshopForm/:workshopKey" component={WorkshopFormPage}/>
-                <KtRoute path="/workshop/:workshopKey" component={WorkshopPage}/>
-                <KtRoute path="/workshop" component={WorkshopsPage}/>
-                <KtRoute path="/puzzler" component={PuzzlerExamplesPage}/>
-                <KtRoute path="/challenges" component={ChallengesExamplePage}/>
-                <KtRoute path="/privacyPolicy" component={PrivacyPolicyPage}/>
-                <KtRoute component={HomePage}/>
+                {routes.map(route => <Route path={"/pl" + route.path}>
+                    <LangContext.Provider value={Lang.PL}>
+                        {React.createElement(route.component)}
+                    </LangContext.Provider>
+                </Route>)}
+                {routes.map(route => <Route path={route.path}>
+                    <LangContext.Provider value={Lang.EN}>
+                        {React.createElement(route.component)}
+                    </LangContext.Provider>
+                </Route>)}
             </Switch>
         </div>
     </div>;
-}
-
-function KtRoute({path = "", component}: { path?: string, component }) {
-    return <>
-        <Route path={"/pl" + path}>
-            <LangContext.Provider value={Lang.PL}>
-                {React.createElement(component)}
-            </LangContext.Provider>
-        </Route>
-        <Route path={path}>
-            <LangContext.Provider value={Lang.EN}>
-                {React.createElement(component)}
-            </LangContext.Provider>
-        </Route>
-    </>
 }
 
 export default App

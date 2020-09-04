@@ -9,11 +9,16 @@ export const Lang = {
 }
 
 export function useTranslations() {
-    return useLang() === Lang.PL ? PL_desc : EN_desc
+    return useLang().key === Lang.PL ? PL_desc : EN_desc
 }
 
-export function useLang() {
-    return useContext(LangContext)
+export function useLang(): { key: string, pathPrefix: string, flag: string } {
+    let key = useContext(LangContext);
+    return {
+        key: key,
+        pathPrefix: key === Lang.PL ? "/pl" : "",
+        flag: key === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
+    }
 }
 
 type PangElement = {
