@@ -1,5 +1,6 @@
 import React from "react";
 import {Lang, useTranslations} from "../../Translations";
+import CertifiedTrainingImg from "./JetBrains_certified_Kotlin_Training.png"
 
 type Props = {
 };
@@ -10,9 +11,8 @@ export default function JetbrainsCertificationSection({}: Props) {
             <div className="content-container">
                 <div className="flex-container--row">
                     <div className="flex-item padding-right-35 flex-container--row">
-
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-certificate"></i>
+                            <i className="fas fa-certificate" />
                         </div>
                         <div className="flex-item--after-symbol">
                             <h3>{t.certificateTitle} </h3>
@@ -22,7 +22,7 @@ export default function JetbrainsCertificationSection({}: Props) {
 
                     <div className="flex-item--image-container">
                         <img className="wow zoomIn image-plus-text"
-                             src="/static/images/JetBrains_certified_Kotlin_Training.png"
+                             src={CertifiedTrainingImg}
                              alt="JetBrains certified Kotlin Training" width=""/>
                     </div>
                 </div>
