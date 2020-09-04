@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b76be87decfd1a3620ab954ebc296aba",
+    "revision": "3b042763d630a1975da47cccdae78300",
     "url": "./index.html"
   },
   {
-    "revision": "f2b468d9cfb1263f20eb",
+    "revision": "c454bad677b971ba7653",
     "url": "./static/css/main.46a1e12f.chunk.css"
   },
   {
-    "revision": "de979b03593b3e71b412",
-    "url": "./static/js/2.3fe32a78.chunk.js"
+    "revision": "ce281816b53ff2c61080",
+    "url": "./static/js/2.889df051.chunk.js"
   },
   {
     "revision": "1a3ed1db46e5d1e72ee7a33d3bd928b3",
-    "url": "./static/js/2.3fe32a78.chunk.js.LICENSE.txt"
+    "url": "./static/js/2.889df051.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f2b468d9cfb1263f20eb",
-    "url": "./static/js/main.678974a9.chunk.js"
+    "revision": "c454bad677b971ba7653",
+    "url": "./static/js/main.cb56e53e.chunk.js"
   },
   {
     "revision": "1f240d1a64bb40892d72",
@@ -36,6 +36,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/3-1920x702.48c3fcb5.png"
   },
   {
+    "revision": "5e7002b40626ea0a493849eabd5a294b",
+    "url": "./static/media/4-1920x1080.5e7002b4.png"
+  },
+  {
     "revision": "ff49825241e51e8084b0b7f8849e53d7",
     "url": "./static/media/6-1920x702.ff498252.png"
   },
@@ -50,6 +54,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "27d293f6b281f215a69e0d06b4a181f6",
     "url": "./static/media/9-1920x702.27d293f6.png"
+  },
+  {
+    "revision": "5a494df2a1f3029bd10a7cbd441372d4",
+    "url": "./static/media/JetBrains_certified_Kotlin_Training.5a494df2.png"
   },
   {
     "revision": "24225822ad48dfb5043d2b9d3e831fba",
