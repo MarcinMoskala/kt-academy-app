@@ -31,12 +31,12 @@ export default function WorkshopPage({}: Props) {
     const HeaderBg = getHeader(workshop)
 
     const menuLinks: LinkTo[] = [
-        {to: "#workshops-offer", text: t.menu.workshops},
-        {to: "#why-us", text: t.menu.whyUs},
-        {to: "#trainer", text: t.menu.trainer},
-        {to: "#materials", text: t.menu.materials},
-        {to: "#contact", text: t.menu.contact, divider: true},
-        {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
+        {text: t.menu.home, to: "/", divider: true},
+        {text: t.menu.workshopMaterial, to: "#workshop-TOC"},
+        {text: t.menu.trainer, to: "#trainer"},
+        {text: t.menu.materials, to: "#materials"},
+        {text: t.menu.register, to: "#register"},
+        {text: t.menu.contact, to: "#contact"},
     ]
 
     let bannerOptions = {

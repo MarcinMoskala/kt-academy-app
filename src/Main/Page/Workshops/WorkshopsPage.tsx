@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Header from "../../Section/Header/Header";
+import Header, {LinkTo} from "../../Section/Header/Header";
 import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
 import TrainerSection from "../../Section/TrainerSection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";
@@ -11,11 +11,12 @@ import FooterSection from "../../Section/FooterSection";
 import "../../../ArrayUtils";
 import {useLocation} from "react-router-dom";
 import {callApi, useQuery} from "../../../Utils";
-import {useLang} from "../../../Translations";
+import {useLang, useTranslations} from "../../../Translations";
 
 type Props = {}
 
 export default function WorkshopsPage({}: Props) {
+    const t = useTranslations();
     const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
     const query = useQuery()
     const tag = query.get("tag")
@@ -30,9 +31,17 @@ export default function WorkshopsPage({}: Props) {
             )
     }, [])
 
+    const links: LinkTo[] = [
+        {text: t.menu.home, to: "/", divider: true},
+        {text: t.menu.privateWorkshops, to: "#workshops-offer"},
+        {text: t.menu.trainer, to: "#trainer"},
+        {text: t.menu.materials, to: "#materials"},
+        {text: t.menu.contact, to: "#contact"},
+    ]
+
     return (
         <>
-            <Header/> {/* Should have proper sections */}
+            <Header links={links}/>
             <WorkshopChoice workshops={workshops}/>
             <JetbrainsCertificationSection/>
             <TrainerSection trainerKey={workshops.map(w => w.trainer.key).mostCommon()}/>

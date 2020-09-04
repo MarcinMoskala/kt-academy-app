@@ -7,6 +7,7 @@ import WorkshopPage from "./Main/Page/Workshop/WorkshopPage";
 import PuzzlerExamplesPage from "./Main/Page/PuzzlerExamplesPage";
 import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
 import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
+import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 
 const App = () => {
     return <div className="container py-5">
@@ -16,6 +17,7 @@ const App = () => {
                 <KtRoute path="/workshop/:workshopKey" component={WorkshopPage}/>
                 <KtRoute path="/workshop" component={WorkshopsPage}/>
                 <KtRoute path="/puzzler" component={PuzzlerExamplesPage}/>
+                <KtRoute path="/challenges" component={ChallengesExamplePage}/>
                 <KtRoute path="/privacyPolicy" component={PrivacyPolicyPage}/>
                 <KtRoute component={HomePage}/>
             </Switch>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Lang, useTranslations} from "../../Translations";
+import {useTranslations} from "../../Translations";
 import {Workshop} from "../../Model";
 
 type Props = {
@@ -17,7 +17,7 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
                     <h2> {t.materials.title} </h2>
                     <div className="flex-container--row margin-bottom-20">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-book"></i>
+                            <i className="fas fa-book"/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p>{t.materials.book}</p>
@@ -25,7 +25,7 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
                     </div>
                     <div className="flex-container--row margin-bottom-20">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-copy"></i>
+                            <i className="fas fa-copy"/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p>{t.materials.cheatsheet}</p>
@@ -33,7 +33,7 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
                     </div>
                     <div className="flex-container--row margin-bottom-20">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-tasks"></i>
+                            <i className="fas fa-tasks"/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p>{t.materials.tasks}</p>

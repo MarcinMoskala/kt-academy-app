@@ -9,7 +9,7 @@ type Props = {}
 export default function PrivacyPolicyPage({}: Props) {
     const t = useTranslations();
     return <>
-        <Header/> {/* Should have Home link */}
+        <Header/>
         <section className="privacy-policy">
             <div className="content-container text-align-left">
                 <h1 className="margin-top-20">Polityka prywatności</h1>

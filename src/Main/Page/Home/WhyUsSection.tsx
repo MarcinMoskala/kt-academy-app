@@ -1,5 +1,6 @@
 import React from "react";
-import {Lang, useTranslations} from "../../../Translations";
+import {useTranslations} from "../../../Translations";
+import {Link} from "react-router-dom"
 
 type Props = {
 };
@@ -31,8 +32,8 @@ export default function WorkshopOffer({}: Props) {
                         </div>
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.puzzlers} </p>
-                            <a href="{link.puzzler}"
-                               className="button button--mini"> {t.whyUs.puzzlersButton} </a>
+                            <Link to="/puzzler"
+                               className="button button--mini"> {t.whyUs.puzzlersButton} </Link>
                         </div>
                     </div>
 
@@ -42,8 +43,8 @@ export default function WorkshopOffer({}: Props) {
                         </div>
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.challenges} </p>
-                            <a href="{link.challenges}"
-                               className="button button--mini"> {t.whyUs.challengesButton} </a>
+                            <Link to="/challenges"
+                               className="button button--mini"> {t.whyUs.challengesButton} </Link>
                         </div>
                     </div>
 

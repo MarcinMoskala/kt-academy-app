@@ -7,8 +7,7 @@ import {useScrollToHash} from "../../../Utils";
 export type LinkTo = {
     text: string,
     to: string,
-    divider?: boolean,
-    external?: boolean
+    divider?: boolean
 }
 
 type Props = {
@@ -34,11 +33,15 @@ type Button = {
     to: string
 }
 
-export default function Header({links = [], banner = undefined}: Props) {
+export default function Header({links, banner = undefined}: Props) {
     const t = useTranslations()
     const langStr = useLang()
     const langList = useLanguagesList()
     const currentLangFlag = langStr === Lang.PL ? "/images/pl-flag.png" : "/images/uk-flag.png"
+
+    if(!links) {
+        links = [{text: t.menu.home, to: "/"}]
+    }
 
     useScrollToHash()
 
