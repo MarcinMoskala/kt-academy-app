@@ -1,25 +1,31 @@
 {
   "files": {
-    "main.css": "/learningdriven.space/static/css/main.83d1266e.chunk.css",
-    "main.js": "/learningdriven.space/static/js/main.92ea64a4.chunk.js",
-    "main.js.map": "/learningdriven.space/static/js/main.92ea64a4.chunk.js.map",
-    "runtime-main.js": "/learningdriven.space/static/js/runtime-main.6ab7cd40.js",
-    "runtime-main.js.map": "/learningdriven.space/static/js/runtime-main.6ab7cd40.js.map",
-    "static/js/2.17f3f185.chunk.js": "/learningdriven.space/static/js/2.17f3f185.chunk.js",
-    "static/js/2.17f3f185.chunk.js.map": "/learningdriven.space/static/js/2.17f3f185.chunk.js.map",
-    "index.html": "/learningdriven.space/index.html",
-    "precache-manifest.9fd5b635c99a6da212fb2f6ef8bea000.js": "/learningdriven.space/precache-manifest.9fd5b635c99a6da212fb2f6ef8bea000.js",
-    "service-worker.js": "/learningdriven.space/service-worker.js",
-    "static/css/main.83d1266e.chunk.css.map": "/learningdriven.space/static/css/main.83d1266e.chunk.css.map",
-    "static/js/2.17f3f185.chunk.js.LICENSE.txt": "/learningdriven.space/static/js/2.17f3f185.chunk.js.LICENSE.txt",
-    "static/media/10-1920x1080.png": "/learningdriven.space/static/media/10-1920x1080.098d0b53.png",
-    "static/media/NataliaNazaruk.jpg": "/learningdriven.space/static/media/NataliaNazaruk.24225822.jpg",
-    "static/media/PatrykGrajewski.jpg": "/learningdriven.space/static/media/PatrykGrajewski.ef56bae7.jpg"
+    "main.css": "./static/css/main.46a1e12f.chunk.css",
+    "main.js": "./static/js/main.678974a9.chunk.js",
+    "main.js.map": "./static/js/main.678974a9.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.d93a4d7e.js",
+    "runtime-main.js.map": "./static/js/runtime-main.d93a4d7e.js.map",
+    "static/js/2.3fe32a78.chunk.js": "./static/js/2.3fe32a78.chunk.js",
+    "static/js/2.3fe32a78.chunk.js.map": "./static/js/2.3fe32a78.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.3aa1a2b026cdee636b0436cb6a7e0e20.js": "./precache-manifest.3aa1a2b026cdee636b0436cb6a7e0e20.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.46a1e12f.chunk.css.map": "./static/css/main.46a1e12f.chunk.css.map",
+    "static/js/2.3fe32a78.chunk.js.LICENSE.txt": "./static/js/2.3fe32a78.chunk.js.LICENSE.txt",
+    "static/media/10-1920x1080.png": "./static/media/10-1920x1080.098d0b53.png",
+    "static/media/2-1920x702.png": "./static/media/2-1920x702.e243c9d7.png",
+    "static/media/3-1920x702.png": "./static/media/3-1920x702.48c3fcb5.png",
+    "static/media/6-1920x702.png": "./static/media/6-1920x702.ff498252.png",
+    "static/media/7-1920x702.png": "./static/media/7-1920x702.7954916b.png",
+    "static/media/8-1920x702.png": "./static/media/8-1920x702.192aa796.png",
+    "static/media/9-1920x702.png": "./static/media/9-1920x702.27d293f6.png",
+    "static/media/NataliaNazaruk.jpg": "./static/media/NataliaNazaruk.24225822.jpg",
+    "static/media/PatrykGrajewski.jpg": "./static/media/PatrykGrajewski.ef56bae7.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6ab7cd40.js",
-    "static/js/2.17f3f185.chunk.js",
-    "static/css/main.83d1266e.chunk.css",
-    "static/js/main.92ea64a4.chunk.js"
+    "static/js/runtime-main.d93a4d7e.js",
+    "static/js/2.3fe32a78.chunk.js",
+    "static/css/main.46a1e12f.chunk.css",
+    "static/js/main.678974a9.chunk.js"
   ]
 }
