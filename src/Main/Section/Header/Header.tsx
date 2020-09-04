@@ -65,8 +65,8 @@ export default function Header({links, banner = undefined}: Props) {
             <header className={banner ? "banner__background banner--full-width" : ""}
                     style={banner ? {
                         backgroundImage: "url('" + banner.img + "')",
-                        height: banner.width == Width.Half ? "65vh" : "100vh",
-                        marginTop: banner.width == Width.Half ? "70px" : "35px"
+                        height: banner.width === Width.Half ? "65vh" : "100vh",
+                        marginTop: banner.width === Width.Half ? "70px" : "35px"
                     } : {}}>
                 <div className="navigation-bar">
                     <div className="logo-container">
@@ -104,7 +104,7 @@ export default function Header({links, banner = undefined}: Props) {
                                     <Link to={link.to}
                                           className={
                                               "nav-link--padding pointer page-scroll" +
-                                              (index == 0 ? " first-bookmark" : "") +
+                                              (index === 0 ? " first-bookmark" : "") +
                                               (link.divider ? " right-border" : "")
                                           }>
                                         {link.text}

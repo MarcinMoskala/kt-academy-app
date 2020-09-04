@@ -27,8 +27,8 @@ function buildQuery(urlParams: Record<string, string | null> | undefined) {
 }
 
 export function useScrollToHash() {
+    const hash = window.location.hash
     React.useEffect(() => {
-        const hash = window.location.hash
         if (hash !== '') {
             // Push onto callback queue so it runs after the DOM is updated,
             // this is required when navigating from a different page so that
@@ -39,5 +39,5 @@ export function useScrollToHash() {
                 if (element) element.scrollIntoView();
             }, 100);
         }
-    }, [window.location.hash]);
+    }, [hash]);
 }

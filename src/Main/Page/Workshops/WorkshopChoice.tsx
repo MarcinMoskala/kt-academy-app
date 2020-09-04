@@ -19,7 +19,7 @@ export default function WorkshopChoice({workshops}: Props) {
             {workshopsChucked.map((wC, i) =>
                 <div key={i} className="flex-container--row <#if workshops?is_first><#else>margin-top-30</#if>">
                     {wC.map((w, i) => <div key={i}
-                        className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
+                                           className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
                         <i className={w.icon}/>
                         <h3> {w.name} </h3>
                         <p> {w.description} </p>
@@ -33,8 +33,8 @@ export default function WorkshopChoice({workshops}: Props) {
                 </div>)
             }
 
-            <p className="margin-top-30"> {t.privateWorkshop.otherOption} <a
-                href="mailto:contact@kt.academy">contact@kt.academy</a>.
+            <span className="margin-top-30"> {t.privateWorkshop.otherOption}
+                <a href="mailto:contact@kt.academy">contact@kt.academy</a>.
 
                 <h2 className="margin-top-50">{t.privateWorkshop.benefits.title}</h2>
 
@@ -59,7 +59,7 @@ export default function WorkshopChoice({workshops}: Props) {
                     </div>
 
                 </div>
-            </p>
+            </span>
         </div>
     </section>);
 }

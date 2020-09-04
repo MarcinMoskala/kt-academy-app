@@ -1,11 +1,8 @@
 import React from "react";
-import {Lang, useTranslations} from "../../../Translations";
+import {useTranslations} from "../../../Translations";
 import Link from "../../../Link"
 
-type Props = {
-};
-
-export default function WorkshopOfferSection({}: Props) {
+export default function WorkshopOfferSection() {
     const t = useTranslations();
     return (<section className="workshops-offer" id="workshops-offer">
         <div className="content-container">

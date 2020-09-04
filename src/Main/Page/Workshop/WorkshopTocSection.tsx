@@ -16,7 +16,7 @@ export default function WorkshopDetailsSection({workshop}: Props) {
                 <style>
                     {'h4 {margin-bottom: 0; margin-top: 20px;}'}
                 </style>
-                <div className="text-align-left" dangerouslySetInnerHTML={{__html: workshop.tocHtml}} />
+                <div className="text-align-left" dangerouslySetInnerHTML={{__html: workshop.tocHtml}}/>
             </div>
         </div>
     </section>);

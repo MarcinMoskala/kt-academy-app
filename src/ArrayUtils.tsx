@@ -41,8 +41,8 @@ Array.prototype["maxBy"] = function (f: (T) => number) {
 }
 
 Array.prototype["mostCommon"] = function () {
-    if (this.length == 0) return null
-    if (this.length == 1) return this[0]
+    if (this.length === 0) return null
+    if (this.length === 1) return this[0]
     return Object.entries(this.counts()).maxBy(a => a[1])[0]
 }
 

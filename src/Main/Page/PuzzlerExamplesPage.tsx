@@ -6,8 +6,6 @@ import {useTranslations} from "../../Translations";
 import KotlinPlayground from "react-kotlin-playground/es";
 import PuzzlerHeaderBg from "../Section/Header/background-img/8-1920x702.png"
 
-type Props = {}
-
 type Puzzler = {
     code: string
     question: string,
@@ -16,7 +14,7 @@ type Puzzler = {
     explanation: string,
 }
 
-export default function PuzzlerExamplesPage({}: Props) {
+export default function PuzzlerExamplesPage() {
     const t = useTranslations();
     const PUZZLERS: Puzzler[] = useMemo(() => [
         {

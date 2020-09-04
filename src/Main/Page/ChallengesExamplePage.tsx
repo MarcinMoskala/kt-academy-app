@@ -6,9 +6,6 @@ import {useTranslations} from "../../Translations";
 import ChallengeHeaderBg from "../Section/Header/background-img/7-1920x702.png"
 import TestimonialsSection from "./Testimonials/TestimonialsSection";
 import KotlinPlayground from "react-kotlin-playground/es";
-import {homedir} from "os";
-
-type Props = {}
 
 const challenges = [`
 // Fibonacci number that starts from 1 and 1 (fib(0) == 1, fib(1) == 1, fib(2) == 2, fib(3) == 3, fib(4) == 5, fib(5) == 8)
@@ -30,7 +27,7 @@ fun main() {
 }
 
 infix fun <T> T.shouldEquals(other: T) {
-    if (this != other) throw AssertionError("Value \$this not equal to \$other")
+    if (this != other) throw AssertionError("Value $this not equal to $other")
 }
 `, `
 interface Person {
@@ -61,14 +58,14 @@ fun main() {
 
     fun sayIfCanBuyAlcohol(person: Person) {
         val modal = if(person.canBuyAlcohol) "can" else "can't"
-        println("\${person.name} \$modal buy alcohol")
+        println("\${person.name} $modal buy alcohol")
     }
 
     sayIfCanBuyAlcohol(businessman)
     sayIfCanBuyAlcohol(student)
 }`]
 
-export default function ChallengesExamplePage({}: Props) {
+export default function ChallengesExamplePage() {
     const t = useTranslations();
 
     const puzzlerBanner = {

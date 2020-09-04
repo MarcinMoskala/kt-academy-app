@@ -1,18 +1,15 @@
 import React from "react";
-import {Lang, useTranslations} from "../../Translations";
+import {useTranslations} from "../../Translations";
 import CertifiedTrainingImg from "./JetBrains_certified_Kotlin_Training.png"
 
-type Props = {
-};
-
-export default function JetbrainsCertificationSection({}: Props) {
+export default function JetbrainsCertificationSection() {
     const t = useTranslations();
     return (<section className="section--white short-section jetbrains-certification">
             <div className="content-container">
                 <div className="flex-container--row">
                     <div className="flex-item padding-right-35 flex-container--row">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-certificate" />
+                            <i className="fas fa-certificate"/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <h3>{t.certificateTitle} </h3>

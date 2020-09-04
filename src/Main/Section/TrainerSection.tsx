@@ -24,7 +24,7 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
                     (error) => console.log(error)
                 )
         }
-    })
+    }, [trainerKey])
 
     if (!trainerLoaded) {
         return <></>

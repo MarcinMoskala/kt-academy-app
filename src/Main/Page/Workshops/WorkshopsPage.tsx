@@ -13,9 +13,7 @@ import {callApi, useQuery} from "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import HeaderBg from "../../Section/Header/background-img/4-1920x1080.png"
 
-type Props = {}
-
-export default function WorkshopsPage({}: Props) {
+export default function WorkshopsPage() {
     const t = useTranslations();
     const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
     const query = useQuery()
@@ -29,7 +27,7 @@ export default function WorkshopsPage({}: Props) {
                 (result) => setWorkshops(result),
                 (error) => console.log(error)
             )
-    }, [])
+    }, [lang.key, tag, trainer])
 
     const links: LinkTo[] = [
         {text: t.menu.home, to: "/", divider: true},

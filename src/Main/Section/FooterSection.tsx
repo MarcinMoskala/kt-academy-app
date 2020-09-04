@@ -2,10 +2,7 @@ import React from "react";
 import {useTranslations} from "../../Translations";
 import {Link} from "react-router-dom";
 
-type Props = {
-};
-
-export default function FooterSection({}: Props) {
+export default function FooterSection() {
     const t = useTranslations();
 
     return (<footer>

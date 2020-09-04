@@ -1,10 +1,7 @@
 import React from "react";
-import {Lang, useTranslations} from "../../Translations";
+import {useTranslations} from "../../Translations";
 
-type Props = {
-};
-
-export default function ContactSection({}: Props) {
+export default function ContactSection() {
     const t = useTranslations();
     const [showEmail, setShowEmail] = React.useState(false);
 

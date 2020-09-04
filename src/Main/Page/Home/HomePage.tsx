@@ -11,9 +11,7 @@ import FooterSection from "../../Section/FooterSection";
 import {useTranslations} from "../../../Translations";
 import HeaderBg from "../../Section/Header/background-img/10-1920x1080.png"
 
-type Props = {}
-
-export default function HomePage({}: Props) {
+export default function HomePage() {
     const t = useTranslations()
     const menuLinks: LinkTo[] = [
         {to: "#workshops-offer", text: t.menu.workshops},
@@ -37,7 +35,7 @@ export default function HomePage({}: Props) {
             <JetbrainsCertificationSection/>
             <TrainerSection trainerKey="marcin"/>
             <MaterialsSection/>
-            <TestimonialsSection/>
+            <TestimonialsSection to="#workshops-offer"/>
             <ContactSection/>
             <FooterSection/>
         </>

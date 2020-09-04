@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Header, {LinkTo, Width} from "../../Section/Header/Header";
 import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
 import TrainerSection from "../../Section/TrainerSection";
 import {Workshop} from "../../../Model";
-import {API_URL} from "../../../Network";
 import MaterialsSection from "../../Section/MaterialsSection";
 import FooterSection from "../../Section/FooterSection";
 import "../../../Utils";
@@ -19,9 +18,7 @@ import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../Hooks";
 import Link from "../../../Link"
 
-type Props = {}
-
-export default function WorkshopPage({}: Props) {
+export default function WorkshopPage() {
     const t = useTranslations()
 
     const {workshopKey} = useParams<{ workshopKey: string }>();
@@ -37,7 +34,6 @@ export default function WorkshopPage({}: Props) {
         {text: t.menu.trainer, to: "#trainer"},
         {text: t.menu.materials, to: "#materials"},
         {text: t.menu.register, to: "#register"},
-        {text: t.menu.contact, to: "#contact"},
     ]
 
     let bannerOptions = {
@@ -112,7 +108,8 @@ export default function WorkshopPage({}: Props) {
                 <div className="content-container">
                     <h1>{t.contact.title}</h1>
                     <h4>{t.contact.pricing.description}</h4>
-                    <Link to={"/workshopForm/" + workshop.key} className="button wow swing button-detailed-page-gtm margin-top-20">
+                    <Link to={"/workshopForm/" + workshop.key}
+                          className="button wow swing button-detailed-page-gtm margin-top-20">
                         {t.contact.pricing.button}
                     </Link>
                 </div>

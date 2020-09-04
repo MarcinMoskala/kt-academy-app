@@ -2,12 +2,8 @@ import React from 'react';
 import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import "../../Utils";
-import {useTranslations} from "../../Translations";
 
-type Props = {}
-
-export default function PrivacyPolicyPage({}: Props) {
-    const t = useTranslations();
+export default function PrivacyPolicyPage() {
     return <>
         <Header/>
         <section className="privacy-policy">

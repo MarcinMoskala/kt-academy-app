@@ -1,5 +1,4 @@
-import React, {useContext, useEffect} from "react";
-import { useLocation } from 'react-router-dom'
+import React, {useEffect} from "react";
 import {Workshop} from "../Model";
 import {API_URL} from "../Network";
 
@@ -13,7 +12,7 @@ export function useWorkshop(workshopKey: string): Workshop | undefined {
                 (result) => setWorkshop(result),
                 (error) => console.log(error)
             )
-    }, [])
+    }, [workshopKey])
 
     return workshop
 }

@@ -2,19 +2,16 @@ import React from "react";
 import PatrykGrajewski from "./PatrykGrajewski.jpg"
 import NataliaNazaruk from "./NataliaNazaruk.jpg"
 import MariuszSaramak from "./MariuszSaramak.jpg"
-import {Lang, useTranslations} from "../../../Translations";
+import {useTranslations} from "../../../Translations";
+import Link from "../../../Link";
 
 type Props = {
-    onButtonClicked?: () => void,
+    to?: string,
 };
 
 // TODO: Extract components
-export default function TestimonialsSection({onButtonClicked}: Props) {
+export default function TestimonialsSection({to}: Props) {
     const t = useTranslations();
-    const onBookWorkshopButtonClicked = (e) => {
-        e.preventDefault()
-        if(onButtonClicked) onButtonClicked()
-    }
 
     return (
         <section className="testimonials">
@@ -74,12 +71,12 @@ export default function TestimonialsSection({onButtonClicked}: Props) {
                             className="flex-item--flex-start margin-top-30"> {t.testimonials.grajewski} </blockquote>
                     </div>
                 </div>
-                {onButtonClicked &&
+                {to &&
                 <div className="book-workshop-button">
                     <div>
-                        <a onClick={onBookWorkshopButtonClicked}
+                        <Link to={to}
                            id="testymonials-button"
-                           className="button wow fadeInUp page-scroll margin-top-50"> {t.testimonials.button} </a>
+                           className="button wow fadeInUp page-scroll margin-top-50"> {t.testimonials.button} </Link>
                     </div>
                 </div>
                 }

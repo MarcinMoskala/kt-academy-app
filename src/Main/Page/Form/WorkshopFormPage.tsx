@@ -6,10 +6,8 @@ import {useTranslations} from "../../../Translations";
 import {API_URL} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
-import {FieldErrors, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../Hooks";
-
-type Props = {}
 
 type FormData = {
     email: string,
@@ -21,7 +19,7 @@ type FormData = {
     online: string
 };
 
-export default function WorkshopFormPage({}: Props) {
+export default function WorkshopFormPage() {
     const t = useTranslations();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);

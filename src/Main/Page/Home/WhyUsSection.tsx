@@ -2,10 +2,7 @@ import React from "react";
 import {useTranslations} from "../../../Translations";
 import Link from "../../../Link"
 
-type Props = {
-};
-
-export default function WorkshopOffer({}: Props) {
+export default function WorkshopOffer() {
     const t = useTranslations();
     return (<section className="why-us padding-top-0" id="why-us">
         <div className="gradient--strip"/>
@@ -33,7 +30,7 @@ export default function WorkshopOffer({}: Props) {
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.puzzlers} </p>
                             <Link to="/puzzler"
-                               className="button button--mini"> {t.whyUs.puzzlersButton} </Link>
+                                  className="button button--mini"> {t.whyUs.puzzlersButton} </Link>
                         </div>
                     </div>
 
@@ -44,7 +41,7 @@ export default function WorkshopOffer({}: Props) {
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.challenges} </p>
                             <Link to="/challenges"
-                               className="button button--mini"> {t.whyUs.challengesButton} </Link>
+                                  className="button button--mini"> {t.whyUs.challengesButton} </Link>
                         </div>
                     </div>
 
