@@ -77,7 +77,7 @@ export default function Header({links, banner = undefined}: Props) {
                     </div>
 
                     <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
-                        <a href="javascript:void(0);" className="current-flag">
+                        <a onClick={(e) => e.preventDefault()} className="current-flag">
                             <img src={langStr.flag}
                                  alt={langStr.key}
                                  className="flag margin-right-5 margin-top-5"
@@ -86,10 +86,12 @@ export default function Header({links, banner = undefined}: Props) {
                             {langStr.key}
                         </a>
                         <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
-                            {langList.map(l =>
-                                <li><Link to={l.path + query}>
-                                    <img src={"/images/" + l.flagIcon} alt={l.key}
-                                         className="flag margin-right-5 margin-top-20" height="15"/>{l.key}</Link>
+                            {langList.map((l, i) =>
+                                <li key={i}>
+                                    <Link to={l.path + query} keepLang={false}>
+                                        <img src={"/images/" + l.flagIcon} alt={l.key}
+                                             className="flag margin-right-5 margin-top-20" height="15"/>{l.key}
+                                    </Link>
                                 </li>)
                             }
                         </ul>

@@ -3,10 +3,11 @@ import {Link as ReactLink} from 'react-router-dom';
 import {useLang} from "./Translations";
 
 export default function WorkshopOffer(props) {
-    const {to, children, ...rest} = props;
+    const {to, children, keepLang = true, ...rest} = props;
     const {pathPrefix} = useLang()
+    const newLink = keepLang ? pathPrefix + to : to
     if (isInternal(to)) {
-        return (<ReactLink to={pathPrefix + to} {...rest}>{children}</ReactLink>);
+        return (<ReactLink to={newLink} {...rest}>{children}</ReactLink>);
     } else {
         return (<a href={to} target="_blank" {...rest}>{children}</a>);
     }

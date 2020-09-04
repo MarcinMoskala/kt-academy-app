@@ -78,7 +78,7 @@ fun main() {
                 <h1>{t.puzzler.whatArePuzzlers}</h1>
                 <p>{t.puzzler.description}</p>
                 <h1 className="margin-top-30">{t.puzzler.examplesTitle}</h1>
-                {PUZZLERS.map(p => <PuzzlerExample puzzler={p}/>)}
+                {PUZZLERS.map((p, i) => <PuzzlerExample key={i} puzzler={p}/>)}
             </div>
         </section>
         <FooterSection/>
@@ -106,7 +106,7 @@ function PuzzlerExample({puzzler}: { puzzler: Puzzler }) {
             <div className="flex-item">
                 <h3> {question} </h3>
                 <p className="text-align-left margin-left-50">
-                    {possibleAnswers.map(a => <p>{a}</p>)}
+                    {possibleAnswers.map((a, i) => <p key={i}>{a}</p>)}
                 </p>
             </div>
         </div>

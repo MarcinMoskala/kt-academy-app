@@ -85,8 +85,8 @@ export default function ChallengesExamplePage({}: Props) {
                 <p>{t.challenge.description}</p>
                 <h1 className="margin-top-30">{t.challenge.examplesTitle}</h1>
                 <div className="content-rectangle content-rectangle--white margin-top-30">
-                    {challenges.map(challenge =>
-                        <KotlinPlayground mode="kotlin" className="text-align-left margin-bottom-50">
+                    {challenges.map((challenge, i) =>
+                        <KotlinPlayground key={i} mode="kotlin" className="text-align-left margin-bottom-50">
                             {challenge}
                         </KotlinPlayground>
                     )}

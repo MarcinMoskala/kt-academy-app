@@ -53,7 +53,7 @@ const EN_desc = {
         "contact": "Contact"
     },
     "flag": {
-        "imgLink": "/static/images/uk-flag.png",
+        "imgLink": "/images/uk-flag.png",
         "lang": "EN"
     },
     "slogan": {
@@ -123,8 +123,8 @@ const EN_desc = {
         }
     },
     "partners" : "Our partners",
-    "LogoMeetupWwa": "/static/images/Meetup-wwa.png",
-    "LogoMeetupKrk": "/static/images/Meetup-krk.png",
+    "LogoMeetupWwa": "/images/Meetup-wwa.png",
+    "LogoMeetupKrk": "/images/Meetup-krk.png",
     "footerContact" : "Contact Us:",
     "privacyPolicy": "Privacy policy",
     "publicWorkshop" : {
@@ -274,7 +274,7 @@ const PL_desc = {
         "contact": "Kontakt"
     },
     "flag": {
-        "imgLink": "/static/images/pl-flag.png",
+        "imgLink": "/images/pl-flag.png",
         "lang": "PL"
     },
     "slogan": {
@@ -344,8 +344,8 @@ const PL_desc = {
         }
     },
     "partners" : "Nasi partnerzy",
-    "LogoMeetupWwa": "/static/images/Meetup-wwa-pl.png",
-    "LogoMeetupKrk": "/static/images/Meetup-krk-pl.png",
+    "LogoMeetupWwa": "/images/Meetup-wwa-pl.png",
+    "LogoMeetupKrk": "/images/Meetup-krk-pl.png",
     "footerContact" : "Napisz do nas:",  "privacyPolicy": "Polityka prywatności",
     "publicWorkshop" : {
         "titleHead" : "Publiczne warsztaty z Kotlina",

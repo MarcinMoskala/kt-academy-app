@@ -22,7 +22,7 @@ const App = () => {
     return <div className="container py-5">
         <div className="row justify-content-center">
             <Switch>
-                {routes.map(route => <Route path={"/pl" + route.path}>
+                {routes.map((route, i) => <Route path={"/pl" + route.path}>
                     <LangContext.Provider value={Lang.PL}>
                         {React.createElement(route.component)}
                     </LangContext.Provider>
