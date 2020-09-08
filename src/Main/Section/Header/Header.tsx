@@ -12,7 +12,8 @@ export type LinkTo = {
 
 type Props = {
     links?: LinkTo[],
-    banner?: Banner
+    banner?: Banner,
+    allowedLangs?: string[]
 };
 
 export type Banner = {
@@ -33,14 +34,18 @@ type Button = {
     to: string
 }
 
-export default function Header({links, banner = undefined}: Props) {
+export default function Header({links, banner = undefined, allowedLangs}: Props) {
     const t = useTranslations()
     const langStr = useLang()
-    const langList = useLanguagesList()
     const query = useLocation().search
 
     if (!links) {
         links = [{text: t.menu.home, to: "/"}]
+    }
+
+    let langList = useLanguagesList()
+    if(allowedLangs) {
+        langList = langList.filter(l => allowedLangs.includes(l.key))
     }
 
     useScrollToHash()
@@ -76,6 +81,7 @@ export default function Header({links, banner = undefined}: Props) {
                         </Link>
                     </div>
 
+                    {langList.length > 1 &&
                     <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
                         <a onClick={(e) => e.preventDefault()} className="current-flag">
                             <img src={langStr.flag}
@@ -96,6 +102,7 @@ export default function Header({links, banner = undefined}: Props) {
                             }
                         </ul>
                     </div>
+                    }
 
                     <nav className={showBookmarks ? "bookmarks responsive" : "bookmarks"} id="bookmarks">
                         <ul>

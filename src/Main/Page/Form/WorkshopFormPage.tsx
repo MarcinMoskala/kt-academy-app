@@ -27,7 +27,6 @@ export default function WorkshopFormPage() {
     const workshop = useWorkshop(workshopKey)
     const {register, setValue, handleSubmit, errors} = useForm<FormData>();
 
-
     console.log(errors);
 
     const onSubmit = (data: FormData) => {

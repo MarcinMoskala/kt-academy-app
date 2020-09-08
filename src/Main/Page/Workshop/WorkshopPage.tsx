@@ -69,7 +69,7 @@ export default function WorkshopPage() {
                 <meta property="og:description" content={workshop.metaDescription}/>
             </Helmet>
 
-            <Header links={menuLinks} banner={bannerOptions}/>
+            <Header links={menuLinks} banner={bannerOptions} allowedLangs={workshop.langVariants}/>
 
             <WorkshopDescriptionSection workshop={workshop}/>
 

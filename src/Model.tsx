@@ -17,6 +17,7 @@ export type Video = {
 
 export type Workshop = {
     key: string,
+    lang: string,
     name: string,
     subtitle: string | null,
     metaDescription: string,
@@ -30,14 +31,11 @@ export type Workshop = {
     requirements: string[] | null,
     tocHtml: string,
     icon: string,
-    time: string,
-    bigButtonLink: string,
-    smallButtonLink: string,
     materialsImg: string
-    businessOffer: boolean,
     certifiedByJb: boolean,
     challenges: boolean,
     tags: string[],
     howLong: string[] | null,
-    trainer: Trainer;
+    trainer: Trainer,
+    langVariants: string[]
 };
