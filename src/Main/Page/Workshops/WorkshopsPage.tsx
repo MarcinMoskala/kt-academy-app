@@ -22,7 +22,7 @@ export default function WorkshopsPage() {
     const lang = useLang()
 
     useEffect(() => {
-        callApi({path: "workshop/", lang: lang.key, urlParams: {trainer: trainer, tag: tag}})
+        callApi("workshop/", {lang: lang.key, urlParams: {trainer: trainer, tag: tag}})
             .then(
                 (result) => setWorkshops(result),
                 (error) => console.log(error)

@@ -17,7 +17,7 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
         if (trainer) {
             setTrainer(trainer)
         } else {
-            fetch(API_URL + "/workshop/trainer/" + trainerKey)
+            fetch(API_URL + "workshop/trainer/" + trainerKey)
                 .then(res => res.json())
                 .then(
                     (result) => setTrainer(result),

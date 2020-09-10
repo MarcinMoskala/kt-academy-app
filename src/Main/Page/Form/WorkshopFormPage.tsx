@@ -7,7 +7,7 @@ import {API_URL} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
-import {useWorkshop} from "../../Hooks";
+import {useWorkshop} from "../../../Hooks";
 
 type FormData = {
     email: string,

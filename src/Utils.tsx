@@ -6,7 +6,9 @@ export function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
-export function callApi({path, lang, urlParams}: { path: string, lang?: string, urlParams?: Record<string, string | null> }) {
+declare var userUuid: string
+
+export function callApi(path: string, {lang, urlParams}: { lang?: string, urlParams?: Record<string, string | null> } = {}) {
     if (lang) {
         if (urlParams) {
             urlParams = {...urlParams, lang: lang}
@@ -16,7 +18,12 @@ export function callApi({path, lang, urlParams}: { path: string, lang?: string, 
     }
     const search = buildQuery(urlParams);
 
-    return fetch(API_URL + path + search)
+    return fetch(API_URL + path + search, {
+        headers: {
+            'Content-Type': 'application/json',
+            'userUuid': userUuid ? userUuid : ""
+        },
+    })
         .then(res => res.json())
 }
 

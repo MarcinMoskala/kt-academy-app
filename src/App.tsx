@@ -8,6 +8,7 @@ import PuzzlerExamplesPage from "./Main/Page/PuzzlerExamplesPage";
 import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
 import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
+import UsersAdminPage from "./Admin/UsersAdminPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
@@ -17,6 +18,7 @@ const App = () => {
         {path: "/puzzler", component: PuzzlerExamplesPage},
         {path: "/challenges", component: ChallengesExamplePage},
         {path: "/privacyPolicy", component: PrivacyPolicyPage},
+        {path: "/admin/users", component: UsersAdminPage},
         {path: "", component: HomePage},
     ]
     return <div className="container py-5">

@@ -15,7 +15,7 @@ import EffectiveHeaderBg from "../../Section/Header/background-img/3-1920x702.pn
 import CoroutinesHeaderBg from "../../Section/Header/background-img/9-1920x702.png"
 import WorkshopDescriptionSection from "./WorkshopDescriptionSection";
 import WorkshopDetailsSection from "./WorkshopTocSection";
-import {useWorkshop} from "../../Hooks";
+import {useWorkshop} from "../../../Hooks";
 import Link from "../../../Link"
 
 export default function WorkshopPage() {

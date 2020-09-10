@@ -39,3 +39,14 @@ export type Workshop = {
     trainer: Trainer,
     langVariants: string[]
 };
+
+export type User = {
+    id: string,
+    email: string,
+    name: string,
+    surname: string,
+    imageUrl: string,
+    googleToken: string | null,
+    newsletters: string[],
+    tags: string[]
+}
