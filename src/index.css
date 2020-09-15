@@ -103,7 +103,6 @@ p {
     font-size: 18px;
     font-family: "Times New Roman";
     color: #404040;
-    text-align: left;
 }
 
 p strong {
@@ -161,6 +160,10 @@ blockquote {
 
 .content-container .left {
     text-align: left;
+}
+
+.content-container.content-container--full-width {
+    max-width: none;
 }
 
 .date {

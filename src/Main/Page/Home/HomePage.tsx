@@ -2,7 +2,7 @@ import React from 'react';
 import Header, {Banner, LinkTo, Width} from "../../Section/Header/Header";
 import WorkshopOfferSection from "./WorkshopOfferSection";
 import WhyUsSection from "./WhyUsSection";
-import TrainerSection from "../../Section/TrainerSection";
+import TrainerSection from "../../Section/Trainer/TrainerSection";
 import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
 import MaterialsSection from "../../Section/MaterialsSection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";

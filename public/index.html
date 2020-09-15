@@ -26,6 +26,24 @@
     -->
     <title>Kt. Academy</title>
 
+    <meta name="description" content="${workshop.metaDescription}">
+    <meta name="keywords" content="${workshop.metaKeywords}">
+    <title> ${workshop.name} </title>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ktdotacademy">
+    <meta name="twitter:title" content="${workshop.name}">
+    <meta name="twitter:description" content="${workshop.metaDescription}">
+    <meta name="twitter:image" content="<#if publicWorkshop?? >${publicWorkshop.promotionImageUrl}<#else>${workshop.promotionImageUrl}</#if>">
+
+    <meta property="og:title" content="${workshop.name}" />
+    <meta property="og:type" content="video.movie" />
+    <meta property="og:image" content="<#if publicWorkshop?? >${publicWorkshop.promotionImageUrl}<#else>${workshop.promotionImageUrl}</#if>" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:url" content="${fullUrl}" />
+    <meta property="og:description" content="${workshop.metaDescription}"/>
+
     <!-- Tracking and FAB -->
     <script src="/js/jquery-3.5.1.js"></script>
     <script src="https://learningdriven.fun/assets/js/js.cookie.min.js"></script>

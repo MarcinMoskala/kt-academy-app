@@ -1,7 +1,7 @@
 import React from 'react';
 import Header, {LinkTo, Width} from "../../Section/Header/Header";
 import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
-import TrainerSection from "../../Section/TrainerSection";
+import TrainerSection from "../../Section/Trainer/TrainerSection";
 import {Workshop} from "../../../Model";
 import MaterialsSection from "../../Section/MaterialsSection";
 import FooterSection from "../../Section/FooterSection";
@@ -96,7 +96,7 @@ export default function WorkshopPage() {
                 </div>
             </section>
             }
-            <TrainerSection trainerKey={workshop.trainer.key}/>
+            <TrainerSection trainer={workshop.trainer}/>
 
             {workshop.certifiedByJb && <JetbrainsCertificationSection/>}
 

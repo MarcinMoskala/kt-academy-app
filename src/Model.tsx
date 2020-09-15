@@ -29,7 +29,7 @@ export type Workshop = {
     practicalTask: string | null,
     practicalTaskIcon: string | null,
     requirements: string[] | null,
-    tocHtml: string,
+    tocMd: string,
     icon: string,
     materialsImg: string
     certifiedByJb: boolean,

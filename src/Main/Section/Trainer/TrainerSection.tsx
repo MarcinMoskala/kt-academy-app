@@ -1,7 +1,9 @@
 import React, {useEffect} from "react";
-import {useTranslations} from "../../Translations";
-import {API_URL} from "../../Network";
-import {Trainer, Video} from "../../Model";
+import {useTranslations} from "../../../Translations";
+import {API_URL} from "../../../Network";
+import {Trainer, Video} from "../../../Model";
+import MarcinPic from "./Marcin_Moskala.jpg"
+import WlodekPic from "./Wlodek_Krakowski.jpg"
 
 type Props = {
     trainerKey?: string
@@ -30,14 +32,15 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
         return <></>
     }
 
+    const picture = choosePicture(trainer?.key)
     const showVideo = trainerLoaded && trainerLoaded.promotionVideos && trainerLoaded.promotionVideos.length !== 0
-
     return <section className="trainer gradient--full-section" id="trainer">
         <div className="content-container flex-container--row">
             <div className="flex-item--image-container">
-                {showVideo && <Videos videos={trainerLoaded.promotionVideos!}/> ||
+                {showVideo &&
+                <Videos videos={trainerLoaded.promotionVideos!}/> ||
                 trainerLoaded.picture &&
-                <img className="round-photo wow zoomIn" src={trainerLoaded.picture} alt={trainerLoaded.fullName}/>}
+                <img className="round-photo wow zoomIn" src={picture} alt={trainerLoaded.fullName}/>}
             </div>
             <div className="flex-item--right padding-left-40">
                 <div className="flex-container--row title margin-bottom-20">
@@ -77,9 +80,9 @@ function Videos({videos}: VideosProps) {
     const swapVideo = (video: Video) => {
         const list = [...videos!]
         const pos = list.indexOf(video)
-        const b = list[0];
+        const temp = list[0];
         list[0] = list[pos];
-        list[pos] = b;
+        list[pos] = temp;
         setVideos(list)
     }
 
@@ -89,6 +92,7 @@ function Videos({videos}: VideosProps) {
                     src={"https://www.youtube.com/embed/" + currentVideos[0].ytCode}
                     onClick={window.displayModal} frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    style={{zIndex:"auto"}}
                     allowFullScreen/>
         </div>
         <div className="flex-container--row space-between margin-top-20 yt-movies">
@@ -103,4 +107,15 @@ function VideoIcon({video, onClick}: { video: Video, onClick: (Video) => void })
                src={"https://www.youtube.com/embed/" + video.ytCode}
                onClick={() => onClick(video)} autoPlay poster={"images/yt_banners/" + video.posterImg}/>
     );
+}
+
+function choosePicture(trainerKey?: string) {
+    switch(trainerKey) {
+        case "marcin":
+            return MarcinPic
+        case "wlodek":
+            return WlodekPic
+        default:
+            return MarcinPic
+    }
 }

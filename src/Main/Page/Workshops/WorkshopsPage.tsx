@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Header, {LinkTo, Width} from "../../Section/Header/Header";
 import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
-import TrainerSection from "../../Section/TrainerSection";
+import TrainerSection from "../../Section/Trainer/TrainerSection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";
 import ContactSection from "../../Section/ContactSection";
 import WorkshopChoice from "./WorkshopChoice";
