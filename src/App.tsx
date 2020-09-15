@@ -11,6 +11,7 @@ import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 import UsersAdminPage from "./Admin/UsersAdminPage";
 
 const App = () => {
+    console.log('public url: ', process.env.PUBLIC_URL)
     const routes: { path: string, component }[] = [
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
