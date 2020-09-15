@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.7c6f0b72.chunk.css",
-    "main.js": "/static/js/main.918f2985.chunk.js",
-    "main.js.map": "/static/js/main.918f2985.chunk.js.map",
+    "main.css": "/static/css/main.6b5b089c.chunk.css",
+    "main.js": "/static/js/main.fd064e4f.chunk.js",
+    "main.js.map": "/static/js/main.fd064e4f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.da6f4d59.js",
     "runtime-main.js.map": "/static/js/runtime-main.da6f4d59.js.map",
-    "static/js/2.74870ff1.chunk.js": "/static/js/2.74870ff1.chunk.js",
-    "static/js/2.74870ff1.chunk.js.map": "/static/js/2.74870ff1.chunk.js.map",
+    "static/js/2.d72e9929.chunk.js": "/static/js/2.d72e9929.chunk.js",
+    "static/js/2.d72e9929.chunk.js.map": "/static/js/2.d72e9929.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.7ae009325867eb7e280a579df4a81390.js": "/precache-manifest.7ae009325867eb7e280a579df4a81390.js",
+    "precache-manifest.feb6afcac316bed705a6d47f7c280127.js": "/precache-manifest.feb6afcac316bed705a6d47f7c280127.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.7c6f0b72.chunk.css.map": "/static/css/main.7c6f0b72.chunk.css.map",
-    "static/js/2.74870ff1.chunk.js.LICENSE.txt": "/static/js/2.74870ff1.chunk.js.LICENSE.txt",
+    "static/css/main.6b5b089c.chunk.css.map": "/static/css/main.6b5b089c.chunk.css.map",
+    "static/js/2.d72e9929.chunk.js.LICENSE.txt": "/static/js/2.d72e9929.chunk.js.LICENSE.txt",
     "static/media/10-1920x1080.png": "/static/media/10-1920x1080.098d0b53.png",
     "static/media/2-1920x702.png": "/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x702.png": "/static/media/3-1920x702.48c3fcb5.png",
@@ -21,13 +21,14 @@
     "static/media/8-1920x702.png": "/static/media/8-1920x702.192aa796.png",
     "static/media/9-1920x702.png": "/static/media/9-1920x702.27d293f6.png",
     "static/media/JetBrains_certified_Kotlin_Training.png": "/static/media/JetBrains_certified_Kotlin_Training.5a494df2.png",
+    "static/media/Marcin_Moskala.jpg": "/static/media/Marcin_Moskala.3ccadb21.jpg",
     "static/media/NataliaNazaruk.jpg": "/static/media/NataliaNazaruk.24225822.jpg",
     "static/media/PatrykGrajewski.jpg": "/static/media/PatrykGrajewski.ef56bae7.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.da6f4d59.js",
-    "static/js/2.74870ff1.chunk.js",
-    "static/css/main.7c6f0b72.chunk.css",
-    "static/js/main.918f2985.chunk.js"
+    "static/js/2.d72e9929.chunk.js",
+    "static/css/main.6b5b089c.chunk.css",
+    "static/js/main.fd064e4f.chunk.js"
   ]
 }
