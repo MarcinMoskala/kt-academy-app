@@ -43,8 +43,8 @@ export default function GenerateDtoPage() {
    val id: UserId, 
    val name: String, 
    val surname: String, 
-   age: Int, 
-   tokens: List<Token>
+   val age: Int, 
+   val tokens: List<Token>
 )`
 
     return <>
@@ -55,7 +55,7 @@ export default function GenerateDtoPage() {
                 <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom: "40px"}}>
                     <fieldset>
                         <label htmlFor="code">Paste your code here</label>
-                        <textarea name="code" rows={12} id="code" ref={register} placeholder="class User(..." value={defaultCode}/>
+                        <textarea name="code" style={{height: "200px"}} id="code" ref={register} placeholder="class User(..." value={defaultCode}/>
                     </fieldset>
 
                     <div style={{display: 'flex'}}>
