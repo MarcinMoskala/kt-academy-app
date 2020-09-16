@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://learningdriven.space/precache-manifest.b90a522a3616456c80f3770e3bcd4cd8.js"
+  "https://learningdriven.space/precache-manifest.4dd4a6c50ef6d6897359d2fe20d7f0e4.js"
 );
 
 self.addEventListener('message', (event) => {
