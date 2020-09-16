@@ -14,12 +14,14 @@ type GenerationForm = {
 }
 
 type GenerateResp = {
-    dto: string
+    dto: string,
+    groovyBuilder: string,
+    groovyObjectAssertion: string,
 }
 
 export default function GenerateDtoPage() {
     const t = useTranslations();
-    const [dto, setDto] = useState<string>()
+    const [resp, setResp] = useState<GenerateResp>()
     const {register, setValue, handleSubmit, errors} = useForm<GenerationForm>();
 
     const onSubmit = (data: GenerationForm) => {
@@ -33,9 +35,17 @@ export default function GenerateDtoPage() {
                 }
             }
         }).then(d => {
-            setDto(d.dto)
+            setResp(d)
         })
     }
+
+    const defaultCode = `class User(
+   val id: UserId, 
+   val name: String, 
+   val surname: String, 
+   age: Int, 
+   tokens: List<Token>
+)`
 
     return <>
         <Header/> {/* Should have Home link */}
@@ -45,7 +55,7 @@ export default function GenerateDtoPage() {
                 <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom: "40px"}}>
                     <fieldset>
                         <label htmlFor="code">Paste your code here</label>
-                        <textarea name="code" rows={7} id="code" ref={register} placeholder="class User(..."/>
+                        <textarea name="code" rows={12} id="code" ref={register} placeholder="class User(..." value={defaultCode}/>
                     </fieldset>
 
                     <div style={{display: 'flex'}}>
@@ -64,14 +74,28 @@ export default function GenerateDtoPage() {
                            value="Generuj"/>
                 </form>
 
-                {dto &&
-                <div>
-                    <h3>DTO</h3>
-                    <KotlinPlayground mode="kotlin" className="text-align-left margin-bottom-50">
-                        {dto}
-                    </KotlinPlayground>
-                </div>
-                    }
+                {resp &&
+                <>
+                    <div>
+                        <h3>DTO</h3>
+                        <KotlinPlayground mode="kotlin" className="text-align-left margin-bottom-50">
+                            {resp.dto}
+                        </KotlinPlayground>
+                    </div>
+                    <div>
+                        <h3>Groovy builder</h3>
+                        <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
+                            {resp.groovyBuilder}
+                        </KotlinPlayground>
+                    </div>
+                    <div>
+                        <h3>Groovy Assertion</h3>
+                        <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
+                            {resp.groovyObjectAssertion}
+                        </KotlinPlayground>
+                    </div>
+                </>
+                }
             </div>
         </section>
         <FooterSection/>
