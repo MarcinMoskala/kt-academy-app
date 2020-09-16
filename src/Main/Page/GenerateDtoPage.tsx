@@ -22,7 +22,19 @@ type GenerateResp = {
 export default function GenerateDtoPage() {
     const t = useTranslations();
     const [resp, setResp] = useState<GenerateResp>()
-    const {register, setValue, handleSubmit, errors} = useForm<GenerationForm>();
+
+    const defaultCode = `class User(
+   val id: UserId, 
+   val name: String, 
+   val surname: String, 
+   val age: Int, 
+   val tokens: List<Token>
+)`
+    const {register, setValue, handleSubmit, errors} = useForm<GenerationForm>({
+        defaultValues: {
+            code: defaultCode
+        }
+    });
 
     const onSubmit = (data: GenerationForm) => {
         callApi<GenerateResp>("generate", {
@@ -39,14 +51,6 @@ export default function GenerateDtoPage() {
         })
     }
 
-    const defaultCode = `class User(
-   val id: UserId, 
-   val name: String, 
-   val surname: String, 
-   val age: Int, 
-   val tokens: List<Token>
-)`
-
     return <>
         <Header/> {/* Should have Home link */}
         <section className="form">
@@ -55,7 +59,7 @@ export default function GenerateDtoPage() {
                 <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom: "40px"}}>
                     <fieldset>
                         <label htmlFor="code">{t.generate.pastePrompt}</label>
-                        <textarea name="code" style={{height: "200px"}} id="code" ref={register} placeholder="class User(..." value={defaultCode}/>
+                        <textarea name="code" style={{height: "200px"}} id="code" ref={register} placeholder="class User(..."/>
                     </fieldset>
 
                     <div style={{display: 'flex'}}>
