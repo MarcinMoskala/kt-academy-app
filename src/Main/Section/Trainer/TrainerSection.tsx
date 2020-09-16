@@ -4,6 +4,7 @@ import {API_URL} from "../../../Network";
 import {Trainer, Video} from "../../../Model";
 import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"
+import {callApi} from "../../../Utils";
 
 type Props = {
     trainerKey?: string
@@ -19,8 +20,7 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
         if (trainer) {
             setTrainer(trainer)
         } else {
-            fetch(API_URL + "workshop/trainer/" + trainerKey)
-                .then(res => res.json())
+            callApi<Trainer>("workshop/trainer/" + trainerKey)
                 .then(
                     (result) => setTrainer(result),
                     (error) => console.log(error)

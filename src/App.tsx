@@ -9,12 +9,14 @@ import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
 import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 import UsersAdminPage from "./Admin/UsersAdminPage";
+import GenerateDtoPage from "./Main/Page/GenerateDtoPage";
 
 const App = () => {
     console.log('public url: ', process.env.PUBLIC_URL)
     const routes: { path: string, component }[] = [
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
+        {path: "/generate", component: GenerateDtoPage},
         {path: "/workshop", component: WorkshopsPage},
         {path: "/puzzler", component: PuzzlerExamplesPage},
         {path: "/challenges", component: ChallengesExamplePage},
