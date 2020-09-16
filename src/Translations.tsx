@@ -254,6 +254,13 @@ const EN_desc = {
         "q_name": "What is your name?",
         "q_company": "What is your company name?",
         "submit": "Submit"
+    },
+    "generate": {
+        "title": "Generate DTO",
+        "pastePrompt": "Paste your code here",
+        "dtoName": "DTO name",
+        "dtoSuffix": "(or) suffix",
+        "generateButton": "Generate",
     }
 }
 
@@ -469,5 +476,12 @@ const PL_desc = {
         "datePrompt": "Jaki termin Ci odpowiada?",
         "extraPrompt": "Czy jest jeszcze coś, co chciałbyś dodać?",
         "submit": "Prześlij"
+    },
+    "generate": {
+        "title": "Generuj DTO",
+        "pastePrompt": "Wklej swój kod tutaj",
+        "dtoName": "Nazwa DTO",
+        "dtoSuffix": "(albo) suffix",
+        "generateButton": "Generuj",
     }
 }
