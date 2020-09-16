@@ -6,6 +6,7 @@ import {useTranslations} from "../../Translations";
 import {useForm} from "react-hook-form";
 import {callApi} from "../../Utils";
 import KotlinPlayground from "react-kotlin-playground/es";
+import Swal from "sweetalert2";
 
 type GenerationForm = {
     code: string,
@@ -48,6 +49,13 @@ export default function GenerateDtoPage() {
             }
         }).then(d => {
             setResp(d)
+        }).catch(e => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops... error',
+                text: 'Check your code and try again'
+            })
+            console.log(e)
         })
     }
 
