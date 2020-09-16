@@ -23,6 +23,7 @@ type GenerateResp = {
 export default function GenerateDtoPage() {
     const t = useTranslations();
     const [resp, setResp] = useState<GenerateResp>()
+    const [version, setVersion] = useState(0)
 
     const defaultCode = `class User(
    val id: UserId, 
@@ -48,6 +49,8 @@ export default function GenerateDtoPage() {
                 }
             }
         }).then(d => {
+            console.log(d)
+            setVersion(version + 1)
             setResp(d)
         }).catch(e => {
             Swal.fire({
@@ -67,7 +70,8 @@ export default function GenerateDtoPage() {
                 <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom: "40px"}}>
                     <fieldset>
                         <label htmlFor="code">{t.generate.pastePrompt}</label>
-                        <textarea name="code" style={{height: "200px"}} id="code" ref={register} placeholder="class User(..."/>
+                        <textarea name="code" style={{height: "200px"}} id="code" ref={register}
+                                  placeholder="class User(..."/>
                     </fieldset>
 
                     <div style={{display: 'flex'}}>
@@ -88,19 +92,19 @@ export default function GenerateDtoPage() {
 
                 {resp &&
                 <>
-                    <div>
+                    <div key={"DTO" + version}>
                         <h3>DTO</h3>
                         <KotlinPlayground mode="kotlin" className="text-align-left margin-bottom-50">
                             {resp.dto}
                         </KotlinPlayground>
                     </div>
-                    <div>
+                    <div key={"Builder" + version}>
                         <h3>Groovy builder</h3>
                         <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
                             {resp.groovyBuilder}
                         </KotlinPlayground>
                     </div>
-                    <div>
+                    <div key={"Assertion" + version}>
                         <h3>Groovy Assertion</h3>
                         <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
                             {resp.groovyObjectAssertion}
