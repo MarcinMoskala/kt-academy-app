@@ -14,7 +14,6 @@ import MaterialsPage from "./Logged/Materials";
 import initShowFab from "./initShowFab";
 
 const App = () => {
-    console.log('public url: ', process.env.PUBLIC_URL)
     const routes: { path: string, component }[] = [
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},

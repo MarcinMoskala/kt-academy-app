@@ -14,9 +14,9 @@ export default function initShowFab() {
     const extraMenuLinksFunction: LinksBuilder = (user) => {
         const items: FabMenuItem[] = []
         if(user.tags.includes("ADMIN")) {
-            items.push({text: "Users", link: "/admin/users", icon: "fad fa-users"})
+            items.push({text: "Users", link: "/admin/users", icon: "fas fa-users"})
         }
-        if(user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE")) {
+        if(user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE") || user.tags.includes("ADMIN")) {
             items.push({text: "Materials", link: "/materials", icon: "far fa-file"})
         }
         return items

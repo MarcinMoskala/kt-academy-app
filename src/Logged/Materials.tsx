@@ -37,7 +37,7 @@ export default function Materials() {
                     <LinkParagraph text="Kotlin Talks" href="https://kotlinlang.org/community/talks.html?time=all"/>
                     <LinkParagraph text="JetBrains blog" href="https://blog.jetbrains.com/kotlin/"/>
                     <LinkParagraph text="Kotlin Weekly" href="http://www.kotlinweekly.net/"/>
-                    <LinkParagraph text="Our blog" href="https://blog.kotlin-academy.com/"/>
+                    <LinkParagraph text="Kt. Academy blog" href="https://blog.kotlin-academy.com/"/>
                 </ExpandableTitle>
             </div>
 
