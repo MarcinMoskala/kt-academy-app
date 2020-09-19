@@ -30,27 +30,27 @@ export default function Materials() {
         <div className="content-container" style={{paddingTop: "80px"}}>
             <h1>Materials</h1>
             <div>
-                <LinkParagraph text="Cheat Sheet" href="Pate here cheat sheet link"/>
-                <LinkParagraph text="Coroutines Cheat Sheet" href="Pate here cheat sheet link"/>
+                <LinkParagraph text="Cheat Sheet" to="/Kotlin_Cheat_Sheet_Full.pdf"/>
+                <LinkParagraph text="Coroutines Cheat Sheet" to="/Kotlin_Coroutines_Cheat_Sheet.pdf"/>
             </div>
 
             <div>
                 <ExpandableTitle title="To stay up to date:">
-                    <LinkParagraph text="Kotlin Twitter" href="https://twitter.com/kotlin"/>
-                    <LinkParagraph text="Kotlin Reddit" href="https://www.reddit.com/r/Kotlin/"/>
+                    <LinkParagraph text="Kotlin Twitter" to="https://twitter.com/kotlin"/>
+                    <LinkParagraph text="Kotlin Reddit" to="https://www.reddit.com/r/Kotlin/"/>
                     <LinkParagraph text="Kotlin Slack"
-                                   href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.250217858.500119251.1600534868-1993516589.1588749989"/>
-                    <LinkParagraph text="Kotlin Talks" href="https://kotlinlang.org/community/talks.html?time=all"/>
-                    <LinkParagraph text="JetBrains blog" href="https://blog.jetbrains.com/kotlin/"/>
-                    <LinkParagraph text="Kotlin Weekly" href="http://www.kotlinweekly.net/"/>
-                    <LinkParagraph text="Kt. Academy blog" href="https://blog.kotlin-academy.com/"/>
+                                   to="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.250217858.500119251.1600534868-1993516589.1588749989"/>
+                    <LinkParagraph text="Kotlin Talks" to="https://kotlinlang.org/community/talks.html?time=all"/>
+                    <LinkParagraph text="JetBrains blog" to="https://blog.jetbrains.com/kotlin/"/>
+                    <LinkParagraph text="Kotlin Weekly" to="http://www.kotlinweekly.net/"/>
+                    <LinkParagraph text="Kt. Academy blog" to="https://blog.kotlin-academy.com/"/>
                 </ExpandableTitle>
             </div>
 
             <div>
                 <h2>Kotlin Development</h2>
                 <LinkParagraph text="Workshop slides"
-                               href="https://docs.google.com/presentation/d/1w_qcoA4uKBv35ehPaQsDdCwzxC3qlnHuucLPBB7vuCk/edit?usp=sharing"/>
+                               to="https://docs.google.com/presentation/d/1w_qcoA4uKBv35ehPaQsDdCwzxC3qlnHuucLPBB7vuCk/edit?usp=sharing"/>
                 <ExpandableTitle title="Recordings:">
                     <Video title="Functions" videoKey="fVxIaolQIjI"/>
                     <Video title="Control Structures" videoKey="hhFKZVLbPDk"/>
@@ -71,24 +71,24 @@ export default function Materials() {
                 <h2>Kotlin Coroutines</h2>
 
                 <LinkParagraph text="Workshop slides"
-                               href="https://docs.google.com/presentation/d/13Ue3hTEUdRAwFOV5ShumwZBStbHz39YW3SjVMizNPQg/edit?usp=sharing"/>
+                               to="https://docs.google.com/presentation/d/13Ue3hTEUdRAwFOV5ShumwZBStbHz39YW3SjVMizNPQg/edit?usp=sharing"/>
 
                 <p>To learn coroutines by yourself, here are my recommendations:</p>
 
                 <ExpandableTitle title="To learn by practice:">
                     <LinkParagraph text="JetBrains hand-on's"
-                                   href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction"/>
+                                   to="https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction"/>
                     <LinkParagraph text="Google Labs: Use Kotlin Coroutines in your Android App"
-                                   href="https://codelabs.developers.google.com/codelabs/kotlin-coroutines/index.html"/>
+                                   to="https://codelabs.developers.google.com/codelabs/kotlin-coroutines/index.html"/>
                     <LinkParagraph text="Google Labs: Learn advanced coroutines with Kotlin Flow and LiveData"
-                                   href="https://codelabs.developers.google.com/codelabs/advanced-kotlin-coroutines/index.html"/>
+                                   to="https://codelabs.developers.google.com/codelabs/advanced-kotlin-coroutines/index.html"/>
                 </ExpandableTitle>
 
                 <ExpandableTitle title="To learn theory:">
                     <LinkParagraph text="All presentations by Roman Elizarov"
-                                   href="https://www.youtube.com/results?search_query=kotlin+coroutines+roman+elizarov+"/>
+                                   to="https://www.youtube.com/results?search_query=kotlin+coroutines+roman+elizarov+"/>
                     <LinkParagraph text="Android Docs about coroutines performance"
-                                   href="https://developer.android.com/kotlin/coroutines-adv"/>
+                                   to="https://developer.android.com/kotlin/coroutines-adv"/>
 
                     <p> Google IO about coroutines in Android:</p>
                     <Video videoKey="BOHK_w09pVA"/>
@@ -125,4 +125,4 @@ const ExpandableTitle: React.FunctionComponent<{ title?: string }> = ({children,
     </>
 }
 
-const LinkParagraph = ({href, text}: { href: string, text: string }) => <p><Link href={href}>{text}</Link></p>;
+const LinkParagraph = ({to, text}: { to: string, text: string }) => <p><Link to={to}>{text}</Link></p>;
