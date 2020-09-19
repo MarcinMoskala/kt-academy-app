@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://learningdriven.space/static/css/main.6b5b089c.chunk.css",
-    "main.js": "https://learningdriven.space/static/js/main.49c4ae00.chunk.js",
-    "main.js.map": "https://learningdriven.space/static/js/main.49c4ae00.chunk.js.map",
+    "main.js": "https://learningdriven.space/static/js/main.502e6003.chunk.js",
+    "main.js.map": "https://learningdriven.space/static/js/main.502e6003.chunk.js.map",
     "runtime-main.js": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js",
     "runtime-main.js.map": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js.map",
     "static/js/2.fdd477f0.chunk.js": "https://learningdriven.space/static/js/2.fdd477f0.chunk.js",
     "static/js/2.fdd477f0.chunk.js.map": "https://learningdriven.space/static/js/2.fdd477f0.chunk.js.map",
     "index.html": "https://learningdriven.space/index.html",
-    "precache-manifest.c491d194d89f755781b775804396c5d8.js": "https://learningdriven.space/precache-manifest.c491d194d89f755781b775804396c5d8.js",
+    "precache-manifest.ddc289d841d3095849ff13a57596ca9d.js": "https://learningdriven.space/precache-manifest.ddc289d841d3095849ff13a57596ca9d.js",
     "service-worker.js": "https://learningdriven.space/service-worker.js",
     "static/css/main.6b5b089c.chunk.css.map": "https://learningdriven.space/static/css/main.6b5b089c.chunk.css.map",
     "static/js/2.fdd477f0.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.fdd477f0.chunk.js.LICENSE.txt",
@@ -29,6 +29,6 @@
     "static/js/runtime-main.dd8ca0d1.js",
     "static/js/2.fdd477f0.chunk.js",
     "static/css/main.6b5b089c.chunk.css",
-    "static/js/main.49c4ae00.chunk.js"
+    "static/js/main.502e6003.chunk.js"
   ]
 }
