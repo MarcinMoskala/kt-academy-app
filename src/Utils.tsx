@@ -64,6 +64,7 @@ export function useScrollToHash() {
 
 declare global {
     var pageKey: string;
+
     function pingPageLoad(pageKey: string);
 }
 

@@ -4,6 +4,7 @@ import FooterSection from "../Main/Section/FooterSection";
 import Header from "../Main/Section/Header/Header";
 import {useUser} from "../Hooks";
 import {registerPage} from "../Utils";
+import Link from "../Link";
 
 export default function Materials() {
     registerPage(`materials`)
@@ -11,16 +12,21 @@ export default function Materials() {
     const user = useUser()
 
     if (!user) {
-        return <div>Loading data...</div>
+        return <div style={{textAlign: "center"}}>
+            Log in to see the materials (using floating action menu on the right-bottom corner)
+        </div>
     }
 
     if (!(user.tags.includes("ADMIN") || user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE"))) {
-        return <div>Sorry, you are not allowed to access this section. If you attended any workshop by Kt. Academy or by
-            Marcin Moskała, contact us using "Send private feedback" on the floating action button menu.</div>
+        return <div style={{textAlign: "center"}}>Sorry, you are not allowed to access this section.</div>
+        return <div style={{textAlign: "center"}}>
+            If you attended any workshop by Kt. Academy or by Marcin Moskała, contact us using "Send private feedback"
+            on the floating action menu.
+        </div>
     }
 
     return <>
-        <Header/>
+        <Header allowedLangs={["EN"]} />
         <div className="content-container" style={{paddingTop: "80px"}}>
             <h1>Materials</h1>
             <div>
@@ -119,4 +125,4 @@ const ExpandableTitle: React.FunctionComponent<{ title?: string }> = ({children,
     </>
 }
 
-const LinkParagraph = ({href, text}: { href: string, text: string }) => <p><a href={href}>{text}</a></p>;
+const LinkParagraph = ({href, text}: { href: string, text: string }) => <p><Link href={href}>{text}</Link></p>;

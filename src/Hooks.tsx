@@ -1,12 +1,14 @@
 import React, {useEffect} from "react";
 import {User, Workshop} from "./Model";
 import {callApi} from "./Utils";
+import {useLang} from "./Translations";
 
 export function useWorkshop(workshopKey: string): Workshop | undefined {
     const [workshop, setWorkshop] = React.useState<Workshop>();
+    const lang = useLang()
 
     useEffect(() => {
-        callApi<Workshop>("workshop/" + workshopKey)
+        callApi<Workshop>("workshop/" + workshopKey, {lang: lang.key})
             .then(
                 (result) => setWorkshop(result),
                 (error) => console.log(error)

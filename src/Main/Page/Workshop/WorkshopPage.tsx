@@ -35,7 +35,7 @@ export default function WorkshopPage() {
         {text: t.menu.workshopMaterial, to: "#workshop-TOC"},
         {text: t.menu.trainer, to: "#trainer"},
         {text: t.menu.materials, to: "#materials"},
-        {text: t.menu.register, to: "#register"},
+        {text: t.menu.register, to: "#contact"},
     ]
 
     let bannerOptions = {

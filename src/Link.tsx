@@ -2,7 +2,7 @@ import React from 'react';
 import {Link as ReactLink} from 'react-router-dom';
 import {useLang} from "./Translations";
 
-export default function WorkshopOffer(props) {
+export default function Link(props) {
     const {to, children, keepLang = true, ...rest} = props;
     const {pathPrefix} = useLang()
     const newLink = keepLang ? pathPrefix + to : to
