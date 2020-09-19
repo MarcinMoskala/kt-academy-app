@@ -11,6 +11,7 @@ import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 import UsersAdminPage from "./Admin/UsersAdminPage";
 import GenerateDtoPage from "./Main/Page/GenerateDtoPage";
 import MaterialsPage from "./Logged/Materials";
+import initShowFab from "./initShowFab";
 
 const App = () => {
     console.log('public url: ', process.env.PUBLIC_URL)
@@ -26,6 +27,7 @@ const App = () => {
         {path: "/admin/users", component: UsersAdminPage},
         {path: "", component: HomePage},
     ]
+    initShowFab()
     return <div className="container py-5">
         <div className="row justify-content-center">
             <Switch>

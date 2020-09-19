@@ -12,4 +12,4 @@ npm run deploy
 
 Website can be found under:
 
-http://marcinmoskala.com/kt-academy-app/
+https://learningdriven.space/
