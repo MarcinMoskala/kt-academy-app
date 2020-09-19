@@ -61,3 +61,13 @@ export function useScrollToHash() {
         }
     }, [hash]);
 }
+
+declare global {
+    var pageKey: string;
+    function pingPageLoad(pageKey: string);
+}
+
+export function registerPage(localPageKey: string) {
+    var pageKey = 'kta-' + localPageKey
+    pingPageLoad(pageKey)
+}

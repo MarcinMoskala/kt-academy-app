@@ -9,7 +9,7 @@ import {Workshop} from "../../../Model";
 import MaterialsSection from "../../Section/MaterialsSection";
 import FooterSection from "../../Section/FooterSection";
 import "../../../ArrayUtils";
-import {callApi, useQuery} from "../../../Utils";
+import {callApi, registerPage, useQuery} from "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import HeaderBg from "../../Section/Header/background-img/4-1920x1080.png"
 
@@ -18,6 +18,7 @@ export default function WorkshopsPage() {
     const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
     const query = useQuery()
     const tag = query.get("tag")
+    registerPage(`workshops-${tag}`)
     const trainer = query.get("trainer")
     const lang = useLang()
 

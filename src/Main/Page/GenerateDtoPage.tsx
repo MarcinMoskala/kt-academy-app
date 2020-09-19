@@ -4,7 +4,7 @@ import FooterSection from "../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
 import {useForm} from "react-hook-form";
-import {callApi} from "../../Utils";
+import {callApi, registerPage} from "../../Utils";
 import KotlinPlayground from "react-kotlin-playground/es";
 import Swal from "sweetalert2";
 
@@ -21,6 +21,7 @@ type GenerateResp = {
 }
 
 export default function GenerateDtoPage() {
+    registerPage(`generate-dto`)
     const t = useTranslations();
     const [resp, setResp] = useState<GenerateResp>()
     const [version, setVersion] = useState(0)

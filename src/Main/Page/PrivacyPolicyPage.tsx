@@ -2,8 +2,10 @@ import React from 'react';
 import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import "../../Utils";
+import {registerPage} from "../../Utils";
 
 export default function PrivacyPolicyPage() {
+    registerPage("privacy-policy")
     return <>
         <Header/>
         <section className="privacy-policy">

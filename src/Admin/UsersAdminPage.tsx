@@ -22,8 +22,10 @@ import FooterSection from "../Main/Section/FooterSection";
 import Header from "../Main/Section/Header/Header";
 import {useUsersList} from "../Hooks";
 import {User} from "../Model";
+import {registerPage} from "../Utils";
 
 export default function UsersAdminPage() {
+    registerPage("users-admin")
     const t = useTranslations();
     const usersList = useUsersList()
     console.log(usersList)

@@ -29,3 +29,17 @@ export function useUsersList(): User[] | undefined {
 
     return usersList
 }
+
+export function useUser(): User | undefined | null {
+    const [user, setUser] = React.useState<User | null>();
+
+    useEffect(() => {
+        callApi<User | null>("user/me")
+            .then(
+                (result) => setUser(result),
+                (error) => console.log(error)
+            )
+    }, [])
+
+    return user
+}

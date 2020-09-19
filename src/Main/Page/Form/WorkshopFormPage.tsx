@@ -8,6 +8,7 @@ import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
+import {registerPage} from "../../../Utils";
 
 type FormData = {
     email: string,
@@ -24,6 +25,7 @@ export default function WorkshopFormPage() {
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
     const {workshopKey} = useParams<{ workshopKey: string }>();
+    registerPage(`workshop-form-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
     const {register, setValue, handleSubmit, errors} = useForm<FormData>();
 

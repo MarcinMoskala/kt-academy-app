@@ -10,8 +10,10 @@ import ContactSection from "../../Section/ContactSection";
 import FooterSection from "../../Section/FooterSection";
 import {useTranslations} from "../../../Translations";
 import HeaderBg from "../../Section/Header/background-img/10-1920x1080.png"
+import {registerPage} from "../../../Utils";
 
 export default function HomePage() {
+    registerPage("index")
     const t = useTranslations()
     const menuLinks: LinkTo[] = [
         {to: "#workshops-offer", text: t.menu.workshops},

@@ -17,11 +17,13 @@ import WorkshopDescriptionSection from "./WorkshopDescriptionSection";
 import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../../Hooks";
 import Link from "../../../Link"
+import {registerPage} from "../../../Utils";
 
 export default function WorkshopPage() {
     const t = useTranslations()
 
     const {workshopKey} = useParams<{ workshopKey: string }>();
+    registerPage(`workshop-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
 
     if (!workshop) return <></>
