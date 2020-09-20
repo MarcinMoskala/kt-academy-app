@@ -9,26 +9,20 @@ import {Workshop} from "../../../Model";
 import MaterialsSection from "../../Section/MaterialsSection";
 import FooterSection from "../../Section/FooterSection";
 import "../../../ArrayUtils";
-import {callApi, registerPage, useQuery} from "../../../Utils";
+import {registerPage, useQuery} from "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import HeaderBg from "../../Section/Header/background-img/4-1920x1080.png"
+import {requestApi} from "../../../Network";
+import {useWorkshops} from "../../../Hooks";
+import ReactLoading from 'react-loading';
 
 export default function WorkshopsPage() {
     const t = useTranslations();
-    const [workshops, setWorkshops] = React.useState<Workshop[]>([]);
     const query = useQuery()
     const tag = query.get("tag")
-    registerPage(`workshops-${tag}`)
     const trainer = query.get("trainer")
-    const lang = useLang()
-
-    useEffect(() => {
-        callApi<Workshop[]>("workshop/", {lang: lang.key, urlParams: {trainer: trainer, tag: tag}})
-            .then(
-                (result) => setWorkshops(result),
-                (error) => console.log(error)
-            )
-    }, [lang.key, tag, trainer])
+    registerPage(`workshops-${tag}-${trainer}`)
+    const workshops = useWorkshops(tag, trainer)
 
     const links: LinkTo[] = [
         {text: t.menu.home, to: "/", divider: true},
@@ -48,9 +42,12 @@ export default function WorkshopsPage() {
     return (
         <>
             <Header links={links} banner={bannerOptions}/>
-            <WorkshopChoice workshops={workshops}/>
+            {workshops ?
+                <WorkshopChoice workshops={workshops}/>
+                :<ReactLoading/>
+            }
             <JetbrainsCertificationSection/>
-            <TrainerSection trainerKey={workshops.map(w => w.trainer.key).mostCommon()}/>
+            <TrainerSection trainerKey={workshops?.map(w => w.trainer.key)?.mostCommon()}/>
             <MaterialsSection/>
             <TestimonialsSection/>
             <ContactSection/>

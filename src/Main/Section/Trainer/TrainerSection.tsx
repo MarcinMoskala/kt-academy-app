@@ -1,10 +1,9 @@
 import React, {useEffect} from "react";
 import {useTranslations} from "../../../Translations";
-import {API_URL} from "../../../Network";
+import {API_URL, requestApi} from "../../../Network";
 import {Trainer, Video} from "../../../Model";
 import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"
-import {callApi} from "../../../Utils";
 
 type Props = {
     trainerKey?: string
@@ -20,7 +19,7 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
         if (trainer) {
             setTrainer(trainer)
         } else {
-            callApi<Trainer>("workshop/trainer/" + trainerKey)
+            requestApi<Trainer>("workshop/trainer/" + trainerKey)
                 .then(
                     (result) => setTrainer(result),
                     (error) => console.log(error)

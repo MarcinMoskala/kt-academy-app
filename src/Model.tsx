@@ -55,5 +55,9 @@ export type Challenge = {
     key: string,
     title: string,
     code: string,
-    description: string
+    originalCode: string,
+    description: string,
+    status: ChallengeStatus
 }
+
+export type ChallengeStatus = "INITIAL" | "STARTED" | "SOLVED"

@@ -4,9 +4,10 @@ import FooterSection from "../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
 import {useForm} from "react-hook-form";
-import {callApi, registerPage} from "../../Utils";
+import {registerPage} from "../../Utils";
 import KotlinPlayground from "react-kotlin-playground/es";
 import Swal from "sweetalert2";
+import {requestApi} from "../../Network";
 
 type GenerationForm = {
     code: string,
@@ -41,7 +42,7 @@ export default function GenerateDtoPage() {
     });
 
     const onSubmit = (data: GenerationForm) => {
-        callApi<GenerateResp>("generate", {
+        requestApi<GenerateResp>("generate", {
             method: "POST",
             body: {
                 code: data.code,

@@ -1,34 +1,57 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useTranslations} from "../Translations";
 import FooterSection from "../Main/Section/FooterSection";
 import Header from "../Main/Section/Header/Header";
 import {useChallenge} from "../Hooks";
 import {registerPage} from "../Utils";
-import Link from "../Link";
 import {useParams} from "react-router-dom";
-import KotlinPlayground from "react-kotlin-playground/es";
+import playground from "kotlin-playground";
+import {saveUserChallenge} from "../Network";
+import {Challenge, ChallengeStatus} from "../Model";
+
+type CodeEditorInstance = {
+    state: string,
+    getCode: () => string
+}
 
 export default function ChallengePage() {
     const {challengeKey} = useParams<{ challengeKey: string }>();
     registerPage(`challenge-${challengeKey}`);
     const t = useTranslations();
 
-    const challenge = useChallenge(challengeKey)
-    // const user = useUser();
-    //
-    // if (!user) {
-    //     return <div style={{textAlign: "center"}}>
-    //         Log in to see the materials (using floating action menu on the right-bottom corner)
-    //     </div>
-    // }
-    //
-    // if (!(user.tags.includes("ADMIN") || user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE"))) {
-    //     return <div style={{textAlign: "center"}}>Sorry, you are not allowed to access this section.</div>
-    //     return <div style={{textAlign: "center"}}>
-    //         If you attended any workshop by Kt. Academy or by Marcin Moskała, contact us using "Send private feedback"
-    //         on the floating action menu.
-    //     </div>
-    // }
+    const challenge: Challenge | undefined | null = useChallenge(challengeKey)
+    const [code, setCode] = React.useState<string>();
+    const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus>();
+    let codeEditorInstance: CodeEditorInstance
+
+    useEffect(() => {
+        playground('.challenge-code', {
+            version: '1.4.00',
+            onChange: (code: string) => {
+                if (codeEditorInstance !== undefined) {
+                    console.log(codeEditorInstance.getCode())
+                    console.log(code)
+                    setCode(codeEditorInstance.getCode())
+                }
+            },
+            onTestPassed: () => {
+                saveUserChallenge(challengeKey, {status: "SOLVED"})
+                    .then((_) => setChallengeStatus("SOLVED"))
+            },
+            getInstance: (instance: CodeEditorInstance) => {
+                if (instance) codeEditorInstance = instance
+            }
+        })
+    })
+
+    const onSave = () => {
+        saveUserChallenge(challengeKey, {code: code})
+    }
+
+    const onRestore = () => {
+        saveUserChallenge(challengeKey, {code: challenge?.originalCode})
+            .then((_) => window.location.reload())
+    }
 
     if (challenge === null) {
         return <div style={{textAlign: "center"}}>
@@ -47,13 +70,27 @@ export default function ChallengePage() {
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
             <h1>{challenge.title}</h1>
 
-            <KotlinPlayground mode="kotlin" className="margin-bottom-50">
+            <div className="challenge-code" data-target-platform="junit" folded-button="true">
                 {challenge.code}
-            </KotlinPlayground>
+            </div>
 
             <div>
-                <a>Save</a>
+                <a onClick={(e) => onSave()}>Save</a>
             </div>
+
+            <br/>
+
+            <div>
+                <a onClick={(e) => onRestore()}>Restore</a>
+            </div>
+
+            <br/>
+
+            {challengeStatus === "SOLVED" &&
+            <div>
+                Solved
+            </div>
+            }
 
             <div>
                 {challenge.description}
@@ -62,22 +99,3 @@ export default function ChallengePage() {
         <FooterSection/>
     </>;
 };
-
-const Video = ({title, videoKey}: { title?: string, videoKey: string }) => <>
-    <iframe width="560" height="315" src={"https://www.youtube-nocookie.com/embed/" + videoKey}
-            frameBorder="0" style={{width: 560}}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen/>
-    {title && <p>{title}</p>}
-</>
-
-const ExpandableTitle: React.FunctionComponent<{ title?: string }> = ({children, title}) => {
-    const [expanded, setExpanded] = React.useState<boolean>(false);
-
-    return <>
-        <h4 onClick={() => setExpanded(!expanded)}>{title + " " + (expanded ? "(hide)" : "(show)")}</h4>
-        {expanded && children}
-    </>
-}
-
-const LinkParagraph = ({to, text}: { to: string, text: string }) => <p><Link to={to}>{text}</Link></p>;
