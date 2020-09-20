@@ -10,11 +10,13 @@ import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 import UsersAdminPage from "./Admin/UsersAdminPage";
 import GenerateDtoPage from "./Main/Page/GenerateDtoPage";
-import MaterialsPage from "./Logged/Materials";
+import MaterialsPage from "./Logged/MaterialsPage";
 import initShowFab from "./initShowFab";
+import ChallengePage from "./Logged/ChallengePage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
+        {path: "/challenge/:challengeKey", component: ChallengePage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
         {path: "/generate", component: GenerateDtoPage},

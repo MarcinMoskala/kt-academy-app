@@ -35,7 +35,8 @@ export default function GenerateDtoPage() {
 )`
     const {register, setValue, handleSubmit, errors} = useForm<GenerationForm>({
         defaultValues: {
-            code: defaultCode
+            code: defaultCode,
+            suffix: "Json"
         }
     });
 
@@ -82,7 +83,7 @@ export default function GenerateDtoPage() {
                         </fieldset>
                         <fieldset style={{flex: 1}}>
                             <label htmlFor="suffix">{t.generate.dtoSuffix}</label>
-                            <input type="text" name="suffix" id="suffix" ref={register} placeholder="" value="Json"/>
+                            <input type="text" name="suffix" id="suffix" ref={register} placeholder=""/>
                         </fieldset>
                     </div>
 

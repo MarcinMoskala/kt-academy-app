@@ -50,3 +50,10 @@ export type User = {
     newsletters: string[],
     tags: string[]
 }
+
+export type Challenge = {
+    key: string,
+    title: string,
+    code: string,
+    description: string
+}

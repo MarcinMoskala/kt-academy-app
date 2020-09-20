@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {User, Workshop} from "./Model";
+import {Challenge, User, Workshop} from "./Model";
 import {callApi} from "./Utils";
 import {useLang} from "./Translations";
 
@@ -44,4 +44,18 @@ export function useUser(): User | undefined | null {
     }, [])
 
     return user
+}
+
+export function useChallenge(key: string): Challenge | undefined | null {
+    const [challenge, setChallenge] = React.useState<Challenge | null>();
+
+    useEffect(() => {
+        callApi<Challenge | null>(`challenge/${key}`)
+            .then(
+                (result) => setChallenge(result),
+                (error) => console.log(error)
+            )
+    }, [])
+
+    return challenge
 }

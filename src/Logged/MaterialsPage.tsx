@@ -6,7 +6,7 @@ import {useUser} from "../Hooks";
 import {registerPage} from "../Utils";
 import Link from "../Link";
 
-export default function Materials() {
+export default function MaterialsPage() {
     registerPage(`materials`)
     const t = useTranslations();
     const user = useUser()
@@ -29,6 +29,7 @@ export default function Materials() {
         <Header allowedLangs={["EN"]} />
         <div className="content-container" style={{paddingTop: "80px"}}>
             <h1>Materials</h1>
+            <p>Here are materials exclusive for Kt. Academy workshop attendees</p>
             <div>
                 <LinkParagraph text="Cheat Sheet" to="/Kotlin_Cheat_Sheet_Full.pdf"/>
                 <LinkParagraph text="Coroutines Cheat Sheet" to="/Kotlin_Coroutines_Cheat_Sheet.pdf"/>
