@@ -6,9 +6,9 @@ import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
 import {saveUserChallenge} from "../Network";
 import {Challenge, ChallengeStatus} from "../Model";
-import Loading from "react-loading";
 import Header from "../Main/Section/Header/Header";
 import FooterSection from "../Main/Section/FooterSection";
+import {LoadingPage} from "../Loading";
 
 type CodeEditorInstance = {
     state: string,
@@ -59,9 +59,7 @@ export default function ChallengePage() {
     }
 
     if (challenge === undefined) {
-        return <div style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
-            <Loading type="spin" color="blue" height={80} width={80}/>
-        </div>
+        return <LoadingPage/>
     }
 
     return <>

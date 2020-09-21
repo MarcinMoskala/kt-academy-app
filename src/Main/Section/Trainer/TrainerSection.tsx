@@ -31,7 +31,7 @@ export default function TrainerSection({trainerKey, trainer}: Props) {
         return <></>
     }
 
-    const picture = choosePicture(trainer?.key)
+    const picture = choosePicture(trainerLoaded?.key)
     const showVideo = trainerLoaded && trainerLoaded.promotionVideos && trainerLoaded.promotionVideos.length !== 0
     return <section className="trainer gradient--full-section" id="trainer">
         <div className="content-container flex-container--row">

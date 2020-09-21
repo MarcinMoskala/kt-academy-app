@@ -5,28 +5,36 @@ import Header from "../Main/Section/Header/Header";
 import {useUser} from "../Hooks";
 import {registerPage} from "../Utils";
 import Link from "../Link";
+import {LoadingPage} from "../Loading";
 
 export default function MaterialsPage() {
     registerPage(`materials`)
     const t = useTranslations();
     const user = useUser()
 
-    if (!user) {
+    if (user === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (user === null) {
         return <div style={{textAlign: "center"}}>
             Log in to see the materials (using floating action menu on the right-bottom corner)
         </div>
     }
 
     if (!(user.tags.includes("ADMIN") || user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE"))) {
-        return <div style={{textAlign: "center"}}>Sorry, you are not allowed to access this section.</div>
-        return <div style={{textAlign: "center"}}>
-            If you attended any workshop by Kt. Academy or by Marcin Moskała, contact us using "Send private feedback"
-            on the floating action menu.
-        </div>
+        return <>
+            <div style={{textAlign: "center"}}>Sorry, you are not allowed to access this section.</div>
+            <div style={{textAlign: "center"}}>
+                If you attended any workshop by Kt. Academy or by Marcin Moskała, contact us using "Send private
+                feedback"
+                on the floating action menu.
+            </div>
+        </>
     }
 
     return <>
-        <Header allowedLangs={["EN"]} />
+        <Header allowedLangs={["EN"]}/>
         <div className="content-container" style={{paddingTop: "80px"}}>
             <h1>Materials</h1>
             <p>Here are materials exclusive for Kt. Academy workshop attendees</p>

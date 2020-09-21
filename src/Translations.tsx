@@ -328,7 +328,7 @@ const PL_desc = {
         "saramak": "\"Na warsztacie nie tylko usystematyzowałem sobie wiedzę ze składni języka kotlin, ale dzięki Marcinowi przestawiłem swoje myślenie o możliwości rozwiązania problemu w funkcjonalny sposób - dostałem do ręki nowe narzędzie, które moge wykorzystać w codziennej pracy. Wydaje mi się, że całe szkolenie jest nastawione na natychmiastowy zwrot zdobytej wiedzu w codziennej pracy. Duży +\"",
         "nazaruk": "\"Kotlin dla programistów Android to świetne warsztaty, prowadzone przez niezwykle kompetentnego trenera z Kt. Academy, Marcina Moskałę. To był intensywny, 3-dniowy kurs Kotlina, zakończony niełatwym egzaminem. Jestem pewna, że z wiedzą zdobytą na kursie, oraz certyfikatem wydanym po zdanym egzaminie mogę z optymizmem spojrzeć na swoją przyszłość jako Android Developer.\"",
         "grajewski": "\"Bardzo dobre szkolenie. W sam raz dla programistów, którzy w łatwy sposób chcą przenieść się z Javy na Kotlina. Szkolenie zawiera także ćwiczenia, które umożliwiają sprawdzenie nowej wiedzy w praktyce.\"",
-        "button": "Zarezerwuj praktyczne szkolenie z języka Kotlin"
+        "button": "Zarezerwuj praktyczne szkolenie"
     },
     "contact": {
         "title": "Porozmawiajmy!",

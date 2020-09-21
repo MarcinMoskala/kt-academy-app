@@ -17,7 +17,7 @@ export default function WorkshopChoice({workshops}: Props) {
             <p> {t.privateWorkshop.offerDesc}</p>
 
             {workshopsChucked.map((wC, i) =>
-                <div key={i} className="flex-container--row <#if workshops?is_first><#else>margin-top-30</#if>">
+                <div key={i} className={"flex-container--row" + (i === 0 ? " margin-top-30" : "")}>
                     {wC.map((w, i) => <div key={i}
                                            className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
                         <i className={w.icon}/>

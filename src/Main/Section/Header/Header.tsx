@@ -71,7 +71,8 @@ export default function Header({links, banner = undefined, allowedLangs}: Props)
                     style={banner ? {
                         backgroundImage: "url('" + banner.img + "')",
                         height: banner.width === Width.Half ? "65vh" : "100vh",
-                        marginTop: banner.width === Width.Half ? "70px" : "35px"
+                        marginTop: banner.width === Width.Half ? "70px" : "35px",
+                        zIndex: 1000
                     } : {}}>
                 <div className="navigation-bar">
                     <div className="logo-container">
