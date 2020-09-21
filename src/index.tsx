@@ -4,15 +4,28 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
+            <ScrollToTop/>
             <App/>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );
+
+export default function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
