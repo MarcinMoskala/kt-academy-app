@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react';
 import {useTranslations} from "../Translations";
-import FooterSection from "../Main/Section/FooterSection";
-import Header from "../Main/Section/Header/Header";
 import {useChallenge} from "../Hooks";
 import {registerPage} from "../Utils";
 import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
 import {saveUserChallenge} from "../Network";
 import {Challenge, ChallengeStatus} from "../Model";
+import Loading from "react-loading";
+import Header from "../Main/Section/Header/Header";
+import FooterSection from "../Main/Section/FooterSection";
 
 type CodeEditorInstance = {
     state: string,
@@ -22,15 +23,13 @@ export default function ChallengePage() {
     const challenge: Challenge | undefined | null = useChallenge(challengeKey)
     const [code, setCode] = React.useState<string>();
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus>();
-    let codeEditorInstance: CodeEditorInstance
 
     useEffect(() => {
+        let codeEditorInstance: CodeEditorInstance
         playground('.challenge-code', {
             version: '1.4.00',
             onChange: (code: string) => {
                 if (codeEditorInstance !== undefined) {
-                    console.log(codeEditorInstance.getCode())
-                    console.log(code)
                     setCode(codeEditorInstance.getCode())
                 }
             },
@@ -60,8 +59,8 @@ export default function ChallengePage() {
     }
 
     if (challenge === undefined) {
-        return <div style={{textAlign: "center"}}>
-            Loading
+        return <div style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
+            <Loading type="spin" color="blue" height={80} width={80}/>
         </div>
     }
 
