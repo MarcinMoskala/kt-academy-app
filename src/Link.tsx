@@ -5,7 +5,7 @@ import {useLang} from "./Translations";
 export default function Link(props) {
     const {to, children, keepLang = true, ...rest} = props;
     const {pathPrefix} = useLang()
-    const newLink = keepLang ? pathPrefix + to : to
+    const newLink = keepLang && !isOnlyHash(to) ? pathPrefix + to : to
     if (isInternal(to) && !isResource(to)) {
         return (<ReactLink to={newLink} {...rest}>{children}</ReactLink>);
     } else {
@@ -21,6 +21,10 @@ function isInternal(to) {
 
 function isResource(to) {
     return to.endsWith(".pdf")
+}
+
+function isOnlyHash(to) {
+    return to.startsWith("#")
 }
 
 function parseTo(to) {

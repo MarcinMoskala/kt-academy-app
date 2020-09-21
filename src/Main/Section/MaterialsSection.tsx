@@ -14,13 +14,13 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
         <div className="content-container">
             <div className="flex-container--row">
                 <div className="flex-item padding-right-35">
-                    <h2> {t.materials.title} </h2>
+                    <h2> {t.materialsSection.title} </h2>
                     <div className="flex-container--row margin-bottom-20">
                         <div className="flex-item--with-symbol">
                             <i className="fas fa-book"/>
                         </div>
                         <div className="flex-item--after-symbol">
-                            <p>{t.materials.book}</p>
+                            <p>{t.materialsSection.book}</p>
                         </div>
                     </div>
                     <div className="flex-container--row margin-bottom-20">
@@ -28,7 +28,7 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
                             <i className="fas fa-copy"/>
                         </div>
                         <div className="flex-item--after-symbol">
-                            <p>{t.materials.cheatsheet}</p>
+                            <p>{t.materialsSection.cheatsheet}</p>
                         </div>
                     </div>
                     <div className="flex-container--row margin-bottom-20">
@@ -36,7 +36,7 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
                             <i className="fas fa-tasks"/>
                         </div>
                         <div className="flex-item--after-symbol">
-                            <p>{t.materials.tasks}</p>
+                            <p>{t.materialsSection.tasks}</p>
                         </div>
                     </div>
                 </div>

@@ -88,7 +88,7 @@ const EN_desc = {
     "wlodzimierzKrakowskiBio": "Experienced developer, trainer and a speaker on international conferences. Specialised in handling and refactoring legacy code.",
     "certificateTitle": "One of the first certified Kotlin training worldwide",
     "certificateDesc": "You will be trained by an expert who is an official JetBrains' Kotlin training partner. The quality of his workshops was checked and certified by the creators of the Kotlin language itself.",
-    "materials": {
+    "materialsSection": {
         "title": "Professional training materials",
         "book": "The book with all the slides to make it easier to start using new knowledge after the workshop - everything in one place to recall new functionalities.",
         "cheatsheet": "Cheatsheet in a printed, laminated form. Now you can have all the essentials at hand — it is the best daily support for a Kotlin developer.",
@@ -317,7 +317,7 @@ const PL_desc = {
     "wlodzimierzKrakowskiBio": "Jestem trenerem technicznym oraz prelegentem na konferencjach, specjalizującym się w zagadnieniach pracy z kodem zastanym i długiem technicznym poprzez techniki refaktoryzacji kodu. Mieszkam w Krakowie, ale często podróżuję po Polsce, Europie i świecie, aby wspierać moich klientów w ich działaniach.",
     "certificateTitle": "Jeden z pierwszych certyfikowanych treningów z Kotlina",
     "certificateDesc": "Jakość tego warsztatu została sprawdzona i certyfikowana przez twórców języka Kotlin. Szkolić Was będzie trener, który jest oficjalnym partnerem JetBrains w zakresie szkoleń z języka Kotlin.",
-    "materials": {
+    "materialsSection": {
         "title": "Profesjonalne materiały szkoleniowe",
         "book": "Książka ze wszystkimi slajdami, żeby ułatwić korzystanie z nowej wiedzy w praktyce, od razu po zakończeniu warsztatu - cały materiał w jednym miejscu.",
         "cheatsheet": "Kotlin cheatsheet w formie drukowanej i laminowanej. Teraz możesz mieć najważniejsze elementy pod ręką  - to najlepsze codzienne wsparcie programisty Kotlin.",
