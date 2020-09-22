@@ -9,8 +9,11 @@ import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
+import Link from "../../../Link";
+import "./WorkhopFormStyle.css"
 
 type FormData = {
+    senderName: string,
     email: string,
     companyName: string,
     country: string,
@@ -27,9 +30,11 @@ export default function WorkshopFormPage() {
     const {workshopKey} = useParams<{ workshopKey: string }>();
     registerPage(`workshop-form-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
-    const {register, setValue, handleSubmit, errors} = useForm<FormData>();
+    const {register, watch, handleSubmit, errors} = useForm<FormData>();
+    const groupSize = watch("groupSize")
 
     console.log(errors);
+    console.log(groupSize);
 
     const onSubmit = (data: FormData) => {
         console.log(data);
@@ -43,6 +48,7 @@ export default function WorkshopFormPage() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                senderName: data.senderName,
                 email: data.email,
                 companyName: data.companyName,
                 groupSize: data.groupSize,
@@ -78,12 +84,20 @@ export default function WorkshopFormPage() {
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
+                        <label htmlFor="senderName">{t.form.namePrompt}</label>
+                        <input type="text" name="senderName" id="senderName" ref={register({
+                            required: t.form.required
+                        })} placeholder={t.form.namePrompt}/>
+                        <Error field={errors.senderName}/>
+                    </fieldset>
+
+                    <fieldset>
                         <label htmlFor="email">{t.form.emailPrompt}</label>
                         <input type="text" name="email" id="email" ref={register({
-                            required: "Required",
+                            required: t.form.required,
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "Invalid email address"
+                                message: t.form.invalidEmail
                             }
                         })} placeholder={t.form.emailPrompt}/>
                         <Error field={errors.email}/>
@@ -92,7 +106,7 @@ export default function WorkshopFormPage() {
                     <fieldset>
                         <label htmlFor="companyName">{t.form.companyNamePrompt}</label>
                         <input type="text" name="companyName" id="companyName" ref={register({
-                            required: "Required"
+                            required: t.form.required
                         })} placeholder={t.form.companyNamePrompt}/>
                         <Error field={errors.companyName}/>
                     </fieldset>
@@ -100,64 +114,76 @@ export default function WorkshopFormPage() {
                     <fieldset>
                         <legend>{t.form.groupSizePrompt}</legend>
                         <input type="radio" id="size1" name="groupSize" value="size1" ref={register}/>
-                        <label htmlFor="size2to7">Just me</label><br/>
+                        <label htmlFor="size1">Just me</label><br/>
                         <input type="radio" id="size2to7" name="groupSize" value="size2to7" ref={register}/>
                         <label htmlFor="size2to7">2-8</label><br/>
                         <input type="radio" id="size8to15" name="groupSize" value="size8to15" ref={register}/>
                         <label htmlFor="size8to15">8-16</label><br/>
                         <input type="radio" id="size16orMore" name="groupSize" value="size16orMore" ref={register({
-                            required: "Required"
+                            required: t.form.required
                         })}/>
                         <label htmlFor="size16orMore">17 {t.form.orMore}</label>
                         <Error field={errors.groupSize}/>
                     </fieldset>
 
-                    <fieldset>
-                        <label htmlFor="country">{t.form.countryPrompt}</label>
-                        <select name="country" id="country" ref={register}>
-                            <option value="Poland">Poland</option>
-                            <option value="UnitedKingdom">United Kingdom</option>
-                            <option value="USA">USA</option>
-                            <option value="Germany">Germany</option>
-                            <option value="France">France</option>
-                            <option value="China">China</option>
-                            <option value="Europe">Europe</option>
-                            <option value="America">America</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Africa">Africa</option>
-                            <option value="Australia">Australia</option>
-                        </select>
-                    </fieldset>
+                    {(groupSize === "size1" || groupSize === "size2to7") &&
+                    <p>This form should be used to request private workshops for companies.
+                        If there is only you or a small group of people, we suggest using <Link
+                            to={"/workshopRequestForm/" + workshop.key}>this form</Link> to request an open online
+                        workshop.
+                    </p>
+                    }
 
-                    <fieldset>
-                        <legend>{t.form.isOnlinePrompt}</legend>
-                        <input type="radio" id="inCompany" name="online" value="inCompany" ref={register}/>
-                        <label htmlFor="inCompany">{t.form.inCompany}</label>
-                        <br/>
-                        <input type="radio" id="online" name="online" value="online" ref={register({
-                            required: "Required"
-                        })}/>
-                        <label htmlFor="online">{t.form.online}</label>
-                        <Error field={errors.online}/>
-                        <br/>
-                    </fieldset>
+                    {groupSize !== "size1" &&
+                    <>
+                        <fieldset>
+                            <label htmlFor="country">{t.form.countryPrompt}</label>
+                            <select name="country" id="country" ref={register}>
+                                <option value="Poland">Poland</option>
+                                <option value="UnitedKingdom">United Kingdom</option>
+                                <option value="USA">USA</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="China">China</option>
+                                <option value="Europe">Europe</option>
+                                <option value="America">America</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Australia">Australia</option>
+                            </select>
+                        </fieldset>
 
-                    <fieldset>
-                        <label htmlFor="date">{t.form.datePrompt}</label>
-                        <input type="text" name="date" id="date" ref={register({
-                            required: "Required"
-                        })} placeholder=""/>
-                        <Error field={errors.date}/>
-                    </fieldset>
+                        <fieldset>
+                            <legend>{t.form.isOnlinePrompt}</legend>
+                            <input type="radio" id="inCompany" name="online" value="inCompany" ref={register}/>
+                            <label htmlFor="inCompany">{t.form.inCompany}</label>
+                            <br/>
+                            <input type="radio" id="online" name="online" value="online" ref={register({
+                                required: t.form.required
+                            })}/>
+                            <label htmlFor="online">{t.form.online}</label>
+                            <Error field={errors.online}/>
+                            <br/>
+                        </fieldset>
 
-                    <fieldset>
-                        <label htmlFor="extra">{t.form.extraPrompt}</label>
-                        <textarea name="extra" rows={7} id="extra" ref={register} placeholder=""/>
-                    </fieldset>
+                        <fieldset>
+                            <label htmlFor="date">{t.form.datePrompt}</label>
+                            <input type="text" name="date" id="date" ref={register({
+                                required: t.form.required
+                            })} placeholder=""/>
+                            <Error field={errors.date}/>
+                        </fieldset>
 
-                    <input type="submit" className="button button--mini" id="submit"
-                           style={{position: "relative", right: "50%", left: "40%"}}
-                           value={t.form.submit}/>
+                        <fieldset>
+                            <label htmlFor="extra">{t.form.extraPrompt}</label>
+                            <textarea name="extra" rows={7} id="extra" ref={register} placeholder=""/>
+                        </fieldset>
+
+                        <input type="submit" className="button button--mini" id="submit"
+                               style={{position: "relative", right: "50%", left: "40%"}}
+                               value={t.form.submit}/>
+                    </>
+                    }
                 </form>
             </div>
         </section>

@@ -237,6 +237,7 @@ const EN_desc = {
     },
     "form": {
         "title": "Request for ",
+        "namePrompt": "Your name",
         "emailPrompt": "Your email",
         "companyNamePrompt": "Company name",
         "groupSizePrompt": "For how many people do you need this workshop?",
@@ -247,6 +248,11 @@ const EN_desc = {
         "online": "Online",
         "datePrompt": "What date suits you best?",
         "extraPrompt": "Is there anything else you would like to share?",
+
+        "privateGroupSizePrompt": "How many developers would you like to register?",
+
+        "required": "Required",
+        "invalidEmail": "Invalid email",
         "submit": "Submit"
     },
     "formRegisterPublic": {
@@ -465,6 +471,7 @@ const PL_desc = {
     },
     "form": {
         "title": "Prośba o wycenę szkolenia ",
+        "namePrompt": "Twoje imię",
         "emailPrompt": "Twój email",
         "companyNamePrompt": "Nazwa firmy",
         "groupSizePrompt": "Ile osób będzie uczestniczyć w szkoleniu?",
@@ -475,6 +482,11 @@ const PL_desc = {
         "online": "Zdalnie",
         "datePrompt": "Jaki termin Ci odpowiada?",
         "extraPrompt": "Czy jest jeszcze coś, co chciałbyś dodać?",
+
+        "privateGroupSizePrompt": "Ilu programistów chciałbyś/chciałabyś zarejestrować?",
+
+        "required": "Pole wymagane",
+        "invalidEmail": "Niepoprawny adres email",
         "submit": "Prześlij"
     },
     "generate": {

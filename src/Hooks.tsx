@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
-import {Challenge, User, Workshop} from "./Model";
+import {Challenge, User, Workshop, WorkshopSubmission} from "./Model";
 import {useLang} from "./Translations";
 import {
-    requestApi,
     requestChallenge,
     requestCurrentUser,
     requestUsersList,
     requestWorkshop,
-    requestWorkshops
+    requestWorkshops,
+    requestWorkshopSubmissionsList
 } from "./Network";
 
 export function useWorkshop(workshopKey: string): Workshop | undefined {
@@ -20,7 +20,7 @@ export function useWorkshop(workshopKey: string): Workshop | undefined {
                 (result) => setWorkshop(result),
                 (error) => console.log(error)
             )
-    }, [workshopKey])
+    }, [workshopKey, lang.key])
 
     return workshop
 }
@@ -52,6 +52,20 @@ export function useUsersList(): User[] | undefined {
     }, [])
 
     return usersList
+}
+
+export function useWorkshopSubmissionsList(): WorkshopSubmission[] | undefined {
+    const [submissions, setSubmissions] = React.useState<WorkshopSubmission[]>();
+
+    useEffect(() => {
+        requestWorkshopSubmissionsList()
+            .then(
+                (result) => setSubmissions(result),
+                (error) => console.log(error)
+            )
+    }, [])
+
+    return submissions
 }
 
 export function useUser(): User | undefined | null {

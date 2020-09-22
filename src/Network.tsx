@@ -1,4 +1,4 @@
-import {Challenge, ChallengeStatus, User, Workshop} from "./Model";
+import {Challenge, ChallengeStatus, User, Workshop, WorkshopSubmission} from "./Model";
 
 export const API_URL = "https://kt.academy/api/"
 
@@ -74,6 +74,10 @@ export function requestCurrentUser(): Promise<User | null> {
 
 export function requestUsersList(): Promise<User[]> {
     return requestApi<User[]>("user")
+}
+
+export function requestWorkshopSubmissionsList(): Promise<WorkshopSubmission[]> {
+    return requestApi<WorkshopSubmission[]>("workshop/submissions")
 }
 
 var workshopsCache: Map<{ lang: string, trainer: string | null, tag: string | null }, Workshop[]> = new Map()

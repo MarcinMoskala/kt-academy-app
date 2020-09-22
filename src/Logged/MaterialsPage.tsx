@@ -129,7 +129,7 @@ const ExpandableTitle: React.FunctionComponent<{ title?: string }> = ({children,
     const [expanded, setExpanded] = React.useState<boolean>(false);
 
     return <>
-        <h4 onClick={() => setExpanded(!expanded)}>{title + " " + (expanded ? "(hide)" : "(show)")}</h4>
+        <h4 onClick={() => setExpanded(!expanded)}>{title + " " + (expanded ? "(click to hide)" : "(click to show)")}</h4>
         {expanded && children}
     </>
 }

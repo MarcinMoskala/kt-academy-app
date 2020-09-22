@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import {BrowserRouter, useLocation} from "react-router-dom";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -18,10 +16,12 @@ ReactDOM.render(
 );
 
 export default function ScrollToTop() {
-    const { pathname } = useLocation();
+    const {pathname} = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (!window.location.hash) {
+            window.scrollTo(0, 0)
+        }
     }, [pathname]);
 
     return null;

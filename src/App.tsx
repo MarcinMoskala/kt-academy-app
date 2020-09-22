@@ -13,11 +13,14 @@ import GenerateDtoPage from "./Main/Page/GenerateDtoPage";
 import MaterialsPage from "./Logged/MaterialsPage";
 import initShowFab from "./initShowFab";
 import ChallengePage from "./Logged/ChallengePage";
+import WorkshopRequestFormPage from "./Main/Page/Form/WorkshopRequestOpenFormPage";
+import WorkshopsSubmissionsAdminPage from "./Admin/WorkshopsSubmissionsAdminPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
         {path: "/challenge/:challengeKey", component: ChallengePage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
+        {path: "/workshopOpenForm/:workshopKey", component: WorkshopRequestFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
         {path: "/generate", component: GenerateDtoPage},
         {path: "/materials", component: MaterialsPage},
@@ -26,6 +29,7 @@ const App = () => {
         {path: "/challenges", component: ChallengesExamplePage},
         {path: "/privacyPolicy", component: PrivacyPolicyPage},
         {path: "/admin/users", component: UsersAdminPage},
+        {path: "/admin/workshopSubmissions", component: WorkshopsSubmissionsAdminPage},
         {path: "", component: HomePage},
     ]
     initShowFab()

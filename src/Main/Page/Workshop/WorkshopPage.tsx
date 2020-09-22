@@ -98,9 +98,12 @@ export default function WorkshopPage() {
                 </div>
             </section>
             }
+
             <TrainerSection trainer={workshop.trainer}/>
 
-            {workshop.certifiedByJb && <JetbrainsCertificationSection/>}
+            {workshop.certifiedByJb &&
+            <JetbrainsCertificationSection/>
+            }
 
             {workshop.materialsImg &&
             <MaterialsSection materialsImg={workshop.materialsImg}/>

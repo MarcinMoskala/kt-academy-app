@@ -61,3 +61,14 @@ export type Challenge = {
 }
 
 export type ChallengeStatus = "INITIAL" | "STARTED" | "SOLVED"
+
+export type WorkshopSubmission = {
+    id: string,
+    timestamp: string,
+    workshopKey: string,
+    lang: string,
+    data: string,
+    status: WorkshopSubmissionStatus
+}
+
+export type WorkshopSubmissionStatus = "SUBMITTED" | "OUTDATED" | "SPAM"
