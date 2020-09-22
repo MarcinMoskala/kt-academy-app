@@ -5,31 +5,50 @@ import {useWorkshopSubmissionsList} from "../Hooks";
 import {registerPage} from "../Utils";
 import {AdminTable} from "./AdminTable";
 import {WorkshopSubmission} from "../Model";
+import Swal from "sweetalert2";
+import {changeWorkshopSubmission} from "../Network";
 
 export default function WorkshopsSubmissionsAdminPage() {
     registerPage("users-admin")
     const workshopSubmissions = useWorkshopSubmissionsList()
     console.log(workshopSubmissions)
 
-    const [selected, setSelected] = React.useState<WorkshopSubmission[]>([]);
+    const elementClicked = (submission: WorkshopSubmission) => {
+        let options = [
+            "SUBMITTED",
+            "CONFIRMED",
+            "FINISHED",
+            "OUTDATED",
+            "WAITING",
+            "SPAM"
+        ];
+        Swal.fire<string>({
+            title: 'Change state to',
+            input: 'select',
+            inputOptions: options,
+            inputPlaceholder: 'Select new state',
+            showCancelButton: true
+        }).then(state => {
+            if (state.value) {
+                changeWorkshopSubmission(submission.id, {status: options[state.value]})
+                    .then(_ => window.location.reload())
+            }
+        })
 
-    const onChangeStatus = () => {
     }
 
     return <>
         <Header/>
         {workshopSubmissions &&
-        <AdminTable list={workshopSubmissions} columns={[
-            {property: 'timestamp', label: 'Timestamp'},
-            {property: 'workshopKey', label: 'WorkshopKey'},
-            {property: 'lang', label: 'Lang'},
-            {property: 'data', label: 'Details'},
-            {property: 'status', label: 'Status'},
-        ]} selectedChanged={setSelected}/>
+        <AdminTable title="Workshop submissions" list={workshopSubmissions} columns={[
+            {name: 'timestamp', label: 'Timestamp', options: {filter: false, sort: true}},
+            {name: 'workshopKey', label: 'WorkshopKey', options: {filter: true, sort: true}},
+            {name: 'submissionType', label: 'Type', options: {filter: true, sort: true}},
+            {name: 'lang', label: 'Lang', options: {filter: true, sort: true}},
+            {name: 'data', label: 'Details', options: {filter: false, sort: false}},
+            {name: 'status', label: 'Status', options: {filter: true, sort: true, filterList: ['SUBMITTED', 'CONFIRMED']}},
+        ]} clicked={elementClicked}/>
         }
-        <div>
-            Actions: <a onClick={() => onChangeStatus}>Change status</a>
-        </div>
         <FooterSection/>
     </>;
 };

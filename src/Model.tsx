@@ -66,6 +66,7 @@ export type WorkshopSubmission = {
     id: string,
     timestamp: string,
     workshopKey: string,
+    submissionType: string,
     lang: string,
     data: string,
     status: WorkshopSubmissionStatus

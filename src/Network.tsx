@@ -77,7 +77,14 @@ export function requestUsersList(): Promise<User[]> {
 }
 
 export function requestWorkshopSubmissionsList(): Promise<WorkshopSubmission[]> {
-    return requestApi<WorkshopSubmission[]>("workshop/submissions")
+    return requestApi<WorkshopSubmission[]>("workshop/submission")
+}
+
+export function changeWorkshopSubmission(submissionId: string, body: { status: string }): Promise<Response> {
+    return callApi("workshop/submission/" + submissionId, {
+        method: "PUT",
+        body: JSON.stringify(body)
+    })
 }
 
 var workshopsCache: Map<{ lang: string, trainer: string | null, tag: string | null }, Workshop[]> = new Map()

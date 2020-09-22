@@ -1630,10 +1630,6 @@ textarea {
     height: 100px;
 }
 
-input[type='text'], select {
-    height: 34px;
-}
-
 input[type='checkbox'], input[type='radio'] {
     position: relative;
     top: 5px;

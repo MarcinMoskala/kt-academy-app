@@ -15,6 +15,7 @@ export default function initShowFab() {
         const items: FabMenuItem[] = []
         if(user.tags.includes("ADMIN")) {
             items.push({text: "Users", link: "/admin/users", icon: "fas fa-users"})
+            items.push({text: "Submissions", link: "/admin/workshopSubmissions", icon: "fas fa-chalkboard-teacher"})
         }
         if(user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE") || user.tags.includes("ADMIN")) {
             items.push({text: "Materials", link: "/materials", icon: "far fa-file"})
