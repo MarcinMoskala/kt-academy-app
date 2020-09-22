@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://learningdriven.space/static/css/main.6b5b089c.chunk.css",
-    "main.js": "https://learningdriven.space/static/js/main.b2f5562d.chunk.js",
-    "main.js.map": "https://learningdriven.space/static/js/main.b2f5562d.chunk.js.map",
+    "main.css": "https://learningdriven.space/static/css/main.d33d421b.chunk.css",
+    "main.js": "https://learningdriven.space/static/js/main.1a3a6666.chunk.js",
+    "main.js.map": "https://learningdriven.space/static/js/main.1a3a6666.chunk.js.map",
     "runtime-main.js": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js",
     "runtime-main.js.map": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js.map",
-    "static/js/2.5c8b24a0.chunk.js": "https://learningdriven.space/static/js/2.5c8b24a0.chunk.js",
-    "static/js/2.5c8b24a0.chunk.js.map": "https://learningdriven.space/static/js/2.5c8b24a0.chunk.js.map",
+    "static/js/2.722d4f11.chunk.js": "https://learningdriven.space/static/js/2.722d4f11.chunk.js",
+    "static/js/2.722d4f11.chunk.js.map": "https://learningdriven.space/static/js/2.722d4f11.chunk.js.map",
     "index.html": "https://learningdriven.space/index.html",
-    "precache-manifest.e4e3a6e52012954db8db91410ef088b0.js": "https://learningdriven.space/precache-manifest.e4e3a6e52012954db8db91410ef088b0.js",
+    "precache-manifest.373912f70d93279caebc021101b5bda5.js": "https://learningdriven.space/precache-manifest.373912f70d93279caebc021101b5bda5.js",
     "service-worker.js": "https://learningdriven.space/service-worker.js",
-    "static/css/main.6b5b089c.chunk.css.map": "https://learningdriven.space/static/css/main.6b5b089c.chunk.css.map",
-    "static/js/2.5c8b24a0.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.5c8b24a0.chunk.js.LICENSE.txt",
+    "static/css/main.d33d421b.chunk.css.map": "https://learningdriven.space/static/css/main.d33d421b.chunk.css.map",
+    "static/js/2.722d4f11.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.722d4f11.chunk.js.LICENSE.txt",
     "static/media/10-1920x1080.png": "https://learningdriven.space/static/media/10-1920x1080.098d0b53.png",
     "static/media/2-1920x702.png": "https://learningdriven.space/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x702.png": "https://learningdriven.space/static/media/3-1920x702.48c3fcb5.png",
@@ -27,8 +27,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.dd8ca0d1.js",
-    "static/js/2.5c8b24a0.chunk.js",
-    "static/css/main.6b5b089c.chunk.css",
-    "static/js/main.b2f5562d.chunk.js"
+    "static/js/2.722d4f11.chunk.js",
+    "static/css/main.d33d421b.chunk.css",
+    "static/js/main.1a3a6666.chunk.js"
   ]
 }
