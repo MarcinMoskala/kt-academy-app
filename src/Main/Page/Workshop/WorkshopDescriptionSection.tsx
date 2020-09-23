@@ -19,10 +19,12 @@ export default function WorkshopDescriptionSection({workshop}: Props) {
                     <p style={{marginTop: 0, height: "40px"}}>{t.workshopPage.knowledgeSources.lecture}</p>
                 </div>
 
+                {workshop.practicalTaskIcon &&
                 <div className="flex-item flex-item-paddings flex-container--column wow zoomIn">
-                    <i className={workshop.practicalTaskIcon ? workshop.practicalTaskIcon : ""}/>
+                    <i className={workshop.practicalTaskIcon}/>
                     <p style={{marginTop: 0, height: "40px"}}>{workshop.practicalTask}</p>
                 </div>
+                }
 
                 <div className="flex-item flex-item-paddings flex-container--column wow zoomIn">
                     <i className="fas fa-dumbbell"/>
