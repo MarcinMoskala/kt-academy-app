@@ -8,6 +8,7 @@ type ColumnDefinition<T> = {
         filter?: boolean,
         sort?: boolean,
         filterList?: string[],
+        sortDirection?: "asc"|"desc"
     }
 }
 

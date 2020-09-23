@@ -3,7 +3,7 @@ import Header from "../../../Section/Header/Header";
 import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useTranslations} from "../../../Translations";
-import {requestApi} from "../../../Network";
+import {callApi} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
@@ -47,7 +47,7 @@ export default function WorkshopFormPage() {
             return
         }
         setButtonEnabled(false)
-        requestApi("workshop/" + workshop!.key + "/submit", {
+        callApi("workshop/" + workshop!.key + "/submit", {
             method: "POST",
             body: {
                 email: data.email,

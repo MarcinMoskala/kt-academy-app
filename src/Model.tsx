@@ -64,6 +64,7 @@ export type User = {
     email: string,
     name: string,
     surname: string,
+    createdAt: string,
     imageUrl: string,
     googleToken: string | null,
     newsletters: string[],

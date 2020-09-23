@@ -42,16 +42,12 @@ export default function WorkshopsSubmissionsAdminPage() {
         <Header/>
         {workshopSubmissions &&
         <AdminTable title="Workshop submissions" list={workshopSubmissions} columns={[
-            {name: 'timestamp', label: 'Timestamp', options: {filter: false, sort: true}},
+            {name: 'timestamp', label: 'Timestamp', options: {filter: false, sort: true, sortDirection: 'desc'}},
             {name: 'workshopKey', label: 'WorkshopKey', options: {filter: true, sort: true}},
             {name: 'submissionType', label: 'Type', options: {filter: true, sort: true}},
             {name: 'lang', label: 'Lang', options: {filter: true, sort: true}},
             {name: 'data', label: 'Details', options: {filter: false, sort: false}},
-            {
-                name: 'status',
-                label: 'Status',
-                options: {filter: true, sort: true, filterList: ['SUBMITTED', 'CONFIRMED']}
-            },
+            {name: 'status', label: 'Status', options: {filter: true, sort: true, filterList: ['SUBMITTED', 'CONFIRMED']}},
         ]} clicked={elementClicked}/>
         }
         <FooterSection/>
