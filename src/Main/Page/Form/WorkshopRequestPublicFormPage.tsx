@@ -55,10 +55,15 @@ export default function WorkshopFormPage() {
             return
         }
         setButtonEnabled(false)
-        requestApi("workshop/" + workshop!.key + "/submit", {
+        requestApi("workshop/" + workshop!.key + "/requestPublic", {
             method: "POST",
             body: {
+                senderName: data.senderName,
                 email: data.email,
+                registerKind: data.registerKind,
+                invoiceTo: data.invoiceTo,
+                developerExperience: data.developerExperience,
+                priceAcceptance: data.priceAcceptance,
                 companyName: data.companyName,
                 groupSize: data.groupSize,
                 country: data.country,

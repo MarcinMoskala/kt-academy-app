@@ -2,8 +2,6 @@ import React from 'react';
 import Header, {Banner, LinkTo, Width} from "../../../Section/Header/Header";
 import WorkshopOfferSection from "./WorkshopOfferSection";
 import WhyUsSection from "./WhyUsSection";
-import TrainerSection from "../Workshop/Trainer/TrainerSection";
-import JetbrainsCertificationSection from "../Workshop/Certified/JetbrainsCertificationSection";
 import MaterialsSection from "../../Section/MaterialsSection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";
 import ContactSection from "../../Section/ContactSection";
