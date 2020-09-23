@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://learningdriven.space/static/css/main.d33d421b.chunk.css",
-    "main.js": "https://learningdriven.space/static/js/main.0e80d0b2.chunk.js",
-    "main.js.map": "https://learningdriven.space/static/js/main.0e80d0b2.chunk.js.map",
+    "main.css": "https://learningdriven.space/static/css/main.f2329de1.chunk.css",
+    "main.js": "https://learningdriven.space/static/js/main.3882dfd5.chunk.js",
+    "main.js.map": "https://learningdriven.space/static/js/main.3882dfd5.chunk.js.map",
     "runtime-main.js": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js",
     "runtime-main.js.map": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js.map",
-    "static/js/2.a0e11dac.chunk.js": "https://learningdriven.space/static/js/2.a0e11dac.chunk.js",
-    "static/js/2.a0e11dac.chunk.js.map": "https://learningdriven.space/static/js/2.a0e11dac.chunk.js.map",
+    "static/js/2.a9a7f460.chunk.js": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js",
+    "static/js/2.a9a7f460.chunk.js.map": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js.map",
     "index.html": "https://learningdriven.space/index.html",
-    "precache-manifest.9dcba43444fb48f9926401d844c06bae.js": "https://learningdriven.space/precache-manifest.9dcba43444fb48f9926401d844c06bae.js",
+    "precache-manifest.a5344676bca6c37837b117c9f2a26a88.js": "https://learningdriven.space/precache-manifest.a5344676bca6c37837b117c9f2a26a88.js",
     "service-worker.js": "https://learningdriven.space/service-worker.js",
-    "static/css/main.d33d421b.chunk.css.map": "https://learningdriven.space/static/css/main.d33d421b.chunk.css.map",
-    "static/js/2.a0e11dac.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.a0e11dac.chunk.js.LICENSE.txt",
+    "static/css/main.f2329de1.chunk.css.map": "https://learningdriven.space/static/css/main.f2329de1.chunk.css.map",
+    "static/js/2.a9a7f460.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js.LICENSE.txt",
     "static/media/10-1920x1080.png": "https://learningdriven.space/static/media/10-1920x1080.098d0b53.png",
     "static/media/2-1920x702.png": "https://learningdriven.space/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x702.png": "https://learningdriven.space/static/media/3-1920x702.48c3fcb5.png",
@@ -21,14 +21,18 @@
     "static/media/8-1920x702.png": "https://learningdriven.space/static/media/8-1920x702.192aa796.png",
     "static/media/9-1920x702.png": "https://learningdriven.space/static/media/9-1920x702.27d293f6.png",
     "static/media/JetBrains_certified_Kotlin_Training.png": "https://learningdriven.space/static/media/JetBrains_certified_Kotlin_Training.5a494df2.png",
+    "static/media/Kt_Academy_materials_android.png": "https://learningdriven.space/static/media/Kt_Academy_materials_android.7ecf1db7.png",
+    "static/media/Kt_Academy_materials_backened.png": "https://learningdriven.space/static/media/Kt_Academy_materials_backened.b80f6549.png",
+    "static/media/Kt_Academy_materials_coroutines.png": "https://learningdriven.space/static/media/Kt_Academy_materials_coroutines.3e19d53e.png",
+    "static/media/Kt_Academy_materials_default.png": "https://learningdriven.space/static/media/Kt_Academy_materials_default.ab9804a6.png",
     "static/media/Marcin_Moskala.jpg": "https://learningdriven.space/static/media/Marcin_Moskala.3ccadb21.jpg",
     "static/media/NataliaNazaruk.jpg": "https://learningdriven.space/static/media/NataliaNazaruk.24225822.jpg",
     "static/media/PatrykGrajewski.jpg": "https://learningdriven.space/static/media/PatrykGrajewski.ef56bae7.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.dd8ca0d1.js",
-    "static/js/2.a0e11dac.chunk.js",
-    "static/css/main.d33d421b.chunk.css",
-    "static/js/main.0e80d0b2.chunk.js"
+    "static/js/2.a9a7f460.chunk.js",
+    "static/css/main.f2329de1.chunk.css",
+    "static/js/main.3882dfd5.chunk.js"
   ]
 }
