@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "https://learningdriven.space/static/css/main.f2329de1.chunk.css",
-    "main.js": "https://learningdriven.space/static/js/main.3882dfd5.chunk.js",
-    "main.js.map": "https://learningdriven.space/static/js/main.3882dfd5.chunk.js.map",
+    "main.js": "https://learningdriven.space/static/js/main.e80d2dc9.chunk.js",
+    "main.js.map": "https://learningdriven.space/static/js/main.e80d2dc9.chunk.js.map",
     "runtime-main.js": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js",
     "runtime-main.js.map": "https://learningdriven.space/static/js/runtime-main.dd8ca0d1.js.map",
-    "static/js/2.a9a7f460.chunk.js": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js",
-    "static/js/2.a9a7f460.chunk.js.map": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js.map",
+    "static/js/2.03a46cdf.chunk.js": "https://learningdriven.space/static/js/2.03a46cdf.chunk.js",
+    "static/js/2.03a46cdf.chunk.js.map": "https://learningdriven.space/static/js/2.03a46cdf.chunk.js.map",
     "index.html": "https://learningdriven.space/index.html",
-    "precache-manifest.a5344676bca6c37837b117c9f2a26a88.js": "https://learningdriven.space/precache-manifest.a5344676bca6c37837b117c9f2a26a88.js",
+    "precache-manifest.dcff05abf10822a406202f96bc3048d3.js": "https://learningdriven.space/precache-manifest.dcff05abf10822a406202f96bc3048d3.js",
     "service-worker.js": "https://learningdriven.space/service-worker.js",
     "static/css/main.f2329de1.chunk.css.map": "https://learningdriven.space/static/css/main.f2329de1.chunk.css.map",
-    "static/js/2.a9a7f460.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.a9a7f460.chunk.js.LICENSE.txt",
+    "static/js/2.03a46cdf.chunk.js.LICENSE.txt": "https://learningdriven.space/static/js/2.03a46cdf.chunk.js.LICENSE.txt",
     "static/media/10-1920x1080.png": "https://learningdriven.space/static/media/10-1920x1080.098d0b53.png",
     "static/media/2-1920x702.png": "https://learningdriven.space/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x702.png": "https://learningdriven.space/static/media/3-1920x702.48c3fcb5.png",
@@ -31,8 +31,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.dd8ca0d1.js",
-    "static/js/2.a9a7f460.chunk.js",
+    "static/js/2.03a46cdf.chunk.js",
     "static/css/main.f2329de1.chunk.css",
-    "static/js/main.3882dfd5.chunk.js"
+    "static/js/main.e80d2dc9.chunk.js"
   ]
 }
