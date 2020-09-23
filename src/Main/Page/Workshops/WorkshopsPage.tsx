@@ -17,11 +17,6 @@ export default function WorkshopsPage() {
     registerPage(`workshops-${tag}-${trainer}`)
     const workshops = useWorkshops(tag, trainer)
 
-    const links: LinkTo[] = [
-        {text: t.menu.privateWorkshops, to: "#workshops-offer"},
-        {text: t.menu.contact, to: "#contact", divider: true},
-    ]
-
     let bannerOptions = {
         img: HeaderBg,
         title: t.workshopOffer.title,
@@ -35,7 +30,7 @@ export default function WorkshopsPage() {
 
     return (
         <>
-            <Header links={links} banner={bannerOptions}/>
+            <Header banner={bannerOptions}/>
             <WorkshopChoice tag={tag} workshops={workshops}/>
             <FooterSection/>
         </>

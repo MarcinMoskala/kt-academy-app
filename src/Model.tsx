@@ -51,11 +51,11 @@ export type Money = {
 export function printMoney(money: Money): string{
     switch (money.currency) {
         case "EUR":
-            return `${money.amount} EUR`
+            return `${money.amount}\xa0EUR`
         case "PLN":
-            return `${money.amount} zł`
+            return `${money.amount}\xa0zł`
         default:
-            return `${money.amount} ${money.currency}`
+            return `${money.amount}\xa0${money.currency}`
     }
 }
 

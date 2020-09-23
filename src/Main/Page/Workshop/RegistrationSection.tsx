@@ -8,7 +8,7 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
 
     return <section className="contact short-section section--white" id="register">
         <div className="content-container">
-            <h1>t.workshopPage.registration.title</h1>
+            <h1>{t.workshopPage.registration.title}</h1>
             <div style={{display: "flex", flexWrap: "wrap"}}>
                 <OrderOption
                     link={"/workshopForm/" + workshop.key}
@@ -16,9 +16,9 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
                     explanation={t.workshopPage.registration.private.explanation
                         .replace("{workshop_price}", printMoney(workshop.basePrice.company))}/>
                 <OrderOption
-                    link={"/workshopOpenForm/" + workshop.key}
-                    buttonText={t.workshopPage.registration.private.buttonText}
-                    explanation={t.workshopPage.registration.private.explanation
+                    link={"/workshopPublicForm/" + workshop.key}
+                    buttonText={t.workshopPage.registration.public.buttonText}
+                    explanation={t.workshopPage.registration.public.explanation
                         .replace("{workshop_person_price}", printMoney(workshop.basePrice.person))}/>
             </div>
         </div>

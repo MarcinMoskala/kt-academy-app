@@ -83,7 +83,7 @@ export default function WorkshopFormPage() {
                 <h1>{t.form.private.title}</h1>
                 <ReactMarkdown source={t.form.private.intro
                     .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", "/workshopOpenForm/" + workshop.key)}/>
+                    .replace("{workshop_link}", "/workshopPublicForm/" + workshop.key)}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
@@ -127,7 +127,7 @@ export default function WorkshopFormPage() {
                     {(groupSize === "size1" || groupSize === "size2to7") &&
                     <ReactMarkdown
                         source={t.form.requestOpenInsteadInfo
-                            .replace("{openFormLink}", "/workshopOpenForm/" + workshop.key)}/>
+                            .replace("{openFormLink}", "/workshopPublicForm/" + workshop.key)}/>
                     }
 
                     {groupSize !== "size1" &&

@@ -43,7 +43,7 @@ export default function WorkshopPage() {
         subtitle: workshop.subtitle,
         button: {
             text: t.contact.pricing.button,
-            to: "#contact"
+            to: "#register"
         }
     };
 

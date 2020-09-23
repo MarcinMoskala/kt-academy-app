@@ -9,7 +9,6 @@ type Props = {
 
 export default function WorkshopDetailsSection({workshop}: Props) {
     const t = useTranslations();
-    console.log(workshop)
     return (<section className="workshop-TOC" id="workshop-TOC">
         <div className="gradient--strip skew"/>
         <div className="content-container content-container--gradient--strip">

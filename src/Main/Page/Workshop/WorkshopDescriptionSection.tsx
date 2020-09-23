@@ -10,7 +10,7 @@ export default function WorkshopDescriptionSection({workshop}: Props) {
     const t = useTranslations();
     return (<section className="workshop-page">
         <div className="content-container">
-            <h3>{workshop.description}</h3>
+            <h4>{workshop.description}</h4>
             {workshop.secondDescription && <h4>{workshop.secondDescription}</h4>}
             <h1 className="margin-top-20">{t.workshopPage.knowledgeSources.title}</h1>
             <div className="flex-container--row">

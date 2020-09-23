@@ -91,7 +91,7 @@ export default function WorkshopFormPage() {
                 <h1>{t.form.public.title}</h1>
                 <ReactMarkdown source={t.form.public.intro
                     .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", "/workshopOpenForm/" + workshop.key)}/>
+                    .replace("{workshop_link}", "/workshopPublicForm/" + workshop.key)}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
