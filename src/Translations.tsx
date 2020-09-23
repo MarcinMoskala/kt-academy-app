@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import {useLocation} from 'react-router-dom'
+import {printMoney} from "./Model";
 
 export const LangContext = React.createContext('light');
 
@@ -124,78 +125,34 @@ const EN_desc = {
             "button": "Sign up"
         }
     },
-    "partners": "Our partners",
-    "LogoMeetupWwa": "/images/Meetup-wwa.png",
-    "LogoMeetupKrk": "/images/Meetup-krk.png",
     "footerContact": "Contact Us:",
     "privacyPolicy": "Privacy policy",
-    "publicWorkshop": {
-        "titleHead": "Public Kotlin workshops",
-        "title": "PUBLIC KOTLIN WORKSHOPS",
-        "subtitle": "Great solution for individuals and small teams",
-        "offerTitle": "Upcoming Workshops",
-        "offerDesc": "Join one of the upcoming workshops! We conduct also online workshops so you can attend no matter where you are from. You will learn in a small group of experienced developers from different companies.",
-        "location": "Location: ",
-        "workshopLang": "Language: ",
-        "time": "Time: ",
-        "button": "More information about the workshop",
-        "belowButton": "Book workshop with our trainer",
-        "otherOption": {
-            "title": "Looking for some other date? ",
-            "subtitle": "Leave us your mail and we will update you on upcoming workshop. You can also fill the form to share your preferences.",
-            "button": "Notify me about the dates!",
-            "belowButton": "I want to fill the form with my preferences"
-        },
-        "privateOption1": "If you are looking for a workshop conducted at your company, check our",
-        "privateOption2": "private workshop section"
-    },
-    "privateWorkshop": {
-        "titleHead": "Kt. Academy - Private Kotlin workshops",
-        "title": "PRIVATE KOTLIN WORKSHOPS",
-        "subtitle": "Tailor made to the needs of your team",
-        "offerTitle": "Book a workshop only for your team",
+    "workshopsList": {
         "offerDesc": "You can choose from the proposals below, or we can prepare something tailored to your needs. We conduct both in-company and online trainings. ",
         "button": "More information",
-        "belowButton": "Ask for pricing",
         "otherOption": "We list only the most popular workshops on our website. If you don't see the course you need or require a tailored version of it, then please write to us:",
-        "benefits": {
-            "title": "The benefits of private training",
-            "tailoredTitle": "Tailored made",
-            "tailoredDesc": "Do you have specific needs? No worries, we will customize our training so you will take the most advantage.",
-            "dateTitle": "Flexible dates",
-            "dateDesc": "Do only certain dates suit you? No problem, let us deliver the workshop on time that suits you best.",
-            "locationTitle": "Choose location",
-            "locationDesc": "We can deliver training at your company anywhere in the world, or if you prefer we can conduct it online. "
+    },
+    "workshopPage": {
+        "knowledgeSources": {
+            "title": "On the workshop you will",
+            "lecture": "Learn from lecture supported by slides",
+            "exercises": "Complete practical exercises",
+            "puzzlers": "Solve puzzlers"
+        },
+        "titleToc": "In the workshop we cover:",
+        "titleRequirements": "Requirements",
+        "titleHowLong": "How long does it take?",
+        "registration": {
+            "title": "Request workshop",
+            "private": {
+                "buttonText": "Register for private workshop",
+                "explanation": 'Choose this option if you need workshop for your team or company. The base price is {workshop_price} for the group for 3 days.',
+            },
+            "public": {
+                "buttonText": "Request open online workshop",
+                "explanation": 'Choose this option if you need workshop for yourself or for a small group of people. The base price is {workshop_person_price} per person for 3 days.',
+            }
         }
-    },
-    "knowledgeSources": {
-        "title": "On the workshop you will",
-        "lecture": "Learn from lecture supported by slides",
-        "exercises": "Complete practical exercises",
-        "puzzlers": "Solve puzzlers"
-    },
-    "titleToc": "In the workshop we cover:",
-    "titleRequirements": "Requirements",
-    "titleHowLong": "How long does it take?",
-    "registration": {
-        "title": "Join the workshop",
-        "whenTitle": "When:",
-        "whereTitle": "Where:",
-        "langTitle": "Language:",
-        "examWhenTitle": "Exam for certification:",
-        "examPriceTitle": "Price for the exam and certification:",
-        "examExtraDesc": "Participation in a 3-day course is required to take an exam. <br> Certificate is issued by Kt. Academy and is signed by a Kotlin trainer certified by JetBrains.",
-        "priceTitle": "Price per person:",
-        "button": "Register",
-        "newsletterPart1": "If you want to be notified about the next workshops, sign up to",
-        "newsletterPart2": "our mailing list."
-    },
-    "singleDay": {
-        "title": "Additional offer - 1-day workshop ",
-        "infoPossibility": "You can also participate only in the first day of the workshop (",
-        "infoMaterial": ") - during this day we cover basics of Kotlin.",
-        "infoPrice": "Price is ",
-        "infoHowToRegister": ". In order to register for one day, choose this option in the form above."
     },
     "puzzler": {
         "descriptionSEO": "Check exemplary puzzlers that you will be solving on Kt. Academy workshops. We believe that training needs to be as practical as possible.",
@@ -403,77 +360,32 @@ const PL_desc = {
             "button": "Zapisz się"
         }
     },
-    "partners": "Nasi partnerzy",
-    "LogoMeetupWwa": "/images/Meetup-wwa-pl.png",
-    "LogoMeetupKrk": "/images/Meetup-krk-pl.png",
     "footerContact": "Napisz do nas:", "privacyPolicy": "Polityka prywatności",
-    "publicWorkshop": {
-        "titleHead": "Publiczne warsztaty z Kotlina",
-        "title": "PUBLICZNE WARSZTATY",
-        "subtitle": "Dobre rozwiązanie dla osób indywidualnych i małych zespołów",
-        "offerTitle": "Nadchodzące warsztaty",
-        "offerDesc": "Dołącz do jednego z nadchodzących wasztatów! Prowadzimy warsztaty zarówno stacjonarne jak i online. Będziesz się uczył w małej grupie doświadczonych programistów z różnych firm.",
-        "location": "Miejsce: ",
-        "workshopLang": "Język: ",
-        "time": "Czas: ",
-        "button": "Więcej informacji o warsztacie",
-        "belowButton": "Zarejestruj sie na szkolenie",
-        "otherOption": {
-            "title": "Szukasz szkolenia w innym terminie? ",
-            "subtitle": "Zostaw nam swojego maila, abyśmy mogli dać Ci znać kiedy zaplanujemy kolejne warsztaty. Możesz także wypełnić formularz informując nas o Twoich preferencjach",
-            "button": "Powiadom mnie o nowych terminach!",
-            "belowButton": "Chcę wypełnić formularz z preferencjami"
-        },
-        "privateOption1": "Jeśli szukasz warsztatów dedykowanych Twojemu zespołowi sprawdź sekcję",
-        "privateOption2": "prywatne warsztaty"
-    },
-    "privateWorkshop": {
-        "titleHead": "Kt. Academy - Prywatne warsztaty z Kotlina",
-        "title": "WARSZTATY DLA FIRM",
-        "subtitle": "Uszyte na miarę potrzeb Twojego zespołu",
-        "offerTitle": "Zarezerwuj warsztat dla Twojego zespołu",
-        "offerDesc": "Możesz wybrać spośród poniższych propozycji lub możemy przygotować warsztat dopasowany do Twoich potrzeb. Prowadzimy zarówno warsztaty w siedzibie firmy, jak i online.",
+    "workshopsList": {
         "button": "Więcej informacji",
-        "belowButton": "Zapytaj o ofertę",
         "otherOption": "Na stronie umieszczamy najpopularniejsze warsztaty. Jeśli nie widzisz szkolenia, które Cię interesuje lub chciałbyś dopasować materiał kursu do potrzeb i poziomu zespołu, skontaktuj się z nami:",
-        "benefits": {
-            "title": "Zalety prywatnego szkolenia",
-            "tailoredTitle": "Dostosowane do Twoich potrzeb",
-            "tailoredDesc": "Masz specyficzne potrzeby dotyczące warsztatu? Dostosujmy program szkolenia tak, żeby Twój zespół zyskał jak najwięcej potrzebnej wiedzy.",
-            "dateTitle": "Elastyczna data",
-            "dateDesc": "Odpowiadają Wam tylko konkretne daty? Dopasujemy datę, godziny oraz liczbę dni szkoleniowych tak, żeby była dla Was odpowiednia.",
-            "locationTitle": "Możesz wybrać lokalizację",
-            "locationDesc": "Przeprowadzimy szkolenie w siedzibie Twojej firmy, w każdym miejscu na świecie. Możemy również zorganizować warsztaty online. "
+    },
+    "workshopPage": {
+        "knowledgeSources": {
+            "title": "Podczas warsztatu nauczysz się poprzez:",
+            "lecture": "Wykład wspierany slajdami",
+            "exercises": "Wykonanie praktycznych ćwiczeń",
+            "puzzlers": "Rozwiązanie Kotlinowych puzzler'ów"
+        },
+        "titleToc": "Materiał omawiany podczas warsztatu:",
+        "titleRequirements": "Wymagania",
+        "titleHowLong": "Ile trwa ten warsztat?",
+        "registration": {
+            "title": "Request workshop",
+            "private": {
+                "buttonText": "Register for private workshop",
+                "explanation": 'Choose this option if you need workshop for your team or company. The base price is {workshop_price} for the group for 3 days.',
+            },
+            "public": {
+                "buttonText": "Request open online workshop",
+                "explanation": 'Choose this option if you need workshop for yourself or for a small group of people. The base price is {workshop_person_price} per person for 3 days.',
+            }
         }
-    },
-    "knowledgeSources": {
-        "title": "Podczas warsztatu nauczysz się poprzez:",
-        "lecture": "Wykład wspierany slajdami",
-        "exercises": "Wykonanie praktycznych ćwiczeń",
-        "puzzlers": "Rozwiązanie Kotlinowych puzzler'ów"
-    },
-    "titleToc": "Materiał omawiany podczas warsztatu:",
-    "titleRequirements": "Wymagania",
-    "titleHowLong": "Ile trwa ten warsztat?",
-    "registration": {
-        "title": "Zapisz się na warsztat",
-        "whenTitle": "Kiedy:",
-        "whereTitle": "Gdzie:",
-        "langTitle": "Język:",
-        "examWhenTitle": "Termin egzaminu:",
-        "examPriceTitle": "Cena za egzamin i certyfikację: ",
-        "examExtraDesc": "Udział w 3-dniowym szkoleniu jest wymagany do podejścia do egzaminu. <br> Certyfikat jest wydany przez Kt. Academy i jest podpisany przez trenera Kotlin certyfikowanego przez JetBrains.",
-        "priceTitle": "Cena za osobę:",
-        "button": "Zarejestruj się",
-        "newsletterPart1": "Jeżeli chcesz otrzymywać informacje o następnych warsztatach to zapisz się do",
-        "newsletterPart2": "naszej listy mailingowej."
-    },
-    "singleDay": {
-        "title": "Oferta dodatkowa - 1-dniowy warsztat",
-        "infoPossibility": "Możesz również wziąć udział tylko w pierwszym dniu warsztatu (",
-        "infoMaterial": ") - podczas tego dnia poznasz podstawy Kotlina.",
-        "infoPrice": "Cena wynosi ",
-        "infoHowToRegister": ". Żeby zarejestrować się na pierwszy dzień, wybierz odpowiednią opcję w formularzu na górze."
     },
     "puzzler": {
         "descriptionSEO": "Sprawdź przykladowe puzzlery, które programiści rozwiązują na warsztatach Kt. Academy. Wierzymy, że szkolenie powinno być tak praktyczne jak tylko możliwe.",
@@ -514,6 +426,7 @@ const PL_desc = {
         "description": "Małe programistyczne zadania, które wymagają zaimplementowania funkcji albo klasy w języku Kotlin. Dzięki temu możesz sprawdzić w praktyce czy rozumiesz poprawnie materiał z kursu i wyćwiczyć to żeby być w stanie używać nowych umiejętności od razu po warsztacie. Wszystkie wyzwania zostały zweryfikowane przez testy jednostkowe.",
         "examplesTitle": "Przykładowe wyzwania"
     },
+
     "form": {
         "private": {
             "title": "Private workshop request",

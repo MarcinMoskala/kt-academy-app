@@ -13,7 +13,7 @@ export default function WorkshopDetailsSection({workshop}: Props) {
     return (<section className="workshop-TOC" id="workshop-TOC">
         <div className="gradient--strip skew"/>
         <div className="content-container content-container--gradient--strip">
-            <h1 className="white-and-shadow margin-bottom-50">{t.titleToc}</h1>
+            <h1 className="white-and-shadow margin-bottom-50">{t.workshopPage.titleToc}</h1>
             <div className="content-rectangle wow pulse" style={{textAlign: "left"}}>
                 <style>
                     {'h4 {margin-bottom: 0; margin-top: 20px;}'}

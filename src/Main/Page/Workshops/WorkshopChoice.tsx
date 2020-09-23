@@ -35,17 +35,18 @@ export default function WorkshopChoice({tag, workshops}: Props) {
                             <div key={i}
                                  className="flex-item flex-item-paddings flex-container--column wow zoomIn"
                                  style={{flexBasis: "400px", maxWidth: "350px"}}>
-                                <i className={w.icon} style={{fontSize: "50px"}} />
+                                <i className={w.icon} style={{fontSize: "50px"}}/>
                                 <h3> {w.name} </h3>
                                 <p> {w.shortDescription} </p>
                                 <Link to={"/workshop/" + w.key} className="button">
-                                    {t.privateWorkshop.button}
+                                    {t.workshopsList.button}
                                 </Link>
                             </div>)}
                     </div>
                 </div>
             )}
-
+            <span className="margin-top-30"> {t.workshopsList.otherOption}
+                <a href="mailto:contact@kt.academy">contact@kt.academy</a>.</span>
         </div>
     </section>);
 }

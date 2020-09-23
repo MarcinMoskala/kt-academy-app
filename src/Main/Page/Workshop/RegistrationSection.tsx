@@ -3,23 +3,23 @@ import {useTranslations} from "../../../Translations";
 import Link from "../../../Link";
 import React from "react";
 
-export function OrderOptionsSection({workshop}: { workshop: Workshop }) {
+export function RegistrationSection({workshop}: { workshop: Workshop }) {
     const t = useTranslations()
 
-    return <section className="contact short-section section--white" id="contact">
+    return <section className="contact short-section section--white" id="register">
         <div className="content-container">
-            <h1>Request workshop</h1>
+            <h1>t.workshopPage.registration.title</h1>
             <div style={{display: "flex", flexWrap: "wrap"}}>
                 <OrderOption
                     link={"/workshopForm/" + workshop.key}
-                    buttonText={"Register for private workshop"}
-                    explanation={`Choose this option if you need workshop for your team or company. The base price is ${printMoney(workshop.basePrice.company)} for the group for 3 days.`}
-                />
+                    buttonText={t.workshopPage.registration.private.buttonText}
+                    explanation={t.workshopPage.registration.private.explanation
+                        .replace("{workshop_price}", printMoney(workshop.basePrice.company))}/>
                 <OrderOption
                     link={"/workshopOpenForm/" + workshop.key}
-                    buttonText={"Request open online workshop"}
-                    explanation={`Choose this option if you need workshop for yourself or for a small group of people. The base price is ${printMoney(workshop.basePrice.person)} per person for 3 days.`}
-                />
+                    buttonText={t.workshopPage.registration.private.buttonText}
+                    explanation={t.workshopPage.registration.private.explanation
+                        .replace("{workshop_person_price}", printMoney(workshop.basePrice.person))}/>
             </div>
         </div>
     </section>;

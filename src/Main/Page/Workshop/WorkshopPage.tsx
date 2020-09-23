@@ -16,7 +16,7 @@ import WorkshopDescriptionSection from "./WorkshopDescriptionSection";
 import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
-import {OrderOptionsSection} from "./OrderOptionsSection";
+import {RegistrationSection} from "./RegistrationSection";
 
 export default function WorkshopPage() {
     const t = useTranslations()
@@ -33,7 +33,7 @@ export default function WorkshopPage() {
         {text: t.menu.workshopMaterial, to: "#workshop-TOC"},
         {text: t.menu.trainer, to: "#trainer"},
         {text: t.menu.materials, to: "#materials"},
-        {text: t.menu.register, to: "#contact", divider: true},
+        {text: t.menu.register, to: "#register", divider: true},
     ]
 
     let bannerOptions = {
@@ -78,7 +78,7 @@ export default function WorkshopPage() {
             {workshop.howLong &&
             <section className="requirements short-section short-list">
                 <div className="content-container short-content-container">
-                    <h1>{t.titleHowLong}</h1>
+                    <h1>{t.workshopPage.titleHowLong}</h1>
                     {workshop.howLong}
                 </div>
             </section>
@@ -87,7 +87,7 @@ export default function WorkshopPage() {
             {workshop.requirements &&
             <section className="requirements short-section short-list">
                 <div className="content-container short-content-container">
-                    <h1>{t.titleRequirements}</h1>
+                    <h1>{t.workshopPage.titleRequirements}</h1>
                     <ul>
                         {workshop.requirements.map((requirement, index) =>
                             <li key={index}>{requirement}</li>
@@ -105,7 +105,7 @@ export default function WorkshopPage() {
 
             <MaterialsSection workshop={workshop}/>
 
-            <OrderOptionsSection workshop={workshop}/>
+            <RegistrationSection workshop={workshop}/>
 
             <FooterSection/>
         </>
@@ -129,7 +129,6 @@ function getHeader(workshopKey?: string) {
     }
 }
 
-// TODO if needed
 function getPromotionImageUrl(workshopKey?: string) {
     switch (workshopKey) {
         case "android":
