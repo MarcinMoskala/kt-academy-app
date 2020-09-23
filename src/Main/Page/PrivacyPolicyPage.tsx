@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
+import Header from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
 import "../../Utils";
 import {registerPage} from "../../Utils";
 

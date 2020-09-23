@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "../../../Link";
-import {useLang, useLanguagesList, useTranslations} from "../../../Translations";
-import {useScrollToHash} from "../../../Utils";
+import Link from "../../Link";
+import {useLang, useLanguagesList, useTranslations} from "../../Translations";
+import {useScrollToHash} from "../../Utils";
 import {useLocation} from "react-router-dom";
 
 export type LinkTo = {

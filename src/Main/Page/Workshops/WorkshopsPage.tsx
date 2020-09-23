@@ -1,20 +1,13 @@
-import React, {useEffect} from 'react';
-import Header, {LinkTo, Width} from "../../Section/Header/Header";
-import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
-import TrainerSection from "../../Section/Trainer/TrainerSection";
-import TestimonialsSection from "../Testimonials/TestimonialsSection";
-import ContactSection from "../../Section/ContactSection";
+import React from 'react';
+import Header, {LinkTo, Width} from "../../../Section/Header/Header";
 import WorkshopChoice from "./WorkshopChoice";
-import {Workshop} from "../../../Model";
-import MaterialsSection from "../../Section/MaterialsSection";
-import FooterSection from "../../Section/FooterSection";
+import FooterSection from "../../../Section/FooterSection";
 import "../../../ArrayUtils";
 import {registerPage, useQuery} from "../../../Utils";
-import {useLang, useTranslations} from "../../../Translations";
-import HeaderBg from "../../Section/Header/background-img/4-1920x1080.png"
-import {requestApi} from "../../../Network";
+import {useTranslations} from "../../../Translations";
+import HeaderBg from "../../../Section/Header/background-img/4-1920x1080.png"
 import {useWorkshops} from "../../../Hooks";
-import ReactLoading from 'react-loading';
+import {LoadingPage} from "../../../Loading";
 
 export default function WorkshopsPage() {
     const t = useTranslations();
@@ -39,18 +32,14 @@ export default function WorkshopsPage() {
         width: Width.Full,
     };
 
+    if (!workshops) {
+        return <LoadingPage/>
+    }
+
     return (
         <>
             <Header links={links} banner={bannerOptions}/>
-            {workshops ?
-                <WorkshopChoice workshops={workshops}/>
-                :<ReactLoading/>
-            }
-            <JetbrainsCertificationSection/>
-            <TrainerSection trainerKey={workshops?.map(w => w.trainer.key)?.mostCommon()}/>
-            <MaterialsSection/>
-            <TestimonialsSection/>
-            <ContactSection/>
+            <WorkshopChoice workshops={workshops}/>
             <FooterSection/>
         </>
     );

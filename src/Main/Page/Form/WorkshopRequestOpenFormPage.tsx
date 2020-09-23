@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../../Section/Header/Header";
-import FooterSection from "../../Section/FooterSection";
+import Header from "../../../Section/Header/Header";
+import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useTranslations} from "../../../Translations";
 import {API_URL} from "../../../Network";

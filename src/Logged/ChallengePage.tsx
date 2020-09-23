@@ -6,8 +6,8 @@ import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
 import {saveUserChallenge} from "../Network";
 import {Challenge, ChallengeStatus} from "../Model";
-import Header from "../Main/Section/Header/Header";
-import FooterSection from "../Main/Section/FooterSection";
+import Header from "../Section/Header/Header";
+import FooterSection from "../Section/FooterSection";
 import {LoadingPage} from "../Loading";
 
 type CodeEditorInstance = {

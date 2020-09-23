@@ -1,15 +1,15 @@
 import React from 'react';
-import Header, {Banner, LinkTo, Width} from "../../Section/Header/Header";
+import Header, {Banner, LinkTo, Width} from "../../../Section/Header/Header";
 import WorkshopOfferSection from "./WorkshopOfferSection";
 import WhyUsSection from "./WhyUsSection";
-import TrainerSection from "../../Section/Trainer/TrainerSection";
-import JetbrainsCertificationSection from "../../Section/JetbrainsCertificationSection";
+import TrainerSection from "../Workshop/Trainer/TrainerSection";
+import JetbrainsCertificationSection from "../Workshop/Certified/JetbrainsCertificationSection";
 import MaterialsSection from "../../Section/MaterialsSection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";
 import ContactSection from "../../Section/ContactSection";
-import FooterSection from "../../Section/FooterSection";
+import FooterSection from "../../../Section/FooterSection";
 import {useTranslations} from "../../../Translations";
-import HeaderBg from "../../Section/Header/background-img/10-1920x1080.png"
+import HeaderBg from "../../../Section/Header/background-img/10-1920x1080.png"
 import {registerPage} from "../../../Utils";
 
 export default function HomePage() {
@@ -35,8 +35,6 @@ export default function HomePage() {
             <Header links={menuLinks} banner={bannerProps}/>
             <WorkshopOfferSection/>
             <WhyUsSection/>
-            <JetbrainsCertificationSection/>
-            <TrainerSection trainerKey="marcin"/>
             <MaterialsSection/>
             <TestimonialsSection to="#workshops-offer"/>
             <ContactSection/>

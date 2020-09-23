@@ -1,10 +1,10 @@
 import React, {useMemo} from 'react';
-import Header, {Width} from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
+import Header, {Width} from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
 import KotlinPlayground from "react-kotlin-playground/es";
-import PuzzlerHeaderBg from "../Section/Header/background-img/8-1920x702.png"
+import PuzzlerHeaderBg from "../../Section/Header/background-img/8-1920x702.png"
 import {registerPage} from "../../Utils";
 
 type Puzzler = {

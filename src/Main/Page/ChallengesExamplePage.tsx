@@ -1,9 +1,9 @@
 import React from 'react';
-import Header, {Width} from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
+import Header, {Width} from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
-import ChallengeHeaderBg from "../Section/Header/background-img/7-1920x702.png"
+import ChallengeHeaderBg from "../../Section/Header/background-img/7-1920x702.png"
 import TestimonialsSection from "./Testimonials/TestimonialsSection";
 import KotlinPlayground from "react-kotlin-playground/es";
 import {registerPage} from "../../Utils";

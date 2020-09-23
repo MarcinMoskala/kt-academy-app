@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
-import {useTranslations} from "../../../Translations";
-import {API_URL, requestApi} from "../../../Network";
-import {Trainer, Video} from "../../../Model";
+import {useTranslations} from "../../../../Translations";
+import {API_URL, requestApi} from "../../../../Network";
+import {Trainer, Video} from "../../../../Model";
 import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"
 
@@ -104,7 +104,7 @@ function VideoIcon({video, onClick}: { video: Video, onClick: (Video) => void })
     return (
         <video className="margin-top-10 margin-right-5" width="140" height="80"
                src={"https://www.youtube.com/embed/" + video.ytCode}
-               onClick={() => onClick(video)} autoPlay poster={"images/yt_banners/" + video.posterImg}/>
+               onClick={() => onClick(video)} autoPlay poster={"/images/yt_banners/" + video.posterImg}/>
     );
 }
 

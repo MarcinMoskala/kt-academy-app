@@ -1,5 +1,5 @@
 import React from "react";
-import {useTranslations} from "../../Translations";
+import {useTranslations} from "../../../../Translations";
 import CertifiedTrainingImg from "./JetBrains_certified_Kotlin_Training.png"
 
 export default function JetbrainsCertificationSection() {
