@@ -20,10 +20,8 @@ export type Workshop = {
     lang: string,
     name: string,
     subtitle: string | null,
-    metaDescription: string,
+    shortDescription: string,
     metaKeywords: string,
-    promotionImageUrl: string,
-    bannerUrlCss: string,
     description: string,
     secondDescription: string | null,
     practicalTask: string | null,
@@ -31,14 +29,35 @@ export type Workshop = {
     requirements: string[] | null,
     tocMd: string,
     icon: string,
-    materialsImg: string
     certifiedByJb: boolean,
     challenges: boolean,
+    trainer: Trainer,
     tags: string[],
     howLong: string[] | null,
-    trainer: Trainer,
+    basePrice: BasePrice,
     langVariants: string[]
 };
+
+export type BasePrice = {
+    company: Money,
+    person: Money,
+};
+
+export type Money = {
+    amount: string,
+    currency: "EUR" | "PLN"
+};
+
+export function printMoney(money: Money): string{
+    switch (money.currency) {
+        case "EUR":
+            return `${money.amount} EUR`
+        case "PLN":
+            return `${money.amount} zł`
+        default:
+            return `${money.amount} ${money.currency}`
+    }
+}
 
 export type User = {
     id: string,
@@ -49,7 +68,7 @@ export type User = {
     googleToken: string | null,
     newsletters: string[],
     tags: string[]
-}
+};
 
 export type Challenge = {
     key: string,
@@ -58,7 +77,7 @@ export type Challenge = {
     originalCode: string,
     description: string,
     status: ChallengeStatus
-}
+};
 
 export type ChallengeStatus = "INITIAL" | "STARTED" | "SOLVED"
 
@@ -70,6 +89,13 @@ export type WorkshopSubmission = {
     lang: string,
     data: string,
     status: WorkshopSubmissionStatus
-}
+};
 
-export type WorkshopSubmissionStatus = "SUBMITTED" | "OUTDATED" | "SPAM"
+export type WorkshopSubmissionStatus =
+    "SUBMITTED"
+    | "CONTACTED"
+    | "CONFIRMED"
+    | "WAITING"
+    | "FINISHED"
+    | "OUTDATED"
+    | "SPAM";

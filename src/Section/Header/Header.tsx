@@ -34,14 +34,16 @@ type Button = {
     to: string
 }
 
-export default function Header({links, banner = undefined, allowedLangs}: Props) {
+export default function Header({links = [], banner = undefined, allowedLangs}: Props) {
     const t = useTranslations()
     const langStr = useLang()
     const query = useLocation().search
 
-    if (!links) {
-        links = [{text: t.menu.home, to: "/"}]
-    }
+    links = links.concat([
+        {to: "/workshop", text: t.menu.workshops},
+        {to: "/generate", text: t.menu.generate},
+        {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
+    ])
 
     let langList = useLanguagesList()
     if(allowedLangs) {

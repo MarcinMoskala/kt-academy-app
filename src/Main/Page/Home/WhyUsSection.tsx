@@ -25,7 +25,7 @@ export default function WorkshopOffer() {
 
                     <div className="flex-container--row margin-bottom-20 flex-basis-auto">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-puzzle-piece "/>
+                            <i className="fas fa-puzzle-piece"  style={{paddingTop: "10px", paddingBottom: "10px"}}/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.puzzlers} </p>
@@ -36,7 +36,7 @@ export default function WorkshopOffer() {
 
                     <div className="flex-container--row margin-bottom-20 flex-basis-auto">
                         <div className="flex-item--with-symbol">
-                            <i className="fas fa-brain"/>
+                            <i className="fas fa-brain"  style={{paddingTop: "10px", paddingBottom: "10px"}}/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.challenges} </p>
@@ -47,7 +47,7 @@ export default function WorkshopOffer() {
 
                     <div className="flex-container--row flex-basis-auto">
                         <div className="flex-item--with-symbol">
-                            <i className="fab fa-android padding-bottom-0 symbol-width"/>
+                            <i className="fab fa-android symbol-width"  style={{paddingTop: "10px", paddingBottom: "10px"}}/>
                         </div>
                         <div className="flex-item--after-symbol">
                             <p className="margin-bottom-5"> {t.whyUs.app} </p>

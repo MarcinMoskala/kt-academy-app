@@ -66,7 +66,7 @@ export default function GenerateDtoPage() {
     }
 
     return <>
-        <Header/> {/* Should have Home link */}
+        <Header/>
         <section className="form">
             <div className="content-container" style={{paddingTop: "80px"}}>
                 <h1>{t.generate.title}</h1>

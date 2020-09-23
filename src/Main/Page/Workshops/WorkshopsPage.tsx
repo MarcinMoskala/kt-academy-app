@@ -18,11 +18,8 @@ export default function WorkshopsPage() {
     const workshops = useWorkshops(tag, trainer)
 
     const links: LinkTo[] = [
-        {text: t.menu.home, to: "/", divider: true},
         {text: t.menu.privateWorkshops, to: "#workshops-offer"},
-        {text: t.menu.trainer, to: "#trainer"},
-        {text: t.menu.materials, to: "#materials"},
-        {text: t.menu.contact, to: "#contact"},
+        {text: t.menu.contact, to: "#contact", divider: true},
     ]
 
     let bannerOptions = {
@@ -39,7 +36,7 @@ export default function WorkshopsPage() {
     return (
         <>
             <Header links={links} banner={bannerOptions}/>
-            <WorkshopChoice workshops={workshops}/>
+            <WorkshopChoice tag={tag} workshops={workshops}/>
             <FooterSection/>
         </>
     );

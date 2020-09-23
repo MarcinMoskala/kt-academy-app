@@ -16,10 +16,11 @@ export default function WorkshopsSubmissionsAdminPage() {
     const elementClicked = (submission: WorkshopSubmission) => {
         let options = [
             "SUBMITTED",
+            "CONTACTED",
             "CONFIRMED",
+            "WAITING",
             "FINISHED",
             "OUTDATED",
-            "WAITING",
             "SPAM"
         ];
         Swal.fire<string>({
@@ -46,7 +47,11 @@ export default function WorkshopsSubmissionsAdminPage() {
             {name: 'submissionType', label: 'Type', options: {filter: true, sort: true}},
             {name: 'lang', label: 'Lang', options: {filter: true, sort: true}},
             {name: 'data', label: 'Details', options: {filter: false, sort: false}},
-            {name: 'status', label: 'Status', options: {filter: true, sort: true, filterList: ['SUBMITTED', 'CONFIRMED']}},
+            {
+                name: 'status',
+                label: 'Status',
+                options: {filter: true, sort: true, filterList: ['SUBMITTED', 'CONFIRMED']}
+            },
         ]} clicked={elementClicked}/>
         }
         <FooterSection/>

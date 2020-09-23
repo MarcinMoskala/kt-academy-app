@@ -41,6 +41,7 @@ const EN_desc = {
     "title": "Kt. Academy - workshops with focus on best practices",
     "menu": {
         "home": "Home",
+        "offer": "Offer",
         "whyUs": "Why Us",
         "trainer": "Trainer",
         "materials": "Materials",
@@ -106,7 +107,7 @@ const EN_desc = {
         "stayInTouch": "Stay in touch!",
         "pricing": {
             "description": "Tell us more about your needs and the level of your team, so we can prepare the adjusted offer and send you the right pricing.",
-            "button": "Ask for pricing"
+            "button": "Request workshop"
         },
         "twitter": {
             "title": "Follow us on Twitter",
@@ -154,7 +155,7 @@ const EN_desc = {
         "subtitle": "Tailor made to the needs of your team",
         "offerTitle": "Book a workshop only for your team",
         "offerDesc": "You can choose from the proposals below, or we can prepare something tailored to your needs. We conduct both in-company and online trainings. ",
-        "button": "More information about the workshop",
+        "button": "More information",
         "belowButton": "Ask for pricing",
         "otherOption": "We list only the most popular workshops on our website. If you don't see the course you need or require a tailored version of it, then please write to us:",
         "benefits": {
@@ -236,30 +237,73 @@ const EN_desc = {
         "examplesTitle": "Exemplary challenges"
     },
     "form": {
-        "title": "Request for ",
+        "private": {
+            "title": "Private workshop request",
+            "intro": "Fill this form to request private workshop [{workshop_name}]({workshop_link}) for your company."
+        },
+
+        "public": {
+            "title": "Public workshop request",
+            "intro": "Fill this form to request public workshop [{workshop_name}]({workshop_link}). When you fill this form you will be placed on a list of developers interested in this workshop. When we will have enough attendees in your time zone, we will contact you and propose a concrete date."
+        },
+
         "namePrompt": "Your name",
         "emailPrompt": "Your email",
         "companyNamePrompt": "Company name",
         "groupSizePrompt": "For how many people do you need this workshop?",
         "orMore": "or more",
+        "justMe": "Just me",
         "countryPrompt": "Country or region",
-        "isOnlinePrompt": "Are you interested in in-company or online training?",
-        "inCompany": "In-company",
-        "online": "Online",
         "datePrompt": "What date suits you best?",
         "extraPrompt": "Is there anything else you would like to share?",
-
         "privateGroupSizePrompt": "How many developers would you like to register?",
+        "dialogSent": "Zgłoszenie wysłane",
+        "dialogError": "A problem occurred, please send later",
+
+        "isOnline": {
+            "question": "Are you interested in in-company or online training?",
+            "inCompany": "In-company",
+            "online": "Online",
+        },
+
+        "registerKind": {
+            "question": "Who would you like to register?",
+            "myself": "Myself",
+            "developerCompany": "A developer from my company",
+            "myselfAndGroupCompany": "Myself and other developers from my company",
+            "groupCompany": "Developers from my company",
+        },
+
+        "invoiceTo": {
+            "question": "To whom issue the invoice?",
+            "company": "The company I work for",
+            "privateCompany": "My private company",
+            "person": "Myself",
+        },
+
+        "developerExperience": {
+            "questionMyself": "What is your professional experience as a developer?",
+            "questionOther": "What is this registered person experience as a developer",
+            "no": "No professional experience",
+            "junior": "Junior developer",
+            "mid": "Developer",
+            "senior": "Senior developer",
+        },
+
+        "priceAcceptance": {
+            "question": "The base price for this workshop is 400 EUR per person for 3 days. Is it ok for you?",
+            "ok": "Yes",
+            "discountNeeded": "This is too much for me, I would need a discount",
+            "wayTooMuch": "Sorry, but my budget is less than half of that",
+        },
 
         "required": "Required",
         "invalidEmail": "Invalid email",
-        "submit": "Submit"
-    },
-    "formRegisterPublic": {
-        "title": "Register for",
-        "q_name": "What is your name?",
-        "q_company": "What is your company name?",
-        "submit": "Submit"
+        "submit": "Submit",
+
+        "requestOpenInsteadInfo": "This form should be used to request private workshops for companies. If there is only you or a small group of people, we suggest using [this form]({openFormLink}) to request an open online workshop.",
+        "beginnerInfo": "We are sorry, but this workshop is for developers with professional experience. We collected our advices for new developers in [this article](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc). If you want to learn Kotlin, our recommendtaions are [here](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6).",
+        "noVatIdInfo": "We might not be able to offer you any discount as for a private person we will need to pay extra tax 23%.",
     },
     "generate": {
         "title": "Generate DTO",
@@ -276,6 +320,7 @@ const PL_desc = {
     "title": "Kt. Academy - Szkolenia skupiające się na najlepszych praktykach",
     "menu": {
         "home": "Strona Główna",
+        "offer": "Oferta",
         "whyUs": "Dlaczego my?",
         "workshopMaterial": "Zagadnienia",
         "trainer": "Trener",
@@ -388,7 +433,7 @@ const PL_desc = {
         "subtitle": "Uszyte na miarę potrzeb Twojego zespołu",
         "offerTitle": "Zarezerwuj warsztat dla Twojego zespołu",
         "offerDesc": "Możesz wybrać spośród poniższych propozycji lub możemy przygotować warsztat dopasowany do Twoich potrzeb. Prowadzimy zarówno warsztaty w siedzibie firmy, jak i online.",
-        "button": "Więcej informacji o warsztacie",
+        "button": "Więcej informacji",
         "belowButton": "Zapytaj o ofertę",
         "otherOption": "Na stronie umieszczamy najpopularniejsze warsztaty. Jeśli nie widzisz szkolenia, które Cię interesuje lub chciałbyś dopasować materiał kursu do potrzeb i poziomu zespołu, skontaktuj się z nami:",
         "benefits": {
@@ -470,24 +515,73 @@ const PL_desc = {
         "examplesTitle": "Przykładowe wyzwania"
     },
     "form": {
-        "title": "Prośba o wycenę szkolenia ",
+        "private": {
+            "title": "Private workshop request",
+            "intro": "Fill this form to request private workshop [{workshop_name}]({workshop_link}) for your company."
+        },
+
+        "public": {
+            "title": "Public workshop request",
+            "intro": "Fill this form to request public workshop [{workshop_name}]({workshop_link}). When you fill this form you will be placed on a list of developers interested in this workshop. When we will have enough attendees in your time zone, we will contact you and propose a concrete date."
+        },
+
         "namePrompt": "Twoje imię",
         "emailPrompt": "Twój email",
         "companyNamePrompt": "Nazwa firmy",
         "groupSizePrompt": "Ile osób będzie uczestniczyć w szkoleniu?",
         "orMore": "albo więcej",
+        "justMe": "Tylko ja",
         "countryPrompt": "Kraj lub region",
-        "isOnlinePrompt": "Jesteś zainteresowany szkoleniem zdalnym czy w siedzibie firmy?",
-        "inCompany": "W siedzibie firmy",
-        "online": "Zdalnie",
         "datePrompt": "Jaki termin Ci odpowiada?",
         "extraPrompt": "Czy jest jeszcze coś, co chciałbyś dodać?",
-
         "privateGroupSizePrompt": "Ilu programistów chciałbyś/chciałabyś zarejestrować?",
+        "dialogSent": "Zgłoszenie wysłane",
+        "dialogError": "A problem occurred, please send later",
+
+        "isOnline": {
+            "question": "Jesteś zainteresowany szkoleniem zdalnym czy w siedzibie firmy?",
+            "inCompany": "W siedzibie firmy",
+            "online": "Zdalnie",
+        },
+
+        "registerKind": {
+            "question": "Who would you like to register?",
+            "myself": "Myself",
+            "developerCompany": "A developer from my company",
+            "myselfAndGroupCompany": "Myself and other developers from my company",
+            "groupCompany": "Developers from my company",
+        },
+
+        "invoiceTo": {
+            "question": "To whom issue the invoice?",
+            "company": "The company I work for",
+            "privateCompany": "My private company",
+            "person": "Myself",
+        },
+
+        "developerExperience": {
+            "questionMyself": "What is your professional experience as a developer?",
+            "questionOther": "What is this registered person experience as a developer",
+            "no": "No professional experience",
+            "junior": "Junior developer",
+            "mid": "Developer",
+            "senior": "Senior developer",
+        },
+
+        "priceAcceptance": {
+            "question": "The base price for this workshop is {price} per person for {days_num} days. Is it ok for you?",
+            "ok": "Yes",
+            "discountNeeded": "This is too much for me, I would need a discount",
+            "wayTooMuch": "Sorry, but my budget is less than half of that",
+        },
 
         "required": "Pole wymagane",
         "invalidEmail": "Niepoprawny adres email",
-        "submit": "Prześlij"
+        "submit": "Prześlij",
+
+        "requestOpenInsteadInfo": "",
+        "beginnerInfo": "",
+        "noVatIdInfo": "We might not be able to offer you any discount as for a private person we will need to pay extra tax 23%.",
     },
     "generate": {
         "title": "Generuj DTO",
@@ -495,5 +589,5 @@ const PL_desc = {
         "dtoName": "Nazwa DTO",
         "dtoSuffix": "(albo) suffix",
         "generateButton": "Generuj",
-    }
+    },
 }

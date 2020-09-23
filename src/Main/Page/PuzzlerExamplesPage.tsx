@@ -72,7 +72,7 @@ fun main() {
         subtitle: t.puzzler.subtitle,
     };
     return <>
-        <Header banner={puzzlerBanner}/> {/* Should have Home link */}
+        <Header banner={puzzlerBanner}/>
         <section className="puzzler short-section">
             <div className="content-container">
                 <h1>{t.puzzler.whatArePuzzlers}</h1>

@@ -3,14 +3,19 @@ import Header from "../../../Section/Header/Header";
 import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useTranslations} from "../../../Translations";
-import {API_URL} from "../../../Network";
+import {requestApi} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
-import Link from "../../../Link";
 import "./WorkhopFormStyle.css"
+import {CountrySelect} from "./CountrySelect";
+import {RadioSelect} from "./RadioSelect";
+import ReactMarkdown from "react-markdown";
+
+type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
+type IsOnlineOptions = "online" | "inCompany"
 
 type FormData = {
     senderName: string,
@@ -19,8 +24,8 @@ type FormData = {
     country: string,
     date: string,
     extra: string,
-    groupSize: string,
-    online: string
+    groupSize: GroupSizeOptions,
+    isOnline: IsOnlineOptions
 };
 
 export default function WorkshopFormPage() {
@@ -42,26 +47,21 @@ export default function WorkshopFormPage() {
             return
         }
         setButtonEnabled(false)
-        fetch(API_URL + "workshop/" + workshop!.key + "/submit", {
+        requestApi("workshop/" + workshop!.key + "/submit", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                senderName: data.senderName,
+            body: {
                 email: data.email,
                 companyName: data.companyName,
                 groupSize: data.groupSize,
                 country: data.country,
-                isOnline: data.online !== "inCompany",
                 date: data.date,
                 extra: data.extra
-            })
+            }
         })
             .then(
-                (res) => {
+                (_) => {
                     setButtonEnabled(true)
-                    Swal.fire("Sent")
+                    Swal.fire(t.form.dialogSent)
                         .then(r => {
                             window.location.replace("https://kt.academy");
                         })
@@ -69,7 +69,7 @@ export default function WorkshopFormPage() {
                 (error) => {
                     setButtonEnabled(true)
                     console.log(error)
-                    Swal.fire("A problem occurred, please send later")
+                    Swal.fire(t.form.dialogError)
                 }
             )
     }
@@ -77,10 +77,13 @@ export default function WorkshopFormPage() {
     if (!workshop) return <></>
 
     return <>
-        <Header/> {/* Should have Home link */}
+        <Header/>
         <section className="form">
             <div className="content-container">
-                <h1>{t.form.title + workshop.name}</h1>
+                <h1>{t.form.private.title}</h1>
+                <ReactMarkdown source={t.form.private.intro
+                    .replace("{workshop_name}", workshop.name)
+                    .replace("{workshop_link}", "/workshopOpenForm/" + workshop.key)}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
@@ -111,60 +114,33 @@ export default function WorkshopFormPage() {
                         <Error field={errors.companyName}/>
                     </fieldset>
 
-                    <fieldset>
-                        <legend>{t.form.groupSizePrompt}</legend>
-                        <input type="radio" id="size1" name="groupSize" value="size1" ref={register}/>
-                        <label htmlFor="size1">Just me</label><br/>
-                        <input type="radio" id="size2to7" name="groupSize" value="size2to7" ref={register}/>
-                        <label htmlFor="size2to7">2-8</label><br/>
-                        <input type="radio" id="size8to15" name="groupSize" value="size8to15" ref={register}/>
-                        <label htmlFor="size8to15">8-16</label><br/>
-                        <input type="radio" id="size16orMore" name="groupSize" value="size16orMore" ref={register({
-                            required: t.form.required
-                        })}/>
-                        <label htmlFor="size16orMore">17 {t.form.orMore}</label>
-                        <Error field={errors.groupSize}/>
-                    </fieldset>
+                    <RadioSelect<FormData, GroupSizeOptions>
+                        title={t.form.groupSizePrompt}
+                        name="groupSize" register={register} errors={errors} required={true}
+                        options={[
+                            {label: t.form.justMe, value: "size1"},
+                            {label: "2-8", value: "size2to7"},
+                            {label: "8-16", value: "size8to15"},
+                            {label: "17 " + t.form.orMore, value: "size16orMore"},
+                        ]}/>
 
                     {(groupSize === "size1" || groupSize === "size2to7") &&
-                    <p>This form should be used to request private workshops for companies.
-                        If there is only you or a small group of people, we suggest using <Link
-                            to={"/workshopRequestForm/" + workshop.key}>this form</Link> to request an open online
-                        workshop.
-                    </p>
+                    <ReactMarkdown
+                        source={t.form.requestOpenInsteadInfo
+                            .replace("{openFormLink}", "/workshopOpenForm/" + workshop.key)}/>
                     }
 
                     {groupSize !== "size1" &&
                     <>
-                        <fieldset>
-                            <label htmlFor="country">{t.form.countryPrompt}</label>
-                            <select name="country" id="country" ref={register}>
-                                <option value="Poland">Poland</option>
-                                <option value="UnitedKingdom">United Kingdom</option>
-                                <option value="USA">USA</option>
-                                <option value="Germany">Germany</option>
-                                <option value="France">France</option>
-                                <option value="China">China</option>
-                                <option value="Europe">Europe</option>
-                                <option value="America">America</option>
-                                <option value="Asia">Asia</option>
-                                <option value="Africa">Africa</option>
-                                <option value="Australia">Australia</option>
-                            </select>
-                        </fieldset>
+                        <CountrySelect register={register}/>
 
-                        <fieldset>
-                            <legend>{t.form.isOnlinePrompt}</legend>
-                            <input type="radio" id="inCompany" name="online" value="inCompany" ref={register}/>
-                            <label htmlFor="inCompany">{t.form.inCompany}</label>
-                            <br/>
-                            <input type="radio" id="online" name="online" value="online" ref={register({
-                                required: t.form.required
-                            })}/>
-                            <label htmlFor="online">{t.form.online}</label>
-                            <Error field={errors.online}/>
-                            <br/>
-                        </fieldset>
+                        <RadioSelect<FormData, IsOnlineOptions>
+                            title={t.form.isOnline.question}
+                            name="isOnline" register={register} errors={errors} required={true}
+                            options={[
+                                {label: t.form.isOnline.online, value: "online"},
+                                {label: t.form.isOnline.inCompany, value: "inCompany"},
+                            ]}/>
 
                         <fieldset>
                             <label htmlFor="date">{t.form.datePrompt}</label>

@@ -100,7 +100,7 @@ h4 {
 
 p {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 14px;
     font-family: "Times New Roman";
     color: #404040;
 }
@@ -192,7 +192,7 @@ section.section--white {
 .content-container {
     margin: 0px auto;
     max-width: 1150px;
-    padding: 80px 80px 80px 80px;
+    padding: 50px 80px;
     text-align: center;
 }
 
@@ -490,20 +490,20 @@ footer a {
     }
 
     section h1 {
-        font-size: 42px;
+        font-size: 30px;
     }
 
     section h2 {
-        font-size: 32px;
+        font-size: 25px;
     }
 
     section h3 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     section p,
     section li {
-        font-size: 17px;
+        font-size: 14px;
     }
 
     section h4 {
@@ -802,13 +802,6 @@ section.short-section {
 section.short-section .p--below-button {
     margin-bottom: 0px;
     margin-top: 20px;
-}
-
-.content-container {
-    margin: 0px auto;
-    max-width: 1150px;
-    padding: 50px 80px 50px 80px;
-    text-align: center;
 }
 
 .content-container.short-content-container {
@@ -1172,7 +1165,7 @@ footer a {
     -moz-box-flex: 1 1;
     -webkit-flex-basis: 1 1;
     -ms-flex: 1 1;
-    flex: 1 1;
+    flex: 1 1 ;
 }
 
 .space-between {

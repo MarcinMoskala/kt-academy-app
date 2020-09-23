@@ -1,19 +1,24 @@
 import React from 'react';
 import Header from "../../../Section/Header/Header";
-import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useTranslations} from "../../../Translations";
-import {API_URL} from "../../../Network";
+import {requestApi} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
 import "./WorkhopFormStyle.css"
+import {RadioSelect} from "./RadioSelect";
+import {FormError} from "./FormError";
+import FooterSection from "../../../Section/FooterSection";
+import {CountrySelect} from "./CountrySelect";
+import ReactMarkdown from "react-markdown";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
 type InvoiceToOptions = "person" | "privateCompany" | "company"
 type DeveloperExperience = "no" | "junior" | "mid" | "senior"
+type PriceAcceptanceOptions = "ok" | "discountNeeded" | "wayTooMuch"
 
 type FormData = {
     senderName: string,
@@ -22,6 +27,7 @@ type FormData = {
 
     invoiceTo?: InvoiceToOptions,
     developerExperience?: DeveloperExperience,
+    priceAcceptance?: PriceAcceptanceOptions,
 
     companyName?: string,
     groupSize: string,
@@ -41,6 +47,7 @@ export default function WorkshopFormPage() {
     const {register, watch, handleSubmit, errors} = useForm<FormData>();
     const registerKind: RegisterKinds = watch("registerKind")
     const developerExperience: DeveloperExperience | undefined = watch("developerExperience")
+    const invoiceTo: InvoiceToOptions | undefined = watch("invoiceTo")
 
     const onSubmit = (data: FormData) => {
         console.log(data);
@@ -48,24 +55,21 @@ export default function WorkshopFormPage() {
             return
         }
         setButtonEnabled(false)
-        fetch(API_URL + "workshop/" + workshop!.key + "/submit", {
+        requestApi("workshop/" + workshop!.key + "/submit", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+            body: {
                 email: data.email,
                 companyName: data.companyName,
                 groupSize: data.groupSize,
                 country: data.country,
                 date: data.date,
                 extra: data.extra
-            })
+            }
         })
             .then(
-                (res) => {
+                (_) => {
                     setButtonEnabled(true)
-                    Swal.fire("Sent")
+                    Swal.fire(t.form.dialogSent)
                         .then(r => {
                             window.location.replace("https://kt.academy");
                         })
@@ -73,7 +77,7 @@ export default function WorkshopFormPage() {
                 (error) => {
                     setButtonEnabled(true)
                     console.log(error)
-                    Swal.fire("A problem occurred, please send later")
+                    Swal.fire(t.form.dialogError)
                 }
             )
     }
@@ -81,18 +85,20 @@ export default function WorkshopFormPage() {
     if (!workshop) return <></>
 
     return <>
-        <Header/> {/* Should have Home link */}
+        <Header/>
         <section className="form">
             <div className="content-container">
-                <h1>{t.form.title + workshop.name}</h1>
-                <p>{"Request open online workshop " + workshop.name + "."}</p>
+                <h1>{t.form.public.title}</h1>
+                <ReactMarkdown source={t.form.public.intro
+                    .replace("{workshop_name}", workshop.name)
+                    .replace("{workshop_link}", "/workshopOpenForm/" + workshop.key)}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
                         <label htmlFor="senderName">{t.form.namePrompt}</label>
                         <input type="text" name="senderName" id="senderName" ref={register}
                                placeholder={t.form.namePrompt}/>
-                        <Error field={errors.senderName}/>
+                        <FormError field={errors.senderName}/>
                     </fieldset>
 
                     <fieldset>
@@ -104,111 +110,106 @@ export default function WorkshopFormPage() {
                                 message: t.form.invalidEmail
                             }
                         })} placeholder={t.form.emailPrompt}/>
-                        <Error field={errors.email}/>
+                        <FormError field={errors.email}/>
                     </fieldset>
 
-                    <fieldset>
-                        <legend>Who would you like to register?</legend>
-                        <input type="radio" id="myself" name="registerKind" value="myself" ref={register}/>
-                        <label htmlFor="myself">Myself</label><br/>
-                        <input type="radio" id="developerCompany" name="registerKind" value="developerCompany"
-                               ref={register}/>
-                        <label htmlFor="developerCompany">A developer from my company</label><br/>
-                        <input type="radio" id="myselfAndGroupCompany" name="registerKind" value="myselfAndGroupCompany"
-                               ref={register}/>
-                        <label htmlFor="myselfAndGroupCompany">Myself and other developers from my company</label><br/>
-                        <input type="radio" id="groupCompany" name="registerKind" value="groupCompany" ref={register}/>
-                        <label htmlFor="groupCompany">Developers from my company</label><br/>
-                        <Error field={errors.registerKind}/>
-                    </fieldset>
+                    <RadioSelect<FormData, RegisterKinds>
+                        title={t.form.registerKind.question} name="registerKind" register={register} errors={errors}
+                        required={true}
+                        options={[
+                            {label: t.form.registerKind.myself, value: "myself"},
+                            {label: t.form.registerKind.developerCompany, value: "developerCompany"},
+                            {label: t.form.registerKind.myselfAndGroupCompany, value: "myselfAndGroupCompany"},
+                            {label: t.form.registerKind.groupCompany, value: "groupCompany"},
+                        ]}/>
 
                     {registerKind === "myself" &&
-                    <fieldset>
-                        <legend>To whom issue the invoice?</legend>
-                        <input type="radio" id="size1" name="invoiceTo" value="size1" ref={register}/>
-                        <label htmlFor="size2to7">The company I work for</label><br/>
-                        <input type="radio" id="size2to7" name="invoiceTo" value="size2to7" ref={register}/>
-                        <label htmlFor="size2to7">My private company</label><br/>
-                        <input type="radio" id="size8to15" name="invoiceTo" value="size8to15" ref={register}/>
-                        <label htmlFor="size8to15">Myself</label><br/>
-                        <Error field={errors.invoiceTo}/>
-                    </fieldset>
-                    }
-
-                    {["myself", "developerCompany"].includes(registerKind) &&
                     <>
-                        <fieldset>
-                            <legend>{registerKind === "myself" ? "What is your professional experience as a developer?" : "What is this registered person experience as a developer"}</legend>
-                            <input type="radio" id="no" name="developerExperience" value="no" ref={register}/>
-                            <label htmlFor="no">No professional experience</label><br/>
-                            <input type="radio" id="junior" name="developerExperience" value="junior" ref={register}/>
-                            <label htmlFor="junior">Junior developer</label><br/>
-                            <input type="radio" id="mid" name="developerExperience" value="mid" ref={register}/>
-                            <label htmlFor="mid">Developer</label><br/>
-                            <input type="radio" id="senior" name="developerExperience" value="senior" ref={register}/>
-                            <label htmlFor="senior">Senior developer</label><br/>
-                            <Error field={errors.developerExperience}/>
-                        </fieldset>
+                        <RadioSelect<FormData, InvoiceToOptions>
+                            title={t.form.invoiceTo.question} name="invoiceTo" register={register} errors={errors}
+                            required={true}
+                            options={[
+                                {label: t.form.invoiceTo.company, value: "company"},
+                                {label: t.form.invoiceTo.privateCompany, value: "privateCompany"},
+                                {label: t.form.invoiceTo.person, value: "person"}
+                            ]}/>
 
-                        {developerExperience === "no" &&
-                        <p>We are sorry, but this workshop is for developers with professional experience.</p>
+                        {invoiceTo === "person" &&
+                        <ReactMarkdown source={t.form.noVatIdInfo}/>
                         }
                     </>
                     }
 
-                    {["myselfAndGroupCompany", "groupCompany"].includes(registerKind) &&
+                    {["myself", "developerCompany"].includes(registerKind) &&
+                    <>
+                        <RadioSelect<FormData, DeveloperExperience>
+                            title={registerKind === "myself" ? t.form.developerExperience.questionMyself : t.form.developerExperience.questionOther}
+                            name="developerExperience" register={register} errors={errors} required={true}
+                            options={[
+                                {label: t.form.developerExperience.no, value: "no"},
+                                {label: t.form.developerExperience.junior, value: "junior"},
+                                {label: t.form.developerExperience.mid, value: "mid"},
+                                {label: t.form.developerExperience.senior, value: "senior"},
+                            ]}/>
+
+                        {developerExperience === "no" &&
+                        <ReactMarkdown source={t.form.beginnerInfo}/>
+                        }
+                    </>
+                    }
+
+                    {["developerCompany", "myselfAndGroupCompany", "groupCompany"].includes(registerKind) &&
                     <>
                         <fieldset>
                             <label htmlFor="companyName">{t.form.companyNamePrompt}</label>
-                            <input type="text" name="companyName" id="companyName" ref={register({
-                                required: t.form.required
-                            })} placeholder={t.form.companyNamePrompt}/>
-                            <Error field={errors.companyName}/>
+                            <input type="text" name="companyName" id="companyName" ref={register()}
+                                   placeholder={t.form.companyNamePrompt}/>
+                            <FormError field={errors.companyName}/>
                         </fieldset>
 
                         <fieldset>
                             <label htmlFor="groupSize">{t.form.groupSizePrompt}</label>
-                            <input type="text" name="groupSize" id="groupSize" ref={register({
+                            <input type="text" name="groupSize" id="groupSize" min="1" max="100" ref={register({
                                 required: t.form.required
                             })} placeholder={t.form.groupSizePrompt}/>
-                            <Error field={errors.groupSize}/>
+                            <FormError field={errors.groupSize}/>
                         </fieldset>
                     </>
                     }
 
-                    <fieldset>
-                        <label htmlFor="country">{t.form.countryPrompt}</label>
-                        <select name="country" id="country" ref={register}>
-                            <option value="Poland">Poland</option>
-                            <option value="UnitedKingdom">United Kingdom</option>
-                            <option value="USA">USA</option>
-                            <option value="Germany">Germany</option>
-                            <option value="France">France</option>
-                            <option value="China">China</option>
-                            <option value="Europe">Europe</option>
-                            <option value="America">America</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Africa">Africa</option>
-                            <option value="Australia">Australia</option>
-                        </select>
-                    </fieldset>
+                    {!(["myself", "developerCompany"].includes(registerKind) && developerExperience === "no") &&
+                    <>
+                        <RadioSelect<FormData, PriceAcceptanceOptions>
+                            title={t.form.priceAcceptance.question
+                                .replace("{price}", "400 EUR")
+                                .replace("{days_num}", "3")}
+                            name="priceAcceptance" register={register} errors={errors} required={true}
+                            options={[
+                                {label: t.form.priceAcceptance.ok, value: "ok"},
+                                {label: t.form.priceAcceptance.discountNeeded, value: "discountNeeded"},
+                                {label: t.form.priceAcceptance.wayTooMuch, value: "wayTooMuch"},
+                            ]}/>
 
-                    <fieldset>
-                        <label htmlFor="date">{t.form.datePrompt}</label>
-                        <input type="text" name="date" id="date" ref={register({
-                            required: t.form.required
-                        })} placeholder=""/>
-                        <Error field={errors.date}/>
-                    </fieldset>
+                        <CountrySelect register={register}/>
 
-                    <fieldset>
-                        <label htmlFor="extra">{t.form.extraPrompt}</label>
-                        <textarea name="extra" rows={7} id="extra" ref={register} placeholder=""/>
-                    </fieldset>
+                        <fieldset>
+                            <label htmlFor="date">{t.form.datePrompt}</label>
+                            <input type="text" name="date" id="date" ref={register({
+                                required: t.form.required
+                            })} placeholder=""/>
+                            <FormError field={errors.date}/>
+                        </fieldset>
 
-                    <input type="submit" className="button button--mini" id="submit"
-                           style={{position: "relative", right: "50%", left: "40%"}}
-                           value={t.form.submit}/>
+                        <fieldset>
+                            <label htmlFor="extra">{t.form.extraPrompt}</label>
+                            <textarea name="extra" rows={7} id="extra" ref={register} placeholder=""/>
+                        </fieldset>
+
+                        <input type="submit" className="button button--mini" id="submit"
+                               style={{position: "relative", right: "50%", left: "40%"}}
+                               value={t.form.submit}/>
+                    </>
+                    }
                 </form>
             </div>
         </section>
@@ -217,8 +218,3 @@ export default function WorkshopFormPage() {
 }
 ;
 
-function Error(props: { field }) {
-    return <div style={{color: "red", fontSize: "small", marginLeft: "10px", marginTop: "5px"}}>
-        {props.field && props.field.message}
-    </div>;
-}

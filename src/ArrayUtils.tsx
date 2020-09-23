@@ -7,6 +7,8 @@ interface Array<T> {
     mostCommon(): T;
 
     chunk(num: number): T[][];
+
+    distinct(): T[];
 }
 
 Array.prototype["counts"] = function () {
@@ -46,11 +48,14 @@ Array.prototype["mostCommon"] = function () {
     return Object.entries(this.counts()).maxBy(a => a[1])[0]
 }
 
-
 Array.prototype["chunk"] = function (chunkSize) {
     var R: any[] = [];
     for (var i = 0; i < this.length; i += chunkSize) {
         R.push(this.slice(i, i + chunkSize));
     }
     return R;
+}
+
+Array.prototype["distinct"] = function () {
+    return this.filter((value, index, self) => self.indexOf(value) === index);
 }

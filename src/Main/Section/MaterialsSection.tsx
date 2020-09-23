@@ -1,16 +1,20 @@
 import React from "react";
 import {useTranslations} from "../../Translations";
 import {Workshop} from "../../Model";
+import AndroidMaterialsImg from "./training-materials/Kt_Academy_materials_android.png"
+import BackendMaterialsImg from "./training-materials/Kt_Academy_materials_backened.png"
+import CoroutinesMaterialsImg from "./training-materials/Kt_Academy_materials_coroutines.png"
+import MaterialsImg from "./training-materials/Kt_Academy_materials_default.png"
 
 type Props = {
-    workshop?: Workshop,
-    materialsImg?: string,
-    whiteBg?: boolean
+    workshop?: Workshop
 };
 
-export default function MaterialsSection({materialsImg = "default", whiteBg = false}: Props) {
+export default function MaterialsSection({workshop}: Props) {
     const t = useTranslations();
-    return (<section className={(whiteBg ? "section--white" : "") + "short-section materials"} id="materials">
+    const materialsImg = getMaterialsImg(workshop?.key)
+
+    return (<section className={"short-section materials"} id="materials">
         <div className="content-container">
             <div className="flex-container--row">
                 <div className="flex-item padding-right-35">
@@ -43,11 +47,24 @@ export default function MaterialsSection({materialsImg = "default", whiteBg = fa
 
                 <div className="flex-item--image-container">
                     <img className="wow zoomIn image-plus-text big-image"
-                         src={"/images/training-materials/Kt_Academy_materials_" + materialsImg + ".png"}
+                         src={materialsImg}
                          alt="Kt. Academy materials"/>
                 </div>
             </div>
 
         </div>
     </section>);
+}
+
+function getMaterialsImg(workshopKey?: string) {
+    switch (workshopKey) {
+        case "android":
+            return AndroidMaterialsImg
+        case "backened":
+            return BackendMaterialsImg
+        case "coroutines":
+            return CoroutinesMaterialsImg
+        default:
+            return MaterialsImg
+    }
 }

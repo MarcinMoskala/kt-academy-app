@@ -16,13 +16,9 @@ export default function HomePage() {
     registerPage("index")
     const t = useTranslations()
     const menuLinks: LinkTo[] = [
-        {to: "#workshops-offer", text: t.menu.workshops},
+        {to: "#offer", text: t.menu.offer},
         {to: "#why-us", text: t.menu.whyUs},
-        {to: "#trainer", text: t.menu.trainer},
-        {to: "#materials", text: t.menu.materials},
         {to: "#contact", text: t.menu.contact, divider: true},
-        {to: "/generate", text: t.menu.generate},
-        {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
     ]
     const bannerProps: Banner = {
         img: HeaderBg,
