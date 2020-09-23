@@ -12,8 +12,6 @@ type ColumnDefinition<T> = {
 }
 
 export function AdminTable<T>({title, list, columns, clicked}: { title: string, list: T[], columns: ColumnDefinition<T>[], clicked?: (element: T) => void }) {
-    console.log(list)
-
     const listToShow = list.map(element => {
         const copy = {...element}
         console.log(copy)

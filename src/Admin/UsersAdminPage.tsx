@@ -17,11 +17,11 @@ export default function UsersAdminPage() {
         <Header/>
         {usersList &&
         <AdminTable<User> title="Users" list={usersList} columns={[
-            {name: 'email', label: 'Email'},
-            {name: 'name', label: 'Name'},
-            {name: 'surname', label: 'Surname'},
-            {name: 'newsletters', label: 'Newsletters'},
-            {name: 'tags', label: 'Tags'},
+            {name: 'email', label: 'Email', options: {filter: false, sort: true}},
+            {name: 'name', label: 'Name', options: {filter: false, sort: true}},
+            {name: 'surname', label: 'Surname', options: {filter: false, sort: true}},
+            {name: 'newsletters', label: 'Newsletters', options: {filter: true, sort: true}},
+            {name: 'tags', label: 'Tags', options: {filter: true, sort: true}},
         ]}/>
         }
         <FooterSection/>
