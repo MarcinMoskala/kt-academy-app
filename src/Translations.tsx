@@ -112,7 +112,7 @@ const EN_desc = {
         },
         "twitter": {
             "title": "Follow us on Twitter",
-            "description": "We have a community of more than 2800 followers and we only post Kotlin related content."
+            "description": "We have a community of more than 3000 followers and we only post Kotlin related content."
         },
         "mail": {
             "title": "Write an email",
@@ -286,7 +286,7 @@ const PL_desc = {
         "upcomingWorkshops": "Warsztaty",
         "privateWorkshops": "Warsztaty",
         "articles": "Artykuły",
-        "generate": "Genator DTO",
+        "generate": "Generuj DTO",
         "register": "Rejestracja",
         "contact": "Kontakt"
     },
@@ -347,7 +347,7 @@ const PL_desc = {
         },
         "twitter": {
             "title": "Obserwuj nas na Twitter",
-            "description": "Zrzeszamy społeczność ponad 2800 obserwujących i publikujemy tylko treści związane z Kotlinem"
+            "description": "Zrzeszamy społeczność ponad 3000 obserwujących i publikujemy tylko treści związane z Kotlinem"
         },
         "mail": {
             "title": "Skontaktuj się z nami",
@@ -376,19 +376,19 @@ const PL_desc = {
         "titleRequirements": "Wymagania",
         "titleHowLong": "Ile trwa ten warsztat?",
         "registration": {
-            "title": "Request workshop",
+            "title": "Rejestracja",
             "private": {
-                "buttonText": "Register for private workshop",
-                "explanation": 'Choose this option if you need workshop for your team or company. The base price is {workshop_price} for the group for 3 days.',
+                "buttonText": "Zarejestruj grupę na warsztaty prywatne",
+                "explanation": 'Wybierz tę opcję jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena to {workshop_price} za grupę za 3 dni.',
             },
             "public": {
-                "buttonText": "Request open online workshop",
-                "explanation": 'Choose this option if you need workshop for yourself or for a small group of people. The base price is {workshop_person_price} per person for 3 days.',
+                "buttonText": "Zapisz się na otwarte szkolenie online",
+                "explanation": 'Wybierz tę opcję jeśli potrzebujesz szkolenia dla siebie lub małej grupy. Podstawowa cena to {workshop_person_price} za osobę za 3 dni.',
             }
         }
     },
     "puzzler": {
-        "descriptionSEO": "Sprawdź przykladowe puzzlery, które programiści rozwiązują na warsztatach Kt. Academy. Wierzymy, że szkolenie powinno być tak praktyczne jak tylko możliwe.",
+        "descriptionSEO": "Sprawdź przykładowe puzzlery, które programiści rozwiązują na warsztatach Kt. Academy. Wierzymy, że szkolenie powinno być tak praktyczne, jak tylko możliwe.",
         "tagsSEO": "Kotlin, warsztat, Android, programowanie, ćwiczenia Kotlin, puzzler, wyzwania programistyczne",
         "title": "Ucz się przez praktykę",
         "subtitle": "Rozwiąż Kotlinowe puzzlery",
@@ -429,13 +429,13 @@ const PL_desc = {
 
     "form": {
         "private": {
-            "title": "Private workshop request",
-            "intro": "Fill this form to request private workshop [{workshop_name}]({workshop_link}) for your company."
+            "title": "Szkolenie prywatne",
+            "intro": "Wypełnij ten formularz aby zgłosić grupę na prywatne szkolenie [{workshop_name}]({workshop_link})."
         },
 
         "public": {
-            "title": "Public workshop request",
-            "intro": "Fill this form to request public workshop [{workshop_name}]({workshop_link}). When you fill this form you will be placed on a list of developers interested in this workshop. When we will have enough attendees in your time zone, we will contact you and propose a concrete date."
+            "title": "Szkolenie otwarte online",
+            "intro": "Wypełnij ten formularz aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}). Zostaniesz umieszczony na liście oczekujących zainteresowanych tym warsztatem. Skontaktujemy się z Tobą kiedy zbierze się odpowiednia liczba osób do utworzenia grupy i przeprowadzenia kursu."
         },
 
         "namePrompt": "Twoje imię",
@@ -449,7 +449,7 @@ const PL_desc = {
         "extraPrompt": "Czy jest jeszcze coś, co chciałbyś dodać?",
         "privateGroupSizePrompt": "Ilu programistów chciałbyś/chciałabyś zarejestrować?",
         "dialogSent": "Zgłoszenie wysłane",
-        "dialogError": "A problem occurred, please send later",
+        "dialogError": "Wystąpił problem, wyślij później",
 
         "isOnline": {
             "question": "Jesteś zainteresowany szkoleniem zdalnym czy w siedzibie firmy?",
@@ -458,34 +458,34 @@ const PL_desc = {
         },
 
         "registerKind": {
-            "question": "Who would you like to register?",
-            "myself": "Myself",
-            "developerCompany": "A developer from my company",
-            "myselfAndGroupCompany": "Myself and other developers from my company",
-            "groupCompany": "Developers from my company",
+            "question": "Kogo chcesz zarejestrować?",
+            "myself": "Tylko siebie",
+            "developerCompany": "Programistę z mojej firmy",
+            "myselfAndGroupCompany": "Siebie oraz innych programistów z mojej firmy",
+            "groupCompany": "Innych programistów z mojej firmy",
         },
 
         "invoiceTo": {
-            "question": "To whom issue the invoice?",
-            "company": "The company I work for",
-            "privateCompany": "My private company",
-            "person": "Myself",
+            "question": "Na kogo będzie wystawiana faktura?",
+            "company": "Na firmę, dla której pracuję",
+            "privateCompany": "Na moją własną firmę",
+            "person": "Na mnie",
         },
 
         "developerExperience": {
-            "questionMyself": "What is your professional experience as a developer?",
-            "questionOther": "What is this registered person experience as a developer",
-            "no": "No professional experience",
+            "questionMyself": "Jakie jest Twoje doświadczenie w pracy jako programista?",
+            "questionOther": "Jakie jest doświadczenie zapisywanych osób w pracy jako programiści?",
+            "no": "Brak doświadczenia",
             "junior": "Junior developer",
             "mid": "Developer",
             "senior": "Senior developer",
         },
 
         "priceAcceptance": {
-            "question": "The base price for this workshop is {price} per person for {days_num} days. Is it ok for you?",
-            "ok": "Yes",
-            "discountNeeded": "This is too much for me, I would need a discount",
-            "wayTooMuch": "Sorry, but my budget is less than half of that",
+            "question": "Podstawowa cena tego szkolenia to {price} za osobę za {days_num} dni. Czy Ci to odpowiada?",
+            "ok": "Tak",
+            "discountNeeded": "To dla mnie za dużo, potrzebuję zniżki",
+            "wayTooMuch": "Mój budżet to mniej niż połowa tej ceny",
         },
 
         "required": "Pole wymagane",
@@ -494,7 +494,7 @@ const PL_desc = {
 
         "requestOpenInsteadInfo": "",
         "beginnerInfo": "",
-        "noVatIdInfo": "We might not be able to offer you any discount as for a private person we will need to pay extra tax 23%.",
+        "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej musimy zapłacić dodatkowy podatek w wysokości 23%.",
     },
     "generate": {
         "title": "Generuj DTO",
