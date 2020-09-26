@@ -142,14 +142,14 @@ const EN_desc = {
         "titleRequirements": "Requirements",
         "titleHowLong": "How long does it take?",
         "registration": {
-            "title": "Request workshop",
+            "title": "Register",
             "private": {
-                "buttonText": "Register for private workshop",
-                "explanation": 'Choose this option if you need workshop for your team or company. The base price is {workshop_price} for the group for 3 days.',
+                "buttonText": "Private workshop",
+                "explanation": 'Choose this option if you need a workshop for your team or company. The basic price is {workshop_price} for the group for {days_num} days.',
             },
             "public": {
-                "buttonText": "Request open online workshop",
-                "explanation": 'Choose this option if you need workshop for yourself or for a small group of people. The base price is {workshop_person_price} per person for 3 days.',
+                "buttonText": "Open online workshop",
+                "explanation": 'Choose this option if you need a workshop for yourself or for a small group of people. The basic price is {workshop_person_price} per person for {days_num} days.',
             }
         }
     },
@@ -375,14 +375,14 @@ const PL_desc = {
         "titleRequirements": "Wymagania",
         "titleHowLong": "Ile trwa ten warsztat?",
         "registration": {
-            "title": "Rejestracja",
+            "title": "Wyślij zgłoszenie",
             "private": {
-                "buttonText": "Zarejestruj grupę na warsztaty prywatne",
-                "explanation": 'Wybierz tę opcję jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena to {workshop_price} za grupę za 3 dni.',
+                "buttonText": "Warsztat prywatny",
+                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena to {workshop_price} za grupę za {days_num} dni.',
             },
             "public": {
-                "buttonText": "Zapisz się na otwarte szkolenie online",
-                "explanation": 'Wybierz tę opcję jeśli potrzebujesz szkolenia dla siebie lub małej grupy. Podstawowa cena to {workshop_person_price} za osobę za 3 dni.',
+                "buttonText": "Szkolenie otwarte online",
+                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla siebie lub małej grupy. Podstawowa cena to {workshop_person_price} za osobę za {days_num} dni.',
             }
         }
     },

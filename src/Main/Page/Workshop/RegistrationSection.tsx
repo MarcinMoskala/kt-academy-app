@@ -14,12 +14,14 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
                     link={"/workshopForm/" + workshop.key}
                     buttonText={t.workshopPage.registration.private.buttonText}
                     explanation={t.workshopPage.registration.private.explanation
-                        .replace("{workshop_price}", printMoney(workshop.basePrice.company))}/>
+                        .replace("{workshop_price}", printMoney(workshop.basePrice.company))
+                        .replace("{days_num}", String(workshop.basePrice.daysNumber ?? 3))}/>
                 <OrderOption
                     link={"/workshopPublicForm/" + workshop.key}
                     buttonText={t.workshopPage.registration.public.buttonText}
                     explanation={t.workshopPage.registration.public.explanation
-                        .replace("{workshop_person_price}", printMoney(workshop.basePrice.person))}/>
+                        .replace("{workshop_person_price}", printMoney(workshop.basePrice.person))
+                        .replace("{days_num}", String(workshop.basePrice.daysNumber ?? 3))}/>
             </div>
         </div>
     </section>;

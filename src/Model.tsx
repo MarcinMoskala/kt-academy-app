@@ -41,6 +41,7 @@ export type Workshop = {
 export type BasePrice = {
     company: Money,
     person: Money,
+    daysNumber: number
 };
 
 export type Money = {
