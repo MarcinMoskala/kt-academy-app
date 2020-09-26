@@ -9,6 +9,7 @@ import {Challenge, ChallengeStatus} from "../Model";
 import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import {LoadingPage} from "../Loading";
+import Swal from "sweetalert2";
 
 type CodeEditorInstance = {
     state: string,
@@ -22,23 +23,26 @@ export default function ChallengePage() {
 
     const challenge: Challenge | undefined | null = useChallenge(challengeKey)
     const [code, setCode] = React.useState<string>();
-    const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus>();
+    const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
 
     useEffect(() => {
         let codeEditorInstance: CodeEditorInstance
+        let codeVariable: string
         playground('.challenge-code', {
             version: '1.4.00',
             onChange: (visibleCode: string) => {
                 const separatorPosition = visibleCode.indexOf(SPLITTING_COMMENT)
-                if(separatorPosition === -1) {
+                if (separatorPosition === -1) {
                     setCode(visibleCode)
+                    codeVariable = visibleCode
                 } else {
                     let positionAfterSeparatorAndEnter = separatorPosition + SPLITTING_COMMENT.length + 1;
                     setCode(visibleCode.substr(positionAfterSeparatorAndEnter))
+                    codeVariable = visibleCode
                 }
             },
             onTestPassed: () => {
-                saveUserChallenge(challengeKey, {code: code, status: "SOLVED"})
+                saveUserChallenge(challengeKey, {code: codeVariable, status: "SOLVED"})
                     .then((_) => setChallengeStatus("SOLVED"))
             },
             getInstance: (instance: CodeEditorInstance) => {
@@ -52,7 +56,20 @@ export default function ChallengePage() {
     }
 
     const onRestore = () => {
-        saveUserChallenge(challengeKey, {code: challenge?.originalCode, status: "INITIAL"})
+        Swal.fire({
+            title: 'Are you sure that you want to restore?',
+            text: "You will lose all the progress you made!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, restore'
+        }).then((result) => {
+            saveUserChallenge(challengeKey, {code: challenge?.originalCode, status: "INITIAL"})
+                .then((_) => window.location.reload())
+        })
+    }
+
+    const addTests = () => {
+        saveUserChallenge(challengeKey, {code: challenge?.originalCode + EXTRA_TESTS_SUFFIX, status: "INITIAL"})
             .then((_) => window.location.reload())
     }
 
@@ -72,7 +89,7 @@ export default function ChallengePage() {
             <h1>{challenge.title}</h1>
 
             <div className="challenge-code" data-target-platform="junit" folded-button="true">
-                {  `
+                {`
 ${challenge.codeTests}
 ${SPLITTING_COMMENT}
 //sampleStart
@@ -81,23 +98,19 @@ ${challenge.code}
                 `}
             </div>
 
-            <div>
-                <a onClick={(e) => onSave()}>Save</a>
+            <div style={{display: "flex"}}>
+                <div style={{flex: 1}}>
+                    <a onClick={(e) => onSave()}>Save</a> <a onClick={(e) => onRestore()}>Restore</a> <a
+                    onClick={(e) => addTests()}>Add own tests</a>
+                </div>
+                {challengeStatus === "SOLVED" &&
+                <div style={{textAlign: "right", flex: 1, color: "#4dbb5f"}}>
+                    Solved <i className="far fa-check-circle"/>
+                </div>
+                }
             </div>
 
             <br/>
-
-            <div>
-                <a onClick={(e) => onRestore()}>Restore</a>
-            </div>
-
-            <br/>
-
-            {challengeStatus === "SOLVED" &&
-            <div>
-                Solved
-            </div>
-            }
 
             <div>
                 {challenge.description}
@@ -108,3 +121,12 @@ ${challenge.code}
 };
 
 const SPLITTING_COMMENT = "// Your code starts here"
+
+const EXTRA_TESTS_SUFFIX = `
+
+class MoreTests() {
+    @Test fun \`your test here\`() {
+        Assert.assertEquals(true, false)
+    }
+}
+`
