@@ -38,7 +38,7 @@ export default function ChallengePage() {
                 }
             },
             onTestPassed: () => {
-                saveUserChallenge(challengeKey, {status: "SOLVED"})
+                saveUserChallenge(challengeKey, {code: code, status: "SOLVED"})
                     .then((_) => setChallengeStatus("SOLVED"))
             },
             getInstance: (instance: CodeEditorInstance) => {
