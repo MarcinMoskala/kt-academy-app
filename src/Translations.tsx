@@ -213,7 +213,7 @@ const EN_desc = {
         "datePrompt": "What date suits you best?",
         "extraPrompt": "Is there anything else you would like to share?",
         "privateGroupSizePrompt": "How many developers would you like to register?",
-        "dialogSent": "Zgłoszenie wysłane",
+        "dialogSent": "Request sent",
         "dialogError": "A problem occurred, please send later",
 
         "isOnline": {
