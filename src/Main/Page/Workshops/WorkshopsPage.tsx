@@ -1,5 +1,5 @@
 import React from 'react';
-import Header, {LinkTo, Width} from "../../../Section/Header/Header";
+import Header, {Width} from "../../../Section/Header/Header";
 import WorkshopChoice from "./WorkshopChoice";
 import FooterSection from "../../../Section/FooterSection";
 import "../../../ArrayUtils";

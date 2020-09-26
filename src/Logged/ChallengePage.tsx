@@ -28,9 +28,13 @@ export default function ChallengePage() {
         let codeEditorInstance: CodeEditorInstance
         playground('.challenge-code', {
             version: '1.4.00',
-            onChange: (code: string) => {
-                if (codeEditorInstance !== undefined) {
-                    setCode(codeEditorInstance.getCode())
+            onChange: (visibleCode: string) => {
+                const separatorPosition = visibleCode.indexOf(SPLITTING_COMMENT)
+                if(separatorPosition === -1) {
+                    setCode(visibleCode)
+                } else {
+                    let positionAfterSeparatorAndEnter = separatorPosition + SPLITTING_COMMENT.length + 1;
+                    setCode(visibleCode.substr(positionAfterSeparatorAndEnter))
                 }
             },
             onTestPassed: () => {
@@ -48,7 +52,7 @@ export default function ChallengePage() {
     }
 
     const onRestore = () => {
-        saveUserChallenge(challengeKey, {code: challenge?.originalCode})
+        saveUserChallenge(challengeKey, {code: challenge?.originalCode, status: "INITIAL"})
             .then((_) => window.location.reload())
     }
 
@@ -68,7 +72,13 @@ export default function ChallengePage() {
             <h1>{challenge.title}</h1>
 
             <div className="challenge-code" data-target-platform="junit" folded-button="true">
-                {challenge.code}
+                {  `
+${challenge.codeTests}
+${SPLITTING_COMMENT}
+//sampleStart
+${challenge.code}
+//sampleEnd
+                `}
             </div>
 
             <div>
@@ -96,3 +106,5 @@ export default function ChallengePage() {
         <FooterSection/>
     </>;
 };
+
+const SPLITTING_COMMENT = "// Your code starts here"

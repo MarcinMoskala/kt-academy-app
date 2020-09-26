@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import {useLocation} from 'react-router-dom'
-import {printMoney} from "./Model";
 
 export const LangContext = React.createContext('light');
 

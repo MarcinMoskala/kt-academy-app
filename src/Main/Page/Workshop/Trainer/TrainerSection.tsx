@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useTranslations} from "../../../../Translations";
-import {API_URL, requestApi} from "../../../../Network";
+import {requestApi} from "../../../../Network";
 import {Trainer, Video} from "../../../../Model";
 import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"

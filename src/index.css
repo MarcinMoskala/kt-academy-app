@@ -1,3 +1,7 @@
+:root {
+    --blue-color: #137cb9;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -74,21 +78,21 @@ body {
 }
 
 h1 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 54px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 h2 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 36px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 h3 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 27px;
     margin-bottom: 20px;
 }
@@ -115,7 +119,7 @@ p strong {
 }
 
 a {
-    color: #137cb9;
+    color: var(--blue-color);
     text-decoration: none;
 }
 
@@ -290,7 +294,7 @@ footer a {
 
 .bookmarks .fas {
     font-size: 18px;
-    color: #137cb9;
+    color: var(--blue-color);
 }
 
 .bookmarks .fas:hover {
@@ -389,8 +393,8 @@ footer a {
 }
 
 .button:hover {
-    border-color: #137cb9;
-    color: #137cb9;
+    border-color: var(--blue-color);
+    color: var(--blue-color);
     text-decoration: none;
 }
 
@@ -400,8 +404,8 @@ footer a {
 }
 
 .button.blue {
-    border: solid 2px #137cb9;
-    color: #137cb9;
+    border: solid 2px var(--blue-color);
+    color: var(--blue-color);
 }
 
 .button.blue:hover {
@@ -692,20 +696,20 @@ body {
 }
 
 h1 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 54px;
     margin-bottom: 20px;
     font-weight: 500;
 }
 
 h2 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 36px;
     margin-bottom: 20px;
 }
 
 h3 {
-    color: #137cb9;
+    color: var(--blue-color);
     font-size: 27px;
     margin-bottom: 20px;
 }
@@ -729,7 +733,7 @@ p.orange {
 }
 
 a {
-    color: #137cb9;
+    color: var(--blue-color);
     text-decoration: none;
 }
 
@@ -919,7 +923,7 @@ footer a {
 
 .bookmarks .fas {
     font-size: 18px;
-    color: #137cb9;
+    color: var(--blue-color);
 }
 
 .bookmarks .fas:hover {
@@ -939,7 +943,7 @@ footer a {
 }
 
 .right-border {
-    border-right: 1px solid #137cb9;
+    border-right: 1px solid var(--blue-color);
 }
 
 .banner__background {
@@ -1028,8 +1032,8 @@ footer a {
 }
 
 .button:hover {
-    border-color: #137cb9;
-    background-color: #137cb9;
+    border-color: var(--blue-color);
+    background-color: var(--blue-color);
     color: white;
     text-decoration: none;
 }
@@ -1074,7 +1078,7 @@ footer a {
     align-items: center;
     padding: 0;
     height: 70px;
-    background-color: #137cb9;
+    background-color: var(--blue-color);
     position: relative;
     z-index: 1;
 }
@@ -1193,7 +1197,7 @@ footer a {
 .flex-item--with-symbol .fab, .flex-item--with-symbol .fas, .flex-item--with-symbol .far {
     font-size: 60px;
     padding-bottom: 20px;
-    color: #137cb9;
+    color: var(--blue-color);
 }
 
 .flex-item--after-symbol {
@@ -1261,7 +1265,7 @@ footer a {
 }
 
 .flex-item--with-border {
-    border-right: 1px solid #137cb9;
+    border-right: 1px solid var(--blue-color);
     padding: 0px 30px 0px 0px;
     -webkit-box-flex: 1 1;
     -moz-box-flex: 1 1;
@@ -1321,7 +1325,7 @@ footer a {
 .flex-item .fas, .flex-item .fab, .flex-item .far {
     font-size: 60px;
     padding-bottom: 20px;
-    color: #137cb9;
+    color: var(--blue-color);
 }
 
 .content-container--gradient--strip {
@@ -1337,7 +1341,7 @@ footer a {
 
 .gradient--strip {
     position: absolute;
-    background: linear-gradient(to right, #137cb9, #389fd9, #389fd9, #137cb9);
+    background: linear-gradient(to right, var(--blue-color), #389fd9, #389fd9, var(--blue-color));
     height: 50%;
     width: 100%;
 }
@@ -1428,7 +1432,7 @@ section.trainer .title {
 
 section.trainer .far {
     font-size: 60px;
-    color: #137cb9;
+    color: var(--blue-color);
     margin-right: 20px;
     -webkit-align-self: center;
     -moz-align-self: center;
@@ -1616,7 +1620,7 @@ input[type='text'], textarea, select {
 }
 
 input[type='text']:focus, textarea:focus, select:focus {
-    border-color: #137cb9;
+    border-color: var(--blue-color);
 }
 
 textarea {
@@ -1642,7 +1646,7 @@ input[type='checkbox'] {
 }
 
 input[type='checkbox']:checked {
-    background-color: #137cb9;
+    background-color: var(--blue-color);
     border: none;
 }
 
@@ -1662,7 +1666,7 @@ input[type='radio'] {
 input[type='radio']:checked {
     border-width: 5px;
     border-color: white;
-    background-color: #137cb9;
+    background-color: var(--blue-color);
 }
 
 br.is-displayed {
@@ -1819,7 +1823,7 @@ br.is-displayed {
 
     .flex-item--with-border {
         border-right: 0px;
-        border-bottom: 1px solid #137cb9;
+        border-bottom: 1px solid var(--blue-color);
         padding: 0px 0px 30px 0px;
         -webkit-box-flex: 1 1 auto;
         -moz-box-flex: 1 1 auto;

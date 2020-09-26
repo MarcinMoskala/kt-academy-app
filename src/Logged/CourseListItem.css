@@ -1,0 +1,110 @@
+.course-list-item {
+    display: inline-block;
+    width: calc(100% - 16px);
+    margin: 8px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px #fff, inset 0 -1px rgba(119,110,110,0.4), 0 3px 7px rgba(27,43,106,0.16);
+    box-shadow: inset 0 1px #fff, inset 0 -1px rgba(119,110,110,0.4), 0 3px 7px rgba(27,43,106,0.16);
+    position: relative;
+    -webkit-transition: background-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: background-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: box-shadow 0.3s, background-color 0.3s;
+    transition: box-shadow 0.3s, background-color 0.3s, -webkit-box-shadow 0.3s;
+    min-height: 56px;
+    min-width: 56px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.course-list-item-title {
+    padding: 16px;
+    width: 805px;
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    color: var(--blue-color);
+    font: 600 16px / 24px Montserrat, Arial, sans-serif;
+    text-decoration: none;
+    position: relative;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    min-height: 24px;
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.course-list-item-details {
+    color:rgb(66, 66, 66);
+    cursor:pointer;
+    display:flex;
+    float:right;
+    font-family:Roboto, Arial, sans-serif;
+    font-size:16px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:400;
+    line-height:24px;
+    margin-bottom:4px;
+    margin-left:4px;
+    margin-right:4px;
+    margin-top:4px;
+    text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+.course-list-item-subtitle {
+    padding: 0;
+    color: rgba(66,66,66,0.54);
+    font: 700 16px / 24px Roboto, Arial, sans-serif;
+    height: 24px;
+    margin: 12px;
+}
+
+.course-list-item-icon {
+    height: 40px;
+    width: 40px;
+    margin: 4px;
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50%;
+    background-position: center;
+    vertical-align: top;
+    font: 600 16px Montserrat, Arial, sans-serif;
+    cursor: inherit;
+}
+
+.course-list-item-icon-image {
+    height: 40px;
+    width: 40px;
+    margin: 4px;
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-position: center;
+    vertical-align: top;
+    font: 600 26px Montserrat, Arial, sans-serif;
+    cursor: inherit;
+}

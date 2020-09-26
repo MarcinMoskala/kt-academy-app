@@ -15,9 +15,13 @@ import initShowFab from "./initShowFab";
 import ChallengePage from "./Logged/ChallengePage";
 import WorkshopRequestFormPage from "./Main/Page/Form/WorkshopRequestPublicFormPage";
 import WorkshopsSubmissionsAdminPage from "./Admin/WorkshopsSubmissionsAdminPage";
+import CoursePage from "./Logged/CoursePage";
+import CoursesPage from "./Logged/CoursesPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
+        {path: "/course/:courseKey", component: CoursePage},
+        {path: "/course", component: CoursesPage},
         {path: "/challenge/:challengeKey", component: ChallengePage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshopPublicForm/:workshopKey", component: WorkshopRequestFormPage},

@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
-import {Challenge, User, Workshop, WorkshopSubmission} from "./Model";
+import {Challenge, Course, User, Workshop, WorkshopSubmission} from "./Model";
 import {useLang} from "./Translations";
 import {
     requestChallenge,
+    requestCourse,
+    requestCourses,
     requestCurrentUser,
     requestUsersList,
     requestWorkshop,
@@ -10,88 +12,51 @@ import {
     requestWorkshopSubmissionsList
 } from "./Network";
 
-export function useWorkshop(workshopKey: string): Workshop | undefined {
-    const [workshop, setWorkshop] = React.useState<Workshop>();
+export function useWorkshop(workshopKey: string): Workshop | undefined | null {
     const lang = useLang()
-
-    useEffect(() => {
-        requestWorkshop(workshopKey, lang.key)
-            .then(
-                (result) => setWorkshop(result),
-                (error) => console.log(error)
-            )
-    }, [workshopKey, lang.key])
-
-    return workshop
+    return useApiSingleData(() => requestWorkshop(workshopKey, lang.key))
 }
 
-export function useWorkshops(tag: string | null, trainer: string | null): Workshop[] | undefined {
-    const [workshops, setWorkshops] = React.useState<Workshop[]>();
+
+export function useWorkshops(tag: string | null, trainer: string | null): Workshop[] | undefined | null {
     const lang = useLang()
-
-    useEffect(() => {
-        requestWorkshops(lang.key, trainer, tag)
-            .then(
-                (result) => setWorkshops(result),
-                (error) => console.log(error)
-            )
-    }, [lang.key, tag, trainer])
-
-    return workshops
+    return useApiSingleData(() => requestWorkshops(lang.key, trainer, tag))
 }
 
-export function useUsersList(): User[] | undefined {
-    const [usersList, setUsersList] = React.useState<User[]>();
-
-    useEffect(() => {
-        requestUsersList()
-            .then(
-                (result) => setUsersList(result),
-                (error) => console.log(error)
-            )
-    }, [])
-
-    return usersList
+export function useUsersList(): User[] | undefined | null {
+    return useApiSingleData(() => requestUsersList())
 }
 
-export function useWorkshopSubmissionsList(): WorkshopSubmission[] | undefined {
-    const [submissions, setSubmissions] = React.useState<WorkshopSubmission[]>();
-
-    useEffect(() => {
-        requestWorkshopSubmissionsList()
-            .then(
-                (result) => setSubmissions(result),
-                (error) => console.log(error)
-            )
-    }, [])
-
-    return submissions
+export function useWorkshopSubmissionsList(): WorkshopSubmission[] | undefined | null {
+    return useApiSingleData(() => requestWorkshopSubmissionsList())
 }
 
 export function useUser(): User | undefined | null {
-    const [user, setUser] = React.useState<User | null>();
-
-    useEffect(() => {
-        requestCurrentUser()
-            .then(
-                (result) => setUser(result),
-                (error) => console.log(error)
-            )
-    }, [])
-
-    return user
+    return useApiSingleData(() => requestCurrentUser())
 }
 
 export function useChallenge(challengeKey: string): Challenge | undefined | null {
-    const [challenge, setChallenge] = React.useState<Challenge | null>();
+    return useApiSingleData(() => requestChallenge(challengeKey))
+}
+
+export function useCourse(courseKey: string): Course | undefined | null {
+    return useApiSingleData(() => requestCourse(courseKey))
+}
+
+export function useCourses(): Course[] | undefined | null {
+    return useApiSingleData(() => requestCourses())
+}
+
+export function useApiSingleData<T>(request: () => Promise<T>): T | undefined | null {
+    const [data, setData] = React.useState<T | null>();
 
     useEffect(() => {
-        requestChallenge(challengeKey)
+        request()
             .then(
-                (result) => setChallenge(result),
+                (result) => setData(result),
                 (error) => console.log(error)
             )
     }, [])
 
-    return challenge
+    return data
 }

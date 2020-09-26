@@ -1,4 +1,4 @@
-import {Challenge, ChallengeStatus, User, Workshop, WorkshopSubmission} from "./Model";
+import {Challenge, ChallengeStatus, Course, User, Workshop, WorkshopSubmission} from "./Model";
 
 export const API_URL = "https://kt.academy/api/"
 
@@ -74,6 +74,14 @@ export function requestCurrentUser(): Promise<User | null> {
 
 export function requestUsersList(): Promise<User[]> {
     return requestApi<User[]>("user")
+}
+
+export function requestCourse(courseKey: string): Promise<Course> {
+    return requestApi<Course>(`course/${courseKey}`)
+}
+
+export function requestCourses(): Promise<Course[]> {
+    return requestApi<Course[]>(`course`)
 }
 
 export function requestWorkshopSubmissionsList(): Promise<WorkshopSubmission[]> {

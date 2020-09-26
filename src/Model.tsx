@@ -74,6 +74,7 @@ export type User = {
 export type Challenge = {
     key: string,
     title: string,
+    codeTests: string,
     code: string,
     originalCode: string,
     description: string,
@@ -100,3 +101,22 @@ export type WorkshopSubmissionStatus =
     | "FINISHED"
     | "OUTDATED"
     | "SPAM";
+
+export type Course = {
+    key: string,
+    name: string,
+    description: string,
+    steps: CourseStep[],
+    state: CourseState
+}
+
+export type CourseState = "LOCKED" | "FINISHED" | "READY" | "STARTED";
+
+export type CourseStep = {
+    title: string,
+    type: CourseStepType,
+    key: string,
+    state: CourseState
+}
+
+export type CourseStepType = "challenge" | "video"
