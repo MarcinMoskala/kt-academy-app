@@ -1,16 +1,17 @@
 import React from "react";
 import "./CourseListItem.css"
 import Link from "../Link";
-import {CourseState} from "../Model";
+
+export type CourseListItemAction = "locked" | "play" | "finished" | "link";
 
 type CourseListItemParams = {
     title: string,
     smallText?: string,
-    state: CourseState,
+    action: CourseListItemAction,
     link: string
 }
 
-export const CourseListItem = ({title, smallText = "", state, link}: CourseListItemParams) =>
+export const CourseListItem = ({title, smallText = "", action, link}: CourseListItemParams) =>
     <Link className="course-list-item"
           to={link}
           tabIndex={0}>
@@ -21,22 +22,22 @@ export const CourseListItem = ({title, smallText = "", state, link}: CourseListI
             <span className="course-list-item-subtitle">{smallText}</span>
             <div className="course-list-item-icon">
                 <div className="course-list-item-icon-image">
-                    <i className={getIcon(state)}/>
+                    <i className={getIcon(action)}/>
                 </div>
             </div>
         </div>
     </Link>;
 
-function getIcon(state: CourseState): string {
-    switch (state) {
-        case "LOCKED":
+function getIcon(action: CourseListItemAction): string {
+    switch (action) {
+        case "locked":
             return "fas fa-lock";
-        case "READY":
+        case "play":
             return "fas fa-play-circle";
-        case "STARTED":
-            return "fas fa-play-circle";
-        case "FINISHED":
+        case "finished":
             return "far fa-check-circle";
+        case "link":
+            return "fas fa-link";
 
     }
 }

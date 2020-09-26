@@ -6,6 +6,7 @@ import {useUser} from "../Hooks";
 import {registerPage} from "../Utils";
 import Link from "../Link";
 import {LoadingPage} from "../Loading";
+import {Video} from "./Video";
 
 export default function MaterialsPage() {
     registerPage(`materials`)
@@ -116,14 +117,6 @@ export default function MaterialsPage() {
         <FooterSection/>
     </>;
 };
-
-const Video = ({title, videoKey}: { title?: string, videoKey: string }) => <>
-    <iframe width="560" height="315" src={"https://www.youtube-nocookie.com/embed/" + videoKey}
-            frameBorder="0" style={{width: 560}}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen/>
-    {title && <p>{title}</p>}
-</>
 
 const ExpandableTitle: React.FunctionComponent<{ title?: string }> = ({children, title}) => {
     const [expanded, setExpanded] = React.useState<boolean>(false);

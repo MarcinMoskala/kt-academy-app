@@ -19,6 +19,7 @@ export default function initShowFab() {
         }
         if(user.tags.includes("KOTLIN_WORKSHOP_ATTENDEE") || user.tags.includes("ADMIN")) {
             items.push({text: "Materials", link: "/materials", icon: "far fa-file"})
+            items.push({text: "Courses", link: "/course", icon: "fas fa-chalkboard-teacher"})
         }
         return items
     }

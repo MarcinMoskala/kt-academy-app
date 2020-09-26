@@ -111,7 +111,7 @@ export type Course = {
     state: CourseState
 }
 
-export type CourseState = "LOCKED" | "FINISHED" | "READY" | "STARTED";
+export type CourseState = "LOCKED" | "FINISHED" | "READY" | "STARTED" | null;
 
 export type CourseStep = {
     title: string,
@@ -120,4 +120,4 @@ export type CourseStep = {
     state: CourseState
 }
 
-export type CourseStepType = "challenge" | "video"
+export type CourseStepType = "CHALLENGE" | "VIDEO" | "LINK"

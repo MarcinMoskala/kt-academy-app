@@ -17,12 +17,14 @@ import WorkshopRequestFormPage from "./Main/Page/Form/WorkshopRequestPublicFormP
 import WorkshopsSubmissionsAdminPage from "./Admin/WorkshopsSubmissionsAdminPage";
 import CoursePage from "./Logged/CoursePage";
 import CoursesPage from "./Logged/CoursesPage";
+import VideoPage from "./Logged/VideoPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
+        {path: "/course/:courseKey/challenge/:challengeKey", component: ChallengePage},
+        {path: "/course/:courseKey/video/:videoKey", component: VideoPage},
         {path: "/course/:courseKey", component: CoursePage},
         {path: "/course", component: CoursesPage},
-        {path: "/challenge/:challengeKey", component: ChallengePage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshopPublicForm/:workshopKey", component: WorkshopRequestFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},

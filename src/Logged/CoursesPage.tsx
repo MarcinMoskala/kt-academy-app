@@ -4,10 +4,10 @@ import Header, {Width} from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import HeaderBg from "../Section/Header/background-img/1-1920x702.png";
 import "./CoursePage.css"
-import {CourseListItem} from "./CourseListItem";
+import {CourseListItem, CourseListItemAction} from "./CourseListItem";
 import {useCourses} from "../Hooks";
 import {LoadingPage} from "../Loading";
-import {Course} from "../Model";
+import {Course, CourseState} from "../Model";
 import ContactSection from "../Main/Section/ContactSection";
 
 export default function CoursesPage() {
@@ -19,7 +19,7 @@ export default function CoursesPage() {
         return <LoadingPage/>
     }
 
-    if(courses === null) {
+    if (courses === null) {
         return <div>Course does not exist</div>
     }
 
@@ -32,12 +32,25 @@ export default function CoursesPage() {
         }}/>
         <div className="content-container text-align-left">
             {courses.map(course =>
-                <CourseListItem title={course.name} link={`/course/${course.key}`} state={course.state} />
+                <CourseListItem title={course.name} link={`/course/${course.key}`} action={getAction(course.state)}/>
             )}
 
         </div>
         <ContactSection/>
         <FooterSection/>
-    </>
-        ;
+    </>;
 };
+
+function getAction(state: CourseState): CourseListItemAction {
+    switch (state) {
+        case "LOCKED":
+            return "locked";
+        case "READY":
+            return "play";
+        case "STARTED":
+            return "play";
+        case "FINISHED":
+            return "finished";
+    }
+    return "locked"
+}

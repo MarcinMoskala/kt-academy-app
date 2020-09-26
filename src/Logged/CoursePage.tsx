@@ -4,11 +4,12 @@ import Header, {Width} from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import HeaderBg from "../Section/Header/background-img/1-1920x702.png";
 import "./CoursePage.css"
-import {CourseListItem} from "./CourseListItem";
+import {CourseListItem, CourseListItemAction} from "./CourseListItem";
 import {useCourse} from "../Hooks";
 import {useParams} from "react-router-dom";
 import {LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
+import {CourseStep} from "../Model";
 
 export default function CoursePage() {
     const {courseKey} = useParams<{ courseKey: string }>();
@@ -30,20 +31,57 @@ export default function CoursePage() {
             width: Width.Half,
             title: "Collection processing",
             subtitle: "Become a master of collections",
-            button: {
-                text: "Start now",
-                to: ""
-            }
+            // TODO: Direct to the first non-link resource
+            // button: {
+            //     text: "Start now",
+            //     to: ""
+            // }
         }}/>
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
-                <CourseListItem title={step.title} link={`/challenge/${step.key}`} state={step.state}/>
+                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)}/>
             )}
 
         </div>
         <ContactSection/>
         <FooterSection/>
-    </>
-        ;
+    </>;
 };
+
+function getLink(courseKey: string, step: CourseStep): string {
+    if (step.state === "LOCKED") {
+        return ""
+    }
+    switch (step.type) {
+        case "CHALLENGE":
+            return `/course/${courseKey}/challenge/${step.key}`
+        case "VIDEO":
+            return `/course/${courseKey}/video/${step.key}`
+        case "LINK":
+            return step.key
+    }
+    console.log("Illegal type", step.type)
+    return ""
+}
+
+function getAction(step: CourseStep): CourseListItemAction {
+    switch (step.type) {
+        case "VIDEO":
+            return "play";
+        case "LINK":
+            return "link";
+        case "CHALLENGE":
+            switch (step.state) {
+                case "LOCKED":
+                    return "locked";
+                case "READY":
+                    return "play";
+                case "STARTED":
+                    return "play";
+                case "FINISHED":
+                    return "finished";
+            }
+    }
+    return "play";
+}
