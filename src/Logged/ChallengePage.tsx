@@ -12,6 +12,7 @@ import {LoadingPage} from "../Loading";
 import Swal from "sweetalert2";
 import "./CourseElement.css"
 import {PrevNextBar} from "./PrevNextBar";
+import ReactMarkdown from "react-markdown";
 
 type CodeEditorInstance = {
     state: string,
@@ -122,9 +123,7 @@ ${challenge.code}
 
             <br/>
 
-            <div>
-                {challenge.description}
-            </div>
+            <ReactMarkdown source={challenge.description}/>
 
             <br/>
 

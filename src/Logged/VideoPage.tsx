@@ -9,11 +9,6 @@ import {LoadingPage} from "../Loading";
 import {Video} from "./Video";
 import {PrevNextBar} from "./PrevNextBar";
 
-type CodeEditorInstance = {
-    state: string,
-    getCode: () => string
-}
-
 export default function VideoPage() {
     const {courseKey, videoKey} = useParams<{ courseKey: string, videoKey: string }>();
     registerPage(`video-${videoKey}`);

@@ -10,7 +10,6 @@ import {useParams} from "react-router-dom";
 import {LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
 import {CourseStep, getLink} from "../Model";
-import {Tooltip} from "react-tippy";
 
 export default function CoursePage() {
     const {courseKey} = useParams<{ courseKey: string }>();
@@ -41,7 +40,8 @@ export default function CoursePage() {
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
-                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)} hint={getHint(step)} />
+                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)}
+                                hint={getHint(step)} />
             )}
 
         </div>
@@ -62,9 +62,9 @@ function getAction(step: CourseStep): CourseListItemAction {
         case "CHALLENGE":
             switch (step.state) {
                 case "READY":
-                    return "play";
+                    return "code";
                 case "STARTED":
-                    return "play";
+                    return "code";
                 case "FINISHED":
                     return "finished";
             }
@@ -73,7 +73,7 @@ function getAction(step: CourseStep): CourseListItemAction {
 }
 
 function getHint(step: CourseStep): string | null {
-    if(step.state === "LOCKED") {
+    if (step.state === "LOCKED") {
         return "This course is only for Kt. Academy workshop attendees. You can see a list of resources, but you cannot access them."
     } else {
         return null

@@ -3,15 +3,16 @@ import "./CourseListItem.css"
 import Link from "../Link";
 import 'react-tippy/dist/tippy.css'
 import {Tooltip} from 'react-tippy';
+import {CourseStepType} from "../Model";
 
-export type CourseListItemAction = "locked" | "play" | "finished" | "link";
+export type CourseListItemAction = "locked" | "play" | "finished" | "link" | "code";
 
 type CourseListItemParams = {
     title: string,
     smallText?: string,
     action: CourseListItemAction,
     link: string | null,
-    hint?: string | null,
+    hint?: string | null
 }
 
 export const CourseListItem = ({title, smallText = "", action, link, hint}: CourseListItemParams) =>
@@ -30,19 +31,21 @@ export const CourseListItem = ({title, smallText = "", action, link, hint}: Cour
                 <span className="course-list-item-subtitle">{smallText}</span>
                 <div className="course-list-item-icon">
                     <div className="course-list-item-icon-image">
-                        <i className={getIcon(action)}/>
+                        <i className={getRightIcon(action)}/>
                     </div>
                 </div>
             </div>
         </Link>
     </Tooltip>;
 
-function getIcon(action: CourseListItemAction): string {
+function getRightIcon(action: CourseListItemAction): string {
     switch (action) {
         case "locked":
             return "fas fa-lock";
         case "play":
-            return "fas fa-play-circle";
+            return "far fa-play-circle";
+        case "code":
+            return "fas fa-code";
         case "finished":
             return "far fa-check-circle";
         case "link":
