@@ -10,6 +10,7 @@ import {useParams} from "react-router-dom";
 import {LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
 import {CourseStep} from "../Model";
+import {Tooltip} from "react-tippy";
 
 export default function CoursePage() {
     const {courseKey} = useParams<{ courseKey: string }>();
@@ -40,7 +41,7 @@ export default function CoursePage() {
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
-                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)}/>
+                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)} hint={getHint(step)} />
             )}
 
         </div>
@@ -49,9 +50,9 @@ export default function CoursePage() {
     </>;
 };
 
-function getLink(courseKey: string, step: CourseStep): string {
+function getLink(courseKey: string, step: CourseStep): string | null {
     if (step.state === "LOCKED") {
-        return ""
+        return null
     }
     switch (step.type) {
         case "CHALLENGE":
@@ -62,10 +63,13 @@ function getLink(courseKey: string, step: CourseStep): string {
             return step.key
     }
     console.log("Illegal type", step.type)
-    return ""
+    return null
 }
 
 function getAction(step: CourseStep): CourseListItemAction {
+    if (step.state === "LOCKED") {
+        return "locked";
+    }
     switch (step.type) {
         case "VIDEO":
             return "play";
@@ -73,8 +77,6 @@ function getAction(step: CourseStep): CourseListItemAction {
             return "link";
         case "CHALLENGE":
             switch (step.state) {
-                case "LOCKED":
-                    return "locked";
                 case "READY":
                     return "play";
                 case "STARTED":
@@ -84,4 +86,12 @@ function getAction(step: CourseStep): CourseListItemAction {
             }
     }
     return "play";
+}
+
+function getHint(step: CourseStep): string | null {
+    if(step.state === "LOCKED") {
+        return "This course is only for Kt. Academy workshop attendees. You can see a list of resources, but you cannot access them."
+    } else {
+        return null
+    }
 }

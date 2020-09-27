@@ -32,7 +32,7 @@ export default function CoursesPage() {
         }}/>
         <div className="content-container text-align-left">
             {courses.map(course =>
-                <CourseListItem title={course.name} link={`/course/${course.key}`} action={getAction(course.state)}/>
+                <CourseListItem title={course.name} link={`/course/${course.key}`} action={getAction(course.state)} hint={getHint(course.state)} />
             )}
 
         </div>
@@ -53,4 +53,13 @@ function getAction(state: CourseState): CourseListItemAction {
             return "finished";
     }
     return "locked"
+}
+
+
+function getHint(state: CourseState): string | null {
+    if(state === "LOCKED") {
+        return "This course is only for Kt. Academy workshop attendees. You can see a list of resources, but you cannot access them."
+    } else {
+        return null
+    }
 }
