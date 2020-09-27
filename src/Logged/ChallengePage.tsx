@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useTranslations} from "../Translations";
-import {useChallenge} from "../Hooks";
+import {useChallenge, useCourse} from "../Hooks";
 import {registerPage} from "../Utils";
 import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
@@ -10,6 +10,8 @@ import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import {LoadingPage} from "../Loading";
 import Swal from "sweetalert2";
+import "./CourseElement.css"
+import {PrevNextBar} from "./PrevNextBar";
 
 type CodeEditorInstance = {
     state: string,
@@ -17,10 +19,10 @@ type CodeEditorInstance = {
 }
 
 export default function ChallengePage() {
-    const {challengeKey} = useParams<{ challengeKey: string }>();
+    const {courseKey, challengeKey} = useParams<{ courseKey: string, challengeKey: string }>();
     registerPage(`challenge-${challengeKey}`);
     const t = useTranslations();
-
+    const course = useCourse(courseKey)
     const challenge: Challenge | undefined | null = useChallenge(challengeKey)
     const [code, setCode] = React.useState<string>();
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
@@ -73,6 +75,14 @@ export default function ChallengePage() {
             .then((_) => window.location.reload())
     }
 
+    if (course === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (course === null) {
+        return <div>Course not found</div>
+    }
+
     if (challenge === null) {
         return <div style={{textAlign: "center"}}>
             Challenge not found
@@ -98,13 +108,13 @@ ${challenge.code}
                 `}
             </div>
 
-            <div style={{display: "flex"}}>
-                <div style={{flex: 1}}>
+            <div className="buttons-container">
+                <div className="buttons-left">
                     <a onClick={(e) => onSave()}>Save</a> <a onClick={(e) => onRestore()}>Restore</a> <a
                     onClick={(e) => addTests()}>Add own tests</a>
                 </div>
                 {challengeStatus === "SOLVED" &&
-                <div style={{textAlign: "right", flex: 1, color: "#4dbb5f"}}>
+                <div className="buttons-right green-color">
                     Solved <i className="far fa-check-circle"/>
                 </div>
                 }
@@ -115,6 +125,10 @@ ${challenge.code}
             <div>
                 {challenge.description}
             </div>
+
+            <br/>
+
+            <PrevNextBar course={course} stepKey={challengeKey} stepType={"CHALLENGE"}/>
         </div>
         <FooterSection/>
     </>;

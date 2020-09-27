@@ -1,16 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useTranslations} from "../Translations";
-import {useChallenge, useCourse} from "../Hooks";
+import {useCourse} from "../Hooks";
 import {registerPage} from "../Utils";
 import {useParams} from "react-router-dom";
-import playground from "kotlin-playground";
-import {saveUserChallenge} from "../Network";
-import {Challenge, ChallengeStatus} from "../Model";
 import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import {LoadingPage} from "../Loading";
-import Swal from "sweetalert2";
 import {Video} from "./Video";
+import {PrevNextBar} from "./PrevNextBar";
 
 type CodeEditorInstance = {
     state: string,
@@ -41,7 +38,10 @@ export default function VideoPage() {
         <Header allowedLangs={["EN"]}/>
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
             <h1>{video.title}</h1>
-            <Video videoKey={videoKey} />
+            <Video videoKey={videoKey}/>
+
+            <PrevNextBar course={course} stepKey={videoKey} stepType={"VIDEO"}/>
+
         </div>
         <FooterSection/>
     </>;

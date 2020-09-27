@@ -120,4 +120,20 @@ export type CourseStep = {
     state: CourseState
 }
 
+export function getLink(courseKey: string, step: CourseStep): string | null {
+    if (step.state === "LOCKED") {
+        return null
+    }
+    switch (step.type) {
+        case "CHALLENGE":
+            return `/course/${courseKey}/challenge/${step.key}`
+        case "VIDEO":
+            return `/course/${courseKey}/video/${step.key}`
+        case "LINK":
+            return step.key
+    }
+    console.log("Illegal type", step.type)
+    return null
+}
+
 export type CourseStepType = "CHALLENGE" | "VIDEO" | "LINK"

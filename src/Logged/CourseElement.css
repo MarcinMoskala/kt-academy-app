@@ -1,0 +1,17 @@
+.buttons-container {
+    display: flex;
+    margin: 10px;
+}
+
+.buttons-left {
+    flex: 1
+}
+
+.buttons-right {
+    text-align: right;
+    flex: 1
+}
+
+.green-color {
+    color: #4dbb5f
+}

@@ -9,7 +9,7 @@ import {useCourse} from "../Hooks";
 import {useParams} from "react-router-dom";
 import {LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
-import {CourseStep} from "../Model";
+import {CourseStep, getLink} from "../Model";
 import {Tooltip} from "react-tippy";
 
 export default function CoursePage() {
@@ -49,22 +49,6 @@ export default function CoursePage() {
         <FooterSection/>
     </>;
 };
-
-function getLink(courseKey: string, step: CourseStep): string | null {
-    if (step.state === "LOCKED") {
-        return null
-    }
-    switch (step.type) {
-        case "CHALLENGE":
-            return `/course/${courseKey}/challenge/${step.key}`
-        case "VIDEO":
-            return `/course/${courseKey}/video/${step.key}`
-        case "LINK":
-            return step.key
-    }
-    console.log("Illegal type", step.type)
-    return null
-}
 
 function getAction(step: CourseStep): CourseListItemAction {
     if (step.state === "LOCKED") {
