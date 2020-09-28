@@ -15,6 +15,7 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
                     buttonText={t.workshopPage.registration.private.buttonText}
                     explanation={t.workshopPage.registration.private.explanation
                         .replace("{workshop_price}", printMoney(workshop.basePrice.company))
+                        .replace("{workshop_price_pl}", printMoney(workshop.basePrice.companyPl))
                         .replace("{days_num}", String(workshop.basePrice.daysNumber ?? 3))}/>
                 <OrderOption
                     link={"/workshopPublicForm/" + workshop.key}

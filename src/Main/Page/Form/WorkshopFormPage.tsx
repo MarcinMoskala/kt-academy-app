@@ -38,6 +38,7 @@ export default function WorkshopFormPage() {
     const workshop = useWorkshop(workshopKey)
     const {register, watch, handleSubmit, errors} = useForm<PrivateFormData>();
     const groupSize = watch("groupSize")
+    const isOnline = watch("isOnline")
 
     console.log(errors);
     console.log(groupSize);
@@ -132,6 +133,10 @@ export default function WorkshopFormPage() {
                                 {label: t.form.isOnline.online, value: "online"},
                                 {label: t.form.isOnline.inCompany, value: "inCompany"},
                             ]}/>
+
+                        {isOnline === "inCompany" &&
+                            <p>{t.form.private.inCompanyWarning}</p>
+                        }
 
                         <fieldset>
                             <label htmlFor="date">{t.form.datePrompt}</label>

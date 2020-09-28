@@ -195,7 +195,8 @@ const EN_desc = {
     "form": {
         "private": {
             "title": "Private workshop request",
-            "intro": "Fill this form to request private workshop [{workshop_name}]({workshop_link}) for your company."
+            "intro": "Fill this form to request private workshop [{workshop_name}]({workshop_link}) for your company.",
+            "inCompanyWarning": "In case of workshop outside of Warsaw, we will need to add travel and accommodation costs to the price."
         },
 
         "public": {
@@ -378,7 +379,7 @@ const PL_desc = {
             "title": "Wyślij zgłoszenie",
             "private": {
                 "buttonText": "Warsztat prywatny",
-                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena to {workshop_price} za grupę za {days_num} dni.',
+                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena w polsce i w języku polskim to {workshop_price_pl} za grupę (w innym przypadku {workshop_price}), za {days_num} dni szkolenia.',
             },
             "public": {
                 "buttonText": "Szkolenie otwarte online",
@@ -429,7 +430,8 @@ const PL_desc = {
     "form": {
         "private": {
             "title": "Szkolenie prywatne",
-            "intro": "Wypełnij ten formularz aby zgłosić grupę na prywatne szkolenie [{workshop_name}]({workshop_link})."
+            "intro": "Wypełnij ten formularz aby zgłosić grupę na prywatne szkolenie [{workshop_name}]({workshop_link}).",
+            "inCompanyWarning": "W przypadku szkoleń poza Warszawą do ceny zostaną dodane koszty dojazdu i zakwaterowania"
         },
 
         "public": {
