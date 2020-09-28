@@ -2,8 +2,8 @@ import React from 'react';
 import Header from "../../../Section/Header/Header";
 import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
-import {useTranslations} from "../../../Translations";
-import {callApi} from "../../../Network";
+import {useLang, useTranslations} from "../../../Translations";
+import {postPrivateRequestForm} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
@@ -17,7 +17,7 @@ import ReactMarkdown from "react-markdown";
 type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
 type IsOnlineOptions = "online" | "inCompany"
 
-type FormData = {
+export type PrivateFormData = {
     senderName: string,
     email: string,
     companyName: string,
@@ -30,34 +30,25 @@ type FormData = {
 
 export default function WorkshopFormPage() {
     const t = useTranslations();
+    const lang = useLang();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
     const {workshopKey} = useParams<{ workshopKey: string }>();
     registerPage(`workshop-form-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
-    const {register, watch, handleSubmit, errors} = useForm<FormData>();
+    const {register, watch, handleSubmit, errors} = useForm<PrivateFormData>();
     const groupSize = watch("groupSize")
 
     console.log(errors);
     console.log(groupSize);
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: PrivateFormData) => {
         console.log(data);
         if (!buttonEnabled) {
             return
         }
         setButtonEnabled(false)
-        callApi("workshop/" + workshop!.key + "/submit", {
-            method: "POST",
-            body: {
-                email: data.email,
-                companyName: data.companyName,
-                groupSize: data.groupSize,
-                country: data.country,
-                date: data.date,
-                extra: data.extra
-            }
-        })
+        postPrivateRequestForm(workshop, lang.key, data)
             .then(
                 (_) => {
                     setButtonEnabled(true)
@@ -114,7 +105,7 @@ export default function WorkshopFormPage() {
                         <Error field={errors.companyName}/>
                     </fieldset>
 
-                    <RadioSelect<FormData, GroupSizeOptions>
+                    <RadioSelect<PrivateFormData, GroupSizeOptions>
                         title={t.form.groupSizePrompt}
                         name="groupSize" register={register} errors={errors} required={true}
                         options={[
@@ -134,7 +125,7 @@ export default function WorkshopFormPage() {
                     <>
                         <CountrySelect register={register}/>
 
-                        <RadioSelect<FormData, IsOnlineOptions>
+                        <RadioSelect<PrivateFormData, IsOnlineOptions>
                             title={t.form.isOnline.question}
                             name="isOnline" register={register} errors={errors} required={true}
                             options={[

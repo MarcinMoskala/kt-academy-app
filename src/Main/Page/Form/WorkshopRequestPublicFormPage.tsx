@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from "../../../Section/Header/Header";
 import "../../../Utils";
-import {useTranslations} from "../../../Translations";
-import {callApi} from "../../../Network";
+import {useLang, useTranslations} from "../../../Translations";
+import {postPublicRequestForm} from "../../../Network";
 import {useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
@@ -20,7 +20,7 @@ type InvoiceToOptions = "person" | "privateCompany" | "company"
 type DeveloperExperience = "no" | "junior" | "mid" | "senior"
 type PriceAcceptanceOptions = "ok" | "discountNeeded" | "wayTooMuch"
 
-type FormData = {
+export type PublicFormData = {
     senderName: string,
     email: string,
     registerKind: RegisterKinds,
@@ -39,38 +39,24 @@ type FormData = {
 
 export default function WorkshopFormPage() {
     const t = useTranslations();
+    const lang = useLang();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
     const {workshopKey} = useParams<{ workshopKey: string }>();
     registerPage(`workshop-form-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
-    const {register, watch, handleSubmit, errors} = useForm<FormData>();
+    const {register, watch, handleSubmit, errors} = useForm<PublicFormData>();
     const registerKind: RegisterKinds = watch("registerKind")
     const developerExperience: DeveloperExperience | undefined = watch("developerExperience")
     const invoiceTo: InvoiceToOptions | undefined = watch("invoiceTo")
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: PublicFormData) => {
         console.log(data);
         if (!buttonEnabled) {
             return
         }
         setButtonEnabled(false)
-        callApi("workshop/" + workshop!.key + "/requestPublic", {
-            method: "POST",
-            body: {
-                senderName: data.senderName,
-                email: data.email,
-                registerKind: data.registerKind,
-                invoiceTo: data.invoiceTo,
-                developerExperience: data.developerExperience,
-                priceAcceptance: data.priceAcceptance,
-                companyName: data.companyName,
-                groupSize: data.groupSize,
-                country: data.country,
-                date: data.date,
-                extra: data.extra
-            }
-        })
+        postPublicRequestForm(workshop, lang.key, data)
             .then(
                 (_) => {
                     setButtonEnabled(true)
@@ -118,7 +104,7 @@ export default function WorkshopFormPage() {
                         <FormError field={errors.email}/>
                     </fieldset>
 
-                    <RadioSelect<FormData, RegisterKinds>
+                    <RadioSelect<PublicFormData, RegisterKinds>
                         title={t.form.registerKind.question} name="registerKind" register={register} errors={errors}
                         required={true}
                         options={[
@@ -130,7 +116,7 @@ export default function WorkshopFormPage() {
 
                     {registerKind === "myself" &&
                     <>
-                        <RadioSelect<FormData, InvoiceToOptions>
+                        <RadioSelect<PublicFormData, InvoiceToOptions>
                             title={t.form.invoiceTo.question} name="invoiceTo" register={register} errors={errors}
                             required={true}
                             options={[
@@ -147,7 +133,7 @@ export default function WorkshopFormPage() {
 
                     {["myself", "developerCompany"].includes(registerKind) &&
                     <>
-                        <RadioSelect<FormData, DeveloperExperience>
+                        <RadioSelect<PublicFormData, DeveloperExperience>
                             title={registerKind === "myself" ? t.form.developerExperience.questionMyself : t.form.developerExperience.questionOther}
                             name="developerExperience" register={register} errors={errors} required={true}
                             options={[
@@ -184,7 +170,7 @@ export default function WorkshopFormPage() {
 
                     {!(["myself", "developerCompany"].includes(registerKind) && developerExperience === "no") &&
                     <>
-                        <RadioSelect<FormData, PriceAcceptanceOptions>
+                        <RadioSelect<PublicFormData, PriceAcceptanceOptions>
                             title={t.form.priceAcceptance.question
                                 .replace("{price}", "400 EUR")
                                 .replace("{days_num}", "3")}

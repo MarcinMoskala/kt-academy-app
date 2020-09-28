@@ -1,4 +1,6 @@
 import {Challenge, ChallengeStatus, Course, User, Workshop, WorkshopSubmission} from "./Model";
+import {PrivateFormData} from "./Main/Page/Form/WorkshopFormPage";
+import {PublicFormData} from "./Main/Page/Form/WorkshopRequestPublicFormPage";
 
 export const API_URL = "https://kt.academy/api/"
 
@@ -123,4 +125,20 @@ function promiseWith<T>(value: T): Promise<T> {
     return new Promise((resolutionFunc, rejectionFunc) => {
         resolutionFunc(value);
     });
+}
+
+export function postPrivateRequestForm(workshop: Workshop | undefined | null, lang: string, data: PrivateFormData) {
+    return callApi("workshop/" + workshop!.key + "/submit", {
+        lang: lang,
+        method: "POST",
+        body: data
+    });
+}
+
+export function postPublicRequestForm(workshop: Workshop | undefined | null, lang: string, data: PublicFormData) {
+    return callApi("workshop/" + workshop!.key + "/requestPublic", {
+        lang: lang,
+        method: "POST",
+        body: data
+    })
 }

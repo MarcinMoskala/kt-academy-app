@@ -3,7 +3,6 @@ import "./CourseListItem.css"
 import Link from "../Link";
 import 'react-tippy/dist/tippy.css'
 import {Tooltip} from 'react-tippy';
-import {CourseStepType} from "../Model";
 
 export type CourseListItemAction = "locked" | "play" | "finished" | "link" | "code";
 
