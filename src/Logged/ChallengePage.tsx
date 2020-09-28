@@ -26,7 +26,13 @@ export default function ChallengePage() {
     const course = useCourse(courseKey)
     const challenge: Challenge | undefined | null = useChallenge(challengeKey)
     const [code, setCode] = React.useState<string>();
+    const [showCode, setShowCode] = React.useState<string>("");
+    const [platform, setPlatform] = React.useState<"junit" | "java">("junit");
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
+
+    useEffect(() => {
+        if (challenge) setShowCode(challenge.code)
+    }, [challenge])
 
     useEffect(() => {
         let codeEditorInstance: CodeEditorInstance
@@ -71,10 +77,23 @@ export default function ChallengePage() {
         })
     }
 
-    const addTests = () => {
-        saveUserChallenge(challengeKey, {code: challenge?.originalCode + EXTRA_TESTS_SUFFIX, status: "INITIAL"})
-            .then((_) => window.location.reload())
+    const switchPlatform = () => {
+        if (platform !== "junit") {
+            setPlatform("junit")
+        } else {
+            let newCode = code ?? ""
+            if (!newCode.includes("fun main(")) {
+                newCode += EXTRA_MAIN_SUFFIX
+            }
+            setShowCode(newCode);
+            setPlatform("java")
+        }
     }
+
+    const addTests = () => {
+        setShowCode(code + EXTRA_TESTS_SUFFIX);
+    }
+    const showAddTests = !(code?.includes("class MoreTests"))
 
     if (course === undefined) {
         return <LoadingPage/>
@@ -99,20 +118,23 @@ export default function ChallengePage() {
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
             <h1>{challenge.title}</h1>
 
-            <div className="challenge-code" data-target-platform="junit" folded-button="true">
-                {`
+            <div key={showCode + "-" + platform}>
+                <div className="challenge-code" data-target-platform={platform} folded-button="true">
+                    {`
 ${challenge.codeTests}
 ${SPLITTING_COMMENT}
 //sampleStart
-${challenge.code}
+${showCode}
 //sampleEnd
                 `}
+                </div>
             </div>
 
             <div className="buttons-container">
                 <div className="buttons-left">
-                    <a onClick={(e) => onSave()}>Save</a> <a onClick={(e) => onRestore()}>Restore</a> <a
-                    onClick={(e) => addTests()}>Add own tests</a>
+                    <a onClick={(e) => onSave()}>Save</a> <a onClick={(e) => onRestore()}>Restore</a> {showAddTests && <a
+                    onClick={(e) => addTests()}>Add own tests</a>} <a onClick={(e) => switchPlatform()}>Switch
+                    to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a>
                 </div>
                 {challengeStatus === "SOLVED" &&
                 <div className="buttons-right green-color">
@@ -139,7 +161,14 @@ const EXTRA_TESTS_SUFFIX = `
 
 class MoreTests() {
     @Test fun \`your test here\`() {
-        Assert.assertEquals(true, false)
+        assertEquals(true, false)
     }
+}
+`
+
+const EXTRA_MAIN_SUFFIX = `
+
+fun main() {
+    println("Hello, world")
 }
 `
