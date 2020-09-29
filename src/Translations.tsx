@@ -348,7 +348,7 @@ const PL_desc = {
         },
         "twitter": {
             "title": "Obserwuj nas na Twitter",
-            "description": "Zrzeszamy społeczność ponad 3000 obserwujących i publikujemy tylko treści związane z programowaniem"
+            "description": "Zrzeszamy społeczność ponad 3000 obserwujących i publikujemy tylko treści związane z programowaniem."
         },
         "mail": {
             "title": "Skontaktuj się z nami",
