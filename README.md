@@ -12,4 +12,4 @@ npm run deploy
 
 Website can be found under:
 
-https://learningdriven.space/
+https://kt.adacemy/
