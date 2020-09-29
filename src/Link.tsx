@@ -8,7 +8,7 @@ export default function Link(props) {
     if (!to) {
         return (<a {...rest}>{children}</a>);
     } else if (isInternal(to) && !isResource(to)) {
-        const newLink = keepLang && linkKeepLang(to)
+        const newLink = keepLang ? linkKeepLang(to) : to
         return (<ReactLink to={newLink} {...rest}>{children}</ReactLink>);
     } else {
         return (<a href={to} target="_blank" {...rest}>{children}</a>);
