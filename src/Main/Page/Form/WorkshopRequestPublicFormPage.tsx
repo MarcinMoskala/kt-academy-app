@@ -16,11 +16,29 @@ import {CountrySelect} from "./CountrySelect";
 import ReactMarkdown from "react-markdown";
 import { useHistory } from "react-router-dom";
 import {useLinkFunctions} from "../../../Link";
+import {ErrorPage, LoadingPage} from "../../../Loading";
+import {Workshop} from "../../../Model";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
 type InvoiceToOptions = "person" | "privateCompany" | "company"
 type DeveloperExperience = "no" | "junior" | "mid" | "senior"
 type PriceAcceptanceOptions = "ok" | "discountNeeded" | "wayTooMuch"
+
+export default function WorkshopFormPageWrapper() {
+    const {workshopKey} = useParams<{ workshopKey: string }>();
+    registerPage(`workshop-public-form-${workshopKey}`)
+    const workshop = useWorkshop(workshopKey)
+
+    if (workshop === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (workshop === null) {
+        return <ErrorPage/>
+    }
+
+    return <WorkshopFormPage workshop={workshop}/>
+}
 
 export type PublicFormData = {
     senderName: string,
@@ -39,15 +57,12 @@ export type PublicFormData = {
     extra: string
 };
 
-export default function WorkshopFormPage() {
+function WorkshopFormPage({workshop}: {workshop: Workshop}) {
     const t = useTranslations();
     const lang = useLang();
     const history = useHistory();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
-    const {workshopKey} = useParams<{ workshopKey: string }>();
-    registerPage(`workshop-form-${workshopKey}`)
-    const workshop = useWorkshop(workshopKey)
     const {register, watch, handleSubmit, errors} = useForm<PublicFormData>();
     const registerKind: RegisterKinds = watch("registerKind")
     const developerExperience: DeveloperExperience | undefined = watch("developerExperience")
@@ -65,7 +80,7 @@ export default function WorkshopFormPage() {
                 (_) => {
                     setButtonEnabled(true)
                     Swal.fire(t.form.dialogSent)
-                        .then(r => {
+                        .then(_ => {
                             history.push("/");
                         })
                 },
@@ -76,8 +91,6 @@ export default function WorkshopFormPage() {
                 }
             )
     }
-
-    if (!workshop) return <></>
 
     return <>
         <Header/>
@@ -215,5 +228,4 @@ export default function WorkshopFormPage() {
         <FooterSection/>
     </>;
 }
-;
 

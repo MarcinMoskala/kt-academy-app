@@ -268,7 +268,8 @@ const EN_desc = {
         "dtoName": "DTO name",
         "dtoSuffix": "(or) suffix",
         "generateButton": "Generate",
-    }
+    },
+    "errorMessage": "An error occurred. We are sorry. You can contact us using contact@kt.academy"
 }
 
 const PL_desc = {
@@ -504,4 +505,5 @@ const PL_desc = {
         "dtoSuffix": "(albo) suffix",
         "generateButton": "Generuj",
     },
+    "errorMessage": "Wystąpił błąd. Przykro nam. Możesz się z nami skontaktować przez email contact@kt.academy"
 }

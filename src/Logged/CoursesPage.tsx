@@ -1,28 +1,31 @@
 import React from 'react';
-import {useTranslations} from "../Translations";
 import Header, {Width} from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
 import HeaderBg from "../Section/Header/background-img/1-1920x702.png";
 import "./CoursePage.css"
 import {CourseListItem, CourseListItemAction} from "./CourseListItem";
 import {useCourses} from "../Hooks";
-import {LoadingPage} from "../Loading";
+import {ErrorPage, LoadingPage} from "../Loading";
 import {Course, CourseState} from "../Model";
 import ContactSection from "../Main/Section/ContactSection";
 import {registerPage} from "../Utils";
 
-export default function CoursesPage() {
+export default function CoursesPageWrapper() {
     registerPage(`courses`);
-    const t = useTranslations();
-    const courses: Course[] | undefined | null = useCourses()
+    const courses = useCourses()
 
     if (courses === undefined) {
         return <LoadingPage/>
     }
 
     if (courses === null) {
-        return <div>Course does not exist</div>
+        return <ErrorPage/>
     }
+
+    return <CoursesPage courses={courses}/>
+}
+
+function CoursesPage({courses}: { courses: Course[] }) {
 
     return <>
         <Header allowedLangs={["EN"]} banner={{
@@ -33,14 +36,17 @@ export default function CoursesPage() {
         }}/>
         <div className="content-container text-align-left">
             {courses.map(course =>
-                <CourseListItem title={course.name} link={`/course/${course.key}`} action={getAction(course.state)} hint={getHint(course.state)} />
+                <CourseListItem title={course.name}
+                                link={`/course/${course.key}`}
+                                action={getAction(course.state)}
+                                hint={getHint(course.state)}/>
             )}
 
         </div>
         <ContactSection/>
         <FooterSection/>
     </>;
-};
+}
 
 function getAction(state: CourseState): CourseListItemAction {
     switch (state) {
@@ -58,7 +64,7 @@ function getAction(state: CourseState): CourseListItemAction {
 
 
 function getHint(state: CourseState): string | null {
-    if(state === "LOCKED") {
+    if (state === "LOCKED") {
         return "This course is only for Kt. Academy workshop attendees. You can see a list of resources, but you cannot access them."
     } else {
         return null

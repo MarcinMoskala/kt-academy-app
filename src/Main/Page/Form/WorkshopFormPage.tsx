@@ -4,7 +4,7 @@ import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import {postPrivateRequestForm} from "../../../Network";
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
@@ -13,11 +13,28 @@ import "./WorkhopFormStyle.css"
 import {CountrySelect} from "./CountrySelect";
 import {RadioSelect} from "./RadioSelect";
 import ReactMarkdown from "react-markdown";
-import { useHistory } from "react-router-dom";
 import {useLinkFunctions} from "../../../Link";
+import {ErrorPage, LoadingPage} from "../../../Loading";
+import {Workshop} from "../../../Model";
 
 type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
 type IsOnlineOptions = "online" | "inCompany"
+
+export default function WorkshopFormPageWrapper() {
+    const {workshopKey} = useParams<{ workshopKey: string }>();
+    registerPage(`workshop-form-${workshopKey}`)
+    const workshop = useWorkshop(workshopKey)
+
+    if (workshop === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (workshop === null) {
+        return <ErrorPage/>
+    }
+
+    return <WorkshopFormPage workshop={workshop}/>
+}
 
 export type PrivateFormData = {
     senderName: string,
@@ -30,15 +47,12 @@ export type PrivateFormData = {
     isOnline: IsOnlineOptions
 };
 
-export default function WorkshopFormPage() {
+function WorkshopFormPage({workshop}: { workshop: Workshop }) {
     const t = useTranslations();
     const lang = useLang();
     const history = useHistory();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
-    const {workshopKey} = useParams<{ workshopKey: string }>();
-    registerPage(`workshop-form-${workshopKey}`)
-    const workshop = useWorkshop(workshopKey)
     const {register, watch, handleSubmit, errors} = useForm<PrivateFormData>();
     const groupSize = watch("groupSize")
     const isOnline = watch("isOnline")
@@ -139,7 +153,7 @@ export default function WorkshopFormPage() {
                             ]}/>
 
                         {isOnline === "inCompany" &&
-                            <p>{t.form.private.inCompanyWarning}</p>
+                        <p>{t.form.private.inCompanyWarning}</p>
                         }
 
                         <fieldset>

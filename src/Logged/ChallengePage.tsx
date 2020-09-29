@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react';
-import {useTranslations} from "../Translations";
 import {useChallenge, useCourse} from "../Hooks";
 import {registerPage} from "../Utils";
 import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
 import {saveUserChallenge} from "../Network";
-import {Challenge, ChallengeStatus} from "../Model";
+import {Challenge, ChallengeStatus, Course} from "../Model";
 import Header from "../Section/Header/Header";
 import FooterSection from "../Section/FooterSection";
-import {LoadingPage} from "../Loading";
+import {ErrorPage, LoadingPage} from "../Loading";
 import Swal from "sweetalert2";
 import "./CourseElement.css"
 import {PrevNextBar} from "./PrevNextBar";
@@ -19,20 +18,36 @@ type CodeEditorInstance = {
     getCode: () => string
 }
 
-export default function ChallengePage() {
+export default function ChallengePageWrapper() {
     const {courseKey, challengeKey} = useParams<{ courseKey: string, challengeKey: string }>();
-    registerPage(`challenge-${challengeKey}`);
-    const t = useTranslations();
+    registerPage(`challenge-${courseKey}-${challengeKey}`);
     const course = useCourse(courseKey)
-    const challenge: Challenge | undefined | null = useChallenge(challengeKey)
+    const challenge = useChallenge(challengeKey)
+
+    if (course === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (course === null) {
+        return <ErrorPage message="Course not found"/>
+    }
+
+    if (challenge === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (challenge === null) {
+        return <ErrorPage message="Challenge not found"/>
+    }
+
+    return <ChallengePage course={course} challenge={challenge}/>
+}
+
+function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
     const [code, setCode] = React.useState<string>();
-    const [showCode, setShowCode] = React.useState<string>("");
+    const [showCode, setShowCode] = React.useState<string>(challenge.code);
     const [platform, setPlatform] = React.useState<"junit" | "java">("junit");
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
-
-    useEffect(() => {
-        if (challenge) setShowCode(challenge.code)
-    }, [challenge])
 
     useEffect(() => {
         let codeEditorInstance: CodeEditorInstance
@@ -51,7 +66,7 @@ export default function ChallengePage() {
                 }
             },
             onTestPassed: () => {
-                saveUserChallenge(challengeKey, {code: codeVariable, status: "SOLVED"})
+                saveUserChallenge(challenge.key, {code: codeVariable, status: "SOLVED"})
                     .then((_) => setChallengeStatus("SOLVED"))
             },
             getInstance: (instance: CodeEditorInstance) => {
@@ -61,7 +76,7 @@ export default function ChallengePage() {
     })
 
     const onSave = () => {
-        saveUserChallenge(challengeKey, {code: code})
+        saveUserChallenge(challenge.key, {code: code})
     }
 
     const onRestore = () => {
@@ -71,8 +86,8 @@ export default function ChallengePage() {
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes, restore'
-        }).then((result) => {
-            saveUserChallenge(challengeKey, {code: challenge?.originalCode, status: "INITIAL"})
+        }).then((_) => {
+            saveUserChallenge(challenge.key, {code: challenge?.originalCode, status: "INITIAL"})
                 .then((_) => window.location.reload())
         })
     }
@@ -95,24 +110,7 @@ export default function ChallengePage() {
     }
     const showAddTests = !(code?.includes("class MoreTests"))
 
-    if (course === undefined) {
-        return <LoadingPage/>
-    }
-
-    if (course === null) {
-        return <div>Course not found</div>
-    }
-
-    if (challenge === null) {
-        return <div style={{textAlign: "center"}}>
-            Challenge not found
-        </div>
-    }
-
-    if (challenge === undefined) {
-        return <LoadingPage/>
-    }
-
+    // noinspection HtmlUnknownAttribute
     return <>
         <Header allowedLangs={["EN"]}/>
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
@@ -132,8 +130,9 @@ ${showCode}
 
             <div className="buttons-container">
                 <div className="buttons-left">
-                    <a onClick={(e) => onSave()}>Save</a> <a onClick={(e) => onRestore()}>Restore</a> {showAddTests && <a
-                    onClick={(e) => addTests()}>Add own tests</a>} <a onClick={(e) => switchPlatform()}>Switch
+                    <a onClick={(_) => onSave()}>Save</a> <a onClick={(_) => onRestore()}>Restore</a> {showAddTests &&
+                <a
+                    onClick={(_) => addTests()}>Add own tests</a>} <a onClick={(_) => switchPlatform()}>Switch
                     to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a>
                 </div>
                 {challengeStatus === "SOLVED" &&
@@ -149,11 +148,11 @@ ${showCode}
 
             <br/>
 
-            <PrevNextBar course={course} stepKey={challengeKey} stepType={"CHALLENGE"}/>
+            <PrevNextBar course={course} stepKey={challenge.key} stepType={"CHALLENGE"}/>
         </div>
         <FooterSection/>
     </>;
-};
+}
 
 const SPLITTING_COMMENT = "// Your code starts here"
 

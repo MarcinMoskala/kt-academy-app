@@ -9,12 +9,9 @@
     box-shadow: inset 0 1px #fff, inset 0 -1px rgba(119,110,110,0.4), 0 3px 7px rgba(27,43,106,0.16);
     position: relative;
     -webkit-transition: background-color 0.3s, -webkit-box-shadow 0.3s;
-    transition: background-color 0.3s, -webkit-box-shadow 0.3s;
-    transition: box-shadow 0.3s, background-color 0.3s;
     transition: box-shadow 0.3s, background-color 0.3s, -webkit-box-shadow 0.3s;
     min-height: 56px;
     min-width: 56px;
-    display: inline-block;
     vertical-align: top;
 }
 

@@ -7,15 +7,14 @@ import "./CoursePage.css"
 import {CourseListItem, CourseListItemAction} from "./CourseListItem";
 import {useCourse} from "../Hooks";
 import {useParams} from "react-router-dom";
-import {LoadingPage} from "../Loading";
+import {ErrorPage, LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
-import {CourseStep, getLink} from "../Model";
+import {Course, CourseStep, getLink} from "../Model";
 import {registerPage} from "../Utils";
 
-export default function CoursePage() {
+export default function CoursePageWrapper() {
     const {courseKey} = useParams<{ courseKey: string }>();
     registerPage(`course-${courseKey}`);
-    const t = useTranslations();
     const course = useCourse(courseKey)
 
     if (course === undefined) {
@@ -23,8 +22,14 @@ export default function CoursePage() {
     }
 
     if (course === null) {
-        return <div>Course does not exist</div>
+        return <ErrorPage message="Course not found"/>
     }
+
+    return <CoursePage course={course}/>
+}
+
+function CoursePage({course}: {course: Course}) {
+    const t = useTranslations();
 
     return <>
         <Header allowedLangs={["EN"]} banner={{
@@ -41,7 +46,7 @@ export default function CoursePage() {
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
-                <CourseListItem title={step.title} link={getLink(courseKey, step)} action={getAction(step)}
+                <CourseListItem title={step.title} link={getLink(course.key, step)} action={getAction(step)}
                                 hint={getHint(step)} />
             )}
 

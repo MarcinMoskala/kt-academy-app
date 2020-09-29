@@ -17,15 +17,28 @@ import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
 import {RegistrationSection} from "./RegistrationSection";
+import {Workshop} from "../../../Model";
+import {ErrorPage, LoadingPage} from "../../../Loading";
 
-export default function WorkshopPage() {
-    const t = useTranslations()
-
+export default function WorkshopPageWrapper() {
     const {workshopKey} = useParams<{ workshopKey: string }>();
     registerPage(`workshop-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
 
-    if (!workshop) return <></>
+    if (workshop === undefined) {
+        return <LoadingPage/>
+    }
+
+    if (workshop === null) {
+        return <ErrorPage/>
+    }
+
+    return <WorkshopPage workshop={workshop}/>
+}
+
+function WorkshopPage({workshop}: {workshop: Workshop}) {
+    const t = useTranslations()
+
 
     const HeaderBg = getHeader(workshop?.key)
 
