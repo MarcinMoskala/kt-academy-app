@@ -495,7 +495,7 @@ const PL_desc = {
         "submit": "Wyślij",
 
         "requestOpenInsteadInfo": "Dla mniejszych grup sugerujemy warsztaty otwarte, gdzie cena ustalona jest od osoby. Aby zapisać się na takie szkolenie użyj [tego formularza]({openFormLink}).",
-        "beginnerInfo": "Niestety, ale ten warsztat jest skierowany do doświadczonych programistów. W naszej ofercie nie posiadamy warsztatów dla początkujących, ale [tutaj](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc) zebraliśmy nasze rady jak zacząć. Jeśli natomiast Twoim celem jest nauczenie się języka Kotlin, to [w tym artykule](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6) znajdziesz darmowe kursy, które polecamy.",
+        "beginnerInfo": "Niestety, ale to szkolenie jest skierowane do doświadczonych programistów. W naszej ofercie nie posiadamy warsztatów dla początkujących. Nasze rady jak zacząć naukę programowania zebraliśmy [tutaj](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc). Jeśli natomiast Twoim celem jest nauczenie się języka Kotlin, to [w tym artykule](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6) znajdziesz polecane przez nas darmowe kursy.",
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej jesteśmy zobligowani zapłacić dodatkowy podatek w wysokości 23%.",
     },
     "generate": {
