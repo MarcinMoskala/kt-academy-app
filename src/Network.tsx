@@ -2,7 +2,7 @@ import {Challenge, ChallengeStatus, Course, User, Workshop, WorkshopSubmission} 
 import {PrivateFormData} from "./Main/Page/Form/WorkshopFormPage";
 import {PublicFormData} from "./Main/Page/Form/WorkshopRequestPublicFormPage";
 
-export const API_URL = "https://kt.academy/api/"
+export const API_URL = "https://api.kt.academy/api/"
 
 declare var userUuid: string
 
