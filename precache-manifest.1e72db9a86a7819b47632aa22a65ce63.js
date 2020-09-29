@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7f527c3153ce0bfea02cc350c438f4e5",
+    "revision": "3df11938110f1958f14b68b80519928f",
     "url": "https://learningdriven.space/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://learningdriven.space/static/css/2.e22355b1.chunk.css"
   },
   {
-    "revision": "d2b1ffd25d2564d8bdf5",
+    "revision": "3744745c9a5b38386326",
     "url": "https://learningdriven.space/static/css/main.8fa7cdb7.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://learningdriven.space/static/js/2.2a22ecf7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2b1ffd25d2564d8bdf5",
-    "url": "https://learningdriven.space/static/js/main.1e621e42.chunk.js"
+    "revision": "3744745c9a5b38386326",
+    "url": "https://learningdriven.space/static/js/main.9915e413.chunk.js"
   },
   {
     "revision": "f6415d253025c95fbaed",
