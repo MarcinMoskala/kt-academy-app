@@ -493,8 +493,8 @@ const PL_desc = {
         "invalidEmail": "Niepoprawny adres email",
         "submit": "Prześlij",
 
-        "requestOpenInsteadInfo": "",
-        "beginnerInfo": "",
+        "requestOpenInsteadInfo": "Dla mniejszych grup większy sens mają szkolenia otwarte gdzie cena jest od osoby a nie za grupę. Aby zgłosić się na takie szkolenie użyj [tego formularza]({openFormLink}).",
+        "beginnerInfo": "Niestety ale ten warsztat jest skierowany do doświadczonych programistów. Nie posiadamy aktualnie warsztatów dla początkujących w naszej ofercie. Zebraliśmy jednak nasze rady w [tym artykule](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc). Jeśli twoim celem jest nauczenie się języka Kotlin, to darmowe kursy której polecamy zebraliśmy [tutaj](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6).",
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej musimy zapłacić dodatkowy podatek w wysokości 23%.",
     },
     "generate": {

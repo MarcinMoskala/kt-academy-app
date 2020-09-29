@@ -14,7 +14,7 @@ export default function HomePage() {
     registerPage("index")
     const t = useTranslations()
     const menuLinks: LinkTo[] = [
-        {to: "#offer", text: t.menu.offer},
+        {to: "#workshops-offer", text: t.menu.offer},
         {to: "#why-us", text: t.menu.whyUs},
         {to: "#contact", text: t.menu.contact, divider: true},
     ]

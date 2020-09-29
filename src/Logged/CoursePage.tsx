@@ -10,10 +10,11 @@ import {useParams} from "react-router-dom";
 import {LoadingPage} from "../Loading";
 import ContactSection from "../Main/Section/ContactSection";
 import {CourseStep, getLink} from "../Model";
+import {registerPage} from "../Utils";
 
 export default function CoursePage() {
     const {courseKey} = useParams<{ courseKey: string }>();
-    // registerPage(`challenge-${challengeKey}`);
+    registerPage(`course-${courseKey}`);
     const t = useTranslations();
     const course = useCourse(courseKey)
 

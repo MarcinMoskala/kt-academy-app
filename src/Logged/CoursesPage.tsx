@@ -9,9 +9,10 @@ import {useCourses} from "../Hooks";
 import {LoadingPage} from "../Loading";
 import {Course, CourseState} from "../Model";
 import ContactSection from "../Main/Section/ContactSection";
+import {registerPage} from "../Utils";
 
 export default function CoursesPage() {
-    // registerPage(`challenge-${challengeKey}`);
+    registerPage(`courses`);
     const t = useTranslations();
     const courses: Course[] | undefined | null = useCourses()
 

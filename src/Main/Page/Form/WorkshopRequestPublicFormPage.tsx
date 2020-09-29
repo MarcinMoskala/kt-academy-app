@@ -14,6 +14,8 @@ import {FormError} from "./FormError";
 import FooterSection from "../../../Section/FooterSection";
 import {CountrySelect} from "./CountrySelect";
 import ReactMarkdown from "react-markdown";
+import { useHistory } from "react-router-dom";
+import {useLinkFunctions} from "../../../Link";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
 type InvoiceToOptions = "person" | "privateCompany" | "company"
@@ -40,6 +42,7 @@ export type PublicFormData = {
 export default function WorkshopFormPage() {
     const t = useTranslations();
     const lang = useLang();
+    const history = useHistory();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
     const {workshopKey} = useParams<{ workshopKey: string }>();
@@ -49,6 +52,7 @@ export default function WorkshopFormPage() {
     const registerKind: RegisterKinds = watch("registerKind")
     const developerExperience: DeveloperExperience | undefined = watch("developerExperience")
     const invoiceTo: InvoiceToOptions | undefined = watch("invoiceTo")
+    const {linkKeepLang} = useLinkFunctions()
 
     const onSubmit = (data: PublicFormData) => {
         console.log(data);
@@ -62,7 +66,7 @@ export default function WorkshopFormPage() {
                     setButtonEnabled(true)
                     Swal.fire(t.form.dialogSent)
                         .then(r => {
-                            window.location.replace("https://kt.academy");
+                            history.push("/");
                         })
                 },
                 (error) => {
@@ -82,7 +86,7 @@ export default function WorkshopFormPage() {
                 <h1>{t.form.public.title}</h1>
                 <ReactMarkdown source={t.form.public.intro
                     .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", "/workshopPublicForm/" + workshop.key)}/>
+                    .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
@@ -113,6 +117,17 @@ export default function WorkshopFormPage() {
                             {label: t.form.registerKind.myselfAndGroupCompany, value: "myselfAndGroupCompany"},
                             {label: t.form.registerKind.groupCompany, value: "groupCompany"},
                         ]}/>
+
+                    {["developerCompany", "myselfAndGroupCompany", "groupCompany"].includes(registerKind) &&
+                    <>
+                        <fieldset>
+                            <label htmlFor="companyName">{t.form.companyNamePrompt}</label>
+                            <input type="text" name="companyName" id="companyName" ref={register()}
+                                   placeholder={t.form.companyNamePrompt}/>
+                            <FormError field={errors.companyName}/>
+                        </fieldset>
+                    </>
+                    }
 
                     {registerKind === "myself" &&
                     <>
@@ -149,15 +164,8 @@ export default function WorkshopFormPage() {
                     </>
                     }
 
-                    {["developerCompany", "myselfAndGroupCompany", "groupCompany"].includes(registerKind) &&
+                    {["myselfAndGroupCompany", "groupCompany"].includes(registerKind) &&
                     <>
-                        <fieldset>
-                            <label htmlFor="companyName">{t.form.companyNamePrompt}</label>
-                            <input type="text" name="companyName" id="companyName" ref={register()}
-                                   placeholder={t.form.companyNamePrompt}/>
-                            <FormError field={errors.companyName}/>
-                        </fieldset>
-
                         <fieldset>
                             <label htmlFor="groupSize">{t.form.groupSizePrompt}</label>
                             <input type="text" name="groupSize" id="groupSize" min="1" max="100" ref={register({

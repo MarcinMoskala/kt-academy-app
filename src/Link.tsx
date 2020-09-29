@@ -4,14 +4,21 @@ import {useLang} from "./Translations";
 
 export default function Link(props) {
     const {to, children, keepLang = true, ...rest} = props;
-    const {pathPrefix} = useLang()
+    const {linkKeepLang} = useLinkFunctions()
     if (!to) {
         return (<a {...rest}>{children}</a>);
     } else if (isInternal(to) && !isResource(to)) {
-        const newLink = keepLang && !isOnlyHash(to) ? pathPrefix + to : to
+        const newLink = keepLang && linkKeepLang(to)
         return (<ReactLink to={newLink} {...rest}>{children}</ReactLink>);
     } else {
         return (<a href={to} target="_blank" {...rest}>{children}</a>);
+    }
+}
+
+export function useLinkFunctions() {
+    const {pathPrefix} = useLang()
+    return {
+        linkKeepLang: (to: string) => !isOnlyHash(to) ? pathPrefix + to : to
     }
 }
 

@@ -13,6 +13,8 @@ import "./WorkhopFormStyle.css"
 import {CountrySelect} from "./CountrySelect";
 import {RadioSelect} from "./RadioSelect";
 import ReactMarkdown from "react-markdown";
+import { useHistory } from "react-router-dom";
+import {useLinkFunctions} from "../../../Link";
 
 type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
 type IsOnlineOptions = "online" | "inCompany"
@@ -31,6 +33,7 @@ export type PrivateFormData = {
 export default function WorkshopFormPage() {
     const t = useTranslations();
     const lang = useLang();
+    const history = useHistory();
 
     const [buttonEnabled, setButtonEnabled] = React.useState(true);
     const {workshopKey} = useParams<{ workshopKey: string }>();
@@ -39,6 +42,7 @@ export default function WorkshopFormPage() {
     const {register, watch, handleSubmit, errors} = useForm<PrivateFormData>();
     const groupSize = watch("groupSize")
     const isOnline = watch("isOnline")
+    const {linkKeepLang} = useLinkFunctions()
 
     console.log(errors);
     console.log(groupSize);
@@ -55,7 +59,7 @@ export default function WorkshopFormPage() {
                     setButtonEnabled(true)
                     Swal.fire(t.form.dialogSent)
                         .then(r => {
-                            window.location.replace("https://kt.academy");
+                            history.push("/");
                         })
                 },
                 (error) => {
@@ -75,7 +79,7 @@ export default function WorkshopFormPage() {
                 <h1>{t.form.private.title}</h1>
                 <ReactMarkdown source={t.form.private.intro
                     .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", "/workshopPublicForm/" + workshop.key)}/>
+                    .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>
@@ -119,7 +123,7 @@ export default function WorkshopFormPage() {
                     {(groupSize === "size1" || groupSize === "size2to7") &&
                     <ReactMarkdown
                         source={t.form.requestOpenInsteadInfo
-                            .replace("{openFormLink}", "/workshopPublicForm/" + workshop.key)}/>
+                            .replace("{openFormLink}", linkKeepLang("/workshopPublicForm/" + workshop.key))}/>
                     }
 
                     {groupSize !== "size1" &&
