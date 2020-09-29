@@ -29,8 +29,6 @@ export default function CoursePageWrapper() {
 }
 
 function CoursePage({course}: {course: Course}) {
-    const t = useTranslations();
-
     return <>
         <Header allowedLangs={["EN"]} banner={{
             img: HeaderBg,

@@ -40,12 +40,15 @@ export default function ChallengePageWrapper() {
         return <ErrorPage message="Challenge not found"/>
     }
 
-    return <ChallengePage course={course} challenge={challenge}/>
+    return <ChallengePage key={courseKey + "-" + challengeKey} course={course} challenge={challenge}/>
 }
 
 function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
-    const [code, setCode] = React.useState<string>();
-    const [showCode, setShowCode] = React.useState<string>(challenge.code);
+    const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
+    useEffect(() => setCode(challenge.code), [challenge.key])
+    const [showCode, setShowCode] = React.useState<string>(dropTestsCode(challenge.code));
+    useEffect(() => setShowCode(challenge.code), [challenge.key])
+
     const [platform, setPlatform] = React.useState<"junit" | "java">("junit");
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
 
@@ -55,15 +58,9 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
         playground('.challenge-code', {
             version: '1.4.00',
             onChange: (visibleCode: string) => {
-                const separatorPosition = visibleCode.indexOf(SPLITTING_COMMENT)
-                if (separatorPosition === -1) {
-                    setCode(visibleCode)
-                    codeVariable = visibleCode
-                } else {
-                    let positionAfterSeparatorAndEnter = separatorPosition + SPLITTING_COMMENT.length + 1;
-                    setCode(visibleCode.substr(positionAfterSeparatorAndEnter))
-                    codeVariable = visibleCode
-                }
+                const realCode = dropTestsCode(visibleCode)
+                setCode(realCode)
+                codeVariable = realCode
             },
             onTestPassed: () => {
                 saveUserChallenge(challenge.key, {code: codeVariable, status: "SOLVED"})
@@ -76,7 +73,7 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
     })
 
     const onSave = () => {
-        saveUserChallenge(challenge.key, {code: code})
+        if(code) saveUserChallenge(challenge.key, {code: dropTestsCode(code)})
     }
 
     const onRestore = () => {
@@ -116,7 +113,7 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
             <h1>{challenge.title}</h1>
 
-            <div key={showCode + "-" + platform}>
+            <div key={challenge.key + "-" + showCode + "-" + platform}>
                 <div className="challenge-code" data-target-platform={platform} folded-button="true">
                     {`
 ${challenge.codeTests}
@@ -152,6 +149,15 @@ ${showCode}
         </div>
         <FooterSection/>
     </>;
+}
+
+function dropTestsCode(code: string) {
+    const splittingCodeIndex = code.indexOf(SPLITTING_COMMENT);
+    if(splittingCodeIndex == -1) {
+        return code
+    }
+    const realCodeStart = splittingCodeIndex + SPLITTING_COMMENT.length + 1 // (\n)
+    return code.substr(realCodeStart)
 }
 
 const SPLITTING_COMMENT = "// Your code starts here"
