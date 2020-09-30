@@ -7,7 +7,7 @@ import TestimonialsSection from "../Testimonials/TestimonialsSection";
 import ContactSection from "../../Section/ContactSection";
 import FooterSection from "../../../Section/FooterSection";
 import {useTranslations} from "../../../Translations";
-import HeaderBg from "../../../Section/Header/background-img/10-1920x1080.png"
+import HeaderBg from "../../../Section/Header/background-img/3-1920x1080.png"
 import {registerPage} from "../../../Utils";
 
 export default function HomePage() {
