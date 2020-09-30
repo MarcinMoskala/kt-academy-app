@@ -39,6 +39,7 @@ const EN_desc = {
     "description": "Kt. Academy - Teaching is our passion. If you want to migrate from Java to Kotlin or improve your's team Kotlin skills, our workshops are definitely for you. Check our workshop: Kotlin for Android Developers, Effective Kotlin, Kotlin Coroutines, Kotlin for Backend Developers. We focus on good practices and we make our workshops as practical as possible.",
     "tagsSEO": "Kotlin, workshop, training, Android, programming, coding, development, java, move to kotlin, java to kotlin",
     "title": "Kt. Academy - workshops with focus on best practices",
+    "trustedBy": "Trusted by",
     "menu": {
         "home": "Home",
         "offer": "Offer",
@@ -276,6 +277,7 @@ const PL_desc = {
     "description": "Kt. Academy - Uczenie to nasza pasja. Jeśli chcesz przejść z języka Java na Kotlin lub doskonalić umiejętności programowania w Kotline Twojego zespołu, nasze szkolenia są zdecydowanie dla Ciebie. Sprawdź warsztaty: Kotlin dla programistów Android, Effective Kotlin, Kotlin Coroutines, Kotlin dla programistów backend. Skupiamy się na najlepszych praktykach i na praktyce.",
     "tagsSEO": "Kotlin, warsztat, szkolenie, Android, programowanie, kodowanie, development, java, przejść na kotlin, java na kotlin",
     "title": "Kt. Academy - Szkolenia skupiające się na najlepszych praktykach",
+    "trustedBy": "Zaufali nam",
     "menu": {
         "home": "Strona Główna",
         "offer": "Oferta",

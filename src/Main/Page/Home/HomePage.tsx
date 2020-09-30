@@ -9,6 +9,7 @@ import FooterSection from "../../../Section/FooterSection";
 import {useTranslations} from "../../../Translations";
 import HeaderBg from "../../../Section/Header/background-img/3-1920x1080.png"
 import {registerPage} from "../../../Utils";
+import TrustedBySection from "./TrustedBy/TrustedBySection";
 
 export default function HomePage() {
     registerPage("index")
@@ -30,6 +31,7 @@ export default function HomePage() {
             <WorkshopOfferSection/>
             <WhyUsSection/>
             <MaterialsSection/>
+            <TrustedBySection/>
             <TestimonialsSection to="#workshops-offer"/>
             <ContactSection/>
             <FooterSection/>

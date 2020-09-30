@@ -14,7 +14,7 @@ export default function MaterialsSection({workshop}: Props) {
     const t = useTranslations();
     const materialsImg = getMaterialsImg(workshop?.key)
 
-    return (<section className={"short-section materials"} id="materials">
+    return (<section className="short-section materials section--white" id="materials">
         <div className="content-container">
             <div className="flex-container--row">
                 <div className="flex-item padding-right-35">
