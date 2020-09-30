@@ -3,7 +3,7 @@ import Header from "../../../Section/Header/Header";
 import "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import {postPublicRequestForm} from "../../../Network";
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
@@ -14,7 +14,6 @@ import {FormError} from "./FormError";
 import FooterSection from "../../../Section/FooterSection";
 import {CountrySelect} from "./CountrySelect";
 import ReactMarkdown from "react-markdown";
-import { useHistory } from "react-router-dom";
 import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
 import {Workshop} from "../../../Model";
@@ -57,7 +56,7 @@ export type PublicFormData = {
     extra: string
 };
 
-function WorkshopFormPage({workshop}: {workshop: Workshop}) {
+function WorkshopFormPage({workshop}: { workshop: Workshop }) {
     const t = useTranslations();
     const lang = useLang();
     const history = useHistory();
@@ -104,8 +103,9 @@ function WorkshopFormPage({workshop}: {workshop: Workshop}) {
 
                     <fieldset>
                         <label htmlFor="senderName">{t.form.namePrompt}</label>
-                        <input type="text" name="senderName" id="senderName" ref={register}
-                               placeholder={t.form.namePrompt}/>
+                        <input type="text" name="senderName" id="senderName" ref={register({
+                            required: t.form.required
+                        })} placeholder={t.form.namePrompt}/>
                         <FormError field={errors.senderName}/>
                     </fieldset>
 
@@ -228,4 +228,3 @@ function WorkshopFormPage({workshop}: {workshop: Workshop}) {
         <FooterSection/>
     </>;
 }
-

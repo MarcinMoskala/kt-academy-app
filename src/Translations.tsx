@@ -107,7 +107,7 @@ const EN_desc = {
         "stayInTouch": "Stay in touch!",
         "pricing": {
             "description": "Tell us more about your needs and the level of your team, so we can prepare the adjusted offer and send you the right pricing.",
-            "button": "Request workshop"
+            "button": "Register"
         },
         "twitter": {
             "title": "Follow us on Twitter",
