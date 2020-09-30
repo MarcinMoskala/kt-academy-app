@@ -7,14 +7,15 @@ import CoroutinesMaterialsImg from "./training-materials/Kt_Academy_materials_co
 import MaterialsImg from "./training-materials/Kt_Academy_materials_default.png"
 
 type Props = {
-    workshop?: Workshop
+    workshop?: Workshop,
+    white?: boolean
 };
 
-export default function MaterialsSection({workshop}: Props) {
+export default function MaterialsSection({workshop, white}: Props) {
     const t = useTranslations();
     const materialsImg = getMaterialsImg(workshop?.key)
 
-    return (<section className="short-section materials section--white" id="materials">
+    return (<section className={"short-section materials" + (white ? " section--white" : "")} id="materials">
         <div className="content-container">
             <div className="flex-container--row">
                 <div className="flex-item padding-right-35">

@@ -30,7 +30,7 @@ export default function HomePage() {
             <Header links={menuLinks} banner={bannerProps}/>
             <WorkshopOfferSection/>
             <WhyUsSection/>
-            <MaterialsSection/>
+            <MaterialsSection white={true}/>
             <TrustedBySection/>
             <TestimonialsSection to="#workshops-offer"/>
             <ContactSection/>
