@@ -14,6 +14,7 @@ import pracujplLogo from "./pracujpl2.png"
 import schibstedLogo from "./schibsted.png"
 import sapLogo from "./SAP.png"
 import sensilabsLogo from "./sensilabs.png"
+import ttmsLogo from "./TTMS.png"
 import "./TrustedBySection.css"
 
 function LogoIcon({src}: { src: string }) {
@@ -26,6 +27,7 @@ export default function TrustedBySection() {
     const t = useTranslations();
     const logoList = [
         dropboxLogo,
+        pegaLogo,
         flixbusLogo,
         futuretvLogo,
         itaxiLogo,
@@ -34,11 +36,11 @@ export default function TrustedBySection() {
         nordeaLogo,
         operonLogo,
         sapLogo,
-        pegaLogo,
         pkoLogo,
         pracujplLogo,
         schibstedLogo,
         sensilabsLogo,
+        ttmsLogo,
     ]
     return (<>
         <section className="padding-top-0 section--white" id="why-us">
