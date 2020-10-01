@@ -32,8 +32,8 @@ function CoursePage({course}: { course: Course }) {
         <Header allowedLangs={["EN"]} banner={{
             img: HeaderBg,
             width: Width.Half,
-            title: "Collection processing",
-            subtitle: "Become a master of collections",
+            title: course.name,
+            subtitle: course.description,
             // TODO: Direct to the first non-link resource
             // button: {
             //     text: "Start now",
