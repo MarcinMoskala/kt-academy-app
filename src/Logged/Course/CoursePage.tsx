@@ -1,16 +1,15 @@
 import React from 'react';
-import {useTranslations} from "../Translations";
-import Header, {Width} from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import HeaderBg from "../Section/Header/background-img/1-1920x702.png";
+import Header, {Width} from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import HeaderBg from "../../Section/Header/background-img/1-1920x702.png";
 import "./CoursePage.css"
 import {CourseListItem, CourseListItemAction} from "./CourseListItem";
-import {useCourse} from "../Hooks";
+import {useCourse} from "../../Hooks";
 import {useParams} from "react-router-dom";
-import {ErrorPage, LoadingPage} from "../Loading";
-import ContactSection from "../Main/Section/ContactSection";
-import {Course, CourseStep, getLink} from "../Model";
-import {registerPage} from "../Utils";
+import {ErrorPage, LoadingPage} from "../../Loading";
+import ContactSection from "../../Main/Section/ContactSection";
+import {Course, CourseStep, getLink} from "../../Model";
+import {registerPage} from "../../Utils";
 
 export default function CoursePageWrapper() {
     const {courseKey} = useParams<{ courseKey: string }>();
@@ -28,7 +27,7 @@ export default function CoursePageWrapper() {
     return <CoursePage course={course}/>
 }
 
-function CoursePage({course}: {course: Course}) {
+function CoursePage({course}: { course: Course }) {
     return <>
         <Header allowedLangs={["EN"]} banner={{
             img: HeaderBg,
@@ -45,7 +44,7 @@ function CoursePage({course}: {course: Course}) {
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
                 <CourseListItem title={step.title} link={getLink(course.key, step)} action={getAction(step)}
-                                hint={getHint(step)} />
+                                hint={getHint(step)}/>
             )}
 
         </div>

@@ -1,6 +1,6 @@
-import Link from "../Link";
+import Link from "../../Link";
 import React from "react";
-import {Course, CourseStepType, getLink} from "../Model";
+import {Course, CourseStepType, getLink} from "../../Model";
 
 type PrevNextBarProps = {
     stepKey: string,

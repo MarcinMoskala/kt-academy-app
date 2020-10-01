@@ -12,15 +12,18 @@ import UsersAdminPage from "./Admin/UsersAdminPage";
 import GenerateDtoPage from "./Main/Page/GenerateDtoPage";
 import MaterialsPage from "./Logged/MaterialsPage";
 import initShowFab from "./initShowFab";
-import ChallengePage from "./Logged/ChallengePage";
+import ChallengePage from "./Logged/Course/ChallengePage";
 import WorkshopRequestFormPage from "./Main/Page/Form/WorkshopRequestPublicFormPage";
 import WorkshopsSubmissionsAdminPage from "./Admin/WorkshopsSubmissionsAdminPage";
-import CoursePage from "./Logged/CoursePage";
-import CoursesPage from "./Logged/CoursesPage";
-import VideoPage from "./Logged/VideoPage";
+import CoursePage from "./Logged/Course/CoursePage";
+import CoursesPage from "./Logged/Course/CoursesPage";
+import VideoPage from "./Logged/Course/VideoPage";
+import UserPage from "./Logged/User/UserPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
+        {path: "/user/me", component: UserPage},
+        {path: "/user/:user", component: UserPage},
         {path: "/course/:courseKey/challenge/:challengeKey", component: ChallengePage},
         {path: "/course/:courseKey/video/:videoKey", component: VideoPage},
         {path: "/course/:courseKey", component: CoursePage},

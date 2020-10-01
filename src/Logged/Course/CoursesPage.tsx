@@ -1,14 +1,14 @@
 import React from 'react';
-import Header, {Width} from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import HeaderBg from "../Section/Header/background-img/1-1920x702.png";
+import Header, {Width} from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import HeaderBg from "../../Section/Header/background-img/1-1920x702.png";
 import "./CoursePage.css"
 import {CourseListItem, CourseListItemAction} from "./CourseListItem";
-import {useCourses} from "../Hooks";
-import {ErrorPage, LoadingPage} from "../Loading";
-import {Course, CourseState} from "../Model";
-import ContactSection from "../Main/Section/ContactSection";
-import {registerPage} from "../Utils";
+import {useCourses} from "../../Hooks";
+import {ErrorPage, LoadingPage} from "../../Loading";
+import {Course, CourseState} from "../../Model";
+import ContactSection from "../../Main/Section/ContactSection";
+import {registerPage} from "../../Utils";
 
 export default function CoursesPageWrapper() {
     registerPage(`courses`);

@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
-import {useChallenge, useCourse} from "../Hooks";
-import {registerPage} from "../Utils";
+import {useChallenge, useCourse} from "../../Hooks";
+import {registerPage} from "../../Utils";
 import {useParams} from "react-router-dom";
 import playground from "kotlin-playground";
-import {saveUserChallenge} from "../Network";
-import {Challenge, ChallengeStatus, Course} from "../Model";
-import Header from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import {ErrorPage, LoadingPage} from "../Loading";
+import {saveUserChallenge} from "../../Network";
+import {Challenge, ChallengeStatus, Course} from "../../Model";
+import Header from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import {ErrorPage, LoadingPage} from "../../Loading";
 import Swal from "sweetalert2";
 import "./CourseElement.css"
 import {PrevNextBar} from "./PrevNextBar";

@@ -1,11 +1,11 @@
 import React from 'react';
-import {useTranslations} from "../Translations";
-import {useCourse} from "../Hooks";
-import {registerPage} from "../Utils";
+import {useTranslations} from "../../Translations";
+import {useCourse} from "../../Hooks";
+import {registerPage} from "../../Utils";
 import {useParams} from "react-router-dom";
-import Header from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import {LoadingPage} from "../Loading";
+import Header from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import {LoadingPage} from "../../Loading";
 import {Video} from "./Video";
 import {PrevNextBar} from "./PrevNextBar";
 

@@ -6,7 +6,7 @@ import {useUser} from "../Hooks";
 import {registerPage} from "../Utils";
 import Link from "../Link";
 import {LoadingPage} from "../Loading";
-import {Video} from "./Video";
+import {Video} from "./Course/Video";
 
 export default function MaterialsPage() {
     registerPage(`materials`)

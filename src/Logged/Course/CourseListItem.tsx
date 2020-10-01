@@ -1,6 +1,6 @@
 import React from "react";
 import "./CourseListItem.css"
-import Link from "../Link";
+import Link from "../../Link";
 import 'react-tippy/dist/tippy.css'
 import {Tooltip} from 'react-tippy';
 
