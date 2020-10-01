@@ -28,17 +28,20 @@ export default function CoursePageWrapper() {
 }
 
 function CoursePage({course}: { course: Course }) {
+    const firstClickableStep = course.steps.find(step => step.type !== "LINK")
+    const firstClickableStepLink = firstClickableStep && getLink(course.key, firstClickableStep)
     return <>
         <Header allowedLangs={["EN"]} banner={{
             img: HeaderBg,
             width: Width.Half,
             title: course.name,
             subtitle: course.description,
-            // TODO: Direct to the first non-link resource
-            // button: {
-            //     text: "Start now",
-            //     to: ""
-            // }
+            ...(firstClickableStepLink && {
+                button: {
+                    text: "Start now",
+                    to: firstClickableStepLink
+                }
+            })
         }}/>
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
@@ -51,7 +54,7 @@ function CoursePage({course}: { course: Course }) {
         <ContactSection/>
         <FooterSection/>
     </>;
-};
+}
 
 function getAction(step: CourseStep): CourseListItemAction {
     if (step.state === "LOCKED") {
