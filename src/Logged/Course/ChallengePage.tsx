@@ -52,11 +52,19 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
     useEffect(() => {
         let codeEditorInstance: CodeEditorInstance
         let codeVariable: string
+        let differences: number = 0
         playground('.challenge-code', {
             version: '1.4.00',
             onChange: (visibleCode: string) => {
                 const realCode = dropTestsCode(visibleCode)
                 setCode(realCode)
+                if (codeVariable && realCode) {
+                    differences += Math.abs(codeVariable.length - realCode.length)
+                    if (differences > 10) {
+                        differences = 0
+                        saveUserChallenge(challenge.key, {code: realCode})
+                    }
+                }
                 codeVariable = realCode
             },
             onTestPassed: () => {
@@ -70,7 +78,8 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
     })
 
     const onSave = () => {
-        if(code) saveUserChallenge(challenge.key, {code: dropTestsCode(code)})
+        console.log("Saving code " + code)
+        if (code) saveUserChallenge(challenge.key, {code: dropTestsCode(code)})
     }
 
     const onRestore = () => {
@@ -150,7 +159,7 @@ ${showCode}
 
 function dropTestsCode(code: string) {
     const splittingCodeIndex = code.indexOf(SPLITTING_COMMENT);
-    if(splittingCodeIndex == -1) {
+    if (splittingCodeIndex == -1) {
         return code
     }
     const realCodeStart = splittingCodeIndex + SPLITTING_COMMENT.length + 1 // (\n)

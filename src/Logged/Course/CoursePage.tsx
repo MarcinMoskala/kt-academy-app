@@ -46,7 +46,9 @@ function CoursePage({course}: { course: Course }) {
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
-                <CourseListItem title={step.title} link={getLink(course.key, step)} action={getAction(step)}
+                <CourseListItem title={step.title}
+                                link={getLink(course.key, step)}
+                                action={getAction(step)}
                                 hint={getHint(step)}/>
             )}
 
