@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "https://kt.academy/static/css/main.9991963b.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.539374dd.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.539374dd.chunk.js.map",
+    "main.css": "https://kt.academy/static/css/main.5c8520e2.chunk.css",
+    "main.js": "https://kt.academy/static/js/main.7c3aedfe.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.7c3aedfe.chunk.js.map",
     "runtime-main.js": "https://kt.academy/static/js/runtime-main.0c9981d1.js",
     "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.0c9981d1.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
-    "static/js/2.7201a44e.chunk.js": "https://kt.academy/static/js/2.7201a44e.chunk.js",
-    "static/js/2.7201a44e.chunk.js.map": "https://kt.academy/static/js/2.7201a44e.chunk.js.map",
+    "static/js/2.d78a43ab.chunk.js": "https://kt.academy/static/js/2.d78a43ab.chunk.js",
+    "static/js/2.d78a43ab.chunk.js.map": "https://kt.academy/static/js/2.d78a43ab.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.650d96f967ed1a8db36cb1842a9ee130.js": "https://kt.academy/precache-manifest.650d96f967ed1a8db36cb1842a9ee130.js",
+    "precache-manifest.9767e11b39c4a1e4815b476d19925273.js": "https://kt.academy/precache-manifest.9767e11b39c4a1e4815b476d19925273.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
-    "static/css/main.9991963b.chunk.css.map": "https://kt.academy/static/css/main.9991963b.chunk.css.map",
-    "static/js/2.7201a44e.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.7201a44e.chunk.js.LICENSE.txt",
+    "static/css/main.5c8520e2.chunk.css.map": "https://kt.academy/static/css/main.5c8520e2.chunk.css.map",
+    "static/js/2.d78a43ab.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.d78a43ab.chunk.js.LICENSE.txt",
     "static/media/1-1920x702.png": "https://kt.academy/static/media/1-1920x702.237da95a.png",
     "static/media/2-1920x702.png": "https://kt.academy/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x1080.png": "https://kt.academy/static/media/3-1920x1080.555e5756.png",
@@ -32,6 +32,10 @@
     "static/media/NataliaNazaruk.jpg": "https://kt.academy/static/media/NataliaNazaruk.24225822.jpg",
     "static/media/PatrykGrajewski.jpg": "https://kt.academy/static/media/PatrykGrajewski.ef56bae7.jpg",
     "static/media/SAP.png": "https://kt.academy/static/media/SAP.1f6e8ae7.png",
+    "static/media/badge_author.png": "https://kt.academy/static/media/badge_author.a1a636c7.png",
+    "static/media/badge_certified_kotlin_developer.png": "https://kt.academy/static/media/badge_certified_kotlin_developer.be7b5e6b.png",
+    "static/media/badge_kotlin_developer_1.png": "https://kt.academy/static/media/badge_kotlin_developer_1.5989e0cb.png",
+    "static/media/badge_reviewer.png": "https://kt.academy/static/media/badge_reviewer.71d13bc0.png",
     "static/media/dropbox.png": "https://kt.academy/static/media/dropbox.0f801173.png",
     "static/media/flixbus.png": "https://kt.academy/static/media/flixbus.f8271897.png",
     "static/media/futuretv.png": "https://kt.academy/static/media/futuretv.2a42cc89.png",
@@ -49,8 +53,8 @@
   "entrypoints": [
     "static/js/runtime-main.0c9981d1.js",
     "static/css/2.e22355b1.chunk.css",
-    "static/js/2.7201a44e.chunk.js",
-    "static/css/main.9991963b.chunk.css",
-    "static/js/main.539374dd.chunk.js"
+    "static/js/2.d78a43ab.chunk.js",
+    "static/css/main.5c8520e2.chunk.css",
+    "static/js/main.7c3aedfe.chunk.js"
   ]
 }
