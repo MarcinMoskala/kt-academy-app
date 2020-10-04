@@ -69,7 +69,13 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
             },
             onTestPassed: () => {
                 saveUserChallenge(challenge.key, {code: codeVariable, status: "SOLVED"})
+                    .then(r => {
+                        if(r.status === 401) {
+                            Swal.fire("Congratulations", "To save your progress, you need to login using right-bottom floating button")
+                        }
+                    })
                     .then((_) => setChallengeStatus("SOLVED"))
+
             },
             getInstance: (instance: CodeEditorInstance) => {
                 if (instance) codeEditorInstance = instance
@@ -78,8 +84,12 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
     })
 
     const onSave = () => {
-        console.log("Saving code " + code)
         if (code) saveUserChallenge(challenge.key, {code: dropTestsCode(code)})
+            .then(r => {
+                if(r.status === 401) {
+                    Swal.fire("To save your code, you need to login using right-bottom floating button")
+                }
+            })
     }
 
     const onRestore = () => {
