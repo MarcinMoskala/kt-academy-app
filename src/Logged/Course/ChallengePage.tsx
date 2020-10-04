@@ -39,15 +39,12 @@ export default function ChallengePageWrapper() {
     if (challenge === null) {
         return <ErrorPage message="Challenge not found"/>
     }
-
-    return <ChallengePage key={courseKey + "-" + challengeKey} course={course} challenge={challenge}/>
+    return <ChallengePage key={course.key + "-" + challenge.key} course={course} challenge={challenge}/>
 }
 
 function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
     const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
-    useEffect(() => setCode(challenge.code), [challenge.key])
     const [showCode, setShowCode] = React.useState<string>(dropTestsCode(challenge.code));
-    useEffect(() => setShowCode(challenge.code), [challenge.key])
 
     const [platform, setPlatform] = React.useState<"junit" | "java">("junit");
     const [challengeStatus, setChallengeStatus] = React.useState<ChallengeStatus | undefined>(challenge?.status);
