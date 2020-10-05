@@ -28,14 +28,15 @@ export default function CoursePageWrapper() {
 }
 
 function CoursePage({course}: { course: Course }) {
-    const firstClickableStep = course.steps.find(step => step.type !== "LINK")
+    const firstClickableStep = course.steps
+        .find(step => step.type !== "LINK" && step.state !== "FINISHED")
     const firstClickableStepLink = firstClickableStep && getLink(course.key, firstClickableStep)
     return <>
         <Header allowedLangs={["EN"]} banner={{
             img: HeaderBg,
             width: Width.Half,
             title: course.name,
-            subtitle: course.description,
+            // subtitle: course.description,
             ...(firstClickableStepLink && {
                 button: {
                     text: "Start now",
@@ -82,7 +83,7 @@ function getAction(step: CourseStep): CourseListItemAction {
 
 function getHint(step: CourseStep): string | null {
     if (step.state === "LOCKED") {
-        return "This course is only for Kt. Academy workshop attendees. You can see a list of resources, but you cannot access them."
+        return "This course is only for Kt. Academy workshop attendees. You can find our workshop offer in the workshops section."
     } else {
         return null
     }

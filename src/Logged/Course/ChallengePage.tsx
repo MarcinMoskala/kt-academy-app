@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import "./CourseElement.css"
 import {PrevNextBar} from "./PrevNextBar";
 import ReactMarkdown from "react-markdown";
+import {useGlobalState} from "../../GlobalState";
 
 type CodeEditorInstance = {
     state: string,
@@ -43,6 +44,8 @@ export default function ChallengePageWrapper() {
 }
 
 function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
+    const {user} = useGlobalState()
+
     const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
     const [showCode, setShowCode] = React.useState<string>(dropTestsCode(challenge.code));
 
@@ -70,7 +73,7 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
             onTestPassed: () => {
                 saveUserChallenge(challenge.key, {code: codeVariable, status: "SOLVED"})
                     .then(r => {
-                        if(r.status === 401) {
+                        if (r.status === 401) {
                             Swal.fire("Congratulations", "To save your progress, you need to login using right-bottom floating button")
                         }
                     })
@@ -84,9 +87,9 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
     })
 
     const onSave = () => {
-        if (code) saveUserChallenge(challenge.key, {code: dropTestsCode(code)})
+        if (code) saveUserChallenge(challenge.key, {code: dropTestsCode(code), status: challengeStatus})
             .then(r => {
-                if(r.status === 401) {
+                if (r.status === 401) {
                     Swal.fire("To save your code, you need to login using right-bottom floating button")
                 }
             })
@@ -130,7 +133,8 @@ function ChallengePage({course, challenge}: { course: Course, challenge: Challen
             <h1>{challenge.title}</h1>
 
             <div key={challenge.key + "-" + showCode + "-" + platform}>
-                <div className="challenge-code" data-target-platform={platform} folded-button="true">
+                <div className="challenge-code" data-autocomplete="true" highlight-on-fly="true" match-brackets="true"
+                     data-target-platform={platform} folded-button="true">
                     {`
 ${challenge.codeTests}
 ${SPLITTING_COMMENT}

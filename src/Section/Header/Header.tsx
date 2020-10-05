@@ -20,7 +20,7 @@ export type Banner = {
     img: string,
     width: Width,
     title: string,
-    subtitle: string | null,
+    subtitle?: string,
     button?: Button
 }
 
@@ -36,17 +36,18 @@ type Button = {
 
 export default function Header({links = [], banner = undefined, allowedLangs}: Props) {
     const t = useTranslations()
-    const langStr = useLang()
+    const lang = useLang()
     const query = useLocation().search
 
     links = links.concat([
         {to: "/workshop", text: t.menu.workshops},
+        ...(lang.key === "EN" ? [{to: "/course", text: t.menu.courses}] : []),
         {to: "/generate", text: t.menu.generate},
         {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
     ])
 
     let langList = useLanguagesList()
-    if(allowedLangs) {
+    if (allowedLangs) {
         langList = langList.filter(l => allowedLangs.includes(l.key))
     }
 
@@ -87,12 +88,12 @@ export default function Header({links = [], banner = undefined, allowedLangs}: P
                     {langList.length > 1 &&
                     <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
                         <a onClick={(e) => e.preventDefault()} className="current-flag">
-                            <img src={langStr.flag}
-                                 alt={langStr.key}
+                            <img src={lang.flag}
+                                 alt={lang.key}
                                  className="flag margin-right-5 margin-top-5"
                                  height="15"/>
                             <i className="fas fa-caret-down margin-left-5"/>
-                            {langStr.key}
+                            {lang.key}
                         </a>
                         <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
                             {langList.map((l, i) =>

@@ -36,7 +36,7 @@ export default function WorkshopPageWrapper() {
     return <WorkshopPage workshop={workshop}/>
 }
 
-function WorkshopPage({workshop}: {workshop: Workshop}) {
+function WorkshopPage({workshop}: { workshop: Workshop }) {
     const t = useTranslations()
 
 
@@ -53,7 +53,7 @@ function WorkshopPage({workshop}: {workshop: Workshop}) {
         img: HeaderBg,
         title: workshop.name,
         width: Width.Half,
-        subtitle: workshop.subtitle,
+        ...(workshop.subtitle && {subtitle: workshop.subtitle}),
         button: {
             text: t.contact.pricing.button,
             to: "#register"

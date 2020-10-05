@@ -5,7 +5,6 @@ import Header from "../../Section/Header/Header";
 import FooterSection from "../../Section/FooterSection";
 import {ErrorPage, LoadingPage} from "../../Loading";
 import "../Course/CourseElement.css"
-import {useParams} from "react-router-dom";
 import {BadgesSection} from "./Badges/BadgesSection";
 import "./UserPage.css"
 
