@@ -22,7 +22,8 @@ type CodeEditorInstance = {
 export default function ChallengePageWrapper() {
     const {courseKey, challengeKey} = useParams<{ courseKey: string, challengeKey: string }>();
     registerPage(`challenge-${courseKey}-${challengeKey}`);
-    const course = useCourse(courseKey)
+    const {user} = useGlobalState()
+    const course = useCourse(courseKey, user)
     const challenge = useChallenge(challengeKey)
 
     if (course === undefined) {
@@ -44,8 +45,6 @@ export default function ChallengePageWrapper() {
 }
 
 function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
-    const {user} = useGlobalState()
-
     const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
     const [showCode, setShowCode] = React.useState<string>(dropTestsCode(challenge.code));
 

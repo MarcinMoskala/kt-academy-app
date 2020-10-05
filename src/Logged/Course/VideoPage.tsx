@@ -8,11 +8,13 @@ import FooterSection from "../../Section/FooterSection";
 import {LoadingPage} from "../../Loading";
 import {Video} from "./Video";
 import {PrevNextBar} from "./PrevNextBar";
+import {useGlobalState} from "../../GlobalState";
 
 export default function VideoPage() {
     const {courseKey, videoKey} = useParams<{ courseKey: string, videoKey: string }>();
     registerPage(`video-${videoKey}`);
-    const course = useCourse(courseKey)
+    const {user} = useGlobalState()
+    const course = useCourse(courseKey, user)
     const t = useTranslations();
 
     if (course === undefined) {

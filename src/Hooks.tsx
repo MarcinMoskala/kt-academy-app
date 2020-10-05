@@ -39,12 +39,12 @@ export function useChallenge(challengeKey: string): Challenge | undefined | null
     return useApiSingleData(() => requestChallenge(challengeKey), [challengeKey])
 }
 
-export function useCourse(courseKey: string): Course | undefined | null {
-    return useApiSingleData(() => requestCourse(courseKey), [courseKey])
+export function useCourse(courseKey: string, user: User | null): Course | undefined | null {
+    return useApiSingleData(() => requestCourse(courseKey), [courseKey, user])
 }
 
-export function useCourses(): Course[] | undefined | null {
-    return useApiSingleData(() => requestCourses())
+export function useCourses(user: User | null): Course[] | undefined | null {
+    return useApiSingleData(() => requestCourses(), [user])
 }
 
 export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = []): T | undefined | null {

@@ -9,10 +9,12 @@ import {ErrorPage, LoadingPage} from "../../Loading";
 import {Course, CourseState} from "../../Model";
 import ContactSection from "../../Main/Section/ContactSection";
 import {registerPage} from "../../Utils";
+import {useGlobalState} from "../../GlobalState";
 
 export default function CoursesPageWrapper() {
     registerPage(`courses`);
-    const courses = useCourses()
+    const {user} = useGlobalState()
+    const courses = useCourses(user)
 
     if (courses === undefined) {
         return <LoadingPage/>
