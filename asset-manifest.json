@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "https://kt.academy/static/css/main.5c8520e2.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.a061f8e8.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.a061f8e8.chunk.js.map",
+    "main.js": "https://kt.academy/static/js/main.9b73459a.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.9b73459a.chunk.js.map",
     "runtime-main.js": "https://kt.academy/static/js/runtime-main.0c9981d1.js",
     "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.0c9981d1.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
-    "static/js/2.1caaa92d.chunk.js": "https://kt.academy/static/js/2.1caaa92d.chunk.js",
-    "static/js/2.1caaa92d.chunk.js.map": "https://kt.academy/static/js/2.1caaa92d.chunk.js.map",
+    "static/js/2.f90b1661.chunk.js": "https://kt.academy/static/js/2.f90b1661.chunk.js",
+    "static/js/2.f90b1661.chunk.js.map": "https://kt.academy/static/js/2.f90b1661.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.2dac94cbbd99d7b161ae27b843366c0e.js": "https://kt.academy/precache-manifest.2dac94cbbd99d7b161ae27b843366c0e.js",
+    "precache-manifest.7dc5aa65ac4602a4a42c5f3b98828956.js": "https://kt.academy/precache-manifest.7dc5aa65ac4602a4a42c5f3b98828956.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
     "static/css/main.5c8520e2.chunk.css.map": "https://kt.academy/static/css/main.5c8520e2.chunk.css.map",
-    "static/js/2.1caaa92d.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.1caaa92d.chunk.js.LICENSE.txt",
+    "static/js/2.f90b1661.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.f90b1661.chunk.js.LICENSE.txt",
     "static/media/1-1920x702.png": "https://kt.academy/static/media/1-1920x702.237da95a.png",
     "static/media/2-1920x702.png": "https://kt.academy/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x1080.png": "https://kt.academy/static/media/3-1920x1080.555e5756.png",
@@ -53,8 +53,8 @@
   "entrypoints": [
     "static/js/runtime-main.0c9981d1.js",
     "static/css/2.e22355b1.chunk.css",
-    "static/js/2.1caaa92d.chunk.js",
+    "static/js/2.f90b1661.chunk.js",
     "static/css/main.5c8520e2.chunk.css",
-    "static/js/main.a061f8e8.chunk.js"
+    "static/js/main.9b73459a.chunk.js"
   ]
 }
