@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import {Challenge, Course, User, Workshop, WorkshopSubmission} from "./Model";
+import React, {useEffect, useState} from "react";
+import {Challenge, Course, RecommendationCollection, User, Workshop, WorkshopSubmission} from "./Model";
 import {useLang} from "./Translations";
 import {
     requestChallenge,
@@ -7,6 +7,7 @@ import {
     requestCourses,
     requestCurrentUser,
     requestUsersList,
+    requestVideoRecommendations,
     requestWorkshop,
     requestWorkshops,
     requestWorkshopSubmissionsList
@@ -47,6 +48,10 @@ export function useCourses(user: User | null): Course[] | undefined | null {
     return useApiSingleData(() => requestCourses(), [user])
 }
 
+export function useRecommendations(): RecommendationCollection | undefined | null {
+    return useApiSingleData(() => requestVideoRecommendations(), [])
+}
+
 export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = []): T | undefined | null {
     const [data, setData] = React.useState<T | null>();
 
@@ -59,4 +64,35 @@ export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = [])
     }, deps)
 
     return data
+}
+
+export function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState<{ width?: number, height?: number }>({
+        width: undefined,
+        height: undefined,
+    });
+
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
+
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+
+    return windowSize;
 }

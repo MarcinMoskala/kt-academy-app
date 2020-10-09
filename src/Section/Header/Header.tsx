@@ -3,11 +3,14 @@ import Link from "../../Link";
 import {useLang, useLanguagesList, useTranslations} from "../../Translations";
 import {useScrollToHash} from "../../Utils";
 import {useLocation} from "react-router-dom";
+import "./Header.css"
+import {useWindowSize} from "../../Hooks";
 
 export type LinkTo = {
     text: string,
     to: string,
-    divider?: boolean
+    divider?: boolean,
+    translate?: boolean
 }
 
 type Props = {
@@ -35,38 +38,7 @@ type Button = {
 }
 
 export default function Header({links = [], banner = undefined, allowedLangs}: Props) {
-    const t = useTranslations()
-    const lang = useLang()
-    const query = useLocation().search
-
-    links = links.concat([
-        {to: "/workshop", text: t.menu.workshops},
-        ...(lang.key === "EN" ? [{to: "/course", text: t.menu.courses}] : []),
-        {to: "/generate", text: t.menu.generate},
-        {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
-    ])
-
-    let langList = useLanguagesList()
-    if (allowedLangs) {
-        langList = langList.filter(l => allowedLangs.includes(l.key))
-    }
-
     useScrollToHash()
-
-    const [showBookmarks, setShowBookmarks] = React.useState(false);
-    const responsiveNavMenuClicked = (e: React.MouseEvent<HTMLElement>) => {
-        console.log("Clicked")
-        e.preventDefault()
-        setShowBookmarks(!showBookmarks)
-    }
-
-    const [showLangDropdown, setShowLangDropdown] = React.useState(false);
-    const onFlagsOver = (e) => {
-        if (!showLangDropdown) setShowLangDropdown(true)
-    }
-    const onFlagsOut = (e) => {
-        if (showLangDropdown) setShowLangDropdown(false)
-    }
 
     return (
         <>
@@ -85,50 +57,9 @@ export default function Header({links = [], banner = undefined, allowedLangs}: P
                         </Link>
                     </div>
 
-                    {langList.length > 1 &&
-                    <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
-                        <a onClick={(e) => e.preventDefault()} className="current-flag">
-                            <img src={lang.flag}
-                                 alt={lang.key}
-                                 className="flag margin-right-5 margin-top-5"
-                                 height="15"/>
-                            <i className="fas fa-caret-down margin-left-5"/>
-                            {lang.key}
-                        </a>
-                        <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
-                            {langList.map((l, i) =>
-                                <li key={i}>
-                                    <Link to={l.path + query} keepLang={false}>
-                                        <img src={"/images/" + l.flagIcon} alt={l.key}
-                                             className="flag margin-right-5 margin-top-20" height="15"/>{l.key}
-                                    </Link>
-                                </li>)
-                            }
-                        </ul>
-                    </div>
-                    }
+                    <FlagsDropdown allowedLangs={allowedLangs}/>
 
-                    <nav className={showBookmarks ? "bookmarks responsive" : "bookmarks"} id="bookmarks">
-                        <ul>
-                            {links.map((link, index) =>
-                                <li className="inline" key={index}>
-                                    <Link to={link.to}
-                                          className={
-                                              "nav-link--padding pointer page-scroll" +
-                                              (index === 0 ? " first-bookmark" : "") +
-                                              (link.divider ? " right-border" : "")
-                                          }>
-                                        {link.text}
-                                    </Link>
-                                </li>
-                            )}
-                            <li className="inline">
-                                <a className="nav__icon" onClick={responsiveNavMenuClicked}>
-                                    <i className="fas fa-bars"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <MenuItems links={links}/>
                 </div>
                 {banner &&
                 <div className="banner">
@@ -145,4 +76,123 @@ export default function Header({links = [], banner = undefined, allowedLangs}: P
             </header>
         </>
     )
+}
+
+function MenuItems({links}: { links: LinkTo[] }) {
+    const windowSize = useWindowSize();
+    const t = useTranslations()
+    const lang = useLang()
+
+    const hamburgerNavigation = !windowSize.width || windowSize.width < 1000
+
+    links = links.concat([
+        {to: "/workshop", text: t.menu.workshops},
+        {to: "/course", text: t.menu.courses, translate: false},
+    ])
+
+    const musicLink = {to: "/music", text: t.menu.music}
+    const generateLink = {to: "/generate", text: t.menu.generate}
+    const blogLink = {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
+
+    const allLinks = [...links, musicLink, generateLink, blogLink]
+
+    const makeBookmarkElement = (link, index = 0) =>
+        <li className="inline" key={index}>
+            <Link to={link.to}
+                  keepLang={link.translate !== false}
+                  className={"nav-link--padding pointer" + (link.divider ? " right-border" : "")}>
+                {link.text}
+            </Link>
+        </li>
+
+    return <div>
+        {hamburgerNavigation ?
+            <BookmarkDropdown className="bookmarks" links={allLinks}
+                              element={<a className="nav__icon"><i className="fas fa-bars"/></a>}/>
+            :
+            <nav className="bookmarks" id="bookmarks">
+                <ul>
+                    {links.map(makeBookmarkElement)}
+                    <li className="inline" style={{float: "right"}}>
+                        <Link to={blogLink.to} className="nav-link--padding pointer">
+                            {blogLink.text}
+                        </Link>
+                    </li>
+                    <BookmarkDropdown links={[musicLink, generateLink,]} element={
+                        <Link to="" className="nav__icon pointer" style={{marginTop: 0}}>{t.menu.tools}</Link>
+                    }/>
+                </ul>
+            </nav>
+        }
+    </div>
+}
+
+function BookmarkDropdown({links, element, className = ""}: { links: LinkTo[], element, className?: string }) {
+    const [showBookmarks, setShowBookmarks] = React.useState(false);
+    return <nav className={className + " bookmarks-dropdown dropdown" + (showBookmarks ? " open" : " margin-left-10 margin-right-10")}
+                onMouseOver={() => setShowBookmarks(true)}
+                onMouseOut={() => setShowBookmarks(false)}
+                id="bookmarks">
+        <ul>
+            {links.map((link, index) =>
+                <li className="inline" key={index}>
+                    <Link to={link.to}
+                          keepLang={link.translate !== false}
+                          className={
+                              "nav-link--padding pointer page-scroll" +
+                              (index === 0 ? " first-dropdown-item" : "")
+                          }>
+                        {link.text}
+                    </Link>
+                </li>
+            )}
+            <li>
+                {element}
+            </li>
+        </ul>
+    </nav>;
+}
+
+function FlagsDropdown({allowedLangs}: { allowedLangs?: string[] }) {
+    const lang = useLang()
+    const query = useLocation().search
+
+    let langList = useLanguagesList()
+    if (allowedLangs) {
+        langList = langList.filter(l => allowedLangs.includes(l.key))
+    }
+
+    const [showLangDropdown, setShowLangDropdown] = React.useState(false);
+
+    const onFlagsOver = () => {
+        if (!showLangDropdown) setShowLangDropdown(true)
+    }
+    const onFlagsOut = () => {
+        if (showLangDropdown) setShowLangDropdown(false)
+    }
+
+    return <>
+        {langList.length > 1 &&
+        <div className="flags-container pointer" onMouseOver={onFlagsOver} onMouseOut={onFlagsOut}>
+            <a onClick={(e) => e.preventDefault()} className="current-flag">
+                <img src={lang.flag}
+                     alt={lang.key}
+                     className="flag margin-right-5 margin-top-5"
+                     height="15"/>
+                <i className="fas fa-caret-down margin-left-5"/>
+                {lang.key}
+            </a>
+            <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
+                {langList.map((l, i) =>
+                    <li key={i}>
+                        <Link to={l.path + query} keepLang={false}>
+                            <img src={"/images/" + l.flagIcon} alt={l.key}
+                                 className="flag margin-right-5 margin-top-20" height="15"/>{l.key}
+                        </Link>
+                    </li>)
+                }
+            </ul>
+        </div>
+        }
+    </>;
 }

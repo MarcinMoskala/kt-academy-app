@@ -138,3 +138,22 @@ export function getLink(courseKey: string, step: CourseStep): string | null {
 }
 
 export type CourseStepType = "CHALLENGE" | "VIDEO" | "LINK"
+
+export type RecommendationCollection = {
+    collectionKey: string,
+    elements: RecommendationElement[],
+}
+
+export type RecommendationElement = {
+    key: string,
+    data: RecommendationData,
+    yourRating: number | null,
+    averageRating: number,
+    ratingsNum: number,
+}
+
+export type RecommendationData = {
+    title: string,
+    url: string,
+    img: string
+};

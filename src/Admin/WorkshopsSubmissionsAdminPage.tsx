@@ -35,7 +35,6 @@ export default function WorkshopsSubmissionsAdminPage() {
                     .then(_ => window.location.reload())
             }
         })
-
     }
 
     return <>

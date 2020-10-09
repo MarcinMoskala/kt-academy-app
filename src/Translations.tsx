@@ -51,6 +51,8 @@ const EN_desc = {
         "upcomingWorkshops": "Workshops",
         "privateWorkshops": "Workshops",
         "articles": "Articles",
+        "tools": "Extra tools",
+        "music": "Coding Music",
         "generate": "Generate DTO",
         "workshopMaterial": "Topics",
         "register": "Register",
@@ -291,6 +293,8 @@ const PL_desc = {
         "upcomingWorkshops": "Warsztaty",
         "privateWorkshops": "Warsztaty",
         "articles": "Artykuły",
+        "music": "Muzyka",
+        "tools": "Narzędzia",
         "generate": "Generuj DTO",
         "register": "Rejestracja",
         "contact": "Kontakt"

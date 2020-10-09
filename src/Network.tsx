@@ -1,4 +1,13 @@
-import {Challenge, ChallengeStatus, Course, User, Workshop, WorkshopSubmission} from "./Model";
+import {
+    Challenge,
+    ChallengeStatus,
+    Course,
+    RecommendationCollection,
+    RecommendationData,
+    User,
+    Workshop,
+    WorkshopSubmission
+} from "./Model";
 import {PrivateFormData} from "./Main/Page/Form/WorkshopFormPage";
 import {PublicFormData} from "./Main/Page/Form/WorkshopRequestPublicFormPage";
 
@@ -78,6 +87,13 @@ export function requestUsersList(): Promise<User[]> {
     return requestApi<User[]>("user")
 }
 
+export function modifyUser(userId: string, body: { tags: string[] }): Promise<Response> {
+    return callApi("user/" + userId, {
+        method: "PUT",
+        body: JSON.stringify(body)
+    })
+}
+
 export function requestCourse(courseKey: string): Promise<Course> {
     return requestApi<Course>(`course/${courseKey}`)
 }
@@ -97,6 +113,24 @@ export function changeWorkshopSubmission(submissionId: string, body: { status: s
     })
 }
 
+export function requestVideoRecommendations(): Promise<RecommendationCollection> {
+    return requestApi<RecommendationCollection>("recommendation/video/")
+}
+
+export function callAddRecommendation(body: { key: string, data: RecommendationData }): Promise<RecommendationCollection> {
+    return requestApi<RecommendationCollection>("recommendation/video/", {
+        body: body,
+        method: "POST"
+    })
+}
+
+export function callAddRating(recommendationKey: string, rating: number): Promise<RecommendationCollection> {
+    return requestApi<RecommendationCollection>("recommendation/video/" + recommendationKey, {
+        body: { rating: rating },
+        method: "PUT"
+    })
+}
+
 var workshopsCache: Map<{ lang: string, trainer: string | null, tag: string | null }, Workshop[]> = new Map()
 
 export function requestWorkshop(workshopKey: string, lang: string): Promise<Workshop> {
@@ -112,7 +146,7 @@ export function requestWorkshop(workshopKey: string, lang: string): Promise<Work
 }
 
 export function requestWorkshops(lang: string, trainer: string | null, tag: string | null): Promise<Workshop[]> {
-    const key = { lang: lang, trainer: trainer, tag: tag }
+    const key = {lang: lang, trainer: trainer, tag: tag}
     if (workshopsCache.has(key)) {
         return promiseWith(workshopsCache.get(key)!)
     }

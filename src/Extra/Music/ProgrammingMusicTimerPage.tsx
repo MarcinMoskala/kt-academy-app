@@ -3,13 +3,13 @@ import Header from "../../Section/Header/Header";
 import FooterSection from "../../Section/FooterSection";
 import "../../Utils";
 import {useTranslations} from "../../Translations";
-import {registerPage} from "../../Utils";
+import {registerPage, useDidUpdateEffect} from "../../Utils";
 import ReactPlayer from 'react-player'
 import {PlusMinusPicker} from "./PlusMinusPicker";
 import pretty from 'pretty-time';
 import useSound from "use-sound";
 import {useCookieMusicConfigState} from "./MusicCookieConfig";
-import {RecommendedMusicVideos} from "./Recommendations";
+import {RecommendedMusicVideos} from "./RecommendedMusicVideos";
 import "./ProgrammingMusicTimerPage.css"
 
 // More hee: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
@@ -30,8 +30,10 @@ export default function ProgrammingMusicTimerPage() {
     const [workTimeMin, setWorkTime] = useCookieMusicConfigState(25, "workTime");
     const [breakTimeMin, setBreakTime] = useCookieMusicConfigState(5, "breakTime");
     const [volume, setVolume] = useCookieMusicConfigState(5, "volume");
-    useEffect(() => {
-        getCurrentPlayer()?.setVolume(volume)
+
+    useDidUpdateEffect(() => {
+        const player = getCurrentPlayer()
+        if(player) player?.setVolume(volume)
     }, [volume])
 
     const [phase, setPhase] = React.useState<"work" | "break">("work");
@@ -48,10 +50,6 @@ export default function ProgrammingMusicTimerPage() {
     useEffect(() => {
         if (secUntilNext <= 0) togglePhase()
     }, [secUntilNext])
-
-    const onYoutubeValueChange = (event) => {
-        setYoutubeVideoKey(event.target.value);
-    }
 
     const clearTimerInstance = () => {
         console.log("Stopping timer ", timer)
@@ -133,6 +131,7 @@ export default function ProgrammingMusicTimerPage() {
                          url={'https://www.youtube.com/watch?v=' + youtubeVideoKey}
                          onPlay={onVideoStarted}
                          onPause={onVideoPaused}
+                         onReady={player => getCurrentPlayer().setVolume(volume)}
                          ref={playerRef}
                          loop={true}
             />
@@ -152,10 +151,7 @@ export default function ProgrammingMusicTimerPage() {
             </div>
             <br/>
             <br/>
-            YouTube video key: <input name="VideoKey" value={youtubeVideoKey} onChange={onYoutubeValueChange} min="1"/>
-            <br/>
-            <br/>
-            <RecommendedMusicVideos setYoutubeVideoKey={setYoutubeVideoKey}/>
+            <RecommendedMusicVideos youtubeVideoKey={youtubeVideoKey} setYoutubeVideoKey={setYoutubeVideoKey}/>
         </div>
         <FooterSection/>
     </>;
