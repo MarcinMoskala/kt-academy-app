@@ -9,6 +9,8 @@ import {PlusMinusPicker} from "./PlusMinusPicker";
 import pretty from 'pretty-time';
 import useSound from "use-sound";
 import {useCookieMusicConfigState} from "./MusicCookieConfig";
+import {RecommendedMusicVideos} from "./Recommendations";
+import "./ProgrammingMusicTimerPage.css"
 
 // More hee: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 type YouTubePlayer = {
@@ -146,11 +148,11 @@ export default function ProgrammingMusicTimerPage() {
                 <div>{"Session length: " + timeDisplay(secPassed)}</div>
                 <div>{"Time until " + (isWorkTime ? "break" : "work") + ": " + timeDisplay(secUntilNext)}</div>
                 <div>{"Total concentration time: " + timeDisplay(totalConcentrationSec)}</div>
-                <div onClick={togglePhase}>{"Start " + (isWorkTime ? "break" : "work")}</div>
+                <div className="clickable" onClick={togglePhase}>{"Start " + (isWorkTime ? "break" : "work")}</div>
             </div>
             <br/>
             <br/>
-            Video key: <input name="VideoKey" value={youtubeVideoKey} onChange={onYoutubeValueChange} min="1"/>
+            YouTube video key: <input name="VideoKey" value={youtubeVideoKey} onChange={onYoutubeValueChange} min="1"/>
             <br/>
             <br/>
             <RecommendedMusicVideos setYoutubeVideoKey={setYoutubeVideoKey}/>
@@ -158,57 +160,6 @@ export default function ProgrammingMusicTimerPage() {
         <FooterSection/>
     </>;
 };
-
-const recommendations = [
-    "IWZktANV-D8",
-    "M3hFN8UrBPw",
-    "cG_p8Kt6I9U",
-    "uH3Aoj1nw58",
-    "g8NVwN0_mks",
-    "waxQzdbixLk",
-    "WUDsKai0Yac",
-    "sZjpMCu2JRc",
-    "D-ya6U-pbWo",
-    "jhvUqV3qeC0",
-    "5qap5aO4i9A",
-    "q43G9FTaomg",
-    "TAXmCThuhm8",
-    "l9nh1l8ZIJQ",
-    "8sJk9AE82kc",
-]
-
-const RecommendedMusicVideos = ({setYoutubeVideoKey}) => {
-    const [fetchedRecommendations, setFetchedRecommendations] = React.useState<any[]>([]);
-
-    React.useEffect(() => {
-        async function fetchRecommendations() {
-            const promises = recommendations.map(key => fetch("https://noembed.com/embed?url=https://www.youtube.com/watch?v=" + key, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then(res => res.json())
-            )
-            const res = await Promise.all(promises)
-            setFetchedRecommendations(res)
-        }
-
-        fetchRecommendations();
-    }, []);
-
-
-    return <div>
-        <div>Some recommendations:</div>
-        {fetchedRecommendations.map(obj => {
-                return <div key={obj.title}
-                            onClick={() => setYoutubeVideoKey(substringAfter(obj.url, "="))}>{obj.title}</div>;
-            }
-        )}
-    </div>;
-};
-
-function substringAfter(str: string, split: string) {
-    return str.split(split)[1];
-}
 
 function getUtfSec() {
     return Math.ceil(Date.now() / 1000);
