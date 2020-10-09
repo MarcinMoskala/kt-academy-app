@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://kt.academy/static/css/main.fd7342ec.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.a7d6b0bc.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.a7d6b0bc.chunk.js.map",
-    "runtime-main.js": "https://kt.academy/static/js/runtime-main.8d19d334.js",
-    "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.8d19d334.js.map",
+    "main.css": "https://kt.academy/static/css/main.58edc19c.chunk.css",
+    "main.js": "https://kt.academy/static/js/main.ec782cc6.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.ec782cc6.chunk.js.map",
+    "runtime-main.js": "https://kt.academy/static/js/runtime-main.70f7b36b.js",
+    "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.70f7b36b.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
-    "static/js/2.2092fdd5.chunk.js": "https://kt.academy/static/js/2.2092fdd5.chunk.js",
-    "static/js/2.2092fdd5.chunk.js.map": "https://kt.academy/static/js/2.2092fdd5.chunk.js.map",
-    "static/js/3.596eaeff.chunk.js": "https://kt.academy/static/js/3.596eaeff.chunk.js",
-    "static/js/3.596eaeff.chunk.js.map": "https://kt.academy/static/js/3.596eaeff.chunk.js.map",
+    "static/js/2.376b26f1.chunk.js": "https://kt.academy/static/js/2.376b26f1.chunk.js",
+    "static/js/2.376b26f1.chunk.js.map": "https://kt.academy/static/js/2.376b26f1.chunk.js.map",
+    "static/js/3.ae76e9fe.chunk.js": "https://kt.academy/static/js/3.ae76e9fe.chunk.js",
+    "static/js/3.ae76e9fe.chunk.js.map": "https://kt.academy/static/js/3.ae76e9fe.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.b97f52a1d3cc0a101b5e8d42faee3932.js": "https://kt.academy/precache-manifest.b97f52a1d3cc0a101b5e8d42faee3932.js",
+    "precache-manifest.8115662e6d87270f96280e6520ba01f1.js": "https://kt.academy/precache-manifest.8115662e6d87270f96280e6520ba01f1.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
-    "static/css/main.fd7342ec.chunk.css.map": "https://kt.academy/static/css/main.fd7342ec.chunk.css.map",
-    "static/js/2.2092fdd5.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.2092fdd5.chunk.js.LICENSE.txt",
-    "static/js/3.596eaeff.chunk.js.LICENSE.txt": "https://kt.academy/static/js/3.596eaeff.chunk.js.LICENSE.txt",
+    "static/css/main.58edc19c.chunk.css.map": "https://kt.academy/static/css/main.58edc19c.chunk.css.map",
+    "static/js/2.376b26f1.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.376b26f1.chunk.js.LICENSE.txt",
+    "static/js/3.ae76e9fe.chunk.js.LICENSE.txt": "https://kt.academy/static/js/3.ae76e9fe.chunk.js.LICENSE.txt",
     "static/media/1-1920x702.png": "https://kt.academy/static/media/1-1920x702.237da95a.png",
     "static/media/2-1920x702.png": "https://kt.academy/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x1080.png": "https://kt.academy/static/media/3-1920x1080.555e5756.png",
@@ -54,10 +54,10 @@
     "static/media/sensilabs.png": "https://kt.academy/static/media/sensilabs.fcd3d9d7.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8d19d334.js",
+    "static/js/runtime-main.70f7b36b.js",
     "static/css/2.e22355b1.chunk.css",
-    "static/js/2.2092fdd5.chunk.js",
-    "static/css/main.fd7342ec.chunk.css",
-    "static/js/main.a7d6b0bc.chunk.js"
+    "static/js/2.376b26f1.chunk.js",
+    "static/css/main.58edc19c.chunk.css",
+    "static/js/main.ec782cc6.chunk.js"
   ]
 }
