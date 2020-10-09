@@ -1,5 +1,16 @@
 import {useLocation} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useRef} from "react";
+
+export function useDidUpdateEffect(fn, inputs) {
+    const didMountRef = useRef(false);
+
+    useEffect(() => {
+        if (didMountRef.current)
+            fn();
+        else
+            didMountRef.current = true;
+    }, inputs);
+}
 
 export function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -22,8 +33,6 @@ export function useScrollToHash() {
 }
 
 declare global {
-    var pageKey: string;
-
     function pingPageLoad(pageKey: string);
 }
 

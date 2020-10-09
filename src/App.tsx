@@ -10,7 +10,7 @@ import PrivacyPolicyPage from "./Main/Page/PrivacyPolicyPage";
 import WorkshopFormPage from "./Main/Page/Form/WorkshopFormPage";
 import ChallengesExamplePage from "./Main/Page/ChallengesExamplePage";
 import UsersAdminPage from "./Admin/UsersAdminPage";
-import GenerateDtoPage from "./Extra/GenerateDtoPage";
+import GenerateDtoPage from "./Extra/Generate/GenerateDtoPage";
 import MaterialsPage from "./Logged/MaterialsPage";
 import ChallengePage from "./Logged/Course/ChallengePage";
 import WorkshopRequestFormPage from "./Main/Page/Form/WorkshopRequestPublicFormPage";
@@ -19,7 +19,7 @@ import CoursePage from "./Logged/Course/CoursePage";
 import CoursesPage from "./Logged/Course/CoursesPage";
 import VideoPage from "./Logged/Course/VideoPage";
 import UserPage from "./Logged/User/UserPage";
-import ProgrammingMusicTimerPage from "./Extra/ProgrammingMusicTimerPage";
+import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [

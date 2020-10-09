@@ -1,14 +1,14 @@
 import React, {useEffect, useRef} from 'react';
-import Header from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import "../Utils";
-import {useTranslations} from "../Translations";
-import {registerPage} from "../Utils";
+import Header from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import "../../Utils";
+import {useTranslations} from "../../Translations";
+import {registerPage} from "../../Utils";
 import ReactPlayer from 'react-player'
-import "./PlusMinusPicker.css"
 import {PlusMinusPicker} from "./PlusMinusPicker";
 import pretty from 'pretty-time';
 import useSound from "use-sound";
+import {useCookieMusicConfigState} from "./MusicCookieConfig";
 
 // More hee: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 type YouTubePlayer = {
@@ -24,11 +24,10 @@ export default function ProgrammingMusicTimerPage() {
     registerPage(`programming-music-timer`)
     const t = useTranslations();
     const [playSound] = useSound("/sounds/boop.mp3");
-
-    const [youtubeVideoKey, setYoutubeVideoKey] = React.useState<string>("f02mOEt11OQ");
-    const [workTime, setWorkTime] = React.useState<number>(25); // min
-    const [breakTime, setBreakTime] = React.useState<number>(5); // min
-    const [volume, setVolume] = React.useState<number>(5);
+    const [youtubeVideoKey, setYoutubeVideoKey] = useCookieMusicConfigState("f02mOEt11OQ", "chosenVideo");
+    const [workTimeMin, setWorkTime] = useCookieMusicConfigState(25, "workTime");
+    const [breakTimeMin, setBreakTime] = useCookieMusicConfigState(5, "breakTime");
+    const [volume, setVolume] = useCookieMusicConfigState(5, "volume");
     useEffect(() => {
         getCurrentPlayer()?.setVolume(volume)
     }, [volume])
@@ -37,18 +36,16 @@ export default function ProgrammingMusicTimerPage() {
     const isWorkTime = phase === "work"
 
     const [secPassed, setSecPassed] = React.useState<number>(0);
-    const [prevConcentrationSec, setPrevConcentrationSec] = React.useState<number>(0);
+    const [totalConcentrationSec, setTotalConcentrationSec] = useCookieMusicConfigState(0, "totalSecPassed");
     const [timer, setTimer] = React.useState<NodeJS.Timeout>();
     let playerRef = useRef<ReactPlayer>(null)
 
     const getCurrentPlayer = () => (playerRef.current?.getInternalPlayer() as YouTubePlayer)
 
-    const secUntilNext = (isWorkTime ? workTime : breakTime) * 60 - secPassed
+    const secUntilNext = (isWorkTime ? workTimeMin : breakTimeMin) * 60 - secPassed
     useEffect(() => {
         if (secUntilNext <= 0) togglePhase()
     }, [secUntilNext])
-
-    const totalConcentrationSec = (isWorkTime ? secPassed : 0) + prevConcentrationSec
 
     const onYoutubeValueChange = (event) => {
         setYoutubeVideoKey(event.target.value);
@@ -69,7 +66,9 @@ export default function ProgrammingMusicTimerPage() {
         }
         const timerStartTime = getUtfSec() - secPassed
         setTimer(setInterval(() => {
-            setSecPassed(getUtfSec() - timerStartTime)
+            let tickTime = getUtfSec() - timerStartTime;
+            setSecPassed(tickTime)
+            setTotalConcentrationSec(totalConcentrationSec + tickTime)
         }, 100))
     };
 
@@ -103,7 +102,6 @@ export default function ProgrammingMusicTimerPage() {
         playSound()
         clearTimerInstance()
         setSecPassed(0)
-        setPrevConcentrationSec(secPassed)
         const timerStartTime = getUtfSec()
         setTimer(setInterval(() => {
             setSecPassed(getUtfSec() - timerStartTime)
@@ -138,8 +136,9 @@ export default function ProgrammingMusicTimerPage() {
             />
             <div>
                 <PlusMinusPicker value={volume} setValue={setVolume} step={1} min={0} unit="%" title="Volume"/>
-                <PlusMinusPicker value={workTime} setValue={setWorkTime} step={5} min={1} unit="min" title="Work time"/>
-                <PlusMinusPicker value={breakTime} setValue={setBreakTime} step={5} min={1} unit="min"
+                <PlusMinusPicker value={workTimeMin} setValue={setWorkTime} step={5} min={1} unit="min"
+                                 title="Work time"/>
+                <PlusMinusPicker value={breakTimeMin} setValue={setBreakTime} step={5} min={1} unit="min"
                                  title="Break time"/>
             </div>
             <div>
@@ -192,6 +191,7 @@ const RecommendedMusicVideos = ({setYoutubeVideoKey}) => {
             const res = await Promise.all(promises)
             setFetchedRecommendations(res)
         }
+
         fetchRecommendations();
     }, []);
 
@@ -199,7 +199,8 @@ const RecommendedMusicVideos = ({setYoutubeVideoKey}) => {
     return <div>
         <div>Some recommendations:</div>
         {fetchedRecommendations.map(obj => {
-                return <div onClick={() => setYoutubeVideoKey(substringAfter(obj.url, "="))}>{obj.title}</div>;
+                return <div key={obj.title}
+                            onClick={() => setYoutubeVideoKey(substringAfter(obj.url, "="))}>{obj.title}</div>;
             }
         )}
     </div>;

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import Header from "../Section/Header/Header";
-import FooterSection from "../Section/FooterSection";
-import "../Utils";
-import {useTranslations} from "../Translations";
+import Header from "../../Section/Header/Header";
+import FooterSection from "../../Section/FooterSection";
+import "../../Utils";
+import {useTranslations} from "../../Translations";
 import {useForm} from "react-hook-form";
-import {registerPage} from "../Utils";
+import {registerPage} from "../../Utils";
 import KotlinPlayground from "react-kotlin-playground/es";
 import Swal from "sweetalert2";
-import {requestApi} from "../Network";
+import {requestApi} from "../../Network";
 
 type GenerationForm = {
     code: string,
