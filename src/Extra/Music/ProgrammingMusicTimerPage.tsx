@@ -33,7 +33,7 @@ export default function ProgrammingMusicTimerPage() {
 
     useDidUpdateEffect(() => {
         const player = getCurrentPlayer()
-        if(player) player?.setVolume(volume)
+        if (player) player?.setVolume(volume)
     }, [volume])
 
     const [phase, setPhase] = React.useState<"work" | "break">("work");
@@ -125,16 +125,18 @@ export default function ProgrammingMusicTimerPage() {
     return <>
         <Header/>
         <div className="content-container">
-            <ReactPlayer volume={0.05}
-                         style={{display: "block", margin: "auto"}}
-                         key={youtubeVideoKey}
-                         url={'https://www.youtube.com/watch?v=' + youtubeVideoKey}
-                         onPlay={onVideoStarted}
-                         onPause={onVideoPaused}
-                         onReady={player => getCurrentPlayer().setVolume(volume)}
-                         ref={playerRef}
-                         loop={true}
-            />
+            <div className="videoWrapper">
+                <ReactPlayer volume={0.05}
+                             key={youtubeVideoKey}
+                             url={'https://www.youtube.com/watch?v=' + youtubeVideoKey}
+                             onPlay={onVideoStarted}
+                             onPause={onVideoPaused}
+                             onReady={() => getCurrentPlayer().setVolume(volume)}
+                             ref={playerRef}
+                             loop={true}
+                />
+            </div>
+
             <div>
                 <PlusMinusPicker value={volume} setValue={setVolume} step={1} min={0} unit="%" title="Volume"/>
                 <PlusMinusPicker value={workTimeMin} setValue={setWorkTime} step={5} min={1} unit="min"

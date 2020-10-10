@@ -124,3 +124,7 @@
 .first-dropdown-item {
     margin-top: 42px;
 }
+
+.right-border {
+    border-right: 1px solid var(--blue-color);
+}

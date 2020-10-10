@@ -48,8 +48,8 @@ export function useCourses(user: User | null): Course[] | undefined | null {
     return useApiSingleData(() => requestCourses(), [user])
 }
 
-export function useRecommendations(): RecommendationCollection | undefined | null {
-    return useApiSingleData(() => requestVideoRecommendations(), [])
+export function useRecommendations(rating): RecommendationCollection | undefined | null {
+    return useApiSingleData(() => requestVideoRecommendations(), [rating])
 }
 
 export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = []): T | undefined | null {

@@ -11,9 +11,9 @@ type RecommendedMusicVideosProps = {
 }
 
 export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: RecommendedMusicVideosProps) => {
-    const recommendations: RecommendationElement[] | undefined = useRecommendations()?.elements
-    const currentVideo = recommendations?.find(v => v.key === youtubeVideoKey)
     const [rating, setRating] = useState<number>(0);
+    const recommendations: RecommendationElement[] | undefined = useRecommendations(rating)?.elements
+    const currentVideo = recommendations?.find(v => v.key === youtubeVideoKey)
     useEffect(() => {
         if (currentVideo && currentVideo.yourRating) setRating(currentVideo.yourRating)
     }, [currentVideo])
