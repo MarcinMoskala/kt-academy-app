@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "https://kt.academy/static/css/main.9241a05a.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.3fb212f7.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.3fb212f7.chunk.js.map",
+    "main.js": "https://kt.academy/static/js/main.66961990.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.66961990.chunk.js.map",
     "runtime-main.js": "https://kt.academy/static/js/runtime-main.5a19a7ed.js",
     "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.5a19a7ed.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
-    "static/js/2.e3f9338c.chunk.js": "https://kt.academy/static/js/2.e3f9338c.chunk.js",
-    "static/js/2.e3f9338c.chunk.js.map": "https://kt.academy/static/js/2.e3f9338c.chunk.js.map",
+    "static/js/2.05da243a.chunk.js": "https://kt.academy/static/js/2.05da243a.chunk.js",
+    "static/js/2.05da243a.chunk.js.map": "https://kt.academy/static/js/2.05da243a.chunk.js.map",
     "static/js/3.f644a911.chunk.js": "https://kt.academy/static/js/3.f644a911.chunk.js",
     "static/js/3.f644a911.chunk.js.map": "https://kt.academy/static/js/3.f644a911.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.cb499396e67d26518f8044265cacd0da.js": "https://kt.academy/precache-manifest.cb499396e67d26518f8044265cacd0da.js",
+    "precache-manifest.a094c02821f0842e950ac8b912aead2c.js": "https://kt.academy/precache-manifest.a094c02821f0842e950ac8b912aead2c.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
     "static/css/main.9241a05a.chunk.css.map": "https://kt.academy/static/css/main.9241a05a.chunk.css.map",
-    "static/js/2.e3f9338c.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.e3f9338c.chunk.js.LICENSE.txt",
+    "static/js/2.05da243a.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.05da243a.chunk.js.LICENSE.txt",
     "static/js/3.f644a911.chunk.js.LICENSE.txt": "https://kt.academy/static/js/3.f644a911.chunk.js.LICENSE.txt",
     "static/media/1-1920x702.png": "https://kt.academy/static/media/1-1920x702.237da95a.png",
     "static/media/2-1920x702.png": "https://kt.academy/static/media/2-1920x702.e243c9d7.png",
@@ -56,8 +56,8 @@
   "entrypoints": [
     "static/js/runtime-main.5a19a7ed.js",
     "static/css/2.e22355b1.chunk.css",
-    "static/js/2.e3f9338c.chunk.js",
+    "static/js/2.05da243a.chunk.js",
     "static/css/main.9241a05a.chunk.css",
-    "static/js/main.3fb212f7.chunk.js"
+    "static/js/main.66961990.chunk.js"
   ]
 }
