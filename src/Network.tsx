@@ -126,8 +126,19 @@ export function callAddRecommendation(body: { key: string, data: RecommendationD
 
 export function callAddRating(recommendationKey: string, rating: number): Promise<RecommendationCollection> {
     return requestApi<RecommendationCollection>("recommendation/video/" + recommendationKey, {
-        body: { rating: rating },
+        body: {rating: rating},
         method: "PUT"
+    })
+}
+
+export function sendFeedback(pageKey: string, feedback: string | undefined): Promise<Response> {
+    return callApi("feedback", {
+        body: {
+            type: "PRIVATE",
+            pageKey: pageKey,
+            comment: feedback
+        },
+        method: "POST"
     })
 }
 

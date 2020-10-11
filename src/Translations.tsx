@@ -273,7 +273,12 @@ const EN_desc = {
         "dtoSuffix": "(or) suffix: ",
         "generateButton": "Generate",
     },
-    "errorMessage": "An error occurred. We are sorry. You can contact us using contact@kt.academy"
+    "errorMessage": "An error occurred. We are sorry. You can contact us using contact@kt.academy",
+    "feedback": {
+        "prompt": 'What do you think? What can we improve?',
+        "placeholder": 'Type your feedback here...',
+        "thankYou": "Thank you for your feedback",
+    }
 }
 
 const PL_desc = {
@@ -513,5 +518,10 @@ const PL_desc = {
         "dtoSuffix": "(albo) suffix: ",
         "generateButton": "Generuj",
     },
-    "errorMessage": "Wystąpił błąd. Przykro nam. Możesz się z nami skontaktować przez email contact@kt.academy"
+    "errorMessage": "Wystąpił błąd. Przykro nam. Możesz się z nami skontaktować przez email contact@kt.academy",
+    "feedback": {
+        "prompt": 'Co o tym myślisz? Co moglibyśmy ulepszyć?',
+        "placeholder": 'Twój feedback tutaj...',
+        "thankYou": "Dziękujemy, na pewno o nim nie zapomnimy ;)",
+    }
 }

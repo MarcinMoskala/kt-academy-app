@@ -11,6 +11,7 @@ import useSound from "use-sound";
 import {useCookieMusicConfigState} from "./MusicCookieConfig";
 import {RecommendedMusicVideos} from "./RecommendedMusicVideos";
 import "./ProgrammingMusicTimerPage.css"
+import {useFeedbackPopup} from "../../Popups";
 
 // More hee: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 type YouTubePlayer = {
@@ -23,9 +24,12 @@ type YouTubePlayer = {
 }
 
 export default function ProgrammingMusicTimerPage() {
-    registerPage(`programming-music-timer`)
+    let pageKey = `programming-music-timer`;
+    registerPage(pageKey)
+    const showFeedbackPopup = useFeedbackPopup(pageKey)
     const t = useTranslations();
     const [playSound] = useSound("/sounds/boop.mp3");
+
     const [youtubeVideoKey, setYoutubeVideoKey] = useCookieMusicConfigState("f02mOEt11OQ", "chosenVideo");
     const [workTimeMin, setWorkTime] = useCookieMusicConfigState(25, "workTime");
     const [breakTimeMin, setBreakTime] = useCookieMusicConfigState(5, "breakTime");
@@ -150,6 +154,7 @@ export default function ProgrammingMusicTimerPage() {
                 <div>{"Time until " + (isWorkTime ? "break" : "work") + ": " + timeDisplay(secUntilNext)}</div>
                 <div>{"Total concentration time: " + timeDisplay(totalConcentrationSec)}</div>
                 <div className="clickable" onClick={togglePhase}>{"Start " + (isWorkTime ? "break" : "work")}</div>
+                <div className="clickable" onClick={showFeedbackPopup}>{"Feedback"}</div>
             </div>
             <br/>
             <br/>

@@ -13,6 +13,7 @@ import "./CourseElement.css"
 import {PrevNextBar} from "./PrevNextBar";
 import ReactMarkdown from "react-markdown";
 import {useGlobalState} from "../../GlobalState";
+import {useFeedbackPopup} from "../../Popups";
 
 type CodeEditorInstance = {
     state: string,
@@ -21,7 +22,8 @@ type CodeEditorInstance = {
 
 export default function ChallengePageWrapper() {
     const {courseKey, challengeKey} = useParams<{ courseKey: string, challengeKey: string }>();
-    registerPage(`challenge-${courseKey}-${challengeKey}`);
+    let pageKey = `challenge-${courseKey}-${challengeKey}`;
+    registerPage(pageKey);
     const {user} = useGlobalState()
     const course = useCourse(courseKey, user)
     const challenge = useChallenge(challengeKey)
@@ -41,10 +43,11 @@ export default function ChallengePageWrapper() {
     if (challenge === null) {
         return <ErrorPage message="Challenge not found"/>
     }
-    return <ChallengePage key={course.key + "-" + challenge.key} course={course} challenge={challenge}/>
+    return <ChallengePage key={course.key + "-" + challenge.key} course={course} challenge={challenge} pageKey={pageKey}/>
 }
 
-function ChallengePage({course, challenge}: { course: Course, challenge: Challenge }) {
+function ChallengePage({course, challenge, pageKey}: { course: Course, challenge: Challenge, pageKey: string }) {
+    const showFeedbackPopup = useFeedbackPopup(pageKey)
     const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
     const [showCode, setShowCode] = React.useState<string>(dropTestsCode(challenge.code));
 
@@ -149,7 +152,7 @@ ${showCode}
                     <a onClick={(_) => onSave()}>Save</a> <a onClick={(_) => onRestore()}>Restore</a> {showAddTests &&
                 <a
                     onClick={(_) => addTests()}>Add own tests</a>} <a onClick={(_) => switchPlatform()}>Switch
-                    to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a>
+                    to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a> <a onClick={showFeedbackPopup}>Feedback</a>
                 </div>
                 {challengeStatus === "SOLVED" &&
                 <div className="buttons-right green-color">
