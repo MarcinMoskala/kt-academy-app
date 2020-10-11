@@ -56,7 +56,6 @@ export default function ProgrammingMusicTimerPage() {
     }, [secUntilNext])
 
     const clearTimerInstance = () => {
-        console.log("Stopping timer ", timer)
         if (timer) clearInterval(timer)
         setTimer(undefined)
     };
@@ -142,19 +141,20 @@ export default function ProgrammingMusicTimerPage() {
             </div>
 
             <div>
-                <PlusMinusPicker value={volume} setValue={setVolume} step={1} min={0} unit="%" title="Volume"/>
+                <PlusMinusPicker value={volume} setValue={setVolume} step={1} min={0} unit="%"
+                                 title={t.music.volume}/>
                 <PlusMinusPicker value={workTimeMin} setValue={setWorkTime} step={5} min={1} unit="min"
-                                 title="Work time"/>
+                                 title={t.music.pickerWorkTime}/>
                 <PlusMinusPicker value={breakTimeMin} setValue={setBreakTime} step={5} min={1} unit="min"
-                                 title="Break time"/>
+                                 title={t.music.pickerBreakTime}/>
             </div>
             <div>
-                <div>{(isWorkTime ? "Working time" : "Break")}</div>
-                <div>{"Session length: " + timeDisplay(secPassed)}</div>
-                <div>{"Time until " + (isWorkTime ? "break" : "work") + ": " + timeDisplay(secUntilNext)}</div>
-                <div>{"Total concentration time: " + timeDisplay(totalConcentrationSec)}</div>
-                <div className="clickable" onClick={togglePhase}>{"Start " + (isWorkTime ? "break" : "work")}</div>
-                <div className="clickable" onClick={showFeedbackPopup}>{"Feedback"}</div>
+                <div>{(isWorkTime ? t.music.displayWorkTime : t.music.displayBreakTime)}</div>
+                <div>{t.music.sessionTime + timeDisplay(secPassed)}</div>
+                <div>{(isWorkTime ? t.music.timeUntilBreak : t.music.timeUntilWork ) + timeDisplay(secUntilNext)}</div>
+                <div>{t.music.totalConcentrationTime + timeDisplay(totalConcentrationSec)}</div>
+                <div className="clickable" onClick={togglePhase}>{isWorkTime ? t.music.startBreak : t.music.startWork}</div>
+                <div className="clickable" onClick={showFeedbackPopup}>{t.feedback.button}</div>
             </div>
             <br/>
             <br/>

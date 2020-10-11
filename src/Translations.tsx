@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import {useLocation} from 'react-router-dom'
+import {PlusMinusPicker} from "./Extra/Music/PlusMinusPicker";
 
 export const LangContext = React.createContext('light');
 
@@ -275,9 +276,28 @@ const EN_desc = {
     },
     "errorMessage": "An error occurred. We are sorry. You can contact us using contact@kt.academy",
     "feedback": {
+        "button": 'Feedback',
         "prompt": 'What do you think? What can we improve?',
         "placeholder": 'Type your feedback here...',
         "thankYou": "Thank you for your feedback",
+    },
+    "music": {
+        "recommendationAdded": "Recommendation added,\nthank you",
+        "volume": "Volume",
+        "pickerWorkTime": "Work time",
+        "pickerBreakTime": "Break time",
+        "displayWorkTime": "Work time",
+        "displayBreakTime": "Break",
+        "sessionTime": "Session length: ",
+        "timeUntilWork": "Time until work: ",
+        "timeUntilBreak": "Time until break: ",
+        "totalConcentrationTime": "Total concentration time: ",
+        "startWork": "Start work",
+        "startBreak": "Start break",
+        "ratePrompt": "Rate this video:",
+        "recommendButton": "Recommend",
+        "youtubeKey": "YouTube video key: ",
+        "recommendationsList": "Recommendations: ",
     }
 }
 
@@ -520,8 +540,27 @@ const PL_desc = {
     },
     "errorMessage": "Wystąpił błąd. Przykro nam. Możesz się z nami skontaktować przez email contact@kt.academy",
     "feedback": {
+        "button": "Feedback",
         "prompt": 'Co o tym myślisz? Co moglibyśmy ulepszyć?',
         "placeholder": 'Twój feedback tutaj...',
         "thankYou": "Dziękujemy, na pewno o nim nie zapomnimy ;)",
+    },
+    "music": {
+        "recommendationAdded": "Rekomendacja dodana, dziękujemy :)",
+        "volume": "Głośność",
+        "pickerWorkTime": "Czas pracy",
+        "pickerBreakTime": "Czas przerwy",
+        "displayWorkTime": "Czas pracy",
+        "displayBreakTime": "Przerwa",
+        "sessionTime": "Długość sesji: ",
+        "timeUntilWork": "Czas do pracy: ",
+        "timeUntilBreak": "Czas do przerwy: ",
+        "totalConcentrationTime": "Całkowity czas skupienia: ",
+        "startWork": "Rozpocznij pracę",
+        "startBreak": "Rozpocznij przerwę",
+        "ratePrompt": "Oceń ten klip:",
+        "youtubeKey": "Klucz filmu na YouTube: ",
+        "recommendButton": "Poleć",
+        "recommendationsList": "Polecenia: ",
     }
 }
