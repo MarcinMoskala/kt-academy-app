@@ -226,17 +226,6 @@ footer a {
     margin-right: 5px;
 }
 
-.navigation-bar {
-    background-color: white;
-    height: 70px;
-    font-size: 16px;
-    font-weight: 500;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-}
-
 .pointer {
     cursor: pointer;
 }
