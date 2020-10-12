@@ -30,7 +30,7 @@ export default function ProgrammingMusicTimerPage() {
     const t = useTranslations();
     const [playSound] = useSound("/sounds/boop.mp3");
 
-    const [youtubeVideoKey, setYoutubeVideoKey] = useCookieMusicConfigState("f02mOEt11OQ", "chosenVideo");
+    const [youtubeVideoKey, setYoutubeVideoKey] = useCookieMusicConfigState("IWZktANV-D8", "chosenVideo");
     const [workTimeMin, setWorkTime] = useCookieMusicConfigState(25, "workTime");
     const [breakTimeMin, setBreakTime] = useCookieMusicConfigState(5, "breakTime");
     const [volume, setVolume] = useCookieMusicConfigState(5, "volume");
