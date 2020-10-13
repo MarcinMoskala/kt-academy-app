@@ -39,6 +39,7 @@ export default function WorkshopsSubmissionsAdminPage() {
 
     return <>
         <Header/>
+        <div style={{height: "80px"}}/>
         {workshopSubmissions &&
         <AdminTable title="Workshop submissions" list={workshopSubmissions} columns={[
             {name: 'timestamp', label: 'Timestamp', options: {filter: false, sort: true, sortDirection: 'desc'}},

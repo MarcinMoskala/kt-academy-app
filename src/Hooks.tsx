@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Challenge, Course, RecommendationCollection, User, Workshop, WorkshopSubmission} from "./Model";
+import {Challenge, Course, RecommendationCollection, Statistics, User, Workshop, WorkshopSubmission} from "./Model";
 import {useLang} from "./Translations";
 import {
     requestChallenge,
     requestCourse,
     requestCourses,
-    requestCurrentUser,
+    requestCurrentUser, requestStatistics,
     requestUsersList,
     requestVideoRecommendations,
     requestWorkshop,
@@ -50,6 +50,10 @@ export function useCourses(user: User | null): Course[] | undefined | null {
 
 export function useRecommendations(rating): RecommendationCollection | undefined | null {
     return useApiSingleData(() => requestVideoRecommendations(), [rating])
+}
+
+export function useStatistics(): Statistics | undefined | null {
+    return useApiSingleData(() => requestStatistics(), [])
 }
 
 export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = []): T | undefined | null {

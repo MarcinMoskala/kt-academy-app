@@ -20,6 +20,7 @@ import CoursesPage from "./Logged/Course/CoursesPage";
 import VideoPage from "./Logged/Course/VideoPage";
 import UserPage from "./Logged/User/UserPage";
 import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
+import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
@@ -41,6 +42,7 @@ const App = () => {
         {path: "/privacyPolicy", component: PrivacyPolicyPage},
         {path: "/admin/users", component: UsersAdminPage},
         {path: "/admin/workshopSubmissions", component: WorkshopsSubmissionsAdminPage},
+        {path: "/admin/statistics", component: StatisticsAdminPage},
         {path: "", component: HomePage},
     ]
     return <GlobalStateWrapper>

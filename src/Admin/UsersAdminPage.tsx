@@ -29,6 +29,7 @@ export default function UsersAdminPage() {
 
     return <>
         <Header/>
+        <div style={{height: "80px"}}/>
         {usersList &&
         <AdminTable<User> title="Users" list={usersList} clicked={elementClicked} columns={[
             {name: 'email', label: 'Email', options: {filter: false, sort: true}},

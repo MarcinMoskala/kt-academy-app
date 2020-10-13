@@ -3,7 +3,7 @@ import {
     ChallengeStatus,
     Course,
     RecommendationCollection,
-    RecommendationData,
+    RecommendationData, Statistics,
     User,
     Workshop,
     WorkshopSubmission
@@ -85,6 +85,10 @@ export function requestCurrentUser(): Promise<User | null> {
 
 export function requestUsersList(): Promise<User[]> {
     return requestApi<User[]>("user")
+}
+
+export function requestStatistics(): Promise<Statistics> {
+    return requestApi<Statistics>("statistics")
 }
 
 export function modifyUser(userId: string, body: { tags: string[] }): Promise<Response> {

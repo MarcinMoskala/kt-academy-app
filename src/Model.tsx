@@ -157,3 +157,17 @@ export type RecommendationData = {
     url: string,
     img: string
 };
+
+export type Statistics = {
+    pageViews: number,
+    uniqueUsers: number,
+    accounts: number,
+    pageStatistics: PageStatistics[]
+}
+
+export type PageStatistics = {
+    pageKey: string,
+    uniqueUsers: number,
+    pageViews: number,
+    reactionsCount: string
+}

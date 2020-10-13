@@ -34,11 +34,11 @@ export function AdminTable<T>({title, list, columns, clicked}: { title: string, 
     console.log(listToShow)
 
     return <>
-        <div style={{height: "80px"}}/>
         {list &&
         <MUIDataTable title={title} data={listToShow} options={{
             filterType: 'checkbox',
             selectableRows: 'multiple',
+            rowsPerPage: 100,
             selectableRowsOnClick: false,
             isRowSelectable: () => false,
             onCellClick: (colData: any, cellMeta: { colIndex: number, rowIndex: number, dataIndex: number }) => {
