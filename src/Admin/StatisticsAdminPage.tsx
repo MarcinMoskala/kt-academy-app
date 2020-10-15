@@ -5,12 +5,17 @@ import {useStatistics} from "../Hooks";
 import {registerPage} from "../Utils";
 import {PageStatistics, Statistics, User} from "../Model";
 import {AdminTable} from "./AdminTable";
+import { useHistory } from "react-router-dom";
 
 export default function StatisticsAdminPage() {
     registerPage("statistics-admin")
     const statistics: Statistics | undefined | null = useStatistics()
     console.log(statistics)
+    const history = useHistory();
 
+    const onRowClicked = (page: PageStatistics) => {
+        history.push(`/admin/statistics/${page.pageKey}`);
+    };
     return <>
         <Header/>
         <div style={{height: "80px"}}/>
@@ -18,7 +23,7 @@ export default function StatisticsAdminPage() {
             <div>{"Page views: " + statistics.pageViews}</div>
             <div>{"Unique user views: " + statistics.uniqueUsers}</div>
             <div>{"Accounts: " + statistics.accounts}</div>
-            <AdminTable<PageStatistics> title="Users" list={statistics.pageStatistics} columns={[
+            <AdminTable<PageStatistics> title="Users" list={statistics.pageStatistics} clicked={onRowClicked} columns={[
                 {name: 'pageKey', label: 'Page key', options: {filter: false, sort: true}},
                 {name: 'pageViews', label: 'Page views', options: {filter: false, sort: true}},
                 {name: 'uniqueUsers', label: 'Unique user views', options: {filter: false, sort: true, sortDirection: 'desc'}},

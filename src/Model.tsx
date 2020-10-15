@@ -169,5 +169,11 @@ export type PageStatistics = {
     pageKey: string,
     uniqueUsers: number,
     pageViews: number,
-    reactionsCount: string
+    reactionsCount: string,
+    pageViewsHistory: StatisticsDataPoint[] | null
+}
+
+export type StatisticsDataPoint = {
+    day: string,
+    amount: number
 }

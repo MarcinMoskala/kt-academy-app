@@ -1,7 +1,7 @@
 import {
     Challenge,
     ChallengeStatus,
-    Course,
+    Course, PageStatistics,
     RecommendationCollection,
     RecommendationData, Statistics,
     User,
@@ -89,6 +89,10 @@ export function requestUsersList(): Promise<User[]> {
 
 export function requestStatistics(): Promise<Statistics> {
     return requestApi<Statistics>("statistics")
+}
+
+export function requestPageStatistics(pageKey: string): Promise<PageStatistics> {
+    return requestApi<PageStatistics>(`statistics/${pageKey}`)
 }
 
 export function modifyUser(userId: string, body: { tags: string[] }): Promise<Response> {

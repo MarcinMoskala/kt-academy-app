@@ -22,6 +22,7 @@ import UserPage from "./Logged/User/UserPage";
 import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
 import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
 import LogRocket from 'logrocket';
+import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
 
 LogRocket.init('qm0xny/kt-academy');
 
@@ -45,6 +46,7 @@ const App = () => {
         {path: "/privacyPolicy", component: PrivacyPolicyPage},
         {path: "/admin/users", component: UsersAdminPage},
         {path: "/admin/workshopSubmissions", component: WorkshopsSubmissionsAdminPage},
+        {path: "/admin/statistics/:pageKey", component: PageStatisticsAdminPage},
         {path: "/admin/statistics", component: StatisticsAdminPage},
         {path: "", component: HomePage},
     ]
