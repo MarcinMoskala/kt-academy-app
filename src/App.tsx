@@ -21,6 +21,9 @@ import VideoPage from "./Logged/Course/VideoPage";
 import UserPage from "./Logged/User/UserPage";
 import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
 import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
+import LogRocket from 'logrocket';
+
+LogRocket.init('qm0xny/kt-academy');
 
 const App = () => {
     const routes: { path: string, component }[] = [
