@@ -298,6 +298,10 @@ const EN_desc = {
         "recommendButton": "Recommend",
         "youtubeKey": "YouTube video key: ",
         "recommendationsList": "Recommendations: ",
+        "blocked": "Blocked",
+        "block": "Block",
+        "favourite": "Favourite",
+        "makeFavourite": "Add to favourites",
     }
 }
 
@@ -562,5 +566,9 @@ const PL_desc = {
         "youtubeKey": "Klucz filmu na YouTube: ",
         "recommendButton": "Poleć",
         "recommendationsList": "Polecenia: ",
+        "blocked": "Zablokowane",
+        "block": "Zablokuj",
+        "favourite": "Ulubione",
+        "makeFavourite": "Dodaj do ulubionych",
     }
 }

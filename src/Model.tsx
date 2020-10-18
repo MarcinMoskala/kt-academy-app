@@ -150,6 +150,9 @@ export type RecommendationElement = {
     yourRating: number | null,
     averageRating: number,
     ratingsNum: number,
+    blocked: boolean,
+    favourite: boolean,
+    tags: string[] | null,
 }
 
 export type RecommendationData = {

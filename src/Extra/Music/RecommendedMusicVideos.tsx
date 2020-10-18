@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {callAddRating, callAddRecommendation} from "../../Network";
-import {useRecommendations} from "../../Hooks";
+import {AddRatingBody, callAddRating, callAddRecommendation, requestVideoRecommendations} from "../../Network";
 import {RecommendationElement} from "../../Model";
 import Swal from "sweetalert2";
 import Rating from '@material-ui/lab/Rating';
 import {useTranslations} from "../../Translations";
+import {Tooltip} from "react-tippy";
 
 type RecommendedMusicVideosProps = {
     youtubeVideoKey: string,
@@ -13,7 +13,16 @@ type RecommendedMusicVideosProps = {
 
 export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: RecommendedMusicVideosProps) => {
     const [rating, setRating] = useState<number>(0);
-    const recommendations: RecommendationElement[] | undefined = useRecommendations(rating)?.elements
+    const [recommendations, setRecommendations] = React.useState<RecommendationElement[]>();
+
+    useEffect(() => {
+        requestVideoRecommendations()
+            .then(
+                (result) => setRecommendations(result.elements),
+                (error) => console.log(error)
+            )
+    })
+
     const currentVideo = recommendations?.find(v => v.key === youtubeVideoKey)
     const t = useTranslations();
 
@@ -33,6 +42,14 @@ export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: Re
             })
     };
 
+    const sendRate = (key: string, body: AddRatingBody) => {
+        callAddRating(key, body)
+            .then(
+                (result) => setRecommendations(result.elements),
+                (error) => console.log(error)
+            )
+    }
+
     return <div>
         {currentVideo && <>
             <div>{t.music.ratePrompt}</div>
@@ -41,7 +58,7 @@ export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: Re
                     onChange={(event, newValue) => {
                         if (!newValue) return
                         setRating(newValue);
-                        callAddRating(youtubeVideoKey, newValue)
+                        sendRate(youtubeVideoKey, {rating: newValue})
                     }}/>
             <br/>
         </>}
@@ -56,16 +73,69 @@ export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: Re
                 <br/>
             </>}
             <div>{t.music.recommendationsList}</div>
-            {recommendations.map(r =>
-                <div className="clickable"
-                     key={r.key}
-                     onClick={() => setYoutubeVideoKey(r.key)}>
-                    {`${r.data.title} ${r.averageRating.toFixed(1)}/5 (${r.ratingsNum})`}
-                </div>
-            )}
+            {recommendations.map(r => <Recommendation key={`${r.key}-${r.blocked}-${r.favourite}`} recommendation={r}
+                                                      setYoutubeVideoKey={setYoutubeVideoKey} sendRate={sendRate}/>)}
         </>}
     </div>;
 };
+
+type RecommendationProps = {
+    recommendation: RecommendationElement,
+    setYoutubeVideoKey: (youTubeKey: string) => void,
+    sendRate: (key: string, body: AddRatingBody) => void
+};
+
+function Recommendation({recommendation, setYoutubeVideoKey, sendRate}: RecommendationProps) {
+    const key = recommendation.key
+    const [favourite, setFavouriteVar] = useState(recommendation.favourite);
+    const [blocked, setBlockedVar] = useState(recommendation.blocked);
+    const [hover, setHover] = useState(false);
+    const t = useTranslations();
+
+    const setBlocked = (value: boolean) => {
+        setBlockedVar(value)
+        sendRate(key, {blocked: value})
+    }
+    const setFavourite = (value: boolean) => {
+        setFavouriteVar(value)
+        sendRate(key, {favourite: value})
+    }
+
+    return <div
+        className="margin-top-10"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}>
+
+        {blocked &&
+        <Tooltip title={t.music.blocked} trigger="mouseenter">
+            <i className="fas fa-minus-circle margin-right-5 clickable" onClick={() => setBlocked(false)}/>
+        </Tooltip>
+        }
+
+        {hover && !blocked &&
+        <Tooltip title={t.music.block} trigger="mouseenter">
+            <i className="fas fa-minus-circle margin-right-5 clickable" onClick={() => setBlocked(true)}/>
+        </Tooltip>
+        }
+
+        {favourite &&
+        <Tooltip title={t.music.favourite} trigger="mouseenter">
+            <i className="fas fa-heart margin-right-5 clickable" onClick={() => setFavourite(false)}/>
+        </Tooltip>
+        }
+
+        {hover && !favourite &&
+        <Tooltip title={t.music.makeFavourite} trigger="mouseenter">
+            <i className="far fa-heart margin-right-5 clickable" onClick={() => setFavourite(true)}/>
+        </Tooltip>
+        }
+
+        <div className="clickable inline"
+             onClick={() => setYoutubeVideoKey(recommendation.key)}>
+            {`${recommendation.data.title} ${recommendation.averageRating.toFixed(1)}/5 (${recommendation.ratingsNum})`}
+        </div>
+    </div>;
+}
 
 type YouTubeResponse = {
     thumbnail_url: string,

@@ -1,9 +1,11 @@
 import {
     Challenge,
     ChallengeStatus,
-    Course, PageStatistics,
+    Course,
+    PageStatistics,
     RecommendationCollection,
-    RecommendationData, Statistics,
+    RecommendationData,
+    Statistics,
     User,
     Workshop,
     WorkshopSubmission
@@ -132,9 +134,11 @@ export function callAddRecommendation(body: { key: string, data: RecommendationD
     })
 }
 
-export function callAddRating(recommendationKey: string, rating: number): Promise<RecommendationCollection> {
+export type AddRatingBody = { rating?: number, blocked?: boolean, favourite?: boolean };
+
+export function callAddRating(recommendationKey: string, body: AddRatingBody): Promise<RecommendationCollection> {
     return requestApi<RecommendationCollection>("recommendation/video/" + recommendationKey, {
-        body: {rating: rating},
+        body: body,
         method: "PUT"
     })
 }

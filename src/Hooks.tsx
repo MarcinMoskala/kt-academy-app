@@ -57,10 +57,6 @@ export function useCourses(user: User | null): Course[] | undefined | null {
     return useApiSingleData(() => requestCourses(), [user])
 }
 
-export function useRecommendations(rating): RecommendationCollection | undefined | null {
-    return useApiSingleData(() => requestVideoRecommendations(), [rating])
-}
-
 export function useStatistics(): Statistics | undefined | null {
     return useApiSingleData(() => requestStatistics(), [])
 }
