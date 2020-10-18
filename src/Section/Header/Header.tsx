@@ -129,10 +129,11 @@ function MenuItems({links}: { links: LinkTo[] }) {
 
 function BookmarkDropdown({links, element, className = ""}: { links: LinkTo[], element, className?: string }) {
     const [showBookmarks, setShowBookmarks] = React.useState(false);
-    return <nav className={className + " bookmarks-dropdown dropdown" + (showBookmarks ? " open" : " margin-left-10 margin-right-10")}
-                onMouseOver={() => setShowBookmarks(true)}
-                onMouseOut={() => setShowBookmarks(false)}
-                id="bookmarks">
+    return <nav
+        className={className + " bookmarks-dropdown dropdown" + (showBookmarks ? " open" : " margin-left-10 margin-right-10")}
+        onMouseOver={() => !showBookmarks && setShowBookmarks(true)}
+        onMouseOut={() => showBookmarks && setShowBookmarks(false)}
+        id="bookmarks">
         <ul>
             {links.map((link, index) =>
                 <li className="inline" key={index}>

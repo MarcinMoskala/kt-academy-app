@@ -128,3 +128,77 @@
 .right-border {
     border-right: 1px solid var(--blue-color);
 }
+
+@media screen and (max-width: 480px) {
+    .logo-container {
+        padding-left: 8px;
+    }
+
+    .flags-container {
+        margin-right: 15px;
+    }
+
+    .banner--narrow__text-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .banner--narrow__close .fas {
+        margin-right: 20px;
+    }
+
+    .banner h1 {
+        font-size: 37px;
+    }
+
+    .banner h3 {
+        font-size: 20px;
+    }
+
+    section h1 {
+        font-size: 35px;
+    }
+
+    section h3 {
+        font-size: 20px;
+    }
+
+    p, li {
+        font-size: 16px;
+    }
+
+    .navigation-bar li {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .button.button--mini {
+        font-size: 14px;
+    }
+
+    section .content-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    section.why-us .content-container, section.requirements .content-container, section.workshop-TOC .content-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    section.why-us .content-rectangle, section.challenge .content-rectangle, section.puzzler .content-rectangle {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    footer .content-container {
+        padding: 15px 30px 15px 30px;
+    }
+
+    .bookmarks.responsive {
+        padding: 0px 0px 5px 0px;
+    }
+}
