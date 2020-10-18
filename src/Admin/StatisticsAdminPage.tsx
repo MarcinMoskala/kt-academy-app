@@ -10,7 +10,6 @@ import { useHistory } from "react-router-dom";
 export default function StatisticsAdminPage() {
     registerPage("statistics-admin")
     const statistics: Statistics | undefined | null = useStatistics()
-    console.log(statistics)
     const history = useHistory();
 
     const onRowClicked = (page: PageStatistics) => {

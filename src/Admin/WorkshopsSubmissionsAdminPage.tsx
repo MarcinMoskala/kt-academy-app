@@ -11,7 +11,6 @@ import {changeWorkshopSubmission} from "../Network";
 export default function WorkshopsSubmissionsAdminPage() {
     registerPage("users-admin")
     const workshopSubmissions = useWorkshopSubmissionsList()
-    console.log(workshopSubmissions)
 
     const elementClicked = (submission: WorkshopSubmission) => {
         let options = [

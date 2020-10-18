@@ -11,7 +11,6 @@ export default function PageStatisticsAdminPage() {
     const {pageKey} = useParams<{ pageKey: string }>();
     registerPage(`statistics-admin-${pageKey}`)
     const pageStatistics: PageStatistics | undefined | null = usePageStatistics(pageKey)
-    console.log(pageStatistics)
 
     return <>
         <Header/>

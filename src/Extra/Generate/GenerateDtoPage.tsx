@@ -52,7 +52,6 @@ export default function GenerateDtoPage() {
                 }
             }
         }).then(d => {
-            console.log(d)
             setVersion(version + 1)
             setResp(d)
         }).catch(e => {
@@ -61,7 +60,6 @@ export default function GenerateDtoPage() {
                 title: 'Oops... error',
                 text: 'Check your code and try again'
             })
-            console.log(e)
         })
     }
 

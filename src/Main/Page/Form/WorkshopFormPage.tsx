@@ -58,11 +58,7 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
     const isOnline = watch("isOnline")
     const {linkKeepLang} = useLinkFunctions()
 
-    console.log(errors);
-    console.log(groupSize);
-
     const onSubmit = (data: PrivateFormData) => {
-        console.log(data);
         if (!buttonEnabled) {
             return
         }
@@ -78,7 +74,6 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                 },
                 (error) => {
                     setButtonEnabled(true)
-                    console.log(error)
                     Swal.fire(t.form.dialogError)
                 }
             )

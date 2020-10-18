@@ -21,7 +21,7 @@ export const RecommendedMusicVideos = ({youtubeVideoKey, setYoutubeVideoKey}: Re
                 (result) => setRecommendations(result.elements),
                 (error) => console.log(error)
             )
-    })
+    }, [])
 
     const currentVideo = recommendations?.find(v => v.key === youtubeVideoKey)
     const t = useTranslations();

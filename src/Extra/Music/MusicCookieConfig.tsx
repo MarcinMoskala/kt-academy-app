@@ -17,10 +17,8 @@ export function useCookieState<T, S>(initialValue: T, setConfig: (config: S) => 
 export function useCookieMusicConfigState<T>(defaultValue: T, property: keyof CookieMusicConfig): [T, Dispatch<SetStateAction<T>>] {
     const {getConfig, setConfig} = useCookieMusicConfig()
     const initialConfig = getConfig()
-    console.log(initialConfig)
     // @ts-ignore
     let value: T = initialConfig ? initialConfig[property] ?? defaultValue : defaultValue
-    console.log(value)
     return useCookieState<T, CookieMusicConfig>(value, setConfig, property)
 }
 

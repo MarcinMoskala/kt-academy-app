@@ -69,7 +69,6 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
     const {linkKeepLang} = useLinkFunctions()
 
     const onSubmit = (data: PublicFormData) => {
-        console.log(data);
         if (!buttonEnabled) {
             return
         }
@@ -85,7 +84,6 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                 },
                 (error) => {
                     setButtonEnabled(true)
-                    console.log(error)
                     Swal.fire(t.form.dialogError)
                 }
             )

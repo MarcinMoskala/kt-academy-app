@@ -15,7 +15,6 @@ type ColumnDefinition<T> = {
 export function AdminTable<T>({title, list, columns, clicked}: { title: string, list: T[], columns: ColumnDefinition<T>[], clicked?: (element: T) => void }) {
     const listToShow = list.map(element => {
         const copy = {...element}
-        console.log(copy)
 
         Object.keys(copy).forEach(function (key) {
             const value = copy[key]
@@ -31,7 +30,6 @@ export function AdminTable<T>({title, list, columns, clicked}: { title: string, 
         return copy
     })
 
-    console.log(listToShow)
 
     return <>
         {list &&

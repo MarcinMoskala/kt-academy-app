@@ -46,6 +46,21 @@ export default function ChallengePageWrapper() {
     return <ChallengePage key={course.key + "-" + challenge.key} course={course} challenge={challenge} pageKey={pageKey}/>
 }
 
+function KotlinPlayground(props: { dataTargetPlatform: "junit" | "java", codeTests: string, showCode: string }) {
+    return <div>
+        <div className="challenge-code" data-autocomplete="true" highlight-on-fly="true" match-brackets="true"
+             data-target-platform={props.dataTargetPlatform} folded-button="true">
+            {`
+${props.codeTests}
+${SPLITTING_COMMENT}
+//sampleStart
+${props.showCode}
+//sampleEnd
+                `}
+        </div>
+    </div>;
+}
+
 function ChallengePage({course, challenge, pageKey}: { course: Course, challenge: Challenge, pageKey: string }) {
     const showFeedbackPopup = useFeedbackPopup(pageKey)
     const [code, setCode] = React.useState<string>(dropTestsCode(challenge.code));
@@ -134,25 +149,16 @@ function ChallengePage({course, challenge, pageKey}: { course: Course, challenge
         <div className="content-container text-align-left" style={{paddingTop: "80px"}}>
             <h1>{challenge.title}</h1>
 
-            <div key={challenge.key + "-" + showCode + "-" + platform}>
-                <div className="challenge-code" data-autocomplete="true" highlight-on-fly="true" match-brackets="true"
-                     data-target-platform={platform} folded-button="true">
-                    {`
-${challenge.codeTests}
-${SPLITTING_COMMENT}
-//sampleStart
-${showCode}
-//sampleEnd
-                `}
-                </div>
-            </div>
+            <KotlinPlayground key={challenge.key + "-" + showCode + "-" + platform} dataTargetPlatform={platform}
+                              codeTests={challenge.codeTests} showCode={showCode}/>
 
             <div className="buttons-container">
                 <div className="buttons-left">
                     <a onClick={(_) => onSave()}>Save</a> <a onClick={(_) => onRestore()}>Restore</a> {showAddTests &&
                 <a
                     onClick={(_) => addTests()}>Add own tests</a>} <a onClick={(_) => switchPlatform()}>Switch
-                    to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a> <a onClick={showFeedbackPopup}>Feedback</a>
+                    to {platform === "junit" ? "main" : "tests" /*Use https://www.npmjs.com/package/react-switch*/}</a>
+                    <a onClick={showFeedbackPopup}>Feedback</a>
                 </div>
                 {challengeStatus === "SOLVED" &&
                 <div className="buttons-right green-color">

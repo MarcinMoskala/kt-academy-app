@@ -11,7 +11,6 @@ import {modifyUser} from "../Network";
 export default function UsersAdminPage() {
     registerPage("users-admin")
     const usersList = useUsersList()
-    console.log(usersList)
 
     const elementClicked = (user: User) => {
         Swal.fire<string>({
