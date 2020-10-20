@@ -165,6 +165,7 @@ export type Statistics = {
     pageViews: number,
     uniqueUsers: number,
     accounts: number,
+    subscribers: string,
     pageStatistics: PageStatistics[]
 }
 
