@@ -23,6 +23,7 @@ import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
 import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
 import LogRocket from 'logrocket';
 import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
+import JsonFormatPage from "./Extra/Json/JsonFormatPage";
 
 LogRocket.init('qm0xny/kt-academy');
 
@@ -38,6 +39,7 @@ const App = () => {
         {path: "/workshopPublicForm/:workshopKey", component: WorkshopRequestFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
         {path: "/music", component: ProgrammingMusicTimerPage},
+        {path: "/json", component: JsonFormatPage},
         {path: "/generate", component: GenerateDtoPage},
         {path: "/materials", component: MaterialsPage},
         {path: "/workshop", component: WorkshopsPage},
