@@ -14,7 +14,6 @@ export default function JsonFormatPage() {
     const [json, setJson] = useState<string>(defaultJson)
     const lines = Math.max(10, json.split(/\r\n|\r|\n/).length)
     const {result, error} = parseJsonOrNull(json)
-    const formatted = result ? JSON.stringify(result, undefined, 4) : ""
 
     return <>
         <Header/>
@@ -29,7 +28,6 @@ export default function JsonFormatPage() {
                           value={json} onChange={(e) => setJson(e.target.value)}/>
                 {result === null && <p>Cannot parse this object</p>}
                 {error !== null && <p>Error: {error.message}</p>}
-                <CodeComponent code={formatted}/>
                 {result && <JsonToObjects className={className} value={result}/>}
             </div>
         </section>
@@ -51,12 +49,15 @@ function parseJsonOrNull(json: string): { result: any | null, error: SyntaxError
 }
 
 function JsonToObjects({className, value}: { className: string, value: any }) {
+    const formatted = value ? JSON.stringify(value, undefined, 4) : ""
     const model = objectModel(value)
     if (!model) return <></>
 
     const tsTypeDef = modelToTS(className, model)
     const kotlinTypeDef = modelToKotlin(className, model)
     return <div>
+        <h3>Pretty:</h3>
+        <CodeComponent code={formatted}/>
         <h3>TypeScript definition:</h3>
         <CodeComponent code={tsTypeDef}/>
         <h3>Kotlin definition:</h3>

@@ -25,7 +25,6 @@ export default function HomePage() {
             <Header banner={bannerProps}/>
             <WorkshopOfferSection/>
             <WhyUsSection/>
-            <MaterialsSection white={true}/>
             <TrustedBySection/>
             <TestimonialsSection to="#workshops-offer"/>
             <ContactSection/>

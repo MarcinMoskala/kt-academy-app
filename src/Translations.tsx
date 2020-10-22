@@ -55,6 +55,7 @@ const EN_desc = {
         "tools": "Extra tools",
         "music": "Coding Music",
         "generate": "Generate DTO",
+        "json": "JSON formatter",
         "workshopMaterial": "Topics",
         "register": "Register",
         "contact": "Contact"
@@ -110,10 +111,6 @@ const EN_desc = {
     "contact": {
         "title": "Let's talk!",
         "stayInTouch": "Stay in touch!",
-        "pricing": {
-            "description": "Tell us more about your needs and the level of your team, so we can prepare the adjusted offer and send you the right pricing.",
-            "button": "Register"
-        },
         "twitter": {
             "title": "Follow us on Twitter",
             "description": "We have a community of more than 3000 followers and we only post programming-related content."
@@ -148,13 +145,16 @@ const EN_desc = {
         "titleHowLong": "How long does it take?",
         "registration": {
             "title": "Register",
+            "register": "Register",
             "private": {
                 "buttonText": "Private workshop",
-                "explanation": 'Choose this option if you need a workshop for your team or company. The basic price is {workshop_price} for the group for {days_num} days.',
+                "chooseOption": "Choose this option if you need a workshop for your team or company. ",
+                "explanation": 'The basic price is {workshop_price} for the group for {days_num} days.',
             },
             "public": {
                 "buttonText": "Open online workshop",
-                "explanation": 'Choose this option if you need a workshop for yourself or for a small group of people. The basic price is {workshop_person_price} per person for {days_num} days.',
+                "chooseOption": "Choose this option if you need a workshop for yourself or for a small group of people. ",
+                "explanation": 'The basic price is {workshop_person_price} per person for the whole workshop.',
             }
         }
     },
@@ -325,6 +325,7 @@ const PL_desc = {
         "music": "Muzyka",
         "tools": "Narzędzia",
         "generate": "Generuj DTO",
+        "json": "JSON formatter",
         "register": "Rejestracja",
         "contact": "Kontakt"
     },
@@ -379,10 +380,6 @@ const PL_desc = {
     "contact": {
         "title": "Porozmawiajmy!",
         "stayInTouch": "Bądźmy w kontakcie!",
-        "pricing": {
-            "description": "Powiedz nam więcej o potrzebach i poziomie Twojego zespołu, a my dopasujemy program kursu i wyślemy adekwatną ofertę.",
-            "button": "Prośba o ofertę"
-        },
         "twitter": {
             "title": "Obserwuj nas na Twitter",
             "description": "Zrzeszamy społeczność ponad 3000 obserwujących i publikujemy tylko treści związane z programowaniem."
@@ -415,13 +412,16 @@ const PL_desc = {
         "titleHowLong": "Ile trwa ten warsztat?",
         "registration": {
             "title": "Wyślij zgłoszenie",
+            "register": "Wyślij zgłoszenie",
             "private": {
                 "buttonText": "Szkolenie prywatne",
-                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. Podstawowa cena w Polsce i w języku polskim to {workshop_price_pl} za grupę (w innym przypadku {workshop_price}) za {days_num} dni szkolenia.',
+                "chooseOption": "Wybierz tę opcję, jeśli potrzebujesz szkolenia dla swojego zespołu lub firmy. ",
+                "explanation": 'Podstawowa cena w Polsce i w języku polskim to {workshop_price_pl} za grupę (w innym przypadku {workshop_price}) za {days_num} dni szkolenia.',
             },
             "public": {
                 "buttonText": "Szkolenie otwarte online",
-                "explanation": 'Wybierz tę opcję, jeśli potrzebujesz szkolenia dla siebie lub małej grupy. Podstawowa cena to {workshop_person_price} za osobę za {days_num} dni.',
+                "chooseOption": "Wybierz tę opcję, jeśli potrzebujesz szkolenia dla siebie lub małej grupy. ",
+                "explanation": 'Podstawowa cena to {workshop_person_price_pl} za osobę za całe szkolenie w języku polskim.',
             }
         }
     },

@@ -92,9 +92,11 @@ function MenuItems({links}: { links: LinkTo[] }) {
 
     const musicLink = {to: "/music", text: t.menu.music}
     const generateLink = {to: "/generate", text: t.menu.generate}
+    const jsonLink = {to: "/json", text: t.menu.json}
     const blogLink = {to: "https://blog.kotlin-academy.com/", text: t.menu.articles}
 
-    const allLinks = [...links, musicLink, generateLink, blogLink]
+    const allLinks = [...links, musicLink, generateLink, jsonLink, blogLink]
+    const extraLinks = [musicLink, generateLink, jsonLink,];
 
     const makeBookmarkElement = (link, index = 0) =>
         <li className="inline" key={index}>
@@ -118,7 +120,7 @@ function MenuItems({links}: { links: LinkTo[] }) {
                             {blogLink.text}
                         </Link>
                     </li>
-                    <BookmarkDropdown links={[musicLink, generateLink,]} element={
+                    <BookmarkDropdown links={extraLinks} element={
                         <Link to="" className="nav__icon pointer" style={{marginTop: 0}}>{t.menu.tools}</Link>
                     }/>
                 </ul>

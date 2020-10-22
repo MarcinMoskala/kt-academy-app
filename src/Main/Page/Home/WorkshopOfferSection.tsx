@@ -4,7 +4,7 @@ import Link from "../../../Link"
 
 export default function WorkshopOfferSection() {
     const t = useTranslations();
-    return (<section className="workshops-offer" id="workshops-offer">
+    return (<section className="workshops-offer section--white" id="workshops-offer">
         <div className="content-container">
             <h1> {t.workshopOffer.title} </h1>
             <p> {t.workshopOffer.subtitle} </p>

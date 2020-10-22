@@ -55,7 +55,7 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
         width: Width.Half,
         ...(workshop.subtitle && {subtitle: workshop.subtitle}),
         button: {
-            text: t.contact.pricing.button,
+            text: t.workshopPage.registration.title,
             to: "#register"
         }
     };
