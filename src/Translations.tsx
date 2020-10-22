@@ -96,9 +96,9 @@ const EN_desc = {
     "certificateDesc": "You will be trained by an expert who is an official JetBrains' Kotlin training partner. The quality of his workshops was checked and certified by the creators of the Kotlin language itself.",
     "materialsSection": {
         "title": "Professional training materials",
-        "book": "The book with all the slides to make it easier to start using new knowledge after the workshop - everything in one place to recall new functionalities.",
-        "cheatsheet": "Cheatsheet in a printed, laminated form. Now you can have all the essentials at hand — it is the best daily support for a Kotlin developer.",
-        "tasks": "A lot of tasks and questions to practice during the workshop. We do our best to make the training as practical as possible."
+        "book": "All attendees will get a printed book Effective Kotlin.",
+        "onlineTasks": "All attendees will get access to out exclusive learning platform, containing recordings from a full 3-daty Kotlin course, additional materials and exercises.",
+        "printedMaterials": "All attendees of local workshops will get primted materials for the course, including a book with all the slides, exercises, tasks and cheatsheet.",
     },
     "testimonials": {
         "subtitle": "We've helped over 300 developers from more than 40 companies around the world in a smooth transition to Kotlin",
@@ -365,9 +365,9 @@ const PL_desc = {
     "certificateDesc": "Jakość tego warsztatu została sprawdzona i certyfikowana przez twórców języka Kotlin. Szkolić Was będzie trener, który jest oficjalnym partnerem JetBrains w zakresie szkoleń z języka Kotlin.",
     "materialsSection": {
         "title": "Profesjonalne materiały szkoleniowe",
-        "book": "Książka ze wszystkimi slajdami, żeby ułatwić korzystanie z nowej wiedzy w praktyce, od razu po zakończeniu warsztatu - cały materiał w jednym miejscu.",
-        "cheatsheet": "Kotlin cheatsheet w drukowanej i laminowanej formie. Teraz będziesz mieć najważniejsze elementy pod ręką  - to najlepsze codzienne wsparcie programisty Kotlin.",
-        "tasks": "Dużo zadań i pytań do ćwiczeń praktycznych. Staramy się, aby nasze warsztaty były tak praktyczne, jak to tylko możliwe."
+        "book": "Wszyscy uczestnicy kursu dla firm dostaną papierową wersję książki Effective Kotlin w języku angielskim.",
+        "onlineTasks": "Wszyscy uczestnicy otrzymają dostęp do platformy na której znajdą nagrania z pełnego kursu, dodatkowe materiały, oraz wyzwania programistyczne",
+        "printedMaterials": "W przypadku szkoleń lokalnych, wszyscy uczestnicy dostaną pełny zestaw wydrukowanych materiałów szkoleniowych oraz cheatsheet."
     },
     "testimonials": {
         "subtitle": "Pomogliśmy ponad 300 programistom z ponad 40 firm na całym świecie w przejściu na język Kotlin",

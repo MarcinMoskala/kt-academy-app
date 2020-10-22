@@ -1,7 +1,7 @@
 import {ArrayType, ModelType} from "./ObjectModel";
 
-export function modelToTS(model: ModelType): string {
-    return `type YourObject = ${objectContentToTS(model, 0)}`
+export function modelToTS(className: string, model: ModelType): string {
+    return `type ${className} = ${objectContentToTS(model, 0)}`
 }
 
 function spaces(indent: number): string {
@@ -20,7 +20,7 @@ function objectContentToTS(model: ModelType, indent: number): string {
 
 function objectValueToTS(model: ModelType, indent: number): string {
     if (model instanceof ArrayType) { // ArrayType
-        return objectValueToTS(model.value, indent)
+        return objectValueToTS(model.value, indent) + "[]"
     } else if (typeof model === "string") { // BasicType
         return model
     } else { // Object type

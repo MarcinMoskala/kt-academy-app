@@ -10,19 +10,24 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
         <div className="content-container">
             <h1>{t.workshopPage.registration.title}</h1>
             <div style={{display: "flex", flexWrap: "wrap"}}>
+                {workshop.basePrice.company &&
                 <OrderOption
                     link={"/workshopForm/" + workshop.key}
                     buttonText={t.workshopPage.registration.private.buttonText}
                     explanation={t.workshopPage.registration.private.explanation
                         .replace("{workshop_price}", printMoney(workshop.basePrice.company))
-                        .replace("{workshop_price_pl}", printMoney(workshop.basePrice.companyPl))
+                        .replace("{workshop_price_pl}", printMoney(workshop.basePrice.companyPl ?? workshop.basePrice.company))
                         .replace("{days_num}", String(workshop.basePrice.daysNumber ?? 3))}/>
+                }
+                {workshop.basePrice.person &&
                 <OrderOption
                     link={"/workshopPublicForm/" + workshop.key}
                     buttonText={t.workshopPage.registration.public.buttonText}
                     explanation={t.workshopPage.registration.public.explanation
                         .replace("{workshop_person_price}", printMoney(workshop.basePrice.person))
+                        .replace("{workshop_person_price_pl}", printMoney(workshop.basePrice.personPl ?? workshop.basePrice.person))
                         .replace("{days_num}", String(workshop.basePrice.daysNumber ?? 3))}/>
+                }
             </div>
         </div>
     </section>;

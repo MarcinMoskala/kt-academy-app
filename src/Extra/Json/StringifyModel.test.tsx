@@ -6,7 +6,7 @@ describe('Object to TypeScript model', () => {
 
     it('Writes properties and keeps them in an object', () => {
         const model = objectModel({name: "Some name"})!
-        const written = modelToTS(model)
+        const written = modelToTS('YourObject', model)
         expect(written).toEqual(`type YourObject = {
   name: string
 }`)
@@ -14,7 +14,7 @@ describe('Object to TypeScript model', () => {
 
     it('Understands objects', () => {
         const model = objectModel({user: {name: "Marek", surname: "Markowski"}})!
-        const written = modelToTS(model)
+        const written = modelToTS('YourObject', model)
         expect(written).toEqual(`type YourObject = {
   user: {
     name: string
@@ -25,18 +25,18 @@ describe('Object to TypeScript model', () => {
 
     it('Understands array of objects', () => {
         const model = objectModel({user: [{name: "Marek", surname: "Markowski"}]})!
-        const written = modelToTS(model)
+        const written = modelToTS('YourObject', model)
         expect(written).toEqual(`type YourObject = {
   user: {
     name: string
     surname: string
-  }
+  }[]
 }`)
     });
 
     it('Understands big and complex objects', () => {
         const model = objectModel(workshops)!
-        const written = modelToTS(model)
+        const written = modelToTS('YourObject', model)
         expect(written).toEqual(`type YourObject = {
   value: {
     key: string
@@ -49,7 +49,7 @@ describe('Object to TypeScript model', () => {
     secondDescription: object
     practicalTask: string
     practicalTaskIcon: string
-    requirements: string
+    requirements: string[]
     tocMd: string
     icon: string
     certifiedByJb: boolean
@@ -59,18 +59,18 @@ describe('Object to TypeScript model', () => {
       fullName: string
       bioKey: string
       picture: string
-      videos: string
-      videoPosters: string
+      videos: string[]
+      videoPosters: string[]
       promotionVideos: {
         ytCode: string
         posterImg: string
-      }
+      }[]
       github: string
       twitter: string
       medium: string
       website: string
     }
-    tags: string
+    tags: string[]
     howLong: string
     basePrice: {
       company: {

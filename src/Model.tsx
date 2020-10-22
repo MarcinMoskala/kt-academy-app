@@ -31,17 +31,25 @@ export type Workshop = {
     icon: string,
     certifiedByJb: boolean,
     challenges: boolean,
-    trainer: Trainer,
+    trainer: Trainer | null,
     tags: string[],
     howLong: string[] | null,
     basePrice: BasePrice,
-    langVariants: string[]
+    langVariants: string[],
+    materials: Materials | null
 };
 
+export type Materials = {
+    online: boolean,
+    printed: boolean,
+    book: boolean
+}
+
 export type BasePrice = {
-    company: Money,
-    companyPl: Money,
-    person: Money,
+    company: Money | null,
+    companyPl: Money | null,
+    person: Money | null,
+    personPl: Money | null,
     daysNumber: number
 };
 

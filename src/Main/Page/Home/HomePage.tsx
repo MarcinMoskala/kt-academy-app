@@ -14,11 +14,6 @@ import TrustedBySection from "./TrustedBy/TrustedBySection";
 export default function HomePage() {
     registerPage("index")
     const t = useTranslations()
-    const menuLinks: LinkTo[] = [
-        {to: "#workshops-offer", text: t.menu.offer},
-        {to: "#why-us", text: t.menu.whyUs},
-        {to: "#contact", text: t.menu.contact, divider: true},
-    ]
     const bannerProps: Banner = {
         img: HeaderBg,
         width: Width.Full,
@@ -27,7 +22,7 @@ export default function HomePage() {
     };
     return (
         <>
-            <Header links={menuLinks} banner={bannerProps}/>
+            <Header banner={bannerProps}/>
             <WorkshopOfferSection/>
             <WhyUsSection/>
             <MaterialsSection white={true}/>

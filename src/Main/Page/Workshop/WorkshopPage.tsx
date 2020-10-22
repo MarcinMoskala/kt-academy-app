@@ -110,13 +110,17 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
             </section>
             }
 
+            {workshop.trainer &&
             <TrainerSection trainer={workshop.trainer}/>
+            }
 
             {workshop.certifiedByJb &&
             <JetbrainsCertificationSection/>
             }
 
-            <MaterialsSection workshop={workshop}/>
+            {workshop.materials &&
+            <MaterialsSection workshopKey={workshop.key} materials={workshop.materials}/>
+            }
 
             <RegistrationSection workshop={workshop}/>
 
