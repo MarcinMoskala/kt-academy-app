@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
     --blue-color: #137cb9;
 }
@@ -35,10 +36,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-}
-
-ol, ul {
-    list-style: none;
 }
 
 blockquote, q {
@@ -450,7 +447,7 @@ body {
 }
 
 ol, ul {
-    list-style: none;
+    padding-inline-start: 40px;
 }
 
 blockquote, q {
