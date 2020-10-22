@@ -44,8 +44,8 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
 
     const menuLinks: LinkTo[] = [
         {text: t.menu.workshopMaterial, to: "#workshop-TOC"},
-        {text: t.menu.trainer, to: "#trainer"},
-        {text: t.menu.materials, to: "#materials"},
+        ...(workshop.trainer ? [{text: t.menu.trainer, to: "#trainer"}] : []),
+        ...(workshop.materials ? [{text: t.menu.materials, to: "#materials"}] : []),
         {text: t.menu.register, to: "#register", divider: true},
     ]
 

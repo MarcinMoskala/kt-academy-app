@@ -1,6 +1,6 @@
 export type Trainer = {
     key: string,
-    fullName: string,
+    fullName: string | null,
     bioKey: string,
     picture: string,
     promotionVideos: Video[] | null,

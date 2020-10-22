@@ -6,58 +6,39 @@ import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"
 
 type Props = {
-    trainerKey?: string
-    trainer?: Trainer
+    trainer: Trainer
 };
 
-export default function TrainerSection({trainerKey, trainer}: Props) {
+export default function TrainerSection({trainer}: Props) {
     const t = useTranslations();
 
-    const [trainerLoaded, setTrainer] = React.useState<Trainer>();
-
-    useEffect(() => {
-        if (trainer) {
-            setTrainer(trainer)
-        } else {
-            requestApi<Trainer>("workshop/trainer/" + trainerKey)
-                .then(
-                    (result) => setTrainer(result),
-                    (error) => console.log(error)
-                )
-        }
-    }, [trainerKey])
-
-    if (!trainerLoaded) {
-        return <></>
-    }
-
-    const picture = choosePicture(trainerLoaded?.key)
-    const showVideo = trainerLoaded && trainerLoaded.promotionVideos && trainerLoaded.promotionVideos.length !== 0
+    const picture = choosePicture(trainer?.key)
+    const showVideo = trainer && trainer.promotionVideos && trainer.promotionVideos.length !== 0
     return <section className="trainer gradient--full-section" id="trainer">
         <div className="content-container flex-container--row">
             <div className="flex-item--image-container">
                 {showVideo &&
-                <Videos videos={trainerLoaded.promotionVideos!}/> ||
-                trainerLoaded.picture &&
-                <img className="round-photo wow zoomIn" src={picture} alt={trainerLoaded.fullName}/>}
+                <Videos videos={trainer.promotionVideos!}/> ||
+                trainer.picture &&
+                <img className="round-photo wow zoomIn" src={picture} alt={trainer.fullName ?? "Trainer"}/>}
             </div>
             <div className="flex-item--right padding-left-40">
                 <div className="flex-container--row title margin-bottom-20">
                     <i className="far fa-thumbs-up"/>
                     <h2>{t.whyUs.bestTitle}</h2>
                 </div>
-                <h3>{trainerLoaded.fullName}</h3>
+                <h3>{trainer.fullName ?? t.trainer.name[trainer?.key]}</h3>
                 <div className="social-media-container">
-                    {trainerLoaded.github &&
-                    <a href={trainerLoaded.github}><i className="fab fa-github"/> </a>}
-                    {trainerLoaded.twitter &&
-                    <a href={trainerLoaded.twitter}><i className="fab fa-twitter"/> </a>}
-                    {trainerLoaded.medium &&
-                    <a href={trainerLoaded.medium}><i className="fab fa-medium-m"/> </a>}
-                    {trainerLoaded.website &&
-                    <a href={trainerLoaded.website}><i className="fas fa-globe"/> </a>}
+                    {trainer.github &&
+                    <a href={trainer.github}><i className="fab fa-github"/> </a>}
+                    {trainer.twitter &&
+                    <a href={trainer.twitter}><i className="fab fa-twitter"/> </a>}
+                    {trainer.medium &&
+                    <a href={trainer.medium}><i className="fab fa-medium-m"/> </a>}
+                    {trainer.website &&
+                    <a href={trainer.website}><i className="fas fa-globe"/> </a>}
                 </div>
-                <p dangerouslySetInnerHTML={{__html: t[trainerLoaded.bioKey]}}/>
+                <p dangerouslySetInnerHTML={{__html: t.trainer.bio[trainer?.key]}}/>
             </div>
         </div>
     </section>

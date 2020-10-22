@@ -91,8 +91,18 @@ const EN_desc = {
         "app": "Build practical applications ",
         "bestTitle": "Learn from the best"
     },
-    "trainerBio": "Marcin Moskała is an experienced Android developer, teacher and <a href=\"https://www.jetbrains.com/company/partners/#countries=Poland&profession=TrainingPartner&speciality=Kotlin&technologies=Kotlin\"> an official Jetbrains' Kotlin training partner</a>. He is the founder of <a href=\"https://kt.academy\"> Kt. Academy</a>, author of the books <a href=\"https://leanpub.com/effectivekotlin/\"> \"Effective Kotlin\"</a> and <a href=\"https://www.packtpub.com/application-development/android-development-kotlin\"> \"Android Development with Kotlin\"</a>, and an active programming community member. He is also the main author on <a href=\"https://blog.kotlin-academy.com\"> the biggest medium publication about Kotlin </a> and a speaker invited to many programming conferences.",
-    "wlodzimierzKrakowskiBio": "Experienced developer, trainer and a speaker on international conferences. Specialised in handling and refactoring legacy code.",
+    "trainer": {
+        "name": {
+            "abTestingExperts": "A/B testing experts from Allegro",
+            "teachingExperts": "A group of professional developers and teachers",
+        },
+        "bio": {
+            "marcin": 'Marcin Moskała is an experienced Android developer, teacher and <a href=\"https://www.jetbrains.com/company/partners/#countries=Poland&profession=TrainingPartner&speciality=Kotlin&technologies=Kotlin\"> an official Jetbrains\' Kotlin training partner</a>. He is the founder of <a href=\"https://kt.academy\"> Kt. Academy</a>, author of the books <a href=\"https://leanpub.com/effectivekotlin/\"> \"Effective Kotlin\"</a> and <a href=\"https://www.packtpub.com/application-development/android-development-kotlin\"> \"Android Development with Kotlin\"</a>, and an active programming community member. He is also the main author on <a href=\"https://blog.kotlin-academy.com\"> the biggest medium publication about Kotlin </a> and a speaker invited to many programming conferences.',
+            "wlodek": "Experienced developer, trainer and a speaker on international conferences. Specialised in handling and refactoring legacy code.",
+            "abTestingExperts": "Eksperci od testów A/B od podstaw tworzący w Allegro platformę Chi, najbardziej zaawansowane polskie rozwiązanie do prowadzenia testów A/B. Doskonale rozumiejący nie tylko filozofię testowania, ale i stojącą za nią statystykę.",
+            "teachingExperts": "A group of developers passionate and experienced in teaching, lead by Martin Moskała, the founder of Kt. Academy.",
+        },
+    },
     "certificateTitle": "One of the first certified Kotlin training worldwide",
     "certificateDesc": "You will be trained by an expert who is an official JetBrains' Kotlin training partner. The quality of his workshops was checked and certified by the creators of the Kotlin language itself.",
     "materialsSection": {
@@ -360,8 +370,18 @@ const PL_desc = {
         "challengesButton": "Sprawdź przykładowe wyzwanie!",
         "app": "Tworzenie praktycznych aplikacji"
     },
-    "trainerBio": "Marcin Moskała jest doświadczonym programistą Android, nauczycielem Kotlina z zamiłowania i <a href=\"https://www.jetbrains.com/company/partners/#countries=Poland&profession=TrainingPartner&speciality=Kotlin&technologies=Kotlin\"> oficjalnym partnerem szkoleniowym Jetbrains' w zakresie szkoleń z języka Kotlin</a>. Jest założycielem <a href=\"https://kt.academy\"> Kt. Academy</a>, autorem książek <a href=\"https://leanpub.com/effectivekotlin/\"> \"Effective Kotlin\"</a> i <a href=\"https://www.packtpub.com/application-development/android-development-kotlin\"> \"Android Development with Kotlin\"</a>, a także aktywnym członkiem społeczności programistycznej. Jest też głównym autorem artykułów na <a href=\"https://blog.kotlin-academy.com\"> największej publikacji medium o Kotlinie </a> oraz prelegentem zapraszanym na wiele programistycznych konferencji.",
-    "wlodzimierzKrakowskiBio": "Jestem trenerem technicznym oraz prelegentem na konferencjach, specjalizującym się w zagadnieniach pracy z kodem zastanym i długiem technicznym poprzez techniki refaktoryzacji kodu. Mieszkam w Krakowie, ale często podróżuję po Polsce, Europie i świecie, aby wspierać moich klientów w ich działaniach.",
+    "trainer": {
+        "name": {
+            "abTestingExperts": "Eksperci od testów A/B z Allegro",
+            "teachingExperts": "Grupa zawodowych nauczycieli-programistów",
+        },
+        "bio": {
+            "marcin": 'Marcin Moskała jest doświadczonym programistą Android, nauczycielem Kotlina z zamiłowania i <a href=\"https://www.jetbrains.com/company/partners/#countries=Poland&profession=TrainingPartner&speciality=Kotlin&technologies=Kotlin\"> oficjalnym partnerem szkoleniowym Jetbrains\' w zakresie szkoleń z języka Kotlin</a>. Jest założycielem <a href=\"https://kt.academy\"> Kt. Academy</a>, autorem książek <a href=\"https://leanpub.com/effectivekotlin/\"> \"Effective Kotlin\"</a> i <a href=\"https://www.packtpub.com/application-development/android-development-kotlin\"> \"Android Development with Kotlin\"</a>, a także aktywnym członkiem społeczności programistycznej. Jest też głównym autorem artykułów na <a href=\"https://blog.kotlin-academy.com\"> największej publikacji medium o Kotlinie </a> oraz prelegentem zapraszanym na wiele programistycznych konferencji.',
+            "wlodek": "Jestem trenerem technicznym oraz prelegentem na konferencjach, specjalizującym się w zagadnieniach pracy z kodem zastanym i długiem technicznym poprzez techniki refaktoryzacji kodu. Mieszkam w Krakowie, ale często podróżuję po Polsce, Europie i świecie, aby wspierać moich klientów w ich działaniach.",
+            "abTestingExperts": "Eksperci od testów A/B od podstaw tworzący w Allegro platformę Chi, najbardziej zaawansowane polskie rozwiązanie do prowadzenia testów A/B. Doskonale rozumiejący nie tylko filozofię testowania, ale i stojącą za nią statystykę.",
+            "teachingExperts": "Grupa kilku doświadczanych programistów z pasją do uczenia programowania. W tym Marcin Moskała, założyciel Kt. Academy.",
+        },
+    },
     "certificateTitle": "Jeden z pierwszych certyfikowanych treningów z Kotlina",
     "certificateDesc": "Jakość tego warsztatu została sprawdzona i certyfikowana przez twórców języka Kotlin. Szkolić Was będzie trener, który jest oficjalnym partnerem JetBrains w zakresie szkoleń z języka Kotlin.",
     "materialsSection": {
