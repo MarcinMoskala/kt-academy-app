@@ -113,17 +113,17 @@ function MenuItems({links}: { links: LinkTo[] }) {
                               element={<a className="nav__icon"><i className="fas fa-bars"/></a>}/>
             :
             <nav className="bookmarks" id="bookmarks">
-                <ul>
+                <div>
                     {links.map(makeBookmarkElement)}
-                    <li className="inline" style={{float: "right"}}>
+                    <div className="inline" style={{float: "right"}}>
                         <Link to={blogLink.to} className="nav-link--padding pointer">
                             {blogLink.text}
                         </Link>
-                    </li>
+                    </div>
                     <BookmarkDropdown links={extraLinks} element={
                         <Link to="" className="nav__icon pointer" style={{marginTop: 0}}>{t.menu.tools}</Link>
                     }/>
-                </ul>
+                </div>
             </nav>
         }
     </div>
@@ -136,9 +136,8 @@ function BookmarkDropdown({links, element, className = ""}: { links: LinkTo[], e
         onMouseOver={() => !showBookmarks && setShowBookmarks(true)}
         onMouseOut={() => showBookmarks && setShowBookmarks(false)}
         id="bookmarks">
-        <ul>
             {links.map((link, index) =>
-                <li className="inline" key={index}>
+                <div className="inline" key={index}>
                     <Link to={link.to}
                           keepLang={link.translate !== false}
                           className={
@@ -147,12 +146,11 @@ function BookmarkDropdown({links, element, className = ""}: { links: LinkTo[], e
                           }>
                         {link.text}
                     </Link>
-                </li>
+                </div>
             )}
-            <li>
+            <div>
                 {element}
-            </li>
-        </ul>
+            </div>
     </nav>;
 }
 
@@ -185,16 +183,16 @@ function FlagsDropdown({allowedLangs}: { allowedLangs?: string[] }) {
                 <i className="fas fa-caret-down margin-left-5"/>
                 {lang.key}
             </a>
-            <ul className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
+            <div className={showLangDropdown ? "flags-dropdown" : "hide flags-dropdown"} id="flags-dropdown">
                 {langList.map((l, i) =>
-                    <li key={i}>
+                    <div key={i}>
                         <Link to={l.path + query} keepLang={false}>
                             <img src={"/images/" + l.flagIcon} alt={l.key}
                                  className="flag margin-right-5 margin-top-20" height="15"/>{l.key}
                         </Link>
-                    </li>)
+                    </div>)
                 }
-            </ul>
+            </div>
         </div>
         }
     </>;
