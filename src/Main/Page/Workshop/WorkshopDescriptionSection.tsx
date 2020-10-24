@@ -1,6 +1,7 @@
 import React from "react";
 import {useTranslations} from "../../../Translations";
 import {Workshop} from "../../../Model";
+import ReactMarkdown from "react-markdown";
 
 type Props = {
     workshop: Workshop
@@ -10,7 +11,7 @@ export default function WorkshopDescriptionSection({workshop}: Props) {
     const t = useTranslations();
     return (<section className="workshop-page">
         <div className="content-container">
-            <h4>{workshop.description}</h4>
+            <ReactMarkdown source={workshop.description}/>
             {workshop.secondDescription && <h4>{workshop.secondDescription}</h4>}
             <h1 className="margin-top-20">{t.workshopPage.knowledgeSources.title}</h1>
             <div className="flex-container--row">

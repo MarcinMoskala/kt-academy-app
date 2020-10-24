@@ -33,6 +33,7 @@ export type Workshop = {
     challenges: boolean,
     trainer: Trainer | null,
     tags: string[],
+    aboutCourseMd: string | null,
     howLong: string[] | null,
     basePrice: BasePrice,
     langVariants: string[],

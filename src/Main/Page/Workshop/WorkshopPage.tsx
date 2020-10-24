@@ -19,6 +19,7 @@ import {registerPage} from "../../../Utils";
 import {RegistrationSection} from "./RegistrationSection";
 import {Workshop} from "../../../Model";
 import {ErrorPage, LoadingPage} from "../../../Loading";
+import ReactMarkdown from "react-markdown";
 
 export default function WorkshopPageWrapper() {
     const {workshopKey} = useParams<{ workshopKey: string }>();
@@ -87,6 +88,15 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
             <WorkshopDescriptionSection workshop={workshop}/>
 
             <WorkshopDetailsSection workshop={workshop}/>
+
+            {workshop.aboutCourseMd &&
+            <section className="requirements short-section short-list">
+                <div className="content-container short-content-container">
+                    <h1>{t.workshopPage.titleAbout}</h1>
+                    <ReactMarkdown source={workshop.aboutCourseMd} />
+                </div>
+            </section>
+            }
 
             {workshop.howLong &&
             <section className="requirements short-section short-list">

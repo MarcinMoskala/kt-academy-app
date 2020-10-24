@@ -152,6 +152,7 @@ const EN_desc = {
         },
         "titleToc": "During the workshop we cover:",
         "titleRequirements": "Requirements",
+        "titleAbout": "About the course",
         "titleHowLong": "How long does it take?",
         "registration": {
             "title": "Register",
@@ -429,6 +430,7 @@ const PL_desc = {
         },
         "titleToc": "Materiał omawiany podczas warsztatu:",
         "titleRequirements": "Wymagania",
+        "titleAbout": "O kursie",
         "titleHowLong": "Ile trwa ten warsztat?",
         "registration": {
             "title": "Wyślij zgłoszenie",
