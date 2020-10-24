@@ -19,6 +19,7 @@ type GenerateResp = {
     dto: string,
     groovyBuilder: string,
     groovyObjectAssertion: string,
+    typeScriptObject: string,
 }
 
 export default function GenerateDtoPage() {
@@ -100,7 +101,7 @@ export default function GenerateDtoPage() {
                         </KotlinPlayground>
                     </div>
                     <div key={"Builder" + version}>
-                        <h3>Groovy builder</h3>
+                        <h3>Groovy Builder</h3>
                         <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
                             {resp.groovyBuilder}
                         </KotlinPlayground>
@@ -109,6 +110,12 @@ export default function GenerateDtoPage() {
                         <h3>Groovy Assertion</h3>
                         <KotlinPlayground mode="groovy" className="text-align-left margin-bottom-50">
                             {resp.groovyObjectAssertion}
+                        </KotlinPlayground>
+                    </div>
+                    <div key={"TypeScript" + version}>
+                        <h3>TypeScript definition</h3>
+                        <KotlinPlayground mode="typescript" className="text-align-left margin-bottom-50">
+                            {resp.typeScriptObject}
                         </KotlinPlayground>
                     </div>
                 </>
