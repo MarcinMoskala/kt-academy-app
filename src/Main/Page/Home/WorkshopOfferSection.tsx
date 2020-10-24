@@ -15,7 +15,7 @@ export default function WorkshopOfferSection() {
                     <i className="fas fa-building"/>
                     <h3> {t.workshopOffer.kotlinTitle} </h3>
                     <p> {t.workshopOffer.kotlinDesc} </p>
-                    <Link to={"/workshop?tag=kotlin#workshops-offer"} className="button">
+                    <Link to={"/workshop#tag-kotlin"} className="button">
                         {t.workshopOffer.kotlinButton}
                     </Link>
                 </div>
@@ -24,7 +24,7 @@ export default function WorkshopOfferSection() {
                     <i className="fas fa-building"/>
                     <h3> {t.workshopOffer.bestPracticesTitle} </h3>
                     <p> {t.workshopOffer.bestPracticesDesc} </p>
-                    <Link to={"/workshop?tag=bestpractices#workshops-offer"} className="button">
+                    <Link to={"/workshop#tag-bestpractices"} className="button">
                         {t.workshopOffer.bestPracticesButton}
                     </Link>
                 </div>
