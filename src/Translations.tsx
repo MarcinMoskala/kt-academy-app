@@ -107,9 +107,9 @@ const EN_desc = {
     "certificateDesc": "You will be trained by an expert who is an official JetBrains' Kotlin training partner. The quality of his workshops was checked and certified by the creators of the Kotlin language itself.",
     "materialsSection": {
         "title": "Professional training materials",
-        "book": "All attendees will get a printed book Effective Kotlin.",
+        "book": "All attendees of the workshop will receive a printed book plus a code to download the Effective Kotlin ebook for free.",
         "onlineTasks": "All attendees will get access to out exclusive learning platform, containing recordings from a full 3-daty Kotlin course, additional materials and exercises.",
-        "printedMaterials": "All attendees of local workshops will get primted materials for the course, including a book with all the slides, exercises, tasks and cheatsheet.",
+        "printedMaterials": "All participants of the in-company workshop will receive printed course materials, including a book with slides, exercises, tasks and a cheat sheet.",
     },
     "testimonials": {
         "subtitle": "We've helped over 300 developers from more than 40 companies around the world in a smooth transition to Kotlin",
@@ -386,9 +386,9 @@ const PL_desc = {
     "certificateDesc": "Jakość tego warsztatu została sprawdzona i certyfikowana przez twórców języka Kotlin. Szkolić Was będzie trener, który jest oficjalnym partnerem JetBrains w zakresie szkoleń z języka Kotlin.",
     "materialsSection": {
         "title": "Profesjonalne materiały szkoleniowe",
-        "book": "Wszyscy uczestnicy kursu dla firm dostaną papierową wersję książki Effective Kotlin w języku angielskim.",
-        "onlineTasks": "Wszyscy uczestnicy otrzymają dostęp do platformy na której znajdą nagrania z pełnego kursu, dodatkowe materiały, oraz wyzwania programistyczne",
-        "printedMaterials": "W przypadku szkoleń lokalnych, wszyscy uczestnicy dostaną pełny zestaw wydrukowanych materiałów szkoleniowych oraz cheatsheet."
+        "book": "Wszyscy uczestnicy warsztatu dostaną papierową wersję oraz kod na ebook książki Effective Kotlin w języku angielskim.",
+        "onlineTasks": "Wszyscy uczestnicy będą mieli dostęp do naszej platformy edukacyjnej, na której znajdą pełne nagranie 3-dniowego kursu z Kotlina, dodatkowe materiały, a także ćwiczenia i wyzwania programistyczne.",
+        "printedMaterials": "W przypadku szkoleń na miejscu, wszyscy uczestnicy otrzymają pełny zestaw materiałów w formie drukowanej, zawierający książkę ze slajdami, ćwiczenia, zadania oraz cheat sheet."
     },
     "testimonials": {
         "subtitle": "Pomogliśmy ponad 300 programistom z ponad 40 firm na całym świecie w przejściu na język Kotlin",
