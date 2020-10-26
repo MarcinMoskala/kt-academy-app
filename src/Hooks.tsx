@@ -1,26 +1,20 @@
 import React, {useEffect, useState} from "react";
-import {
-    Challenge,
-    Course,
-    PageStatistics,
-    RecommendationCollection,
-    Statistics,
-    User,
-    Workshop,
-    WorkshopSubmission
-} from "./Model";
+import {Challenge, Course, PageStatistics, Statistics, User, Workshop, WorkshopSubmission} from "./Model";
 import {useLang} from "./Translations";
 import {
+    HttpError,
     requestChallenge,
     requestCourse,
     requestCourses,
-    requestCurrentUser, requestPageStatistics, requestStatistics,
+    requestCurrentUser,
+    requestPageStatistics,
+    requestStatistics,
     requestUsersList,
-    requestVideoRecommendations,
     requestWorkshop,
     requestWorkshops,
     requestWorkshopSubmissionsList
 } from "./Network";
+import {showHttpError} from "./Popups";
 
 export function useWorkshop(workshopKey: string): Workshop | undefined | null {
     const lang = useLang()
@@ -65,18 +59,25 @@ export function usePageStatistics(pageKey: string): PageStatistics | undefined |
     return useApiSingleData(() => requestPageStatistics(pageKey), [])
 }
 
-export function useApiSingleData<T>(request: () => Promise<T>, deps: any[] = []): T | undefined | null {
+export function useApiSingleData<T>(
+    request: () => Promise<T>,
+    deps: any[] = []
+): T | undefined | null {
     const [data, setData] = React.useState<T | null>();
 
     useEffect(() => {
-        request()
-            .then(
-                (result) => setData(result),
-                (error) => console.log(error)
-            )
-    }, deps)
+        request().then(
+            result => setData(result),
+            error => {
+                if (error instanceof HttpError) {
+                    showHttpError(error);
+                }
+                console.log(error);
+            }
+        );
+    }, [request]);
 
-    return data
+    return data;
 }
 
 export function useWindowSize() {

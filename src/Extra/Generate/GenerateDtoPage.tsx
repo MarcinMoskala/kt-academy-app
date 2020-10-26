@@ -8,6 +8,7 @@ import {registerPage} from "../../Utils";
 import KotlinPlayground from "react-kotlin-playground/es";
 import Swal from "sweetalert2";
 import {requestApi} from "../../Network";
+import {FeedbackButton} from "../../Components/FeedbackButton";
 
 type GenerationForm = {
     code: string,
@@ -23,7 +24,8 @@ type GenerateResp = {
 }
 
 export default function GenerateDtoPage() {
-    registerPage(`generate-dto`)
+    const pageKey = `generate-dto`;
+    registerPage(pageKey)
     const t = useTranslations();
     const [resp, setResp] = useState<GenerateResp>()
     const [version, setVersion] = useState(0)
@@ -120,6 +122,7 @@ export default function GenerateDtoPage() {
                     </div>
                 </>
                 }
+                <FeedbackButton pageKey={pageKey}/>
             </div>
         </section>
         <FooterSection/>

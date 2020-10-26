@@ -1,4 +1,4 @@
-import React, {MutableRefObject, RefObject, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Header from "../../Section/Header/Header";
 import FooterSection from "../../Section/FooterSection";
 import "../../Utils";
@@ -11,8 +11,8 @@ import useSound from "use-sound";
 import {useCookieMusicConfigState} from "./MusicCookieConfig";
 import {RecommendedMusicVideos} from "./RecommendedMusicVideos";
 import "./ProgrammingMusicTimerPage.css"
-import {useFeedbackPopup} from "../../Popups";
 import {makeTimer, Timer} from "./Timer";
+import {FeedbackButton} from "../../Components/FeedbackButton";
 
 // More hee: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 type YouTubePlayer = {
@@ -27,7 +27,6 @@ type YouTubePlayer = {
 export default function ProgrammingMusicTimerPage() {
     let pageKey = `programming-music-timer`;
     registerPage(pageKey)
-    const showFeedbackPopup = useFeedbackPopup(pageKey)
     const t = useTranslations();
     const [playSound] = useSound("/sounds/boop.mp3");
 
@@ -125,9 +124,7 @@ export default function ProgrammingMusicTimerPage() {
                 <div>{t.music.sessionTime + timeDisplay(secPassed)}</div>
                 <div>{(isWorkTime ? t.music.timeUntilBreak : t.music.timeUntilWork) + timeDisplay(secUntilNext)}</div>
                 <div>{t.music.totalConcentrationTime + timeDisplay(totalConcentrationSec)}</div>
-                <div className="clickable"
-                     onClick={togglePhase}>{isWorkTime ? t.music.startBreak : t.music.startWork}</div>
-                <div className="clickable" onClick={showFeedbackPopup}>{t.feedback.button}</div>
+                <FeedbackButton pageKey={pageKey}/>
             </div>
             <br/>
             <br/>

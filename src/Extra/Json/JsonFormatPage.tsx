@@ -6,9 +6,11 @@ import {registerPage} from "../../Utils";
 import "./JsonFormatPage.css"
 import {objectModel} from "./ObjectModel";
 import {modelToKotlin, modelToTS} from "./StringifyModel";
+import {FeedbackButton} from "../../Components/FeedbackButton";
 
 export default function JsonFormatPage() {
-    registerPage(`json-format`)
+    const pageKey = `json-format`;
+    registerPage(pageKey)
     const defaultJson = `{"name": "Kt. Academy", "mission": {"primary": "Teach programming", "secondary": ["Help developers", "Promote best practices"]}}`
     const [className, setClassName] = useState<string>("YourClass")
     const [json, setJson] = useState<string>(defaultJson)
@@ -29,6 +31,7 @@ export default function JsonFormatPage() {
                 {result === null && <p>Cannot parse this object</p>}
                 {error !== null && <p>Error: {error.message}</p>}
                 {result && <JsonToObjects className={className} value={result}/>}
+                <FeedbackButton pageKey={pageKey}/>
             </div>
         </section>
         <FooterSection/>

@@ -1,6 +1,5 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useTranslations} from "../../../../Translations";
-import {requestApi} from "../../../../Network";
 import {Trainer, Video} from "../../../../Model";
 import MarcinPic from "./Marcin_Moskala.jpg"
 import WlodekPic from "./Wlodek_Krakowski.jpg"

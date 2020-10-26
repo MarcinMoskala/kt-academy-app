@@ -1,6 +1,14 @@
 import Swal from "sweetalert2";
-import {sendFeedback} from "./Network";
+import {HttpError, sendFeedback} from "./Network";
 import {useTranslations} from "./Translations";
+
+export function showHttpError(error: HttpError) {
+    Swal.fire({
+        icon: "error",
+        title: `Error ${error?.code} (${error?.statusText})`,
+        text: error?.message
+    });
+}
 
 export function useFeedbackPopup(pageKey: string): () => void {
     const t = useTranslations()

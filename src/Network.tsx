@@ -39,29 +39,62 @@ function removeEmptyValues(obj) {
     Object.keys(obj).forEach(key => obj[key] == null && delete obj[key]);
 }
 
-function buildFetch(path: string, {lang, urlParams, method, body}: ApiCallParams = {}) {
+export class HttpError extends Error {
+    private readonly _code: number;
+    private readonly _statusText: string;
+
+    constructor(code: number, statusText: string, message: string) {
+        super(message);
+        this._code = code;
+        this._statusText = statusText;
+
+        Object.setPrototypeOf(this, HttpError.prototype);
+    }
+
+    get code(): number {
+        return this._code;
+    }
+
+    get statusText(): string {
+        return this._statusText;
+    }
+}
+
+async function buildFetch(
+    path: string,
+    {lang, urlParams, method, body}: ApiCallParams = {}
+): Promise<Response> {
     if (lang) {
         if (urlParams) {
-            urlParams = {...urlParams, lang: lang}
+            urlParams = {...urlParams, lang: lang};
         } else {
-            urlParams = {lang: lang}
+            urlParams = {lang: lang};
         }
     }
 
-    removeEmptyValues(urlParams)
+    removeEmptyValues(urlParams);
     const search = buildQuery(urlParams);
 
-    return fetch(API_URL + path + search, {
+    const response = await fetch(API_URL + path + search, {
         headers: {
-            'Content-Type': 'application/json',
-            'userUuid': userUuid ? userUuid : ""
+            "Content-Type": "application/json",
+            userUuid: userUuid ? userUuid : ""
         },
         ...(method && {method: method}),
         ...(body &&
-            ((typeof body === "string" && {body: body}) ||
-                ({body: JSON.stringify(body)}))
-        ),
-    })
+            ((typeof body === "string" && {body: body}) || {
+                body: JSON.stringify(body)
+            }))
+    });
+    if (response.ok) {
+        return response;
+    } else {
+        throw new HttpError(
+            response.status,
+            response.statusText,
+            await response.text()
+        );
+    }
 }
 
 function buildQuery(urlParams: Record<string, string | null> | undefined) {
