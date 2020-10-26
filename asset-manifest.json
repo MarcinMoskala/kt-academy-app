@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "https://kt.academy/static/css/main.e9e6037e.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.4d1e4ce2.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.4d1e4ce2.chunk.js.map",
-    "runtime-main.js": "https://kt.academy/static/js/runtime-main.971dc042.js",
-    "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.971dc042.js.map",
+    "main.js": "https://kt.academy/static/js/main.d1b47500.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.d1b47500.chunk.js.map",
+    "runtime-main.js": "https://kt.academy/static/js/runtime-main.228d8677.js",
+    "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.228d8677.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
-    "static/js/2.f930d659.chunk.js": "https://kt.academy/static/js/2.f930d659.chunk.js",
-    "static/js/2.f930d659.chunk.js.map": "https://kt.academy/static/js/2.f930d659.chunk.js.map",
-    "static/js/3.cf503607.chunk.js": "https://kt.academy/static/js/3.cf503607.chunk.js",
-    "static/js/3.cf503607.chunk.js.map": "https://kt.academy/static/js/3.cf503607.chunk.js.map",
+    "static/js/2.96ff0cd4.chunk.js": "https://kt.academy/static/js/2.96ff0cd4.chunk.js",
+    "static/js/2.96ff0cd4.chunk.js.map": "https://kt.academy/static/js/2.96ff0cd4.chunk.js.map",
+    "static/js/3.d8289def.chunk.js": "https://kt.academy/static/js/3.d8289def.chunk.js",
+    "static/js/3.d8289def.chunk.js.map": "https://kt.academy/static/js/3.d8289def.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.4956c545434d7f84d85dd535468d3c2e.js": "https://kt.academy/precache-manifest.4956c545434d7f84d85dd535468d3c2e.js",
+    "precache-manifest.1b31a1def1e976bf77b4c2c01b446f9c.js": "https://kt.academy/precache-manifest.1b31a1def1e976bf77b4c2c01b446f9c.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
     "static/css/main.e9e6037e.chunk.css.map": "https://kt.academy/static/css/main.e9e6037e.chunk.css.map",
-    "static/js/2.f930d659.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.f930d659.chunk.js.LICENSE.txt",
-    "static/js/3.cf503607.chunk.js.LICENSE.txt": "https://kt.academy/static/js/3.cf503607.chunk.js.LICENSE.txt",
+    "static/js/2.96ff0cd4.chunk.js.LICENSE.txt": "https://kt.academy/static/js/2.96ff0cd4.chunk.js.LICENSE.txt",
+    "static/js/3.d8289def.chunk.js.LICENSE.txt": "https://kt.academy/static/js/3.d8289def.chunk.js.LICENSE.txt",
     "static/media/1-1920x702.png": "https://kt.academy/static/media/1-1920x702.237da95a.png",
     "static/media/2-1920x702.png": "https://kt.academy/static/media/2-1920x702.e243c9d7.png",
     "static/media/3-1920x1080.png": "https://kt.academy/static/media/3-1920x1080.555e5756.png",
@@ -54,10 +54,10 @@
     "static/media/sensilabs.png": "https://kt.academy/static/media/sensilabs.fcd3d9d7.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.971dc042.js",
+    "static/js/runtime-main.228d8677.js",
     "static/css/2.e22355b1.chunk.css",
-    "static/js/2.f930d659.chunk.js",
+    "static/js/2.96ff0cd4.chunk.js",
     "static/css/main.e9e6037e.chunk.css",
-    "static/js/main.4d1e4ce2.chunk.js"
+    "static/js/main.d1b47500.chunk.js"
   ]
 }
