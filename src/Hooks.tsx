@@ -75,7 +75,7 @@ export function useApiSingleData<T>(
                 console.log(error);
             }
         );
-    }, [request]);
+    }, deps);
 
     return data;
 }

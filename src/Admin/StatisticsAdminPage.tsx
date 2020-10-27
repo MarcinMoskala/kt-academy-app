@@ -48,7 +48,7 @@ export default function StatisticsAdminPage() {
             <div>{"Subscribers: " + JSON.stringify(statistics.subscribers)}</div>
             <AdminTable<PageStatistics> title="Users" list={displayPageStatistics} clicked={onRowClicked} columns={[
                 {name: 'pageKey', label: 'Page key', options: {filter: false, sort: true}},
-                {name: 'pageViews', label: 'Page views', options: {filter: false, sort: true, sortDirection: 'desc'}},
+                {name: 'pageViews', label: 'Page views', options: {filter: false, sort: true, sortOrder: 'desc'}},
                 {name: 'uniqueUsers', label: 'Unique user views', options: {filter: false, sort: true}},
                 {name: 'reactionsCount', label: 'Reactions', options: {filter: false, sort: true}},
             ]}/>
