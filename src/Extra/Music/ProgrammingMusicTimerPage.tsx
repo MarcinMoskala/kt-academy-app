@@ -124,6 +124,7 @@ export default function ProgrammingMusicTimerPage() {
                 <div>{t.music.sessionTime + timeDisplay(secPassed)}</div>
                 <div>{(isWorkTime ? t.music.timeUntilBreak : t.music.timeUntilWork) + timeDisplay(secUntilNext)}</div>
                 <div>{t.music.totalConcentrationTime + timeDisplay(totalConcentrationSec)}</div>
+                <div className="clickable" onClick={togglePhase}>{isWorkTime ? t.music.startBreak : t.music.startWork}</div>
                 <FeedbackButton pageKey={pageKey}/>
             </div>
             <br/>
