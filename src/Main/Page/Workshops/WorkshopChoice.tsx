@@ -17,6 +17,8 @@ type Section = {
 const SECTIONS: Section[] = [
     {title: "Kotlin workshops", tag: "kotlin"},
     {title: "Best practices workshops", tag: "bestpractices"},
+    {title: "For beginners", tag: "beginners"},
+    {title: "A/B testing", tag: "abtesting"},
 ]
 
 export default function WorkshopChoice({tag, workshops}: Props) {

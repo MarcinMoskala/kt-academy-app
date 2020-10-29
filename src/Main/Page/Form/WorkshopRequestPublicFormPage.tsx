@@ -16,7 +16,7 @@ import {CountrySelect} from "./CountrySelect";
 import ReactMarkdown from "react-markdown";
 import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
-import {Workshop} from "../../../Model";
+import {printMoney, Workshop} from "../../../Model";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
 type InvoiceToOptions = "person" | "privateCompany" | "company"
@@ -151,13 +151,13 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                                 {label: t.form.invoiceTo.person, value: "person"}
                             ]}/>
 
-                        {invoiceTo === "person" &&
+                        {invoiceTo === "person" && workshop.programmingLevel !== "BEGINNER" &&
                         <ReactMarkdown source={t.form.noVatIdInfo}/>
                         }
                     </>
                     }
 
-                    {["myself", "developerCompany"].includes(registerKind) &&
+                    {["myself", "developerCompany"].includes(registerKind) && workshop.programmingLevel === "ADVANCED" &&
                     <>
                         <RadioSelect<PublicFormData, DeveloperExperience>
                             title={registerKind === "myself" ? t.form.developerExperience.questionMyself : t.form.developerExperience.questionOther}
@@ -191,8 +191,9 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                     <>
                         <RadioSelect<PublicFormData, PriceAcceptanceOptions>
                             title={t.form.priceAcceptance.question
-                                .replace("{price}", "400 EUR")
-                                .replace("{days_num}", "3")}
+                                .replace("{price}", printMoney(workshop.basePrice.person ?? workshop.basePrice.personPl!!))
+                                .replace("{price_pl}", printMoney(workshop.basePrice.person ?? workshop.basePrice.personPl!!))
+                                .replace("{days_num}", workshop.basePrice.daysNumber.toString())}
                             name="priceAcceptance" register={register} errors={errors} required={true}
                             options={[
                                 {label: t.form.priceAcceptance.ok, value: "ok"},

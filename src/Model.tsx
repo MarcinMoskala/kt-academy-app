@@ -19,6 +19,7 @@ export type Workshop = {
     key: string,
     lang: string,
     name: string,
+    programmingLevel: ProgrammingLevel,
     subtitle: string | null,
     shortDescription: string,
     metaKeywords: string,
@@ -40,6 +41,8 @@ export type Workshop = {
     materials: Materials | null
 };
 
+export type ProgrammingLevel = "OPEN" | "BEGINNER" | "ADVANCED"
+
 export type Materials = {
     online: boolean,
     printed: boolean,
@@ -59,7 +62,7 @@ export type Money = {
     currency: "EUR" | "PLN"
 };
 
-export function printMoney(money: Money): string{
+export function printMoney(money: Money): string {
     switch (money.currency) {
         case "EUR":
             return `${money.amount}\xa0EUR`

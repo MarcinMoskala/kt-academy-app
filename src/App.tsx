@@ -25,7 +25,7 @@ import LogRocket from 'logrocket';
 import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
 import JsonFormatPage from "./Extra/Json/JsonFormatPage";
 
-LogRocket.init('qm0xny/kt-academy');
+// LogRocket.init('qm0xny/kt-academy');
 
 const App = () => {
     const routes: { path: string, component }[] = [

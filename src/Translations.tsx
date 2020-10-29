@@ -263,7 +263,7 @@ const EN_desc = {
         },
 
         "priceAcceptance": {
-            "question": "The base price for this workshop is 400 EUR per person for 3 days. Does it work for you?",
+            "question": "The base price for this workshop is {price} per person for {days_num} days of workshop. Does it work for you?",
             "ok": "Yes",
             "discountNeeded": "This is too much for me, I need a discount",
             "wayTooMuch": "Sorry, but my budget is less than half of that",
@@ -542,7 +542,7 @@ const PL_desc = {
         },
 
         "priceAcceptance": {
-            "question": "Podstawowa cena tego szkolenia to {price} za osobę za {days_num} dni. Czy Ci to odpowiada?",
+            "question": "Podstawowa cena tego szkolenia to {price_pl} za osobę za {days_num} dni ćwiczeniowych. Czy Ci to odpowiada?",
             "ok": "Tak",
             "discountNeeded": "To dla mnie za dużo, potrzebuję zniżki",
             "wayTooMuch": "Mój budżet to mniej niż połowa tej ceny",
