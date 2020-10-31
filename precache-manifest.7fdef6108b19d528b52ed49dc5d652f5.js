@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1d7114b403da4f03faf43bfe43524582",
+    "revision": "4fc6cef2ca923160a054ad686370a929",
     "url": "https://kt.academy/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://kt.academy/static/css/2.e22355b1.chunk.css"
   },
   {
-    "revision": "2e918307619166275d8f",
+    "revision": "91500e77dba75c3beac8",
     "url": "https://kt.academy/static/css/main.73731b23.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://kt.academy/static/js/3.7d453bc6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2e918307619166275d8f",
-    "url": "https://kt.academy/static/js/main.3b2f912e.chunk.js"
+    "revision": "91500e77dba75c3beac8",
+    "url": "https://kt.academy/static/js/main.d523d00a.chunk.js"
   },
   {
     "revision": "b88c523078a3fa4bf99e",
