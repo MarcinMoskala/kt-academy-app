@@ -107,7 +107,7 @@ const EN_desc = {
     "materialsSection": {
         "title": "Professional training materials",
         "book": "All attendees of the workshop will receive a printed book plus a code to download the Effective Kotlin ebook for free.",
-        "onlineTasks": "All attendees will get access to out exclusive learning platform, containing recordings from a full 3-daty Kotlin course, additional materials and exercises.",
+        "onlineTasks": "All attendees will get access to our exclusive learning platform, containing recordings from a full 3-day Kotlin course, additional materials and exercises.",
         "printedMaterials": "All participants of the in-company workshop will receive printed course materials, including a book with slides, exercises, tasks and a cheat sheet.",
     },
     "testimonials": {
