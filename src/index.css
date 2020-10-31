@@ -1017,6 +1017,10 @@ footer .copywright-container .www-author {
     max-height: 166px;
 }
 
+.flex-item--image-container .round-photo.round-photo-middle {
+    max-height: 266px;
+}
+
 .flex-item--testimonials {
     max-width: 800px;
     -webkit-align-self: flex-start;

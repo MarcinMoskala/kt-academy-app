@@ -14,7 +14,6 @@ export default function PageStatisticsAdminPage() {
 
     return <>
         <Header/>
-        <div style={{height: "80px"}}/>
         {pageStatistics && <>
             <div>{"Page views: " + pageStatistics.pageViews}</div>
             <div>{"Unique user views: " + pageStatistics.uniqueUsers}</div>

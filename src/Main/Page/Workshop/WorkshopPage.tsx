@@ -19,7 +19,7 @@ import {registerPage} from "../../../Utils";
 import {RegistrationSection} from "./RegistrationSection";
 import {Workshop} from "../../../Model";
 import {ErrorPage, LoadingPage} from "../../../Loading";
-import ReactMarkdown from "react-markdown";
+import {SectionSimple} from "../../../Section/SectionSimple";
 
 export default function WorkshopPageWrapper() {
     const {workshopKey} = useParams<{ workshopKey: string }>();
@@ -39,8 +39,6 @@ export default function WorkshopPageWrapper() {
 
 function WorkshopPage({workshop}: { workshop: Workshop }) {
     const t = useTranslations()
-
-
     const HeaderBg = getHeader(workshop?.key)
 
     const menuLinks: LinkTo[] = [
@@ -90,21 +88,11 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
             <WorkshopDetailsSection workshop={workshop}/>
 
             {workshop.aboutCourseMd &&
-            <section className="requirements short-section short-list">
-                <div className="content-container short-content-container">
-                    <h1>{t.workshopPage.titleAbout}</h1>
-                    <ReactMarkdown source={workshop.aboutCourseMd} />
-                </div>
-            </section>
+            <SectionSimple title={t.workshopPage.titleAbout} text={workshop.aboutCourseMd}/>
             }
 
             {workshop.howLong &&
-            <section className="requirements short-section short-list">
-                <div className="content-container short-content-container">
-                    <h1>{t.workshopPage.titleHowLong}</h1>
-                    {workshop.howLong}
-                </div>
-            </section>
+            <SectionSimple title={t.workshopPage.titleHowLong} text={workshop.howLong}/>
             }
 
             {workshop.requirements &&

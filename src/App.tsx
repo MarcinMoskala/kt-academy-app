@@ -24,6 +24,7 @@ import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
 import LogRocket from 'logrocket';
 import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
 import JsonFormatPage from "./Extra/Json/JsonFormatPage";
+import ConsultingPage from "./Main/Page/ConsultingPage";
 
 // LogRocket.init('qm0xny/kt-academy');
 
@@ -42,6 +43,7 @@ const App = () => {
         {path: "/json", component: JsonFormatPage},
         {path: "/generate", component: GenerateDtoPage},
         {path: "/materials", component: MaterialsPage},
+        {path: "/consulting", component: ConsultingPage},
         {path: "/workshop", component: WorkshopsPage},
         {path: "/puzzler", component: PuzzlerExamplesPage},
         {path: "/challenges", component: ChallengesExamplePage},

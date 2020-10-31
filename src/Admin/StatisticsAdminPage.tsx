@@ -42,7 +42,6 @@ export default function StatisticsAdminPage() {
     };
     return <>
         <Header/>
-        <div style={{height: "80px"}}/>
         {statistics && displayPageStatistics && <>
             <div>{"Accounts: " + statistics.accounts}</div>
             <div>{"Subscribers: " + JSON.stringify(statistics.subscribers)}</div>

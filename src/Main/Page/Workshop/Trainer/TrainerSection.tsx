@@ -71,7 +71,7 @@ function Videos({videos}: VideosProps) {
                     src={"https://www.youtube.com/embed/" + currentVideos[0].ytCode}
                     onClick={window.displayModal} frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    style={{zIndex:"auto"}}
+                    style={{zIndex: "auto"}}
                     allowFullScreen/>
         </div>
         <div className="flex-container--row space-between margin-top-20 yt-movies">
@@ -89,7 +89,7 @@ function VideoIcon({video, onClick}: { video: Video, onClick: (Video) => void })
 }
 
 function choosePicture(trainerKey?: string) {
-    switch(trainerKey) {
+    switch (trainerKey) {
         case "marcin":
             return MarcinPic
         case "wlodek":

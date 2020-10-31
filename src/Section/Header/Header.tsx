@@ -74,6 +74,7 @@ export default function Header({links = [], banner = undefined, allowedLangs}: P
                 </div>
                 }
             </header>
+            {!banner && <div style={{height: "80px"}}/>}
         </>
     )
 }
@@ -136,21 +137,21 @@ function BookmarkDropdown({links, element, className = ""}: { links: LinkTo[], e
         onMouseOver={() => !showBookmarks && setShowBookmarks(true)}
         onMouseOut={() => showBookmarks && setShowBookmarks(false)}
         id="bookmarks">
-            {links.map((link, index) =>
-                <div className="inline" key={index}>
-                    <Link to={link.to}
-                          keepLang={link.translate !== false}
-                          className={
-                              "nav-link--padding pointer page-scroll" +
-                              (index === 0 ? " first-dropdown-item" : "")
-                          }>
-                        {link.text}
-                    </Link>
-                </div>
-            )}
-            <div>
-                {element}
+        {links.map((link, index) =>
+            <div className="inline" key={index}>
+                <Link to={link.to}
+                      keepLang={link.translate !== false}
+                      className={
+                          "nav-link--padding pointer page-scroll" +
+                          (index === 0 ? " first-dropdown-item" : "")
+                      }>
+                    {link.text}
+                </Link>
             </div>
+        )}
+        <div>
+            {element}
+        </div>
     </nav>;
 }
 

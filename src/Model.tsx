@@ -35,7 +35,7 @@ export type Workshop = {
     trainer: Trainer | null,
     tags: string[],
     aboutCourseMd: string | null,
-    howLong: string[] | null,
+    howLong: string | null,
     basePrice: BasePrice,
     langVariants: string[],
     materials: Materials | null
