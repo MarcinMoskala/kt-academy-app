@@ -44,7 +44,7 @@ export default function ConsultingPage() {
 function ConsultingSection({title, imgSrc, description}: { title: string, imgSrc: string, description: string }) {
     return <section className="requirements short-section short-list">
         <div className="content-container short-content-container">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <PersonImage src={imgSrc}/>
             <ReactMarkdown source={description}/>
             <a onClick={() => showApplicationForm()} className="button margin-top-20">
