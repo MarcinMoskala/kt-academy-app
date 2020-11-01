@@ -20,7 +20,7 @@ declare var userUuid: string
 type ApiCallParams = {
     lang?: string,
     urlParams?: Record<string, string | null>,
-    method?: "GET" | "POST" | "PUT",
+    method?: "GET" | "POST" | "PUT" | "PATCH",
     body?: any,
     parseResult?: boolean
 };
@@ -114,6 +114,10 @@ export function requestChallenge(challengeKey: string): Promise<Challenge | null
     return requestApi<Challenge | null>(`challenge/${challengeKey}`)
 }
 
+export function requestUserByKey(userKey: string): Promise<User | null> {
+    return requestApi<User | null>(`user/key/${userKey}`)
+}
+
 export function requestCurrentUser(): Promise<User | null> {
     return requestApi<User | null>("user/me")
 }
@@ -130,10 +134,23 @@ export function requestPageStatistics(pageKey: string): Promise<PageStatistics> 
     return requestApi<PageStatistics>(`statistics/${pageKey}`)
 }
 
-export function modifyUser(userId: string, body: { tags: string[] }): Promise<Response> {
+export type PatchUserSelfRequest = {
+    customImageUrl?: string | null, // Empty means removing
+    publicKey?: string | null, // Empty means removing
+    bio?: string | null,
+}
+
+export function patchUserSelf(body: PatchUserSelfRequest): Promise<Response> {
+    return callApi("user/me", {
+        method: "PATCH",
+        body: body
+    })
+}
+
+export function putUserAdmin(userId: string, body: { tags: string[] }): Promise<Response> {
     return callApi("user/" + userId, {
         method: "PUT",
-        body: JSON.stringify(body)
+        body: body
     })
 }
 

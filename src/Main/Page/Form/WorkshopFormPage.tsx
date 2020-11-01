@@ -16,6 +16,7 @@ import ReactMarkdown from "react-markdown";
 import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
 import {Workshop} from "../../../Model";
+import {showErrorDialog, showSuccessDialog} from "../../../Popups";
 
 type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
 type IsOnlineOptions = "online" | "inCompany"
@@ -67,14 +68,12 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
             .then(
                 (_) => {
                     setButtonEnabled(true)
-                    Swal.fire(t.form.dialogSent)
-                        .then(r => {
-                            history.push("/");
-                        })
+                    showSuccessDialog(t.form.dialogSent)
+                        .then(_ => history.push("/"))
                 },
                 (error) => {
                     setButtonEnabled(true)
-                    Swal.fire(t.form.dialogError)
+                    showErrorDialog(t.form.dialogError)
                 }
             )
     }

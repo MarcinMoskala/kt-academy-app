@@ -8,7 +8,7 @@ import {
     requestCourses,
     requestCurrentUser,
     requestPageStatistics,
-    requestStatistics,
+    requestStatistics, requestUserByKey,
     requestUsersList,
     requestWorkshop,
     requestWorkshops,
@@ -35,7 +35,11 @@ export function useWorkshopSubmissionsList(): WorkshopSubmission[] | undefined |
     return useApiSingleData(() => requestWorkshopSubmissionsList())
 }
 
-export function useUser(): User | undefined | null {
+export function useUserByKey(userKey: string): User | undefined | null {
+    return useApiSingleData(() => requestUserByKey(userKey))
+}
+
+export function useUserSelf(): User | undefined | null {
     return useApiSingleData(() => requestCurrentUser())
 }
 

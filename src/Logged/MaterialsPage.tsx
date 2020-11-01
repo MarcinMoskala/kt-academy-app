@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslations} from "../Translations";
 import FooterSection from "../Section/FooterSection";
 import Header from "../Section/Header/Header";
-import {useUser} from "../Hooks";
+import {useUserSelf} from "../Hooks";
 import {registerPage} from "../Utils";
 import Link from "../Link";
 import {LoadingPage} from "../Loading";
@@ -11,7 +11,7 @@ import {Video} from "./Course/Video";
 export default function MaterialsPage() {
     registerPage(`materials`)
     const t = useTranslations();
-    const user = useUser()
+    const user = useUserSelf()
 
     if (user === undefined) {
         return <LoadingPage/>

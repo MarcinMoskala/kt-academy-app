@@ -6,7 +6,7 @@ import {registerPage} from "../Utils";
 import {AdminTable} from "./AdminTable";
 import {User} from "../Model";
 import Swal from "sweetalert2";
-import {modifyUser} from "../Network";
+import {putUserAdmin} from "../Network";
 
 export default function UsersAdminPage() {
     registerPage("users-admin")
@@ -20,7 +20,7 @@ export default function UsersAdminPage() {
             showCancelButton: true
         }).then(state => {
             if (state.value) {
-                modifyUser(user.id, {tags: JSON.parse(state.value)})
+                putUserAdmin(user.id, {tags: JSON.parse(state.value)})
                     .then(_ => window.location.reload())
             }
         })

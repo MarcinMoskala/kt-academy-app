@@ -17,6 +17,7 @@ import ReactMarkdown from "react-markdown";
 import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
 import {printMoney, Workshop} from "../../../Model";
+import {showErrorDialog, showSuccessDialog} from "../../../Popups";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
 type InvoiceToOptions = "person" | "privateCompany" | "company"
@@ -77,14 +78,13 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
             .then(
                 (_) => {
                     setButtonEnabled(true)
-                    Swal.fire(t.form.dialogSent)
-                        .then(_ => {
-                            history.push("/");
-                        })
+                    showSuccessDialog(t.form.dialogSent)
+                        .then(_ => history.push("/"))
+
                 },
                 (error) => {
                     setButtonEnabled(true)
-                    Swal.fire(t.form.dialogError)
+                    showErrorDialog(t.form.dialogError)
                 }
             )
     }

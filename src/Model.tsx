@@ -75,11 +75,14 @@ export function printMoney(money: Money): string {
 
 export type User = {
     id: string,
+    publicKey: string,
     email: string,
     name: string,
     surname: string,
+    bio: string | null,
     createdAt: string,
     imageUrl: string,
+    customImageUrl: string,
     googleToken: string | null,
     newsletters: string[],
     tags: string[]

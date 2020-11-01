@@ -2,6 +2,20 @@ import Swal from "sweetalert2";
 import {HttpError, sendFeedback} from "./Network";
 import {useTranslations} from "./Translations";
 
+export function showSuccessDialog(title?: string): Promise<any> {
+    return Swal.fire({
+        title: title ? title : 'Success!',
+        icon: 'success'
+    })
+}
+
+export function showErrorDialog(title?: string): Promise<any> {
+    return Swal.fire({
+        title: title ? title : 'Error',
+        icon: "error"
+    })
+}
+
 export function showHttpError(error: HttpError) {
     Swal.fire({
         icon: "error",

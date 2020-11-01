@@ -18,10 +18,9 @@ import WorkshopsSubmissionsAdminPage from "./Admin/WorkshopsSubmissionsAdminPage
 import CoursePage from "./Logged/Course/CoursePage";
 import CoursesPage from "./Logged/Course/CoursesPage";
 import VideoPage from "./Logged/Course/VideoPage";
-import UserPage from "./Logged/User/UserPage";
+import {UserEditPageWrapper, UserPageWrapper} from "./Logged/User/UserPage";
 import ProgrammingMusicTimerPage from "./Extra/Music/ProgrammingMusicTimerPage";
 import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
-import LogRocket from 'logrocket';
 import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
 import JsonFormatPage from "./Extra/Json/JsonFormatPage";
 import ConsultingPage from "./Main/Page/ConsultingPage";
@@ -30,8 +29,8 @@ import ConsultingPage from "./Main/Page/ConsultingPage";
 
 const App = () => {
     const routes: { path: string, component }[] = [
-        {path: "/user/me", component: UserPage},
-        {path: "/user/:user", component: UserPage},
+        {path: "/user/me", component: UserEditPageWrapper},
+        {path: "/user/:userKey", component: UserPageWrapper},
         {path: "/course/:courseKey/challenge/:challengeKey", component: ChallengePage},
         {path: "/course/:courseKey/video/:videoKey", component: VideoPage},
         {path: "/course/:courseKey", component: CoursePage},
