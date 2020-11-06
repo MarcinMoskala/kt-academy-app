@@ -12,7 +12,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "kotlin-playground": "^1.22.0",
+    "kotlin-playground": "^1.23.0",
     "logrocket": "^1.0.14",
     "mui-datatables": "^3.4.1",
     "pretty-time": "^1.1.0",
