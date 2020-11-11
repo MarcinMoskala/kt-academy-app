@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://kt.academy/static/css/main.5115e8b4.chunk.css",
-    "main.js": "https://kt.academy/static/js/main.645780b3.chunk.js",
-    "main.js.map": "https://kt.academy/static/js/main.645780b3.chunk.js.map",
+    "main.js": "https://kt.academy/static/js/main.49ef8c3a.chunk.js",
+    "main.js.map": "https://kt.academy/static/js/main.49ef8c3a.chunk.js.map",
     "runtime-main.js": "https://kt.academy/static/js/runtime-main.4977912c.js",
     "runtime-main.js.map": "https://kt.academy/static/js/runtime-main.4977912c.js.map",
     "static/css/2.e22355b1.chunk.css": "https://kt.academy/static/css/2.e22355b1.chunk.css",
@@ -11,7 +11,7 @@
     "static/js/3.5aaecb39.chunk.js": "https://kt.academy/static/js/3.5aaecb39.chunk.js",
     "static/js/3.5aaecb39.chunk.js.map": "https://kt.academy/static/js/3.5aaecb39.chunk.js.map",
     "index.html": "https://kt.academy/index.html",
-    "precache-manifest.5703e99284b8f8573c4aa5775092a85d.js": "https://kt.academy/precache-manifest.5703e99284b8f8573c4aa5775092a85d.js",
+    "precache-manifest.8357a8e6ae6900d74b29848376323854.js": "https://kt.academy/precache-manifest.8357a8e6ae6900d74b29848376323854.js",
     "service-worker.js": "https://kt.academy/service-worker.js",
     "static/css/2.e22355b1.chunk.css.map": "https://kt.academy/static/css/2.e22355b1.chunk.css.map",
     "static/css/main.5115e8b4.chunk.css.map": "https://kt.academy/static/css/main.5115e8b4.chunk.css.map",
@@ -60,6 +60,6 @@
     "static/css/2.e22355b1.chunk.css",
     "static/js/2.aab85431.chunk.js",
     "static/css/main.5115e8b4.chunk.css",
-    "static/js/main.645780b3.chunk.js"
+    "static/js/main.49ef8c3a.chunk.js"
   ]
 }
