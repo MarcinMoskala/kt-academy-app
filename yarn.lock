@@ -7163,10 +7163,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-kotlin-playground@^1.22.0:
-  version "1.22.0"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.22.0.tgz#ad1a34351b3633fdb79c3b88c9b8986deaab126f"
-  integrity sha512-bb1000kZsnHs/qOnRciW26jy1LztxkIKYqEbnhsZLCe2D/R4+jxObAmhNSAxb+yt7Rud34S+H2KD83SFnaH7EA==
+kotlin-playground@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.23.0.tgz#fe7fe510bb17b67353f2fcc4e9c2558033fcee25"
+  integrity sha512-p2e+v4r3JLQp/1rpy/pzYqTdJz95mN6v/tlC8qHW2PcQWO5yjysQ7KCF89Y0dMpmF9ieYplbx60SECBam5xjbQ==
 
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
