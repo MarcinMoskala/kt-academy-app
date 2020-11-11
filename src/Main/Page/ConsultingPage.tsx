@@ -19,7 +19,9 @@ export default function ConsultingPage() {
     return <>
         <Header/>
         <SectionSimple title={"Consulting"}
-                       text={"Our team of experts is ready to help you with your company problems."}/>
+                       text={"Get the expertise you need to solve your biggest IT challenges! Our experts are ready to help you with any programming problems, they will advice how to deploy the right technology to respond quickly to market needs and will guide you at the beginning of your professional career as a developer.\n" +
+                       "\n" +
+                       "Do you have questions? Do you need support? Book an online consultation or invite our consultant to your company."}/>
         <div>
             <ConsultingSection title="A/B testing" imgSrc={BartoszPic}
                                description="A/B testing allows you to test business hypotheses in a fast and reliable way. Our consultants have extensive experience in this topic as they’ve implemented the A/B testing process and platform for Allegro, the biggest tech company in Poland and one of the biggest in the world."/>
