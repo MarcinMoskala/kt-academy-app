@@ -15,6 +15,7 @@ export default function initShowFab(setUser: (user: User | null) => void) {
     const logo_url = '/images/logo.png'
     const extraMenuLinksFunction: LinksBuilder = (user) => {
         const items: FabMenuItem[] = []
+        items.push({text: "Profile", link: "/user/me", icon: "fas fa-user-alt"})
         if (user.tags.includes("ADMIN")) {
             items.push({text: "Users", link: "/admin/users", icon: "fas fa-users"})
             items.push({text: "Submissions", link: "/admin/workshopSubmissions", icon: "fas fa-chalkboard-teacher"})

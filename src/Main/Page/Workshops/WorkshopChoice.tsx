@@ -18,7 +18,7 @@ const SECTIONS: Section[] = [
     {title: "Kotlin workshops", tag: "kotlin"},
     {title: "Best practices workshops", tag: "bestpractices"},
     {title: "For beginners", tag: "beginners"},
-    {title: "A/B testing", tag: "abtesting"},
+    {title: "Testing", tag: "testing"},
 ]
 
 export default function WorkshopChoice({tag, workshops}: Props) {

@@ -72,10 +72,13 @@ const EN_desc = {
         "subtitle": "",
         "kotlinTitle": "Kotlin trainings",
         "kotlinDesc": "Workshops dedicated to Kotlin ecosystem, including Coroutines and Android.",
-        "kotlinButton": "Check the most popular workshops",
+        "button": "Check the most popular workshops",
         "bestPracticesTitle": "Best practices trainings",
         "bestPracticesDesc": "Workshops for all kinds of developers, teaching best practices, design patterns and refactoring.",
-        "bestPracticesButton": "Check the most popular workshops"
+        "beginnersTitle": "Beginner workshops",
+        "beginnersDesc": "Practical workshops for new or aspiring developers.",
+        "testingTitle": "Testing",
+        "testingDesc": "Workshops dedicating to testing, both business hypothesis and software correctness.",
     },
     "whyUs": {
         "title": "Why training with us?",
@@ -350,12 +353,15 @@ const PL_desc = {
     "workshopOffer": {
         "title": "Jakiego warsztatu szukasz?",
         "subtitle": "",
-        "kotlinTitle": "Warsztaty z Kotlina",
+        "kotlinTitle": "Kotlin",
         "kotlinDesc": "Warsztaty dedykowane ekosystemowi Kotlina, w tym Coroutines i Android.",
-        "kotlinButton": "Sprawdź najpopularniejsze warsztaty",
-        "bestPracticesTitle": "Warsztaty z dobrych praktyk",
+        "button": "Sprawdź najpopularniejsze warsztaty",
+        "bestPracticesTitle": "Najlepsze praktyki",
         "bestPracticesDesc": "Warsztaty dla programistów różnych języków i technologii, dedykowane jakości kodu, wzorcom projektowym, refaktoryzacji oraz najlepszym praktykom.",
-        "bestPracticesButton": "Sprawdź najpopularniejsze warsztaty"
+        "beginnersTitle": "Dla początkujących",
+        "beginnersDesc": "Praktycznie szkolenia dla nowych i aspirujących programistów.",
+        "testingTitle": "Testowanie",
+        "testingDesc": "Warsztaty poświęcone testowaniu, zarówno hipotez biznesowych jak i testom automatycznym oprogramowania.",
     },
     "whyUs": {
         "title": "Dlaczego warto szkolić się z nami?",

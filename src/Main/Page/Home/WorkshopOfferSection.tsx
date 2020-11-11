@@ -11,25 +11,47 @@ export default function WorkshopOfferSection() {
 
             <div className="flex-container--row">
 
-                <div className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
-                    <i className="fas fa-building"/>
-                    <h3> {t.workshopOffer.kotlinTitle} </h3>
-                    <p> {t.workshopOffer.kotlinDesc} </p>
-                    <Link to={"/workshop#tag-kotlin"} className="button">
-                        {t.workshopOffer.kotlinButton}
-                    </Link>
-                </div>
+                <WorkshopOfferCategory
+                    icon="kotlin-icon"
+                    title={t.workshopOffer.kotlinTitle}
+                    desc={t.workshopOffer.kotlinDesc}
+                    link="/workshop#tag-kotlin"
+                />
 
-                <div className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
-                    <i className="fas fa-building"/>
-                    <h3> {t.workshopOffer.bestPracticesTitle} </h3>
-                    <p> {t.workshopOffer.bestPracticesDesc} </p>
-                    <Link to={"/workshop#tag-bestpractices"} className="button">
-                        {t.workshopOffer.bestPracticesButton}
-                    </Link>
-                </div>
+                <WorkshopOfferCategory
+                    icon="fas fa-rocket"
+                    title={t.workshopOffer.bestPracticesTitle}
+                    desc={t.workshopOffer.bestPracticesDesc}
+                    link="/workshop#tag-bestpractices"
+                />
+
+                <WorkshopOfferCategory
+                    icon="fas fa-chalkboard"
+                    title={t.workshopOffer.beginnersTitle}
+                    desc={t.workshopOffer.beginnersDesc}
+                    link="/workshop#tag-beginners"
+                />
+
+                <WorkshopOfferCategory
+                    icon="fas fa-vial"
+                    title={t.workshopOffer.testingTitle}
+                    desc={t.workshopOffer.testingDesc}
+                    link="/workshop#tag-testing"
+                />
 
             </div>
         </div>
     </section>);
+}
+
+function WorkshopOfferCategory({desc, icon, title, link}: { icon: string, title: string, desc: string, link: string }) {
+    const t = useTranslations();
+    return <div className="flex-item flex-item-paddings flex-container--column margin-right-20 wow zoomIn">
+        <i className={icon}/>
+        <h3> {title} </h3>
+        <p> {desc} </p>
+        <Link to={link} className="button">
+            {t.workshopOffer.button}
+        </Link>
+    </div>;
 }
