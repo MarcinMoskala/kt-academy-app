@@ -1,9 +1,12 @@
 import React from "react";
 import {useTranslations} from "../../../Translations";
 import Link from "../../../Link"
+import {useWorkshopCategories, WorkshopCategory} from "../../../Data";
 
 export default function WorkshopOfferSection() {
     const t = useTranslations();
+    const workshopCategories: WorkshopCategory[] = useWorkshopCategories()
+
     return (<section className="workshops-offer section--white" id="workshops-offer">
         <div className="content-container">
             <h1> {t.workshopOffer.title} </h1>

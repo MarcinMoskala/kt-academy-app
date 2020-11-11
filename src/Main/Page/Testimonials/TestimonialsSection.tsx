@@ -5,12 +5,7 @@ import MariuszSaramak from "./MariuszSaramak.jpg"
 import {useTranslations} from "../../../Translations";
 import Link from "../../../Link";
 
-type Props = {
-    to?: string,
-};
-
-// TODO: Extract components
-export default function TestimonialsSection({to}: Props) {
+export default function TestimonialsSection({}: {}) {
     const t = useTranslations();
 
     return (
@@ -19,68 +14,58 @@ export default function TestimonialsSection({to}: Props) {
                 <h2> {t.testimonials.subtitle} </h2>
                 <div className="flex-container--row">
 
-                    <div
-                        className="flex-item padding-right-testimonials padding-top-30  flex-item--testimonials wow fadeInLeft flex-container--column">
-                        <div className="flex-container--column">
-                            <div className="flex-item--image-container">
-                                <img className="round-photo round-photo-small" src={MariuszSaramak}
-                                     alt="Mariusz Saramak - Kt.Academy references"/>
-                            </div>
-                            <div className="flex-item margin-top-20">
-                                <h2 className="margin-bottom-5"> Mariusz Saramak </h2>
-                                <h3 className="margin-bottom-5"> Expert Android Developer </h3>
-                                <h3 className="margin-bottom-5"> Tom Tom </h3>
-                            </div>
-                        </div>
-                        <blockquote
-                            className="flex-item--flex-start margin-top-30"> {t.testimonials.saramak} </blockquote>
-                    </div>
+                    <Testimonial
+                        img={MariuszSaramak}
+                        name="Mariusz Saramak"
+                        position="Expert Android Developer"
+                        company="Tom Tom"
+                        testimonial={t.testimonials.saramak}
+                    />
 
-                    <div
-                        className="flex-item padding-left-testimonials padding-right-testimonials padding-top-30 flex-item--testimonials wow fadeInLeft flex-container--column">
-                        <div className="flex-container--column">
-                            <div className="flex-item--image-container">
-                                <img className="round-photo round-photo-small" src={NataliaNazaruk}
-                                     alt="Natalia Nazaruk - Kt.Academy references"/>
-                            </div>
-                            <div className="flex-item margin-top-20">
-                                <h2 className="margin-bottom-5"> Natalia Nazaruk </h2>
-                                <h3 className="margin-bottom-5"> IT Developer (Android) </h3>
-                                <h3 className="margin-bottom-5 "> Nordea </h3>
-                            </div>
-                        </div>
-                        <blockquote
-                            className="flex-item--flex-start margin-top-30"> {t.testimonials.nazaruk}</blockquote>
-                    </div>
+                    <Testimonial
+                        img={NataliaNazaruk}
+                        name="Natalia Nazaruk"
+                        position="IT Developer (Android)"
+                        company="Nordea"
+                        testimonial={t.testimonials.nazaruk}
+                    />
 
+                    <Testimonial
+                        img={PatrykGrajewski}
+                        name="Patryk Grajewski"
+                        position="Android Software Engineer"
+                        company="Sii Poland"
+                        testimonial={t.testimonials.grajewski}
+                    />
 
-                    <div
-                        className="flex-item padding-left-testimonials padding-top-30 flex-item--testimonials wow fadeInLeft flex-container--column">
-                        <div className="flex-container--column">
-                            <div className="flex-item--image-container">
-                                <img className="round-photo round-photo-small" src={PatrykGrajewski}
-                                     alt="Patryk Grajewski - Kt.Academy references"/>
-                            </div>
-                            <div className="flex-item margin-top-20">
-                                <h2 className="margin-bottom-5"> Patryk Grajewski </h2>
-                                <h3 className="margin-bottom-5"> Android Software Engineer </h3>
-                                <h3 className="margin-bottom-5 "> Sii Poland </h3>
-                            </div>
-                        </div>
-                        <blockquote
-                            className="flex-item--flex-start margin-top-30"> {t.testimonials.grajewski} </blockquote>
-                    </div>
                 </div>
-                {to &&
                 <div className="book-workshop-button">
                     <div>
-                        <Link to={to}
-                           id="testymonials-button"
-                           className="button wow fadeInUp page-scroll margin-top-50"> {t.testimonials.button} </Link>
+                        <Link to={"/workshop"}
+                              id="testymonials-button"
+                              className="button wow fadeInUp page-scroll margin-top-50"> {t.testimonials.button} </Link>
                     </div>
                 </div>
-                }
             </div>
         </section>
     );
+}
+
+function Testimonial({img, name, position, company, testimonial}: { img: string, testimonial: string, name: string, position: string, company: string }) {
+    return <div
+        className="flex-item padding-right-testimonials padding-top-30  flex-item--testimonials wow fadeInLeft flex-container--column">
+        <div className="flex-container--column">
+            <div className="flex-item--image-container">
+                <img className="round-photo round-photo-small" src={img}
+                     alt={`${name} - Kt.Academy references`}/>
+            </div>
+            <div className="flex-item margin-top-20">
+                <h2 className="margin-bottom-5"> {name} </h2>
+                <h3 className="margin-bottom-5"> {position} </h3>
+                <h3 className="margin-bottom-5"> {company} </h3>
+            </div>
+        </div>
+        <blockquote
+            className="flex-item--flex-start margin-top-30"> {testimonial} </blockquote>
+    </div>;
 }

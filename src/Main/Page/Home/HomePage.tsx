@@ -25,7 +25,7 @@ export default function HomePage() {
             <WorkshopOfferSection/>
             <WhyUsSection/>
             <TrustedBySection/>
-            <TestimonialsSection to="#workshops-offer"/>
+            <TestimonialsSection/>
             <ContactSection/>
             <FooterSection/>
         </>

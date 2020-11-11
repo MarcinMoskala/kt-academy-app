@@ -3,30 +3,22 @@ import {useTranslations} from "../../../Translations";
 import {Workshop} from "../../../Model";
 import "../../../Utils";
 import Link from "../../../Link";
+import {useWorkshopCategories, WorkshopCategory} from "../../../Data";
 
 type Props = {
     workshops: Workshop[],
     tag: string | null
 };
 
-type Section = {
-    title: string,
-    tag: string,
-}
-
-const SECTIONS: Section[] = [
-    {title: "Kotlin workshops", tag: "kotlin"},
-    {title: "Best practices workshops", tag: "bestpractices"},
-    {title: "For beginners", tag: "beginners"},
-    {title: "Testing", tag: "testing"},
-]
-
 export default function WorkshopChoice({tag, workshops}: Props) {
     const t = useTranslations();
-    const sections = tag && SECTIONS.map(it => it.tag).includes(tag) ?
-        SECTIONS.filter(it => it.tag === tag) :
-        SECTIONS
-    const LAST_SECTION_INDEX = (SECTIONS.length - 1)
+
+    const workshopCategories: WorkshopCategory[] = useWorkshopCategories()
+
+    const sections = tag && workshopCategories.map(it => it.tag).includes(tag) ?
+        workshopCategories.filter(it => it.tag === tag) :
+        workshopCategories
+    const LAST_SECTION_INDEX = (workshopCategories.length - 1)
 
     return (<section className="workshops-offer" id="workshops-offer">
         <div className="content-container" style={{maxWidth: "1500px"}}>
