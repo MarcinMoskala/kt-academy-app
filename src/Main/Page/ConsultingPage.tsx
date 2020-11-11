@@ -22,19 +22,19 @@ export default function ConsultingPage() {
                        text={"Our team of experts is ready to help you with your company problems."}/>
         <div>
             <ConsultingSection title="A/B testing" imgSrc={BartoszPic}
-                               description="If you want to introduce A/B testing in your company, our consultants, who implemented A/B testing process and platform for Allegro, the boggest tech company in Poland and one of the biggest in the World, are ready to share their experience and help you with smooth transition in your company."/>
+                               description="A/B testing allows you to test business hypotheses in a fast and reliable way. Our consultants have extensive experience in this topic as they’ve implemented the A/B testing process and platform for Allegro, the biggest tech company in Poland and one of the biggest in the world."/>
 
             <ConsultingSection title="System Design" imgSrc={MarcinPic}
-                               description="Complex project require proper architecture design that both support dividing parts of the project between teams, and easier testing. Here he often need microservices, proper asynchronous messaging, distributed databases. In Allegro we made such transition, and we can help you make a similar one pragmatically in your company too."/>
+                               description="Complex projects require proper architecture design that both supports dividing parts of the project between teams and easier testing. Here we often need microservices, proper asynchronous messaging, distributed databases. In Allegro, we made such a transition and we can help you make a similar one in your company too."/>
 
-            <ConsultingSection title="Softwere Architecture" imgSrc={WlodekPic}
-                               description="Proper code, project and services architecture based on the best practices and design patterns."/>
+            <ConsultingSection title="Software Architecture" imgSrc={WlodekPic}
+                               description="Cleaning the code and maintaining its quality is the best way to improve your work and productivity. What’s more, refactoring towards design patterns will make code architecture more extendable, readable and testable. If you want to make cleaning the code your daily habit, our consultant is ready to show you how to do it."/>
 
             <ConsultingSection title="Kotlin" imgSrc={MarcinPic}
-                               description="For companies introducing or willing to introduce Kotlin."/>
+                               description="For companies introducing or willing to introduce Kotlin. Our consultant is an experienced Android developer, an official Jetbrains' Kotlin training partner and the author of the book “Effective Kotlin”. He will answer any questions you may have about Kotlin in terms of both basic and advanced content."/>
 
             <ConsultingSection title="Basic programming" imgSrc={MarekPic}
-                               description="If just start your path as a developer and you need lesson, a consultancy, or a code review, we are ready to help. "/>
+                               description="Becoming a programmer is a difficult task, so it’s good to have some support. Our experienced consultant will help you get started, guide you and give you lessons. He will also answer any questions, clarify your doubts, as well as provide your code review."/>
 
         </div>
 
