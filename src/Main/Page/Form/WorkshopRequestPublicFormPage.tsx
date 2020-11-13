@@ -170,7 +170,7 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                             ]}/>
 
                         {developerExperience === "no" &&
-                        <ReactMarkdown source={t.form.beginnerInfo}/>
+                        <ReactMarkdown source={t.form.notForBeginnerInfo}/>
                         }
                     </>
                     }

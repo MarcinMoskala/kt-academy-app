@@ -277,7 +277,7 @@ const EN_desc = {
         "submit": "Submit",
 
         "requestOpenInsteadInfo": "This form should be used to request private workshops for companies. If it is just you or a small group of people, we suggest to use [this form]({openFormLink}) to request an open online workshop.",
-        "beginnerInfo": "We are sorry, but this workshop is for developers with professional experience. We've collected our pieces of advice for new developers in [this article](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc). If you want to learn Kotlin, our recommendations are [here](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6).",
+        "notForBeginnerInfo": "We are sorry, but this workshop is for developers with professional experience. Check out our [workshops for beginners](https://kt.academy/workshop#tag-beginners). If you want to learn Kotlin, our recommendations are [here](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6).",
         "noVatIdInfo": "We may not be able to offer you any discount as for a private person we will have to pay an additional tax of 23%.",
     },
     "generate": {
@@ -559,7 +559,7 @@ const PL_desc = {
         "submit": "Wyślij",
 
         "requestOpenInsteadInfo": "Dla mniejszych grup sugerujemy warsztaty otwarte, gdzie cena ustalona jest od osoby. Aby zapisać się na takie szkolenie użyj [tego formularza]({openFormLink}).",
-        "beginnerInfo": "Niestety, ale to szkolenie jest skierowane do doświadczonych programistów. W naszej ofercie nie posiadamy warsztatów dla początkujących. Nasze rady jak zacząć naukę programowania zebraliśmy [tutaj](https://blog.kotlin-academy.com/learn-programming-in-9-months-eac3f049c5bc). Jeśli natomiast Twoim celem jest nauczenie się języka Kotlin, to [w tym artykule](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6) znajdziesz polecane przez nas darmowe kursy.",
+        "notForBeginnerInfo": "Niestety, ale to szkolenie jest skierowane do doświadczonych programistów. Sprawdź nasze [szkolenia dla początkujących](https://kt.academy/workshop#tag-beginners). Jeśli natomiast Twoim celem jest nauczenie się języka Kotlin, to [w tym artykule](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6) znajdziesz polecane przez nas darmowe kursy.",
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej jesteśmy zobligowani zapłacić dodatkowy podatek w wysokości 23%.",
     },
     "generate": {
