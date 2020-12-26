@@ -150,7 +150,8 @@ const EN_desc = {
             "title": "On the workshop you will",
             "lecture": "Learn from lecture supported by slides",
             "exercises": "Complete practical exercises",
-            "puzzlers": "Solve puzzlers"
+            "puzzlers": "Solve puzzlers",
+            "challenges": "Solve coding challenges",
         },
         "titleToc": "During the workshop we cover:",
         "titleRequirements": "Requirements",
@@ -431,7 +432,8 @@ const PL_desc = {
             "title": "Podczas warsztatu nauczysz się poprzez:",
             "lecture": "Wykład wspierany slajdami",
             "exercises": "Wykonanie praktycznych ćwiczeń",
-            "puzzlers": "Rozwiązanie Kotlinowych puzzler'ów"
+            "puzzlers": "Rozwiązanie Kotlinowych puzzler'ów",
+            "challenges": "Rozwiązanie programistycznych wyzwań",
         },
         "titleToc": "Materiał omawiany podczas warsztatu:",
         "titleRequirements": "Wymagania",

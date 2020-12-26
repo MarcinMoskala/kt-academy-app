@@ -38,8 +38,19 @@ export type Workshop = {
     howLong: string | null,
     basePrice: BasePrice,
     langVariants: string[],
-    materials: Materials | null
+    materials: Materials | null,
+    knowledgeSources: KnowledgeSource[] | null,
 };
+
+export type KnowledgeSource = {
+    iconCss: string,
+    text: TranslatedText,
+}
+
+export type TranslatedText = {
+    text: string | null,
+    translationKey: string | null,
+}
 
 export type ProgrammingLevel = "OPEN" | "BEGINNER" | "ADVANCED"
 

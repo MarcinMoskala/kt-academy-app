@@ -12,7 +12,7 @@ import AndroidHeaderBg from "../../../Section/Header/background-img/2-1920x702.p
 import BackendHeaderBg from "../../../Section/Header/background-img/6-1920x702.png"
 import EffectiveHeaderBg from "../../../Section/Header/background-img/3-1920x702.png"
 import CoroutinesHeaderBg from "../../../Section/Header/background-img/9-1920x702.png"
-import WorkshopDescriptionSection from "./WorkshopDescriptionSection";
+import KnowledgeSources from "./KnowledgeSources";
 import WorkshopDetailsSection from "./WorkshopTocSection";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
@@ -83,7 +83,7 @@ function WorkshopPage({workshop}: { workshop: Workshop }) {
 
             <Header links={menuLinks} banner={bannerOptions} allowedLangs={workshop.langVariants}/>
 
-            <WorkshopDescriptionSection workshop={workshop}/>
+            <KnowledgeSources workshop={workshop}/>
 
             <WorkshopDetailsSection workshop={workshop}/>
 
