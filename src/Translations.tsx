@@ -169,6 +169,9 @@ const EN_desc = {
                 "buttonText": "Open online workshop",
                 "chooseOption": "Choose this option if you need a workshop for yourself or for a small group of people. ",
                 "explanation": 'The basic price is {workshop_person_price} per person for the whole workshop.',
+            },
+            "publicPlanned": {
+                "explanation": 'Join online workshop in {start_date} to {end_date} at {time}. The price is {workshop_person_price_pl} per person.',
             }
         }
     },
@@ -451,6 +454,9 @@ const PL_desc = {
                 "buttonText": "Szkolenie otwarte online",
                 "chooseOption": "Wybierz tę opcję, jeśli potrzebujesz szkolenia dla siebie lub małej grupy. ",
                 "explanation": 'Podstawowa cena to {workshop_person_price_pl} za osobę za całe szkolenie w języku polskim.',
+            },
+            "publicPlanned": {
+                "explanation": 'Dołącz do szkolenia online w dniach {start_date} do {end_date}, w godzinach {time}. Cena to {workshop_person_price_pl} za osobę.',
             }
         }
     },

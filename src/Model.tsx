@@ -40,11 +40,22 @@ export type Workshop = {
     langVariants: string[],
     materials: Materials | null,
     knowledgeSources: KnowledgeSource[] | null,
+    plannedPublicWorkshops: PublicWorkshop[]
 };
 
 export type KnowledgeSource = {
     iconCss: string,
     text: TranslatedText,
+}
+
+export type PublicWorkshop = {
+    key: string,
+    workshopLang: string,
+    workshopKey: string,
+    location: string,
+    timeDesc: string,
+    startDate: string
+    endDate: string
 }
 
 export type TranslatedText = {

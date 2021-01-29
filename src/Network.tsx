@@ -12,6 +12,7 @@ import {
 } from "./Model";
 import {PrivateFormData} from "./Main/Page/Form/WorkshopFormPage";
 import {PublicFormData} from "./Main/Page/Form/WorkshopRequestPublicFormPage";
+import {PublicPlannedFormData} from "./Main/Page/Form/WorkshopRegisterToPlannedPublicFormPage";
 
 export const API_URL = "https://api.kt.academy/api/"
 
@@ -244,6 +245,14 @@ export function postPrivateRequestForm(workshop: Workshop | undefined | null, la
 
 export function postPublicRequestForm(workshop: Workshop | undefined | null, lang: string, data: PublicFormData) {
     return callApi("workshop/" + workshop!.key + "/requestPublic", {
+        lang: lang,
+        method: "POST",
+        body: data
+    })
+}
+
+export function postPublicRegisterToPlannedForm(workshop: Workshop | undefined | null, lang: string, data: PublicPlannedFormData) {
+    return callApi("workshop/" + workshop!.key + "/registerPublicPlanned", {
         lang: lang,
         method: "POST",
         body: data

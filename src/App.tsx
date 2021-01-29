@@ -24,6 +24,7 @@ import StatisticsAdminPage from "./Admin/StatisticsAdminPage";
 import PageStatisticsAdminPage from "./Admin/PageStatisticsAdminPage";
 import JsonFormatPage from "./Extra/Json/JsonFormatPage";
 import ConsultingPage from "./Main/Page/ConsultingPage";
+import WorkshopRegisterToPlannedPublicFormPage from "./Main/Page/Form/WorkshopRegisterToPlannedPublicFormPage";
 
 // LogRocket.init('qm0xny/kt-academy');
 
@@ -37,6 +38,7 @@ const App = () => {
         {path: "/course", component: CoursesPage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshopPublicForm/:workshopKey", component: WorkshopRequestFormPage},
+        {path: "/workshopPublicRegisterForm/:workshopKey", component: WorkshopRegisterToPlannedPublicFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
         {path: "/music", component: ProgrammingMusicTimerPage},
         {path: "/json", component: JsonFormatPage},
