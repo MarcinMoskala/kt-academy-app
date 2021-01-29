@@ -16,7 +16,7 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {plannedPublicWorkshops.map(publicWorkshop =>
                     <OrderOption
-                        link={"/workshopPublicRegisterForm/" + publicWorkshop.key}
+                        link={"/workshopPublicRegisterForm/" + workshop.key + "/" + publicWorkshop.key}
                         buttonText={t.workshopPage.registration.register}
                         explanation={t.workshopPage.registration.publicPlanned.explanation
                             .replace("{start_date}", publicWorkshop.startDate)

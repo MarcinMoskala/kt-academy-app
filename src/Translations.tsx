@@ -226,6 +226,11 @@ const EN_desc = {
             "intro": "Fill this form to request open workshop [{workshop_name}]({workshop_link}). You will be added to the waiting list of developers interested in this workshop. We will contact you once we have gathered enough attendees in your time zone."
         },
 
+        "plannedPublic": {
+            "title": "Open workshop request",
+            "intro": "Fill this form to register for the workshop [{workshop_name}]({workshop_link}) starting on {start_date} at {time}."
+        },
+
         "namePrompt": "Your name",
         "emailPrompt": "Your email",
         "companyNamePrompt": "Company name",
@@ -511,6 +516,12 @@ const PL_desc = {
             "title": "Szkolenie otwarte online",
             "intro": "Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}). Zostaniesz umieszczony na liście oczekujących zainteresowanych tym warsztatem. Skontaktujemy się z Tobą kiedy zbierze się odpowiednia liczba osób do utworzenia grupy i przeprowadzenia kursu."
         },
+
+        "plannedPublic": {
+            "title": "Szkolenie otwarte online",
+            "intro": "\"Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}) zaczynające się {start_date} w godzinach {time}."
+        },
+
 
         "namePrompt": "Twoje imię",
         "emailPrompt": "Twój email",

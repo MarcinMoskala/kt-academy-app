@@ -16,7 +16,7 @@ import {CountrySelect} from "./CountrySelect";
 import ReactMarkdown from "react-markdown";
 import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
-import {printMoney, Workshop} from "../../../Model";
+import {printMoney, PublicWorkshop, Workshop} from "../../../Model";
 import {showErrorDialog, showSuccessDialog} from "../../../Popups";
 
 type RegisterKinds = "myself" | "developerCompany" | "myselfAndGroupCompany" | "groupCompany"
@@ -24,7 +24,7 @@ type InvoiceToOptions = "person" | "privateCompany" | "company"
 type DeveloperExperience = "no" | "junior" | "mid" | "senior"
 
 export default function WorkshopRegisterToPlannedPublicFormPageWrapper() {
-    const {workshopKey} = useParams<{ workshopKey: string }>();
+    const {workshopKey, publicWorkshopKey} = useParams<{ workshopKey: string, publicWorkshopKey: string }>();
     registerPage(`workshop-public-planned-form-${workshopKey}`)
     const workshop = useWorkshop(workshopKey)
 
@@ -33,10 +33,16 @@ export default function WorkshopRegisterToPlannedPublicFormPageWrapper() {
     }
 
     if (workshop === null) {
-        return <ErrorPage/>
+        return <ErrorPage message="Workshop key not found"/>
     }
 
-    return <WorkshopRegisterToPlannedPublicFormPage workshop={workshop}/>
+    const publicWorkshop = workshop.plannedPublicWorkshops.find(pw => pw.key === publicWorkshopKey)
+
+    if (!publicWorkshop) {
+        return <ErrorPage message="Public workshop key not found"/>
+    }
+
+    return <WorkshopRegisterToPlannedPublicFormPage workshop={workshop} publicWorkshop={publicWorkshop}/>
 }
 
 export type PublicPlannedFormData = {
@@ -53,7 +59,7 @@ export type PublicPlannedFormData = {
     extra: string
 };
 
-function WorkshopRegisterToPlannedPublicFormPage({workshop}: { workshop: Workshop }) {
+function WorkshopRegisterToPlannedPublicFormPage({workshop, publicWorkshop}: { workshop: Workshop, publicWorkshop: PublicWorkshop }) {
     const t = useTranslations();
     const lang = useLang();
     const history = useHistory();
@@ -70,7 +76,7 @@ function WorkshopRegisterToPlannedPublicFormPage({workshop}: { workshop: Worksho
             return
         }
         setButtonEnabled(false)
-        postPublicRegisterToPlannedForm(workshop, lang.key, data)
+        postPublicRegisterToPlannedForm(publicWorkshop, lang.key, data)
             .then(
                 (_) => {
                     setButtonEnabled(true)
@@ -92,7 +98,10 @@ function WorkshopRegisterToPlannedPublicFormPage({workshop}: { workshop: Worksho
                 <h1>{t.form.public.title}</h1>
                 <ReactMarkdown source={t.form.public.intro
                     .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))}/>
+                    .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))
+                    .replace("{start_date}", publicWorkshop.startDate)
+                    .replace("{time}", publicWorkshop.timeDesc)
+                }/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <fieldset>

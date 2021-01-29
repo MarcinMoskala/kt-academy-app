@@ -2,7 +2,7 @@ import {
     Challenge,
     ChallengeStatus,
     Course,
-    PageStatistics,
+    PageStatistics, PublicWorkshop,
     RecommendationCollection,
     RecommendationData,
     Statistics,
@@ -235,7 +235,7 @@ function promiseWith<T>(value: T): Promise<T> {
     });
 }
 
-export function postPrivateRequestForm(workshop: Workshop | undefined | null, lang: string, data: PrivateFormData) {
+export function postPrivateRequestForm(workshop: Workshop, lang: string, data: PrivateFormData) {
     return callApi("workshop/" + workshop!.key + "/submit", {
         lang: lang,
         method: "POST",
@@ -243,7 +243,7 @@ export function postPrivateRequestForm(workshop: Workshop | undefined | null, la
     });
 }
 
-export function postPublicRequestForm(workshop: Workshop | undefined | null, lang: string, data: PublicFormData) {
+export function postPublicRequestForm(workshop: Workshop, lang: string, data: PublicFormData) {
     return callApi("workshop/" + workshop!.key + "/requestPublic", {
         lang: lang,
         method: "POST",
@@ -251,8 +251,8 @@ export function postPublicRequestForm(workshop: Workshop | undefined | null, lan
     })
 }
 
-export function postPublicRegisterToPlannedForm(workshop: Workshop | undefined | null, lang: string, data: PublicPlannedFormData) {
-    return callApi("workshop/" + workshop!.key + "/registerPublicPlanned", {
+export function postPublicRegisterToPlannedForm(publicWorkshop: PublicWorkshop, lang: string, data: PublicPlannedFormData) {
+    return callApi("workshop/" + publicWorkshop.key + "/registerPublicPlanned", {
         lang: lang,
         method: "POST",
         body: data

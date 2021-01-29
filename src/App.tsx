@@ -38,7 +38,7 @@ const App = () => {
         {path: "/course", component: CoursesPage},
         {path: "/workshopForm/:workshopKey", component: WorkshopFormPage},
         {path: "/workshopPublicForm/:workshopKey", component: WorkshopRequestFormPage},
-        {path: "/workshopPublicRegisterForm/:workshopKey", component: WorkshopRegisterToPlannedPublicFormPage},
+        {path: "/workshopPublicRegisterForm/:workshopKey/:publicWorkshopKey", component: WorkshopRegisterToPlannedPublicFormPage},
         {path: "/workshop/:workshopKey", component: WorkshopPage},
         {path: "/music", component: ProgrammingMusicTimerPage},
         {path: "/json", component: JsonFormatPage},
