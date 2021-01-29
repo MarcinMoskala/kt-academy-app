@@ -7,14 +7,7 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
     const t = useTranslations()
 
     const multipleOptions = !!workshop.basePrice.company && !!workshop.basePrice.person
-    const plannedPublicWorkshops: PublicWorkshop[] = workshop.plannedPublicWorkshops || [{
-        key: "koko",
-        workshopLang: "PL",
-        workshopKey: "coroutines",
-        location: "ONLINE",
-        timeDesc: "9:00-17:30 UTC+1",
-        startDate: "20.2.2021"
-    }]
+    const plannedPublicWorkshops: PublicWorkshop[] = workshop.plannedPublicWorkshops
 
     return <section className="contact short-section section--white" id="register">
         <div className="content-container">
@@ -64,7 +57,14 @@ export function RegistrationSection({workshop}: { workshop: Workshop }) {
 }
 
 const OrderOption = ({link, buttonText, explanation}: { link: string, buttonText: string, explanation: string }) =>
-    <div style={{flex: 1, padding: "20px", borderRadius: "3px", boxShadow: "1px 1px 4px #cacaca", margin: "20px", maxWidth: "415px"}}>
+    <div style={{
+        flex: 1,
+        padding: "20px",
+        borderRadius: "3px",
+        boxShadow: "1px 1px 4px #cacaca",
+        margin: "20px",
+        maxWidth: "415px"
+    }}>
         <p style={{}}>{explanation}</p>
         <Link to={link}
               className="button button-detailed-page-gtm margin-top-10">
