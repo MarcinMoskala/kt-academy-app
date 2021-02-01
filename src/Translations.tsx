@@ -519,7 +519,7 @@ const PL_desc = {
 
         "plannedPublic": {
             "title": "Szkolenie otwarte online",
-            "intro": "Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}) zaczynające się {start_date} w godzinach {time}."
+            "intro": "Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}) odbywające się w dniach {start_date} w godzinach {time}."
         },
 
 
