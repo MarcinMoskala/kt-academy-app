@@ -22,7 +22,7 @@ export function useWorkshop(workshopKey: string): Workshop | undefined | null {
 }
 
 
-export function useWorkshops(tag: string | null, trainer: string | null): Workshop[] | undefined | null {
+export function useWorkshops(tag: string | null = null, trainer: string | null = null): Workshop[] | undefined | null {
     const lang = useLang()
     return useApiSingleData(() => requestWorkshops(lang.key, trainer, tag), [lang.key, trainer, tag])
 }

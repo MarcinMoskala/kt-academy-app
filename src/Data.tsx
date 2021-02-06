@@ -1,7 +1,8 @@
 import {useTranslations} from "./Translations";
-import {useMemo} from "react";
+import React, {useMemo} from "react";
 
 export type WorkshopCategory = {
+    icon: string,
     title: string,
     desc: string,
     tag: string,
@@ -12,10 +13,30 @@ export function useWorkshopCategories(): WorkshopCategory[] {
 
     return useMemo(() => {
         return [
-            {title: t.workshopOffer.kotlinTitle, desc: t.workshopOffer.kotlinDesc, tag: "kotlin"},
-            {title: t.workshopOffer.bestPracticesTitle, desc: t.workshopOffer.bestPracticesDesc, tag: "bestpractices"},
-            {title: t.workshopOffer.beginnersTitle, desc: t.workshopOffer.beginnersDesc, tag: "beginners"},
-            {title: t.workshopOffer.testingTitle, desc: t.workshopOffer.testingDesc, tag: "testing"},
+            {
+                title: t.workshopOffer.kotlinTitle,
+                desc: t.workshopOffer.kotlinDesc,
+                tag: "kotlin",
+                icon: "kotlin-icon"
+            },
+            {
+                title: t.workshopOffer.bestPracticesTitle,
+                desc: t.workshopOffer.bestPracticesDesc,
+                tag: "bestpractices",
+                icon: "fas fa-rocket"
+            },
+            {
+                title: t.workshopOffer.beginnersTitle,
+                desc: t.workshopOffer.beginnersDesc,
+                tag: "beginners",
+                icon: "fas fa-chalkboard"
+            },
+            {
+                title: t.workshopOffer.testingTitle,
+                desc: t.workshopOffer.testingDesc,
+                tag: "testing",
+                icon: "fas fa-vial"
+            },
         ]
     }, [t])
 }
