@@ -1,11 +1,8 @@
 import React from 'react';
-import Header from "../../../Section/Header/Header";
-import FooterSection from "../../../Section/FooterSection";
 import "../../../Utils";
 import {useLang, useTranslations} from "../../../Translations";
 import {postPrivateRequestForm} from "../../../Network";
 import {useHistory, useParams} from "react-router-dom";
-import Swal from 'sweetalert2'
 import {useForm} from "react-hook-form";
 import {useWorkshop} from "../../../Hooks";
 import {registerPage} from "../../../Utils";
@@ -17,6 +14,8 @@ import {useLinkFunctions} from "../../../Link";
 import {ErrorPage, LoadingPage} from "../../../Loading";
 import {Workshop} from "../../../Model";
 import {showErrorDialog, showSuccessDialog} from "../../../Popups";
+import {TextEdit} from "./TextEdit";
+import {WorkshopForm} from "./WorkshopForm";
 
 type GroupSizeOptions = "size1" | "size2to7" | "size8to15" | "size16orMore"
 type IsOnlineOptions = "online" | "inCompany"
@@ -43,9 +42,11 @@ export type PrivateFormData = {
     companyName: string,
     country: string,
     date: string,
-    extra: string,
     groupSize: GroupSizeOptions,
-    isOnline: IsOnlineOptions
+    isOnline: IsOnlineOptions,
+    howDoYouKnow: string,
+    howDoYouKnowExtra: string,
+    extra: string,
 };
 
 function WorkshopFormPage({workshop}: { workshop: Workshop }) {
@@ -73,6 +74,7 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
                 },
                 (error) => {
                     setButtonEnabled(true)
+                    console.log(error)
                     showErrorDialog(t.form.dialogError)
                 }
             )
@@ -80,106 +82,77 @@ function WorkshopFormPage({workshop}: { workshop: Workshop }) {
 
     if (!workshop) return <></>
 
-    return <>
-        <Header/>
-        <section className="form">
-            <div className="content-container">
-                <h1>{t.form.private.title}</h1>
-                <ReactMarkdown source={t.form.private.intro
-                    .replace("{workshop_name}", workshop.name)
-                    .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))}/>
-                <form onSubmit={handleSubmit(onSubmit)}>
+    return <WorkshopForm
+        title={t.form.private.title}
+        intro={t.form.private.intro
+            .replace("{workshop_name}", workshop.name)
+            .replace("{workshop_link}", linkKeepLang("/workshop/" + workshop.key))}
+        submitEnabled={groupSize !== "size1"}
+        register={register}
+        errors={errors}
+        watch={watch}
+        onSubmit={handleSubmit(onSubmit)}>
 
-                    <fieldset>
-                        <label htmlFor="senderName">{t.form.namePrompt}</label>
-                        <input type="text" name="senderName" id="senderName" ref={register({
-                            required: t.form.required
-                        })} placeholder={t.form.namePrompt}/>
-                        <Error field={errors.senderName}/>
-                    </fieldset>
+        <TextEdit question={t.form.namePrompt}
+                  fieldName="senderName"
+                  register={register({
+                      required: t.form.required
+                  })} errors={errors}/>
 
-                    <fieldset>
-                        <label htmlFor="email">{t.form.emailPrompt}</label>
-                        <input type="text" name="email" id="email" ref={register({
-                            required: t.form.required,
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: t.form.invalidEmail
-                            }
-                        })} placeholder={t.form.emailPrompt}/>
-                        <Error field={errors.email}/>
-                    </fieldset>
+        <TextEdit question={t.form.emailPrompt}
+                  fieldName="email"
+                  register={register({
+                      required: t.form.required,
+                      pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: t.form.invalidEmail
+                      }
+                  })} errors={errors}/>
 
-                    <fieldset>
-                        <label htmlFor="companyName">{t.form.companyNamePrompt}</label>
-                        <input type="text" name="companyName" id="companyName" ref={register({
-                            required: t.form.required
-                        })} placeholder={t.form.companyNamePrompt}/>
-                        <Error field={errors.companyName}/>
-                    </fieldset>
+        <TextEdit question={t.form.companyNamePrompt}
+                  fieldName="companyName"
+                  register={register({
+                      required: t.form.required
+                  })} errors={errors}/>
 
-                    <RadioSelect<PrivateFormData, GroupSizeOptions>
-                        title={t.form.groupSizePrompt}
-                        name="groupSize" register={register} errors={errors} required={true}
-                        options={[
-                            {label: t.form.justMe, value: "size1"},
-                            {label: "2-8", value: "size2to7"},
-                            {label: "8-16", value: "size8to15"},
-                            {label: "17 " + t.form.orMore, value: "size16orMore"},
-                        ]}/>
+        <RadioSelect<PrivateFormData, GroupSizeOptions>
+            title={t.form.groupSizePrompt}
+            name="groupSize" register={register} errors={errors} required={true}
+            options={[
+                {label: t.form.justMe, value: "size1"},
+                {label: "2-8", value: "size2to7"},
+                {label: "8-16", value: "size8to15"},
+                {label: "17 " + t.form.orMore, value: "size16orMore"},
+            ]}/>
 
-                    {(groupSize === "size1" || groupSize === "size2to7") &&
-                    <ReactMarkdown
-                        source={t.form.requestOpenInsteadInfo
-                            .replace("{openFormLink}", linkKeepLang("/workshopPublicForm/" + workshop.key))}/>
-                    }
+        {(groupSize === "size1" || groupSize === "size2to7") &&
+        <ReactMarkdown
+            source={t.form.requestOpenInsteadInfo
+                .replace("{openFormLink}", linkKeepLang("/workshopPublicForm/" + workshop.key))}/>
+        }
 
-                    {groupSize !== "size1" &&
-                    <>
-                        <CountrySelect register={register}/>
+        {groupSize !== "size1" &&
+        <>
+            <CountrySelect register={register}/>
 
-                        <RadioSelect<PrivateFormData, IsOnlineOptions>
-                            title={t.form.isOnline.question}
-                            name="isOnline" register={register} errors={errors} required={true}
-                            options={[
-                                {label: t.form.isOnline.online, value: "online"},
-                                {label: t.form.isOnline.inCompany, value: "inCompany"},
-                            ]}/>
+            <RadioSelect<PrivateFormData, IsOnlineOptions>
+                title={t.form.isOnline.question}
+                name="isOnline" register={register} errors={errors} required={true}
+                options={[
+                    {label: t.form.isOnline.online, value: "online"},
+                    {label: t.form.isOnline.inCompany, value: "inCompany"},
+                ]}/>
 
-                        {isOnline === "inCompany" &&
-                        <p>{t.form.private.inCompanyWarning}</p>
-                        }
+            {isOnline === "inCompany" &&
+            <p>{t.form.private.inCompanyWarning}</p>
+            }
 
-                        <fieldset>
-                            <label htmlFor="date">{t.form.datePrompt}</label>
-                            <input type="text" name="date" id="date" ref={register({
-                                required: t.form.required
-                            })} placeholder=""/>
-                            <Error field={errors.date}/>
-                        </fieldset>
-
-                        <fieldset>
-                            <label htmlFor="extra">{t.form.extraPrompt}</label>
-                            <textarea name="extra" rows={7} id="extra" ref={register} placeholder=""/>
-                        </fieldset>
-
-                        <input type="submit" className="button button--mini" id="submit"
-                               style={{position: "relative", right: "50%", left: "40%"}}
-                               value={t.form.submit}/>
-                    </>
-                    }
-                </form>
-            </div>
-        </section>
-        <FooterSection/>
-    </>;
+            <TextEdit question={t.form.datePrompt}
+                      fieldName="date"
+                      register={register({
+                          required: t.form.required
+                      })} errors={errors}/>
+        </>
+        }
+    </WorkshopForm>;
 }
-;
-
-function Error(props: { field }) {
-    return <div style={{color: "red", fontSize: "small", marginLeft: "10px", marginTop: "5px"}}>
-        {props.field && props.field.message}
-    </div>;
-}
-
-

@@ -275,7 +275,7 @@ const EN_desc = {
         },
 
         "priceAcceptance": {
-            "question": "The base price for this workshop is {price} per person for {days_num} days of workshop. Does it work for you?",
+            "question": "The base price for this workshop is {price} per person for the whole workshop. Does it work for you?",
             "ok": "Yes",
             "discountNeeded": "This is too much for me, I need a discount",
             "wayTooMuch": "Sorry, but my budget is less than half of that",
@@ -288,6 +288,19 @@ const EN_desc = {
         "requestOpenInsteadInfo": "This form should be used to request private workshops for companies. If it is just you or a small group of people, we suggest to use [this form]({openFormLink}) to request an open online workshop.",
         "notForBeginnerInfo": "We are sorry, but this workshop is for developers with professional experience. Check out our [workshops for beginners](https://kt.academy/workshop#tag-beginners). If you want to learn Kotlin, our recommendations are [here](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6).",
         "noVatIdInfo": "We may not be able to offer you any discount as for a private person we will have to pay an additional tax of 23%.",
+
+        "howDoYouKnow": {
+            "title": "How do you know about the workshop?",
+            "ad": "From an ad on Facebook or Twitter",
+            "post": "From a Facebook/Twitter post",
+            "recommendation": "From a recommendation",
+            "search": "From Google",
+            "kondrad": "A contact from Kondrad Kowalczyk",
+            "article": "From an article",
+            "newsletter": "From a newsletter",
+            "other": "Other",
+            "explain": "So how do you know about it?",
+        }
     },
     "generate": {
         "title": "Generate DTO",
@@ -567,7 +580,7 @@ const PL_desc = {
         },
 
         "priceAcceptance": {
-            "question": "Podstawowa cena tego szkolenia to {price_pl} za osobę za {days_num} dni ćwiczeniowych. Czy Ci to odpowiada?",
+            "question": "Podstawowa cena tego szkolenia to {price_pl} za całe szkolenie. Czy Ci to odpowiada?",
             "ok": "Tak",
             "discountNeeded": "To dla mnie za dużo, potrzebuję zniżki",
             "wayTooMuch": "Mój budżet to mniej niż połowa tej ceny",
@@ -580,6 +593,19 @@ const PL_desc = {
         "requestOpenInsteadInfo": "Dla mniejszych grup sugerujemy warsztaty otwarte, gdzie cena ustalona jest od osoby. Aby zapisać się na takie szkolenie użyj [tego formularza]({openFormLink}).",
         "notForBeginnerInfo": "Niestety, ale to szkolenie jest skierowane do doświadczonych programistów. Sprawdź nasze [szkolenia dla początkujących](https://kt.academy/workshop#tag-beginners). Jeśli natomiast Twoim celem jest nauczenie się języka Kotlin, to [w tym artykule](https://blog.kotlin-academy.com/best-kotlin-free-online-courses-5838cb7063c6) znajdziesz polecane przez nas darmowe kursy.",
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej jesteśmy zobligowani zapłacić dodatkowy podatek w wysokości 23%.",
+
+        "howDoYouKnow": {
+            "title": "Skąd wiesz o szkoleniu?",
+            "ad": "Z reklamy",
+            "post": "Z postu na Facebook/Twitter",
+            "recommendation": "Z polecenia",
+            "search": "Google",
+            "kondrad": "Kontakt z Kondrade Kowalczykiem",
+            "article": "Z artykułu",
+            "newsletter": "Z newslettera",
+            "other": "Inne",
+            "explain": "To skąd się dowiedziałeś?",
+        }
     },
     "generate": {
         "title": "Generuj DTO",

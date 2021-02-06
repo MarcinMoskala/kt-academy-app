@@ -46,6 +46,7 @@ function CoursePage({course}: { course: Course }) {
                 }
             })
         }}/>
+
         <div className="content-container text-align-left">
             <div className="course-description">{course.description}</div>
             {course.steps.map(step =>
@@ -56,6 +57,7 @@ function CoursePage({course}: { course: Course }) {
             )}
 
         </div>
+
         <ContactSection/>
         <FooterSection/>
     </>;

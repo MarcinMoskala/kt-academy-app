@@ -92,7 +92,6 @@ export default function ChallengesExamplePage() {
                 </div>
             </div>
         </section>
-        <TestimonialsSection/>
         <FooterSection/>
     </>;
 };
