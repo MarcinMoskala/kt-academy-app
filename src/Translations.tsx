@@ -297,7 +297,7 @@ const EN_desc = {
             "post": "From Facebook/Twitter post",
             "newsletter": "From a newsletter",
             "recommendation": "From recommendation",
-            "kondrad": "Contact from Kondrad Kowalczyk",
+            "kondrad": "Contact from Konrad Kowalczyk",
             "article": "From an article",
             "search": "From Google",
             "other": "Other",
