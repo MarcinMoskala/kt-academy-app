@@ -292,16 +292,16 @@ const EN_desc = {
         "noVatIdInfo": "We may not be able to offer you any discount as for a private person we will have to pay an additional tax of 23%.",
 
         "howDoYouKnow": {
-            "title": "How do you know about the workshop?",
-            "ad": "From an ad on Facebook or Twitter",
-            "post": "From a Facebook/Twitter post",
-            "recommendation": "From a recommendation",
-            "search": "From Google",
-            "kondrad": "A contact from Kondrad Kowalczyk",
-            "article": "From an article",
+            "title": "How did you hear about the workshop?",
+            "ad": "From Facebook/Twitter ad",
+            "post": "From Facebook/Twitter post",
             "newsletter": "From a newsletter",
+            "recommendation": "From recommendation",
+            "kondrad": "Contact from Kondrad Kowalczyk",
+            "article": "From an article",
+            "search": "From Google",
             "other": "Other",
-            "explain": "So how do you know about it?",
+            "explain": "Please specify",
         }
     },
     "generate": {
@@ -531,7 +531,7 @@ const PL_desc = {
 
         "public": {
             "title": "Szkolenie otwarte online",
-            "intro": "Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}). Zostaniesz umieszczony na liście oczekujących zainteresowanych tym warsztatem. Skontaktujemy się z Tobą kiedy zbierze się odpowiednia liczba osób do utworzenia grupy i przeprowadzenia kursu."
+            "intro": "Wypełnij ten formularz, aby zapisać się na otwarte szkolenie online [{workshop_name}]({workshop_link}). Zostaniesz umieszczony na liście oczekujących zainteresowanych tym warsztatem. Skontaktujemy się z Tobą, kiedy zbierze się odpowiednia liczba osób do utworzenia grupy i przeprowadzenia kursu."
         },
 
         "plannedPublic": {
@@ -599,16 +599,16 @@ const PL_desc = {
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej jesteśmy zobligowani zapłacić dodatkowy podatek w wysokości 23%.",
 
         "howDoYouKnow": {
-            "title": "Skąd wiesz o szkoleniu?",
-            "ad": "Z reklamy",
+            "title": "Jak dowiedziałeś się o szkoleniu?",
+            "ad": "Z reklamy na Facebook/Twitter",
             "post": "Z postu na Facebook/Twitter",
-            "recommendation": "Z polecenia",
-            "search": "Google",
-            "kondrad": "Kontakt z Kondrade Kowalczykiem",
-            "article": "Z artykułu",
             "newsletter": "Z newslettera",
+            "recommendation": "Z polecenia",
+            "kondrad": "Kontakt z Konradem Kowalczykiem",
+            "article": "Z artykułu",
+            "search": "Google",
             "other": "Inne",
-            "explain": "To skąd się dowiedziałeś?",
+            "explain": "Proszę sprecyzuj",
         }
     },
     "generate": {
