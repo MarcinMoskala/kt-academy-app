@@ -79,8 +79,8 @@ const EN_desc = {
         "beginnersDesc": "Practical workshops for new or aspiring developers.",
         "testingTitle": "Testing",
         "testingDesc": "Workshops dedicated to testing, both business hypothesis and software correctness.",
-        "publicTitle": "Public workshops",
-        "publicSubtitle": "Planned workshops you can join, that will soon happen",
+        "publicTitle": "Open workshops",
+        "publicSubtitle": "Planned workshops that anyone can join",
     },
     "whyUs": {
         "title": "Why training with us?",
@@ -387,7 +387,7 @@ const PL_desc = {
         "testingTitle": "Testowanie",
         "testingDesc": "Warsztaty poświęcone testowaniu, zarówno hipotez biznesowych, jak i testom automatycznym oprogramowania.",
         "publicTitle": "Warsztaty otwarte",
-        "publicSubtitle": "Zaplanowane warsztaty otwarte, do których możesz dołączyć",
+        "publicSubtitle": "Zaplanowane warsztaty do których każdy może dołączyć",
     },
     "whyUs": {
         "title": "Dlaczego warto szkolić się z nami?",
