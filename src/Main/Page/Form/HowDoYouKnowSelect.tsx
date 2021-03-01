@@ -12,7 +12,7 @@ export function HowDoYouKnowSelect({register, errors, watch}: { register, errors
 
     const options = useMemo(() => shuffle([
         t.form.howDoYouKnow.search,
-        t.form.howDoYouKnow.kondrad,
+        t.form.howDoYouKnow.konrad,
         t.form.howDoYouKnow.ad,
         t.form.howDoYouKnow.article,
         t.form.howDoYouKnow.post,

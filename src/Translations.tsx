@@ -173,7 +173,7 @@ const EN_desc = {
                 "explanation": 'The basic price is {workshop_person_price} per person for the whole workshop.',
             },
             "publicPlanned": {
-                "explanation": 'Join online workshop in {start_date} to {end_date} at {time}. The price is {workshop_person_price_pl} per person.',
+                "explanation": 'Join online workshop in {start_date} to {end_date} at {time}. The price is {workshop_person_price} per person.',
             }
         }
     },
@@ -297,7 +297,7 @@ const EN_desc = {
             "post": "From Facebook/Twitter post",
             "newsletter": "From a newsletter",
             "recommendation": "From recommendation",
-            "kondrad": "Contact from Konrad Kowalczyk",
+            "konrad": "Contact from Konrad Kowalczyk",
             "article": "From an article",
             "search": "From Google",
             "other": "Other",
@@ -604,7 +604,7 @@ const PL_desc = {
             "post": "Z postu na Facebook/Twitter",
             "newsletter": "Z newslettera",
             "recommendation": "Z polecenia",
-            "kondrad": "Kontakt z Konradem Kowalczykiem",
+            "konrad": "Kontakt z Konradem Kowalczykiem",
             "article": "Z artykułu",
             "search": "Google",
             "other": "Inne",
