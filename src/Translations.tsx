@@ -386,6 +386,8 @@ const PL_desc = {
         "beginnersDesc": "Praktyczne szkolenia dla nowych i aspirujących programistów.",
         "testingTitle": "Testowanie",
         "testingDesc": "Warsztaty poświęcone testowaniu, zarówno hipotez biznesowych, jak i testom automatycznym oprogramowania.",
+        "javaScriptTitle": "JavaScript",
+        "javaScriptDesc": "Warsztaty uczące i pomagające poszerzyć wiedzę z najpopularniejszego języka programowania.",
         "publicTitle": "Warsztaty otwarte",
         "publicSubtitle": "Zaplanowane warsztaty do których każdy może dołączyć",
     },
