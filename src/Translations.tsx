@@ -247,8 +247,8 @@ const EN_desc = {
         "dialogError": "A problem occurred, please send later",
 
         "isOnline": {
-            "question": "Are you interested in online or in-company training?",
-            "inCompany": "In-company",
+            "question": "Are you interested in online or on-site training?",
+            "onSite": "On-site",
             "online": "Online",
         },
 
@@ -293,11 +293,11 @@ const EN_desc = {
 
         "howDoYouKnow": {
             "title": "How did you hear about the workshop?",
-            "ad": "From Facebook/Twitter ad",
-            "post": "From Facebook/Twitter post",
+            "ad": "From the ad",
+            "post": "From the post",
             "newsletter": "From a newsletter",
             "recommendation": "From recommendation",
-            "konrad": "Contact from Konrad Kowalczyk",
+            "halina": "From Halina Ciccone",
             "article": "From an article",
             "search": "From Google",
             "other": "Other",
@@ -548,14 +548,14 @@ const PL_desc = {
         "justMe": "Tylko ja",
         "countryPrompt": "Kraj lub region",
         "datePrompt": "Jaki termin Ci odpowiada?",
-        "extraPrompt": "Czy jest jeszcze coś, co chciałbyś dodać?",
-        "privateGroupSizePrompt": "Ilu programistów chciałbyś/chciałabyś zarejestrować?",
+        "extraPrompt": "Czy jest jeszcze coś, co chcesz dodać?",
+        "privateGroupSizePrompt": "Ile osób chcesz zarejestrować?",
         "dialogSent": "Zgłoszenie wysłane",
-        "dialogError": "Wystąpił problem, wyślij później",
+        "dialogError": "Wystąpił problem, spróbuj ponownie",
 
         "isOnline": {
-            "question": "Jesteś zainteresowany szkoleniem zdalnym czy w siedzibie firmy?",
-            "inCompany": "W siedzibie firmy",
+            "question": "Interesuje Cię szkolenie zdalne czy w siedzibie firmy?",
+            "onSite": "W siedzibie firmy",
             "online": "Zdalnie",
         },
 
@@ -599,12 +599,12 @@ const PL_desc = {
         "noVatIdInfo": "Możliwe, że nie będziemy w stanie zaoferować Ci żadnej zniżki, ponieważ w przypadku osoby prywatnej jesteśmy zobligowani zapłacić dodatkowy podatek w wysokości 23%.",
 
         "howDoYouKnow": {
-            "title": "Jak dowiedziałeś się o szkoleniu?",
-            "ad": "Z reklamy na Facebook/Twitter",
-            "post": "Z postu na Facebook/Twitter",
+            "title": "Jak dowiedziałeś/aś się o szkoleniu?",
+            "ad": "Z reklamy",
+            "post": "Z posta",
             "newsletter": "Z newslettera",
             "recommendation": "Z polecenia",
-            "konrad": "Kontakt z Konradem Kowalczykiem",
+            "halina": "Od Haliny Ciccone",
             "article": "Z artykułu",
             "search": "Google",
             "other": "Inne",
